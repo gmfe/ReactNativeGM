@@ -1,0 +1,55 @@
+{
+  "name": "react-native-gm",
+  "version": "0.0.1",
+  "description": "weui for react-native",
+  "main": "./lib",
+  "scripts": {
+    "precommit": "eslint ./src/;",
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmfe/react-native-gm.git"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "weui"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-preset-react-native": "^1.9.0",
+    "babel-relay-plugin": "^0.8.1",
+    "husky": "^0.11.7",
+    "immutable": "^3.8.1",
+    "lodash": "^4.13.1",
+    "parse": "^1.8.3",
+    "react": "^15.3.1",
+    "react-native": "^0.32.1",
+    "react-native-blur": "^0.7.11",
+    "react-native-image-picker": "^0.19.7",
+    "react-native-overlay": "^0.4.2",
+    "react-native-scrollable-tab-view": "^0.4.4",
+    "react-native-stylekit": "0.0.3",
+    "react-native-swiper": "^1.4.11",
+    "react-native-vector-icons": "^2.1.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
+    "redux-actions": "^0.9.1",
+    "redux-logger": "^2.6.1",
+    "redux-persist": "^3.5.0",
+    "redux-thunk": "^2.1.0",
+    "reselect": "^2.5.3"
+  },
+  "rnpm": {
+    "assets": [
+      "fonts"
+    ]
+  },
+  "author": "gmfe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gmfe/react-native-gm/issues"
+  },
+  "homepage": "https://github.com/gmfe/react-native-gm#readme"
+}
