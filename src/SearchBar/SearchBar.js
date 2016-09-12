@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import { Icon } from '../Icon';
+import {Icon} from '../icon';
 
 const styles = StyleSheet.create({
   searchBar: {
@@ -87,12 +87,12 @@ class SearchBar extends Component {
       focus: false,
       text: '',
     };
-    this.cancelHandle = this.cancelHandle.bind(this);
-    this.changeHandle = this.changeHandle.bind(this);
-    this.clearHandle = this.clearHandle.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
-    this.focus = this.focus.bind(this);
+    this.cancelHandle = ::this.cancelHandle;
+    this.changeHandle = ::this.changeHandle;
+    this.clearHandle = ::this.clearHandle;
+    this.handleFocus = ::this.handleFocus;
+    this.handleBlur = ::this.handleBlur;
+    this.focus = ::this.focus;
   }
 
   changeHandle(text) {

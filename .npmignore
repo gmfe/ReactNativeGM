@@ -1,7 +1,7 @@
 android/
-docs/
-example/
 ios/
+depoly/
+.gitignore
 .*rc
+.*rc.js
 .*config
-.index.*.js

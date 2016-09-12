@@ -3,11 +3,11 @@ import {
     View,
     StyleSheet,
 } from 'react-native';
-import $V from '../variable';
+import V from '../variable';
 
 const styles = StyleSheet.create({
     mediaHeader: {
-        marginRight: $V.baseFontSize * 0.8,
+        marginRight: V.baseFontSize * 0.8,
         width: 60,
         height: 60,
     },

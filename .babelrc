@@ -1,4 +1,6 @@
 {
   "passPerPreset": true,
-  "presets": ["react-native"]
+  "presets": [
+    "react-native-stage-0"
+  ]
 }

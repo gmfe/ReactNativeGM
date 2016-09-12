@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {
     Text,
 } from 'react-native';
-import StyleSheet from '../StyleSheet';
+import StyleSheet from '../style_sheet';
 
 const styles = StyleSheet.create({
     mediaDesc: {
