@@ -4,7 +4,7 @@ import Request from './request';
 import RequestInterceptor from './request_interceptor';
 import Network from './network';
 
-export {
+module.exports = {
     format,
     param,
     Request,

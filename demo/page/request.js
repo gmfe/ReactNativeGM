@@ -10,8 +10,12 @@ import {
     Button,
     NProgress,
     Loading,
-    Page
+    Page,
+    Toast,
+    Util
 } from '../../src/index';
+
+const {Request} = Util;
 
 class Component extends React.Component {
     render() {
@@ -38,6 +42,19 @@ class Component extends React.Component {
 
                 <Text>Loading</Text>
                 <Loading color={V.descColor}/>
+
+                <Button
+                    type="primary"
+                    onPress={() => {
+                        Request('/aadf').data({
+                            id: 1
+                        }).post().then(() => {
+                            Toast.success('成功');
+                        }).catch((reason) => {
+                            Toast.warning('失败 ' + reason);
+                        });
+                    }}
+                >request</Button>
             </Page>
         );
     }

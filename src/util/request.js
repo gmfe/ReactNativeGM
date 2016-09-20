@@ -20,24 +20,11 @@ var processRequest = function (config) {
 };
 
 var processResponse = function (promise, url, sucCode, config) {
-    var color = 'color: #8a6d3b;';
-
     return setPromiseTimeout(promise, config.options.timeout).then(function (res) {
         if (res.ok) {
-            var ct = res.headers.get('content-type');
-            // 后台可能会有登录拦截，返回登录页面
-            if (ct.indexOf('text/html') > -1) {
-                return res.text().then(html => {
-                    if (html.indexOf('title>登陆</title') > -1) {
-                        return Promise.reject('请登录!');
-                    }
-                    return Promise.reject('未知错误！！！！！');
-                });
-            } else {
-                return res.json();
-            }
+            return res.json();
         }
-        return Promise.reject(format('服务器错误 {status} {statusText}', res));
+        return Promise.reject(format(`服务器错误 ${res.status} ${res.statusText}`));
     }).then((json) => {
         return RequestInterceptor.interceptor.response(json, config);
     }, (reason) => {
@@ -46,19 +33,24 @@ var processResponse = function (promise, url, sucCode, config) {
         if (sucCode.indexOf(json.code) > -1) {
             return json;
         } else {
-            console.log('%c*** Request url: %s、code: %s、msg: %s', color, url, json.code, json.msg);
+            console.log(`*** Request url: ${url}、code: ${json.code}、msg: ${json.msg}`);
             return Promise.reject(json.msg || '未知错误');
         }
     }).catch(function (reason) {
         // reason 有点复杂，各种实现，碰到一个解决一个吧
-        if (toString.call(reason) === '[object Promise]') {
+        if (toString.call(reason) === '[object Object]' && toString.call(reason.then) === '[object Function]') {
             return reason.catch(rea => {
-                console.error('%c*** Request catch %s', color, rea);
+                if (toString.call(rea) === '[object Error]') {
+                    console.warn('*** Request catch ' + rea);
+                    return Promise.reject('' + rea);
+                }
+
+                console.warn('*** Request catch ' + rea);
                 // reason 是个对象。目前先给字符串。吧。后续有需要在扩展
                 return Promise.reject('' + rea);
             });
         } else {
-            console.error('%c*** Request catch %s', color, reason);
+            console.warn('*** Request catch reason ' + reason);
             // reason 是个对象。目前先给字符串。吧。后续有需要在扩展
             return Promise.reject('' + reason);
         }

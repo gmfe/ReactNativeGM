@@ -32,6 +32,8 @@ import Loading from './loading';
 
 import LayerRoot from './layer_root';
 
+import Util from './util';
+
 export {
     Variable,
     Styles,
@@ -54,5 +56,7 @@ export {
 
     Page,
     NProgress, Loading,
-    LayerRoot
+    LayerRoot,
+
+    Util
 };

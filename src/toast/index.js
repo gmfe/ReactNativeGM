@@ -117,7 +117,7 @@ Object.assign(Toast, {
         clearTimeout(timer);
         options = processOptions(options);
         LayerRoot.setComponent(LayerRoot.TYPE.TOAST, <Toast {...options} visible={true}/>);
-        if (options.time) {
+        if (options.time !== false && options.time !== 0) {
             timer = setTimeout(() => {
                 LayerRoot.removeComponent(LayerRoot.TYPE.TOAST);
             }, options.time || 2000);
