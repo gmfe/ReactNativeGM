@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
         backgroundColor: color_blue,
     },
     form: {
+        height: (header_height - status_height),
         marginHorizontal: V.gap15,
         justifyContent: 'space-between',
         flexDirection: 'row',
