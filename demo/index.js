@@ -12,6 +12,7 @@ import PageCell from './page/cell';
 import PageDialog from './page/dialog';
 import PageToast from './page/toast';
 import PageForm from './page/form';
+import PageLayout from './page/layout';
 import PageRequest from './page/request';
 import PageIcon from './page/icon';
 
@@ -39,6 +40,8 @@ const navConfig = [{
     name: 'Toast', component: <PageToast/>
 }, {
     name: 'Form', component: <PageForm/>
+}, {
+    name: 'Layout', component: <PageLayout/>
 }, {
     name: 'Request', component: <PageRequest/>
 }, {

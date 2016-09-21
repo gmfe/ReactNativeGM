@@ -27,6 +27,7 @@ import Page from './page';
 import NProgress from './nprogress';
 import Loading from './loading';
 import LayerRoot from './layer_root';
+import {Square, SquareImage} from './square';
 import Util from './util';
 
 export {
@@ -48,5 +49,6 @@ export {
     Page,
     NProgress, Loading,
     LayerRoot,
+    Square, SquareImage,
     Util
 };
