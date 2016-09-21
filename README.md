@@ -14,7 +14,10 @@ rnpm link
 
 - react-native
 - underscore
-- gm-util
+- react-native-vector-icons
+
+babel
+- babel-preset-react-native-stage-0
 
 ## 字体库
 

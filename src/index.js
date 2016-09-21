@@ -12,7 +12,7 @@ import {
     H1, H2, H3, H4
 } from './typography';
 import {
-    TextArea, Input, RadioCells, CheckboxCells, Picker, Uploader, Select,
+    TextArea, Input, Picker, Uploader, Select,
 } from './form';
 import {Icon, IFont} from './icon';
 import Toast from './toast';
@@ -36,7 +36,7 @@ export {
     // Grids, Grid, GridIcon, GridLabel,
     Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
     Dialog, Alert, Confirm,
-    TextArea, Input, RadioCells, CheckboxCells, Picker, Uploader, Select,
+    TextArea, Input, Picker, Uploader, Select,
     Icon,
     IFont,
     Toast,
