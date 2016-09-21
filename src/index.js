@@ -9,10 +9,8 @@ import {
 import {Dialog, Alert, Confirm} from './dialog';
 import {Header} from './header';
 import {
-    P,
     H1, H2, H3, H4
 } from './typography';
-
 import {
     TextArea, Input, RadioCells, CheckboxCells, Picker, Uploader, Select,
 } from './form';
@@ -25,18 +23,14 @@ import Toast from './toast';
 //     Media, MediaHeader, MediaBody, MediaTitle, MediaDescription, MediaInfo, MediaInfoMeta,
 // } from './Media';
 // import {SearchBar} from './SearchBar';
-
 import Page from './page';
 import NProgress from './nprogress';
 import Loading from './loading';
-
 import LayerRoot from './layer_root';
-
 import Util from './util';
 
 export {
-    Variable,
-    Styles,
+    Variable, Styles,
     StyleSheet,
     Button,
     // Grids, Grid, GridIcon, GridLabel,
@@ -49,14 +43,10 @@ export {
     // Media, MediaHeader, MediaBody, MediaTitle, MediaDescription, MediaInfo, MediaInfoMeta,
     // Panel, PanelHeader, PanelBody, PanelFooter,
     // SearchBar
-
     Header,
-
-    P, H1, H2, H3, H4,
-
+    H1, H2, H3, H4,
     Page,
     NProgress, Loading,
     LayerRoot,
-
     Util
 };
