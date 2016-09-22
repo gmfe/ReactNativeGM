@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {
     StyleSheet,
     Text,
@@ -54,11 +54,12 @@ export default class Header extends Component {
         rightBtn: false
     };
     static propTypes = {
-        //navColor: React.PropTypes.string,
-        pageName: React.PropTypes.string,
-        backBtn: React.PropTypes.bool,
-        rightBtn: React.PropTypes.bool,
-        rightText: React.PropTypes.string,
+        navigator: PropTypes.object.isRequired,
+        //navColor: PropTypes.string,
+        pageName: PropTypes.string,
+        backBtn: PropTypes.bool,
+        rightBtn: PropTypes.bool,
+        rightText: PropTypes.string,
     };
 
     constructor(props) {

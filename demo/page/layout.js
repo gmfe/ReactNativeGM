@@ -29,10 +29,10 @@ class Component extends React.Component {
     }
 
     render() {
-        const {navigation} = this.props;
+        const {navigator} = this.props;
         return (
             <View>
-                <Header navigation={navigation} pageName="布局"/>
+                <Header navigator={navigator} pageName="布局"/>
                 <Text>正方形。以宽度为标准。</Text>
                 <Text>一般用法， children 必须是only。</Text>
                 <View style={[S.flex, S.flexRow]}>
