@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {
     StyleSheet,
     Text,
@@ -54,12 +54,12 @@ export default class Header extends Component {
         rightBtn: false
     };
     static propTypes = {
-        navigator: PropTypes.object.isRequired,
-        //navColor: PropTypes.string,
-        pageName: PropTypes.string,
-        backBtn: PropTypes.bool,
-        rightBtn: PropTypes.bool,
-        rightText: PropTypes.string,
+        //navColor: React.PropTypes.string,
+        pageName: React.PropTypes.string,
+        backBtn: React.PropTypes.bool,
+        rightBtn: React.PropTypes.bool,
+        rightText: React.PropTypes.string,
+        rightFunc: React.PropTypes.func,
     };
 
     constructor(props) {
@@ -74,10 +74,9 @@ export default class Header extends Component {
                 <View style={styles.btnNull}/>
             );
         }
-        const {navigator} = this.props;
         return (
             <TouchableOpacity style={styles.btn} onPress={()=> {
-                navigator.pop();
+                this.props.navigator.pop();
             }}><Text style={styles.btnText}>back</Text></TouchableOpacity>
         );
     }
@@ -88,11 +87,10 @@ export default class Header extends Component {
                 <View style={styles.btnNull}/>
             );
         }
-        const {navigator} = this.props;
         return (
-            <TouchableOpacity style={[styles.btn, styles.rightBtn]} onPress={()=> {
-                navigator.pop();
-            }}><Text style={styles.btnText}>{this.props.rightText}</Text></TouchableOpacity>
+            <TouchableOpacity style={[styles.btn, styles.rightBtn]}>
+                <Text style={styles.btnText} onPress={()=>this.props.rightFunc()}>{this.props.rightText}</Text>
+            </TouchableOpacity>
         );
     }
 
