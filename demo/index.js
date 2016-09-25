@@ -15,6 +15,7 @@ import PageForm from './page/form';
 import PageLayout from './page/layout';
 import PageRequest from './page/request';
 import PageIcon from './page/icon';
+import PageLazyload from './page/lazyload';
 
 import {
     LayerRoot,
@@ -46,6 +47,8 @@ const navConfig = [{
     name: 'Request', component: <PageRequest/>
 }, {
     name: 'Icon', component: <PageIcon/>
+}, {
+    name: 'Lazyload', component: <PageLazyload/>
 }];
 
 class Home extends React.Component {

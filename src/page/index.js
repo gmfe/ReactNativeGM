@@ -19,10 +19,11 @@ class Page extends React.Component {
     render() {
         const {
             style,
+            white,
+            noScrollContent,
             header,
             tabbar,
             bottom,
-            white,
             children,
             ...rest
         } = this.props;
@@ -30,9 +31,15 @@ class Page extends React.Component {
         return (
             <View {...rest} style={[styles.page, white ? styles.pageWhite : {}, style]}>
                 {header ? <View>{header}</View> : undefined}
-                <ScrollView style={styles.pageContent}>
-                    {children}
-                </ScrollView>
+                {noScrollContent ? (
+                    <View style={styles.pageContent}>
+                        {children}
+                    </View>
+                ) : (
+                    <ScrollView style={styles.pageContent}>
+                        {children}
+                    </ScrollView>
+                )}
                 {tabbar ? <View>{tabbar}</View> : undefined}
                 {bottom ? bottom : undefined}
             </View>
@@ -44,6 +51,7 @@ Page.propTypes = {
     children: PropTypes.node,
     style: View.propTypes.style,
     white: PropTypes.bool,
+    noScrollContent: PropTypes.bool,
     header: PropTypes.node,
     tabbar: PropTypes.node,
     bottom: PropTypes.node

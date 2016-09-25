@@ -29,6 +29,7 @@ import Loading from './loading';
 import LayerRoot from './layer_root';
 import {Square, SquareImage} from './square';
 import Util from './util';
+import {LazyScrollView, LazyImage} from './lazy';
 
 export {
     Variable, Styles,
@@ -50,5 +51,6 @@ export {
     NProgress, Loading,
     LayerRoot,
     Square, SquareImage,
+    LazyScrollView, LazyImage,
     Util
 };
