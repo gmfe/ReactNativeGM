@@ -8,6 +8,7 @@ import {
 } from './cell';
 import {Dialog, Alert, Confirm} from './dialog';
 import {Header} from './header';
+import {Tabbar, TabbarItem} from './tabbar';
 import {
     H1, H2, H3, H4
 } from './typography';
@@ -46,6 +47,7 @@ export {
     // Panel, PanelHeader, PanelBody, PanelFooter,
     // SearchBar
     Header,
+    Tabbar, TabbarItem,
     H1, H2, H3, H4,
     Page,
     NProgress, Loading,

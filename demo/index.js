@@ -15,6 +15,7 @@ import PageForm from './page/form';
 import PageLayout from './page/layout';
 import PageRequest from './page/request';
 import PageIcon from './page/icon';
+import Tabbar from './page/tabbar';
 import PageLazyload from './page/lazyload';
 
 import {
@@ -47,6 +48,8 @@ const navConfig = [{
     name: 'Request', component: <PageRequest/>
 }, {
     name: 'Icon', component: <PageIcon/>
+}, {
+    name: 'Tabbar', component: <Tabbar/>
 }, {
     name: 'Lazyload', component: <PageLazyload/>
 }];
