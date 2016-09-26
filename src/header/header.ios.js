@@ -6,14 +6,13 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import V from '../variable';
-const color_blue = '#24aaff';
 const header_height = 48;
 const status_height = 16;
 const styles = StyleSheet.create({
     container: {
         height: header_height,
         paddingTop: status_height,
-        backgroundColor: color_blue,
+        backgroundColor: V.primaryColor,
     },
     form: {
         height: (header_height - status_height),

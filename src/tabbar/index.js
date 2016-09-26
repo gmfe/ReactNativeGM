@@ -1,4 +1,5 @@
-import Tabbar from './tabbar';
+import {Tabbar, TabbarItem} from './tabbar';
 export {
     Tabbar,
+    TabbarItem
 };

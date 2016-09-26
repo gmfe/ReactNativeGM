@@ -1,95 +1,116 @@
+'use strict';
+
 import React, {Component} from 'react';
+
 import {
     StyleSheet,
-    Text,
     View,
-    TouchableWithoutFeedback
+    Text,
+    TouchableOpacity,
 } from 'react-native';
-// import V from '../variable';
-// import {IFont} from '../icon';
-const styles = StyleSheet.create({
-    container: {
-        height: 56
-    },
-    Container: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
-        padding: 5,
-        paddingTop: 5,
-        backgroundColor: '#fff',
-        borderTopColor: '#d9d9d9',
-        borderTopWidth: StyleSheet.hairlineWidth,
-    },
-    box: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-    },
-    image: {
-        justifyContent: 'space-between',
-        resizeMode: 'stretch',
-        alignSelf: 'center',
-        flexDirection: 'row',
-    },
-    picText: {
-        flex: 1,
-        fontSize: 13,
-        marginTop: 3,
-        alignSelf: 'center',
-        fontWeight: '100',
-        color: '#848484',
-    },
-    picked: {
-        fontSize: 13,
-        marginTop: 3,
-        alignSelf: 'center',
-        fontWeight: '100',
-        color: '#24aaff',
-    },
-});
-export default class Tabbar extends Component {
+import {IFont} from '../icon';
+//import V from '../variable';
+class Tabbar extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            pickedTab: this.props.pickedTab,
-        };
-        this.handlePressTab = this.handlePressTab.bind(this);
+        this.onSelect = this.onSelect.bind(this);
     }
 
-    handlePressTab() {
-
+    onSelect(el) {
+        if (el.props.onSelect) {
+            el.props.onSelect(el);
+        } else if (this.props.onSelect) {
+            this.props.onSelect(el);
+        }
     }
 
     render() {
+        let selected = this.props.selected;
+        if (!selected) {
+            React.Children.forEach(this.props.children.filter(c=>c), el=> {
+                if (!selected || el.props.initial) {
+                    selected = el.props.name || el.key;
+                }
+            });
+        }
         return (
-            <View style={styles.Container}>
-                <TouchableWithoutFeedback style={styles.box} onPress={() =>this.handlePressTab('1')}>
-                    <View>
+            <View style={[styles.tabbarView, this.props.style]}>
+                {React.Children.map(this.props.children.filter(c=>c), (el)=>
+                    <TouchableOpacity
+                        key={el.props.name + "touch"}
+                        style={[
+                            styles.iconView,
+                            this.props.iconStyle,
+                            (el.props.name || el.key) === selected ?
+                            this.props.selectedIconStyle || el.props.selectedIconStyle || {} : {}
+                        ]}
+                        onPress={()=>!this.props.locked && this.onSelect(el)}
+                        onLongPress={()=>this.onSelect(el)}
+                        activeOpacity={el.props.pressOpacity}
+                        adjustICon={styles.adjustIcon}
+                    >
 
-                        <Text style={this.state.pickedTab === '1' ? styles.picked : styles.picText}>TAB1</Text>
-                    </View>
-                </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback style={styles.box} onPress={() =>this.handlePressTab('2')}>
-                    <View>
-
-                        <Text style={this.state.pickedTab === '2' ? styles.picked : styles.picText}>TAB2</Text>
-                    </View>
-                </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback style={styles.box} onPress={() =>this.handlePressTab('3')}>
-                    <View>
-
-                        <Text style={this.state.pickedTab === '3' ? styles.picked : styles.picText}>TAB3</Text>
-                    </View>
-                </TouchableWithoutFeedback>
-                <TouchableWithoutFeedback style={styles.box} onPress={() =>this.handlePressTab('4')}>
-                    <View>
-                        <Text style={this.state.pickedTab === '4' ? styles.picked : styles.picText}>TAB4</Text>
-                    </View>
-                </TouchableWithoutFeedback>
+                        {selected === (el.props.name || el.key) ?
+                            React.cloneElement(el, {
+                                selected: true,
+                                style: styles.adjustIcon,
+                                iconStyle: this.props.selectedStyle,
+                            }) :
+                            React.cloneElement(el, {
+                                style: styles.adjustIcon,
+                                iconStyle: {color: '#444'}
+                            })}
+                    </TouchableOpacity>
+                )}
             </View>
         );
     }
 }
-Tabbar.defaultProps = {
-    pickedTab: 1
+
+class TabbarItem extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <View style={this.props.style}>
+                <IFont name={this.props.iconName} size={24} color={this.props.iconStyle.color}/>
+                <Text style={this.props.iconStyle}>{this.props.text}</Text>
+            </View >
+        );
+    }
+}
+
+var styles = StyleSheet.create({
+    tabbarView: {
+        position: 'absolute',
+        bottom: 0,
+        right: 0,
+        left: 0,
+        height: 50,
+        opacity: 1,
+        backgroundColor: 'transparent',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    iconView: {
+        flex: 1,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    hidden: {
+        height: 0,
+    },
+    adjustIcon: {
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+});
+
+export {
+    Tabbar,
+    TabbarItem
 };
