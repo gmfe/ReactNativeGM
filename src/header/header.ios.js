@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {
     StyleSheet,
     Text,
@@ -48,27 +48,15 @@ const styles = StyleSheet.create({
         color: '#fff'
     }
 });
-export default class Header extends Component {
-    static defaultProps = {
-        backBtn: true,
-        rightBtn: false
-    };
-    static propTypes = {
-        //navColor: React.PropTypes.string,
-        pageName: React.PropTypes.string,
-        backBtn: React.PropTypes.bool,
-        rightBtn: React.PropTypes.bool,
-        rightText: React.PropTypes.string,
-        rightFunc: React.PropTypes.func,
-    };
 
+export default class Header extends Component {
     constructor(props) {
         super(props);
-        this._backBtn = this._backBtn.bind(this);
-        this._rightBtn = this._rightBtn.bind(this);
+        this.handleBackBtn = this.handleBackBtn.bind(this);
+        this.handleRightBtn = this.handleRightBtn.bind(this);
     }
 
-    _backBtn() {
+    handleBackBtn() {
         if (!this.props.backBtn) {
             return (
                 <View style={styles.btnNull}/>
@@ -81,7 +69,7 @@ export default class Header extends Component {
         );
     }
 
-    _rightBtn() {
+    handleRightBtn() {
         if (!this.props.rightBtn) {
             return (
                 <View style={styles.btnNull}/>
@@ -89,7 +77,7 @@ export default class Header extends Component {
         }
         return (
             <TouchableOpacity style={[styles.btn, styles.rightBtn]}>
-                <Text style={styles.btnText} onPress={()=>this.props.rightFunc()}>{this.props.rightText}</Text>
+                <Text style={styles.btnText} onPress={()=>this.props.handleRight()}>{this.props.rightText}</Text>
             </TouchableOpacity>
         );
     }
@@ -98,16 +86,28 @@ export default class Header extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.form}>
-                    {this._backBtn()}
+                    {this.handleBackBtn()}
                     <View style={styles.textBox}>
                         <Text style={styles.headerText}>{this.props.pageName}</Text>
                     </View>
-                    {this._rightBtn()}
+                    {this.handleRightBtn()}
                 </View>
             </View>
         );
     }
 }
 
+Header.defaultProps = {
+    backBtn: true,
+    rightBtn: false
+};
 
-module.exports = Header;
+Header.propTypes = {
+    navigator: PropTypes.object.isRequired,
+    //navColor: PropTypes.string,
+    pageName: PropTypes.string,
+    backBtn: PropTypes.bool,
+    rightBtn: PropTypes.bool,
+    rightText: PropTypes.string,
+    handleRight: PropTypes.func,
+};
