@@ -29,9 +29,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    hidden: {
-        height: 0,
-    },
     adjustIcon: {
         justifyContent: 'center',
         alignItems: 'center'
