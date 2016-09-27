@@ -9,7 +9,36 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import {IFont} from '../icon';
-//import V from '../variable';
+
+const styles = StyleSheet.create({
+    tabbarView: {
+        position: 'absolute',
+        bottom: 0,
+        right: 0,
+        left: 0,
+        height: 50,
+        opacity: 1,
+        backgroundColor: 'transparent',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    iconView: {
+        flex: 1,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    hidden: {
+        height: 0,
+    },
+    adjustIcon: {
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+});
+
+
 class Tabbar extends Component {
     constructor(props) {
         super(props);
@@ -81,34 +110,6 @@ class TabbarItem extends Component {
         );
     }
 }
-
-var styles = StyleSheet.create({
-    tabbarView: {
-        position: 'absolute',
-        bottom: 0,
-        right: 0,
-        left: 0,
-        height: 50,
-        opacity: 1,
-        backgroundColor: 'transparent',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    iconView: {
-        flex: 1,
-        height: 50,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    hidden: {
-        height: 0,
-    },
-    adjustIcon: {
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-});
 
 export {
     Tabbar,
