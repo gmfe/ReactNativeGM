@@ -1,6 +1,4 @@
-'use strict';
-
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 
 import {
     StyleSheet,
@@ -9,14 +7,14 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import {IFont} from '../icon';
-
+import V from '../variable';
 const styles = StyleSheet.create({
     tabbarView: {
         position: 'absolute',
         bottom: 0,
         right: 0,
         left: 0,
-        height: 50,
+        height: 49,
         opacity: 1,
         backgroundColor: 'transparent',
         flexDirection: 'row',
@@ -25,7 +23,7 @@ const styles = StyleSheet.create({
     },
     iconView: {
         flex: 1,
-        height: 50,
+        height: 49,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -76,16 +74,18 @@ class Tabbar extends Component {
                         adjustICon={styles.adjustIcon}
                     >
 
-                        {selected === (el.props.name || el.key) ?
+                        {selected === (el.props.name || el.key) ? (
                             React.cloneElement(el, {
                                 selected: true,
                                 style: styles.adjustIcon,
                                 iconStyle: this.props.selectedStyle,
-                            }) :
+                            })
+                        ) : (
                             React.cloneElement(el, {
                                 style: styles.adjustIcon,
                                 iconStyle: {color: '#444'}
-                            })}
+                            })
+                        )}
                     </TouchableOpacity>
                 )}
             </View>
@@ -101,12 +101,24 @@ class TabbarItem extends Component {
     render() {
         return (
             <View style={this.props.style}>
-                <IFont name={this.props.iconName} size={24} color={this.props.iconStyle.color}/>
-                <Text style={this.props.iconStyle}>{this.props.text}</Text>
+                <IFont name={this.props.iconName} size={20} color={this.props.iconStyle.color}/>
+                <Text style={[this.props.iconStyle, {fontSize: 12}]}>{this.props.text}</Text>
             </View >
         );
     }
 }
+
+Tabbar.PropTypes = {
+    selected: PropTypes.string,
+    onSelect: PropTypes.func,
+    style: View.propTypes.style,
+    selectedStyle: Text.propTypes.style,
+
+};
+Tabbar.defaultProps = {
+    style: {backgroundColor: 'white'},
+    selectedStyle: {color: V.primaryColor},
+};
 
 export {
     Tabbar,
