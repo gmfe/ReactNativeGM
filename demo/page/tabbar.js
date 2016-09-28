@@ -7,10 +7,9 @@ import {
     Tabbar,
     Header,
     TabbarItem,
-    Variable as V,
 } from '../../src/index';
 
-export default class Component extends React.Component {
+export default class PageTabbar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {page: 'second'};
@@ -21,7 +20,6 @@ export default class Component extends React.Component {
                 <Tabbar
                     selected={this.state.page}
                     style={{backgroundColor: 'white'}}
-                    selectedStyle={{color: V.primaryColor}}
                     onSelect={(el)=>this.setState({page: el.props.name})}
                 >
                     <TabbarItem name='first' text={'首页'} iconName={'home'}/>

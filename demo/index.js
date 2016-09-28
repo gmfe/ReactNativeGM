@@ -15,8 +15,9 @@ import PageForm from './page/form';
 import PageLayout from './page/layout';
 import PageRequest from './page/request';
 import PageIcon from './page/icon';
-import Tabbar from './page/tabbar';
+import PageTabbar from './page/tabbar';
 import PageLazyload from './page/lazyload';
+import PageSearchBar from './page/searchbar';
 
 import {
     LayerRoot,
@@ -49,9 +50,11 @@ const navConfig = [{
 }, {
     name: 'Icon', component: <PageIcon/>
 }, {
-    name: 'Tabbar', component: <Tabbar/>
+    name: 'Tabbar', component: <PageTabbar/>
 }, {
     name: 'Lazyload', component: <PageLazyload/>
+}, {
+    name: 'SearchBar', component: <PageSearchBar/>
 }];
 
 class Home extends React.Component {
