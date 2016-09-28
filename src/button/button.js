@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
         backgroundColor: V.primaryColor,
     },
 
+
     warn: {
         backgroundColor: V.warnColor,
     },
@@ -58,6 +59,22 @@ const getButtonStyles = ({type, plain, size}) => {
     return config;
 };
 
+const getUnderlayColor = (type, plain) => {
+    if (plain) {
+        return V.activeColor;
+    }
+    switch (type) {
+        case 'primary':
+            return V.primaryColorActive;
+        case 'warn':
+            return V.warnColorActive;
+
+        default:
+            return V.activeColor;
+    }
+};
+
+
 const Button = (props) => {
     const {
         disabled,
@@ -84,10 +101,12 @@ const Button = (props) => {
         );
     }
 
+    const underlayColor = getUnderlayColor(type, plain);
+
     return (
         <TouchableHighlight
             style={[styles.button, ...buttonStyles, style]}
-            underlayColor={V.activeColor}
+            underlayColor={underlayColor}
             {...touchableProps}
         >
             <View>

@@ -11,8 +11,10 @@ export default {
     // base color
     defaultColor: '#555555',
     primaryColor: '#34BE66',
+    primaryColorActive: '#02AF63',
     infoColor: '#25A0E0',
     warnColor: '#CE8585',
+    warnColorActive: '#b17272',
     linkColor: '#61749B',
     descColor: '#A3A3A3',
     activeColor: '#ededed',
