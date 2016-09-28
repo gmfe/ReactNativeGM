@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
-import {Image, findNodeHandle, Dimensions} from 'react-native';
+import {Image, findNodeHandle, Dimensions, NativeModules} from 'react-native';
 import LazyManager from './lazy_manager';
-import {UIManager}  from 'NativeModules';
 
+const {UIManager} = NativeModules;
 const image1px = {uri: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'};
 
 const windowHeight = Dimensions.get('window').height;
