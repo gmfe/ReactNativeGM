@@ -8,7 +8,7 @@ class Component extends React.Component {
     render() {
         const {navigator} = this.props;
         return (
-            <Page header={<Header navigator={navigator}/>}>
+            <Page header={<Header navigator={navigator} pageName={'排版'}/>}>
                 <H1>标题一</H1>
                 <H2 style={{backgroundColor: 'red'}}>标题二</H2>
                 <H3>标题三</H3>
