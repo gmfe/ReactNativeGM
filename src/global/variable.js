@@ -26,9 +26,6 @@ export default {
     defaultBg: '#eaeaea',
     whiteBg: 'white',
 
-    // status & header
-    statusHeight: 20,
-    headerHeight: 58,
 
     // paddingHorizontal
     pagePaddingHorizontal: 16,

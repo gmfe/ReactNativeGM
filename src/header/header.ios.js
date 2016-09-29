@@ -5,7 +5,9 @@ import {
     View,
     TouchableOpacity,
 } from 'react-native';
+
 import V from '../variable';
+
 const styles = StyleSheet.create({
     container: {
         height: V.headerHeight,
@@ -64,7 +66,9 @@ export default class Header extends Component {
         return (
             <TouchableOpacity style={styles.btn} onPress={()=> {
                 this.props.navigator.pop();
-            }}><Text style={styles.btnText}>{this.props.backText}</Text></TouchableOpacity>
+            }}>
+                <Text style={styles.btnText}>{this.props.backText}</Text>
+            </TouchableOpacity>
         );
     }
 
@@ -77,7 +81,7 @@ export default class Header extends Component {
         return (
             <TouchableOpacity style={[styles.btn, styles.rightBtn]}>
                 <Text style={styles.btnText}
-                      onPress={()=>this.props.rightBtn.onPress()}>{this.props.rightBtn.content}</Text>
+                      onPress={()=>this.props.rightBtn.onPress()}>{this.props.rightBtn.text}</Text>
             </TouchableOpacity>
         );
     }
@@ -109,7 +113,7 @@ Header.propTypes = {
     backBtn: PropTypes.bool,
     backText: PropTypes.string,
     rightBtn: PropTypes.shape({
-        content: PropTypes.string,
+        text: PropTypes.string,
         onPress: PropTypes.func,
     }),
 };

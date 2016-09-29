@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {Icon} from '../icon';
 import V from '../variable';
+
 const styles = StyleSheet.create({
     searchBar: {
         position: 'relative',
@@ -118,11 +119,11 @@ class SearchBar extends Component {
     }
 
     focus() {
-        this.refs.searchInput.focus();
+        this.searchInput.focus();
     }
 
     blur() {
-        this.refs.searchInput.blur();
+        this.searchInput.blur();
     }
 
     render() {
@@ -139,7 +140,9 @@ class SearchBar extends Component {
                     <View style={styles.searchInner}>
                         <Icon name="search"/>
                         <TextInput
-                            ref="searchInput"
+                            ref={ref => {
+                                this.searchInput = ref
+                            }}
                             style={styles.searchInput}
                             placeholder={placeholder}
                             onFocus={this.handleFocus}

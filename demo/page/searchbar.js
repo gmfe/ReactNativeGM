@@ -20,9 +20,7 @@ class PageSearchBar extends Component {
 
     render() {
         return (
-            <Page header={<SearchBar navigator={this.props.navigator} onSearch={this.handleSearch}/>}>
-
-            </Page>
+            <Page header={<SearchBar navigator={this.props.navigator} onSearch={this.handleSearch}/>}/>
         );
     }
 }
