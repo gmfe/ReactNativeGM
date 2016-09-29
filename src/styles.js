@@ -3,6 +3,14 @@ import V from './variable';
 
 // 方便快速构建UI
 const Styles = {
+    // bg
+    bgDefault: {
+        backgroundColor: V.bgDefault
+    },
+    bgWhite: {
+        backgroundColor: V.bgWhite
+    },
+
     // text
     textPrimary: {
         color: V.primaryColor
@@ -35,6 +43,21 @@ const Styles = {
     border: {
         borderColor: V.borderColor,
         borderWidth: StyleSheet.hairlineWidth,
+        borderStyle: 'solid'
+    },
+    borderLeft: {
+        borderLeftColor: V.borderColor,
+        borderLeftWidth: StyleSheet.hairlineWidth,
+        borderStyle: 'solid'
+    },
+    borderTop: {
+        borderTopColor: V.borderColor,
+        borderTopWidth: StyleSheet.hairlineWidth,
+        borderStyle: 'solid'
+    },
+    borderRight: {
+        borderRightColor: V.borderColor,
+        borderRightWidth: StyleSheet.hairlineWidth,
         borderStyle: 'solid'
     },
     borderBottom: {

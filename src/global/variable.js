@@ -23,8 +23,8 @@ export default {
     borderColor: '#D5D5D5',
 
     // bg
-    defaultBg: '#eaeaea',
-    whiteBg: 'white',
+    bgDefault: '#eaeaea',
+    bgWhite: 'white',
 
 
     // paddingHorizontal

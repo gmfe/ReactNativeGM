@@ -5,10 +5,10 @@ import G from '../global/variable';
 const styles = StyleSheet.create({
     page: {
         flex: 1,
-        backgroundColor: G.defaultBg
+        backgroundColor: G.bgDefault
     },
     pageWhite: {
-        backgroundColor: G.whiteBg
+        backgroundColor: G.bgWhite
     },
     pageContent: {
         flex: 1

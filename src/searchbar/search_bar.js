@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         left: 1,
         height: 26,
         borderRadius: 3,
-        backgroundColor: V.whiteBg,
+        backgroundColor: V.bgWhite,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
