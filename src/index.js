@@ -23,7 +23,7 @@ import Toast from './toast';
 // import {
 //     Media, MediaHeader, MediaBody, MediaTitle, MediaDescription, MediaInfo, MediaInfoMeta,
 // } from './Media';
-// import {SearchBar} from './SearchBar';
+import {SearchBar} from './searchbar';
 import Page from './page';
 import NProgress from './nprogress';
 import Loading from './loading';
@@ -45,7 +45,7 @@ export {
     Toast,
     // Media, MediaHeader, MediaBody, MediaTitle, MediaDescription, MediaInfo, MediaInfoMeta,
     // Panel, PanelHeader, PanelBody, PanelFooter,
-    // SearchBar
+    SearchBar,
     Header,
     Tabbar, TabbarItem,
     H1, H2, H3, H4,

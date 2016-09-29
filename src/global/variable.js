@@ -27,6 +27,9 @@ export default {
     whiteBg: 'white',
 
 
+    // paddingHorizontal
+    pagePaddingHorizontal: 16,
+
 
     // todo
 

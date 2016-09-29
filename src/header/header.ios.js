@@ -5,18 +5,18 @@ import {
     View,
     TouchableOpacity,
 } from 'react-native';
+
 import V from '../variable';
-const header_height = 48;
-const status_height = 16;
+
 const styles = StyleSheet.create({
     container: {
-        height: header_height,
-        paddingTop: status_height,
+        height: V.headerHeight,
+        paddingTop: V.statusHeight,
         backgroundColor: V.primaryColor,
     },
     form: {
-        height: (header_height - status_height),
-        marginHorizontal: V.gap15,
+        height: (V.headerHeight - V.statusHeight),
+        marginHorizontal: V.pagePaddingHorizontal,
         justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center',
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         alignSelf: 'center',
         color: '#fff',
+        lineHeight: 18,
     },
     textBox: {
         flex: 1,
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     },
     btn: {
         justifyContent: 'center',
-        height: (header_height - status_height),
+        height: (V.headerHeight - V.statusHeight),
         width: 80,
         alignSelf: 'center',
     },
@@ -44,7 +45,8 @@ const styles = StyleSheet.create({
     },
     btnText: {
         fontSize: 16,
-        color: '#fff'
+        color: '#fff',
+        lineHeight: 16,
     }
 });
 
@@ -64,7 +66,9 @@ export default class Header extends Component {
         return (
             <TouchableOpacity style={styles.btn} onPress={()=> {
                 this.props.navigator.pop();
-            }}><Text style={styles.btnText}>back</Text></TouchableOpacity>
+            }}>
+                <Text style={styles.btnText}>{this.props.backText}</Text>
+            </TouchableOpacity>
         );
     }
 
@@ -76,7 +80,8 @@ export default class Header extends Component {
         }
         return (
             <TouchableOpacity style={[styles.btn, styles.rightBtn]}>
-                <Text style={styles.btnText} onPress={()=>this.props.handleRight()}>{this.props.rightText}</Text>
+                <Text style={styles.btnText}
+                      onPress={()=>this.props.rightBtn.onPress()}>{this.props.rightBtn.text}</Text>
             </TouchableOpacity>
         );
     }
@@ -98,7 +103,7 @@ export default class Header extends Component {
 
 Header.defaultProps = {
     backBtn: true,
-    rightBtn: false
+    backText: '返回',
 };
 
 Header.propTypes = {
@@ -106,7 +111,9 @@ Header.propTypes = {
     //navColor: PropTypes.string,
     pageName: PropTypes.string,
     backBtn: PropTypes.bool,
-    rightBtn: PropTypes.bool,
-    rightText: PropTypes.string,
-    handleRight: PropTypes.func,
+    backText: PropTypes.string,
+    rightBtn: PropTypes.shape({
+        text: PropTypes.string,
+        onPress: PropTypes.func,
+    }),
 };
