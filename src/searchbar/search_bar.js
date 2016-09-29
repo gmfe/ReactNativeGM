@@ -141,7 +141,7 @@ class SearchBar extends Component {
                         <Icon name="search"/>
                         <TextInput
                             ref={ref => {
-                                this.searchInput = ref
+                                this.searchInput = ref;
                             }}
                             style={styles.searchInput}
                             placeholder={placeholder}
