@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export default class Header extends Component {
+class Header extends Component {
     constructor(props) {
         super(props);
         this.handleBackBtn = this.handleBackBtn.bind(this);
@@ -117,3 +117,5 @@ Header.propTypes = {
         onPress: PropTypes.func,
     }),
 };
+
+export default Header;

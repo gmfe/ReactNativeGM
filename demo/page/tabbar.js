@@ -1,19 +1,20 @@
 import React from 'react';
 import {
-    Text
+    Text,
+    View
 } from 'react-native';
 import {
     Page,
     Tabbar,
     Header,
-    TabbarItem,
 } from '../../src/index';
 
-export default class PageTabbar extends React.Component {
+class PageTabbar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {page: 'second'};
     }
+
     render() {
         return (
             <Page header={<Header navigator={this.props.navigator} pageName={'Tabbar'}/>} bottom={
@@ -22,10 +23,10 @@ export default class PageTabbar extends React.Component {
                     style={{backgroundColor: 'white'}}
                     onSelect={(el)=>this.setState({page: el.props.name})}
                 >
-                    <TabbarItem name='first' text={'首页'} iconName={'home'}/>
-                    <TabbarItem name='second' text={'购物车'} iconName={'cart'}/>
-                    <TabbarItem name='third' text={'订单'} iconName={'order'}/>
-                    <TabbarItem name='forth' text={'我的'} iconName={'user'}/>
+                    <View name='first' text={'首页'} iconName={'home'}/>
+                    <View name='second' text={'购物车'} iconName={'cart'}/>
+                    <View name='third' text={'订单'} iconName={'order'}/>
+                    <View name='forth' text={'我的'} iconName={'user'}/>
                 </Tabbar>
             }>
                 <Text>selectPage：{this.state.page}</Text>
@@ -34,3 +35,4 @@ export default class PageTabbar extends React.Component {
     }
 }
 
+export default PageTabbar;

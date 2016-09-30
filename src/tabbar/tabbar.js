@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {IFont} from '../icon';
 import V from '../variable';
+
 const styles = StyleSheet.create({
     tabbarView: {
         position: 'absolute',
@@ -32,7 +33,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     }
 });
-
 
 class Tabbar extends Component {
     constructor(props) {
@@ -59,34 +59,19 @@ class Tabbar extends Component {
         }
         return (
             <View style={[styles.tabbarView, this.props.style]}>
-                {React.Children.map(this.props.children.filter(c=>c), (el)=>
-                    <TouchableOpacity
-                        key={el.props.name + "touch"}
-                        style={[
-                            styles.iconView,
-                            this.props.iconStyle,
-                            (el.props.name || el.key) === selected ?
-                            this.props.selectedIconStyle || el.props.selectedIconStyle || {} : {}
-                        ]}
-                        onPress={()=>!this.props.locked && this.onSelect(el)}
-                        onLongPress={()=>this.onSelect(el)}
-                        activeOpacity={el.props.pressOpacity}
-                        adjustICon={styles.adjustIcon}
-                    >
-
-                        {selected === (el.props.name || el.key) ? (
-                            React.cloneElement(el, {
-                                selected: true,
-                                style: styles.adjustIcon,
-                                iconStyle: this.props.selectedStyle,
-                            })
-                        ) : (
-                            React.cloneElement(el, {
-                                style: styles.adjustIcon,
-                                iconStyle: {color: '#444'}
-                            })
-                        )}
-                    </TouchableOpacity>
+                {React.Children.map(this.props.children.filter(c=>c), (el)=> {
+                        return (
+                            <View style={[styles.iconView, this.props.iconStyle]}>
+                                <TabbarItem
+                                    el={el}
+                                    onSelect={this.onSelect}
+                                    iconName={this.props.iconName}
+                                    iconStyle={selected === (el.props.name) ? this.props.selectedStyle : {color: '#434343'}}
+                                    text={this.props.text}
+                                />
+                            </View>
+                        );
+                    }
                 )}
             </View>
         );
@@ -96,14 +81,20 @@ class Tabbar extends Component {
 class TabbarItem extends Component {
     constructor(props) {
         super(props);
+        this.handlePress = ::this.handlePress;
+    }
+
+    handlePress() {
+        return this.props.onSelect(this.props.el);
     }
 
     render() {
+        let {el}=this.props;
         return (
-            <View style={this.props.style}>
-                <IFont name={this.props.iconName} size={20} color={this.props.iconStyle.color}/>
-                <Text style={[this.props.iconStyle, {fontSize: 12}]}>{this.props.text}</Text>
-            </View >
+            <TouchableOpacity style={styles.adjustIcon} onPress={this.handlePress}>
+                <IFont name={el.props.iconName} size={20} color={this.props.iconStyle.color}/>
+                <Text style={[this.props.iconStyle, {fontSize: 12}]}>{el.props.text}</Text>
+            </TouchableOpacity >
         );
     }
 }
@@ -115,12 +106,19 @@ Tabbar.PropTypes = {
     selectedStyle: Text.propTypes.style,
 
 };
+
 Tabbar.defaultProps = {
     style: {backgroundColor: 'white'},
     selectedStyle: {color: V.primaryColor},
 };
 
+TabbarItem.PropTypes = {
+    iconName: PropTypes.string, //ifont对应的name
+    text: PropTypes.string, //下面的文字
+    name: PropTypes.string,
+};
+
 export {
     Tabbar,
-    TabbarItem
+    TabbarItem,
 };
