@@ -29,7 +29,8 @@
     "react-native": "^0.33.0",
     "react-native-image-picker": "^0.19.7",
     "react-native-vector-icons": "^2.1.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "react-native-swiper": "^1.4.11"
   },
   "rnpm": {
     "assets": [
