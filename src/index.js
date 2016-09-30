@@ -10,7 +10,8 @@ import {Dialog, Alert, Confirm} from './dialog';
 import {Header} from './header';
 import {Tabbar, TabbarItem} from './tabbar';
 import {
-    H1, H2, H3, H4
+    H1, H2, H3, H4,
+    Text
 } from './typography';
 import {
     TextArea, Input, Picker, Select,
@@ -48,7 +49,7 @@ export {
     SearchBar,
     Header,
     Tabbar, TabbarItem,
-    H1, H2, H3, H4,
+    H1, H2, H3, H4, Text,
     Page,
     NProgress, Loading,
     LayerRoot,
