@@ -7,8 +7,8 @@ import {
 import {
     Page,
     Header,
-    Swiper,
 } from '../../src/index';
+import Swiper from 'react-native-swiper';
 
 const styles = StyleSheet.create({
     slide1: {
