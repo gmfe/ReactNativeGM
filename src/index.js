@@ -18,6 +18,7 @@ import {
 } from './form';
 import {Icon, IFont} from './icon';
 import Toast from './toast';
+import Swiper from 'react-native-swiper';
 // import {
 //     Panel, PanelHeader, PanelBody, PanelFooter,
 // } from './Panel';
@@ -44,6 +45,7 @@ export {
     Icon,
     IFont,
     Toast,
+    Swiper,
     // Media, MediaHeader, MediaBody, MediaTitle, MediaDescription, MediaInfo, MediaInfoMeta,
     // Panel, PanelHeader, PanelBody, PanelFooter,
     SearchBar,
