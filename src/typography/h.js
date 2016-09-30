@@ -9,6 +9,7 @@ import V from '../variable';
 const getStyle = (fontSize) => {
     return {
         fontSize: fontSize,
+        color: V.defaultColor,
         fontWeight: '400',
         lineHeight: fontSize * ((V.baseLineHeight - 1) / 2 + 1),
         paddingBottom: fontSize * (V.baseLineHeight - 1) / 2

@@ -11,7 +11,7 @@ import {Header} from './header';
 import {Tabbar, TabbarItem} from './tabbar';
 import {
     H1, H2, H3, H4,
-    Text
+    Text, Small
 } from './typography';
 import {
     TextArea, Input, Picker, Select,
@@ -51,7 +51,7 @@ export {
     SearchBar,
     Header,
     Tabbar, TabbarItem,
-    H1, H2, H3, H4, Text,
+    H1, H2, H3, H4, Text, Small,
     Page,
     NProgress, Loading,
     LayerRoot,
