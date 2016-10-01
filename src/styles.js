@@ -24,6 +24,7 @@ const Styles = {
     textLink: {
         color: V.linkColor
     },
+
     textSmall: {
         fontSize: V.smallFontSize
     },
