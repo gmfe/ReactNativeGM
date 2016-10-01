@@ -3,9 +3,9 @@ import G from '../global/variable';
 export default {
     cellBg: '#FFFFFF',
     cellBorderColor: G.borderColor,
-    cellGapV: G.gap10,
+    cellGapV: G.gap15,
     cellGapH: G.gap15,
-    cellHeight: 44,
+    cellHeight: 55,
     cellFontSize: G.baseFontSize,
     cellTipsFontSize: 14,
     cellLabelWidth: 105,
