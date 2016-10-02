@@ -4,7 +4,7 @@ import {
     View,
     StyleSheet,
 } from 'react-native';
-import Picker from './Picker';
+import Picker from './picker';
 import V from '../variable';
 
 const styles = StyleSheet.create({

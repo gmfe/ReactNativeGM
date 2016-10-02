@@ -14,7 +14,7 @@ import {
     Text, Small
 } from './typography';
 import {
-    TextArea, Input, Picker, Select,
+    TextArea, Input, Picker, Select
 } from './form';
 import {Icon, IFont} from './icon';
 import Toast from './toast';
