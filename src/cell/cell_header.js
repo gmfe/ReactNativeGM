@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {View, StyleSheet} from 'react-native';
 import V from '../variable';
+import {Text} from '../typography';
 
 const styles = StyleSheet.create({
     cellHeader: {
