@@ -29,10 +29,6 @@ const Styles = {
         fontSize: V.smallFontSize
     },
 
-    textSmall: {
-        fontSize: V.smallFontSize
-    },
-
     textLeft: {
         textAlign: 'left'
     },
