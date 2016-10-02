@@ -1,15 +1,14 @@
-import TextArea from './TextArea';
-import Input from './Input';
-// import RadioCells from './RadioCells';
+import TextArea from './textarea';
+import Input from './input';
+// import RadioCells from './radio_cells';
 // import CheckboxCells from './CheckboxCells';
-import Picker from './Picker';
+import Picker from './picker';
 // import Uploader from './Uploader';
-import Select from './Select';
+import Select from './select';
 
 export {
     TextArea,
     Input,
-    // RadioCells,
     // CheckboxCells,
     Picker,
     // Uploader,

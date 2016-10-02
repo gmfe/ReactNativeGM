@@ -18,10 +18,11 @@ const styles = StyleSheet.create({
 const CellHeader = (props) => {
     const {error, children, style, ...others} = props;
     const childrenWithProps = React.Children.map(children, child => {
-        if (child.type.displayName === 'Image' && !child.props.style) {
+        if (!child.type) {
+            return <Text style={[styles.cellBodyText, style]} {...others}>{child}</Text>;
+        } else if (child.type.displayName === 'Image' && !child.props.style) {
             return React.cloneElement(child, {style: [styles.image, child.props.style]});
-        }
-        if (error && child.type.name === 'Label') {
+        } else if (error && child.type.name === 'Label') {
             return React.cloneElement(child, {style: [child.props.style, styles.error]});
         }
         return child;

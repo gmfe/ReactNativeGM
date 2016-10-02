@@ -22,8 +22,9 @@ import Swiper from './page/swiper';
 
 import {
     LayerRoot,
-    Cells, Cell, CellBody, CellsTitle,
-    Page
+    Cells, Cell, CellBody,
+    Page,
+    Header
 } from '../src/index';
 
 const styles = StyleSheet.create({
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
 });
 
 const navConfig = [{
-    name: '排版', component: <PageTypography/>
+    name: 'Typography', component: <PageTypography/>
 }, {
     name: 'Button', component: <PageButton/>
 }, {
@@ -65,8 +66,13 @@ class Home extends React.Component {
         const {navigator} = this.props;
 
         return (
-            <Page>
-                <CellsTitle>功能列表</CellsTitle>
+            <Page header={
+                <Header
+                    navigator={navigator}
+                    pageName="功能列表"
+                    backBtn={false}
+                />
+            }>
                 <Cells>
                     {_.map(navConfig, (value, i) => (
                         <Cell key={i} onPress={() => navigator.push({

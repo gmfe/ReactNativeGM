@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import {Text} from '../typography';
 import {Icon} from '../icon';
 import V from '../variable';
 
@@ -8,8 +9,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     cellBodyText: {
-        textAlign: 'left',
-        fontSize: V.cellFontSize
+        textAlign: 'left'
     },
     error: {
         flex: 1,

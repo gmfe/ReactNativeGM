@@ -25,6 +25,10 @@ const Styles = {
         color: V.linkColor
     },
 
+    textSmall: {
+        fontSize: V.smallFontSize
+    },
+
     textLeft: {
         textAlign: 'left'
     },
@@ -42,28 +46,23 @@ const Styles = {
 
     border: {
         borderColor: V.borderColor,
-        borderWidth: StyleSheet.hairlineWidth,
-        borderStyle: 'solid'
+        borderWidth: StyleSheet.hairlineWidth
     },
     borderLeft: {
         borderLeftColor: V.borderColor,
-        borderLeftWidth: StyleSheet.hairlineWidth,
-        borderStyle: 'solid'
+        borderLeftWidth: StyleSheet.hairlineWidth
     },
     borderTop: {
         borderTopColor: V.borderColor,
-        borderTopWidth: StyleSheet.hairlineWidth,
-        borderStyle: 'solid'
+        borderTopWidth: StyleSheet.hairlineWidth
     },
     borderRight: {
         borderRightColor: V.borderColor,
-        borderRightWidth: StyleSheet.hairlineWidth,
-        borderStyle: 'solid'
+        borderRightWidth: StyleSheet.hairlineWidth
     },
     borderBottom: {
         borderBottomColor: V.borderColor,
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        borderStyle: 'solid'
+        borderBottomWidth: StyleSheet.hairlineWidth
     },
 
     positionAbsolute: {

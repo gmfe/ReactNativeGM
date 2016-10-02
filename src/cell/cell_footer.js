@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text as RNText, View, StyleSheet} from 'react-native';
+import {Text} from '../typography';
 import V from '../variable';
 import {IFont} from '../icon';
 
@@ -12,17 +13,19 @@ const styles = StyleSheet.create({
     cellFooterText: {
         textAlign: 'center',
         color: V.descColor,
-        fontSize: V.cellFontSize
+        fontSize: V.smallFontSize
     },
     vcode: {
         width: 100,
-        height: 44,
+        height: 44
     }
 });
 const CellFooter = (props) => {
     const {children, style, access, ...others} = props;
     const childrenWithProps = React.Children.map(children, child => {
-        if (!child.type) return <Text style={[styles.cellFooterText, style]} {...others}>{child}</Text>;
+        if (!child.type) {
+            return <Text style={[styles.cellFooterText, style]} {...others}>{child}</Text>;
+        }
         if (child.type && child.type.displayName === 'Image' && !child.props.style) {
             return React.cloneElement(child, {style: [styles.vcode, child.props.style]});
         }
@@ -34,7 +37,7 @@ const CellFooter = (props) => {
             {access ? (
                 <IFont
                     name="angle-right"
-                    size={V.cellFontSize * 0.8}
+                    size={V.smallFontSize}
                     style={{marginLeft: 5, color: V.descColor, marginTop: 2}}
                 />
             ) : undefined}
@@ -44,7 +47,7 @@ const CellFooter = (props) => {
 CellFooter.propTypes = {
     access: PropTypes.bool,
     children: PropTypes.node,
-    style: Text.propTypes.style,
+    style: RNText.propTypes.style,
     others: PropTypes.object
 };
 
