@@ -51,7 +51,7 @@ class Radio extends React.Component {
                     {checked ? (
                         <IFont name="success" color={V.primaryColor} style={styles.font}/>
                     ) : (
-                        <IFont name="circle" style={styles.font}/>
+                        <IFont name="circle" color={V.descColor} style={styles.font}/>
                     )}
                     {!children.type ? <Text>{children}</Text> : children}
                 </View>
