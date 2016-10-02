@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {
     View,
-    TouchableHighlight,
+    TouchableWithoutFeedback,
     StyleSheet
 } from 'react-native';
 import {Text} from '../typography';
@@ -43,8 +43,7 @@ class Radio extends React.Component {
         const {checked} = this.state;
 
         return (
-            <TouchableHighlight
-                underlayColor={V.activeColor}
+            <TouchableWithoutFeedback
                 onPress={() => onChange(!checked)}
             >
                 <View {...others} style={[S.flexRow, S.flexAlignCenter, style]}>
@@ -55,7 +54,7 @@ class Radio extends React.Component {
                     )}
                     {!children.type ? <Text>{children}</Text> : children}
                 </View>
-            </TouchableHighlight>
+            </TouchableWithoutFeedback>
         );
     }
 }
