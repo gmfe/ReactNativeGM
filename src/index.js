@@ -14,7 +14,7 @@ import {
     Text, Small
 } from './typography';
 import {
-    TextArea, Input, Picker, Select
+    TextArea, Input, Picker, Select, Radio
 } from './form';
 import {Icon, IFont} from './icon';
 import Toast from './toast';
@@ -40,7 +40,7 @@ export {
     // Grids, Grid, GridIcon, GridLabel,
     Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
     Dialog, Alert, Confirm,
-    TextArea, Input, Picker, Select,
+    TextArea, Input, Picker, Select, Radio,
     Icon,
     IFont,
     Toast,

@@ -13,14 +13,16 @@ import {
     // Picker,
     // Uploader,
     Select,
-    Page
+    Page,
+    Radio
 } from '../../src/index';
 
 class Component extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: ''
+            value: '',
+            checked: false
         };
     }
 
@@ -58,6 +60,14 @@ class Component extends React.Component {
                             pickerData={[1, 2, 3]}
                         />
                     </View>
+                </View>
+
+                <View>
+                    <Radio checked={this.state.checked} onChange={(checked) => {
+                        this.setState({
+                            checked
+                        });
+                    }}>回家</Radio>
                 </View>
             </Page>
         );
