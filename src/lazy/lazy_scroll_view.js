@@ -42,7 +42,8 @@ class LazyScrollView extends React.Component {
 }
 
 LazyScrollView.propTypes = {
-    name: PropTypes.string.isRequired // 全局唯一
+    name: PropTypes.string.isRequired, // 全局唯一
+    scrollEventThrottle: PropTypes.number
 };
 
 LazyScrollView.defaultProps = {

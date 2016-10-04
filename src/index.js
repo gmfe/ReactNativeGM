@@ -33,6 +33,7 @@ import {Square, SquareImage} from './square';
 import Util from './util';
 import {LazyScrollView, LazyImage} from './lazy';
 import {Tabs, TabsItem} from './tabs';
+import {Infinite} from './infinite';
 
 export {
     Variable, Styles,
@@ -57,5 +58,6 @@ export {
     Square, SquareImage,
     LazyScrollView, LazyImage,
     Tabs, TabsItem,
+    Infinite,
     Util
 };
