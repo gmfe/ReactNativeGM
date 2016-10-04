@@ -32,6 +32,7 @@ import LayerRoot from './layer_root';
 import {Square, SquareImage} from './square';
 import Util from './util';
 import {LazyScrollView, LazyImage} from './lazy';
+import {Tabs, TabsItem} from './tabs';
 
 export {
     Variable, Styles,
@@ -55,5 +56,6 @@ export {
     LayerRoot,
     Square, SquareImage,
     LazyScrollView, LazyImage,
+    Tabs, TabsItem,
     Util
 };
