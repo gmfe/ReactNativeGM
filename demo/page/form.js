@@ -29,7 +29,7 @@ class Component extends React.Component {
     render() {
         const {navigator} = this.props;
         return (
-            <Page header={<Header navigator={navigator} pageName={'Form'}/>}>
+            <Page white header={<Header navigator={navigator} pageName={'Form'}/>}>
                 <View style={S.padding10}>
                     <Text>TextArea</Text>
                     <TextArea

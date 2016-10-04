@@ -19,6 +19,7 @@ import PageTabbar from './page/tabbar';
 import PageLazyload from './page/lazyload';
 import PageSearchBar from './page/searchbar';
 import Swiper from './page/swiper';
+import Tabs from './page/tabs';
 
 import {
     LayerRoot,
@@ -59,6 +60,8 @@ const navConfig = [{
     name: 'SearchBar', component: <PageSearchBar/>
 }, {
     name: 'Swiper', component: <Swiper/>
+}, {
+    name: 'Tabs', component: <Tabs/>
 }];
 
 class Home extends React.Component {
