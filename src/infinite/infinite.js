@@ -87,7 +87,7 @@ class Infinite extends React.Component {
                     <View style={[S.padding10, {
                         height: 40
                     }]}>
-                        <Text style={[S.textDesc, S.textCenter]}>没有更多数据</Text>
+                        <Text style={[S.textDesc, S.textCenter, S.textSmall]}>没有更多数据</Text>
                     </View>
                 ) : (loading && (
                     <View style={[S.padding10, {
