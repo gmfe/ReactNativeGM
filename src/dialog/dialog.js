@@ -169,8 +169,9 @@ class Dialog extends Component {
 
         return (
             <Modal
-                visible={this.state.visible}
+                animationType="fade"
                 transparent={true}
+                visible={this.state.visible}
                 onShow={onShow}
                 onRequestClose={onRequestClose}
             >
