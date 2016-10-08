@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     Navigator,
-    StyleSheet,
     View
 } from 'react-native';
 import _ from 'underscore';
@@ -26,14 +25,9 @@ import {
     LayerRoot,
     Cells, Cell, CellBody,
     Page,
-    Header
+    Header,
+    Styles as S
 } from '../src/index';
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    }
-});
 
 const navConfig = [{
     name: 'Typography', component: <PageTypography/>
@@ -112,26 +106,24 @@ class Demo extends React.Component {
     }
 
     renderScene(route, navigator) {
-        return (
-            <View style={styles.container}>
-                {React.cloneElement(this.getComponent(route, navigator), {
-                    style: {flex: 1}
-                })}
-                <LayerRoot/>
-            </View>
-        );
+        return React.cloneElement(this.getComponent(route, navigator), {
+            style: {flex: 1}
+        });
     }
 
     render() {
         return (
-            <Navigator
-                ref="navigator"
-                initialRoute={{name: 'home'}}
-                renderScene={this.renderScene}
-                configureScene={() => {
-                    return Navigator.SceneConfigs.PushFromRight;
-                }}
-            />
+            <View style={S.flex}>
+                <Navigator
+                    ref="navigator"
+                    initialRoute={{name: 'home'}}
+                    renderScene={this.renderScene}
+                    configureScene={() => {
+                        return Navigator.SceneConfigs.PushFromRight;
+                    }}
+                />
+                <LayerRoot/>
+            </View>
         );
     }
 }
