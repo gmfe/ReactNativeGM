@@ -60,24 +60,21 @@ class Tabbar extends Component {
             <View style={[styles.tabbarView, this.props.backgroundColor]}>
                 {React.Children.map(this.props.children, (el)=> {
                     return (
-                        <View style={styles.iconView}>
-                            <Tabs
-                                el={el}
-                                onSelect={this.onSelect}
-                                iconName={this.props.iconName}
-                                iconStyle={selected === (el.props.name) ? this.props.selectedColor : this.props.ptColor}
-                                text={this.props.text}
-                            />
-                        </View>
-                        );
-                    }
-                )}
+                        <TabbarItem
+                            el={el}
+                            onSelect={this.onSelect}
+                            iconName={this.props.iconName}
+                            selectedColor={selected === (el.props.name) ? this.props.selectedColor : this.props.ptColor}
+                            text={this.props.text}
+                        />
+                    );
+                })}
             </View>
         );
     }
 }
 
-class Tabs extends Component {
+class TabbarItem extends Component {
     constructor(props) {
         super(props);
         this.handlePress = ::this.handlePress;
@@ -88,24 +85,14 @@ class Tabs extends Component {
     }
 
     render() {
-        return (
-            <TouchableWithoutFeedback onPress={this.handlePress}>
-                <View>
-                    <TabbarItem {...this.props}/>
-                </View>
-            </TouchableWithoutFeedback>
-        );
-    }
-}
-
-class TabbarItem extends Component {
-    render() {
         let {el}=this.props;
         return (
-            <View style={styles.adjustIcon}>
-                <IFont name={el.props.iconName} size={20} color={this.props.iconStyle.color}/>
-                <Text style={[this.props.iconStyle, {fontSize: 12}]}>{el.props.text}</Text>
-            </View>
+            <TouchableWithoutFeedback onPress={this.handlePress}>
+                <View style={[styles.adjustIcon, styles.iconView]}>
+                    <IFont name={el.props.iconName} size={20} color={this.props.selectedColor.color}/>
+                    <Text style={[this.props.selectedColor, {fontSize: 12}]}>{el.props.text}</Text>
+                </View>
+            </TouchableWithoutFeedback>
         );
     }
 }
@@ -118,16 +105,16 @@ Tabbar.PropTypes = {
 
 };
 
-Tabbar.defaultProps = {
-    backgroundColor: {color: 'white'},
-    selectedColor: {color: V.primaryColor},
-    ptColor: {color: '#555'}
-};
-
 TabbarItem.PropTypes = {
     name: PropTypes.string.isRequired,
     iconName: PropTypes.string, //ifont对应的name
     text: PropTypes.string, //下面的文字
+};
+
+Tabbar.defaultProps = {
+    backgroundColor: {color: 'white'},
+    selectedColor: {color: V.primaryColor},
+    ptColor: {color: '#555'}
 };
 
 export {

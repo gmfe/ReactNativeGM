@@ -21,7 +21,7 @@ class PageTabbar extends React.Component {
                 <Tabbar
                     selected={this.state.page}
                     onSelect={(el)=>this.setState({page: el.props.name})}
-                    backgroundColor={{backgroundColor: 'white'}}
+                    backgroundColor={{backgroundColor: '#eee'}}
                 >
                     <TabbarItem name='first' text={'首页'} iconName={'home'}/>
                     <TabbarItem name='second' text={'购物车'} iconName={'cart'}/>
