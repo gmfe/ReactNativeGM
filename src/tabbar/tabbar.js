@@ -1,10 +1,9 @@
 import React, {Component, PropTypes} from 'react';
-
 import {
     StyleSheet,
     View,
     Text,
-    TouchableOpacity,
+    TouchableWithoutFeedback
 } from 'react-native';
 import {IFont} from '../icon';
 import V from '../variable';
@@ -20,7 +19,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     iconView: {
         flex: 1,
@@ -59,18 +58,18 @@ class Tabbar extends Component {
             });
         }
         return (
-            <View style={[styles.tabbarView, this.props.style]}>
+            <View style={[styles.tabbarView, this.props.backgroundColor]}>
                 {React.Children.map(this.props.children, (el)=> {
-                        return (
-                            <View style={[styles.iconView, this.props.iconStyle]}>
-                                <TabbarItem
-                                    el={el}
-                                    onSelect={this.onSelect}
-                                    iconName={this.props.iconName}
-                                    iconStyle={selected === (el.props.name) ? this.props.selectedStyle : {color: '#434343'}}
-                                    text={this.props.text}
-                                />
-                            </View>
+                    return (
+                        <View style={styles.iconView}>
+                            <Tabs
+                                el={el}
+                                onSelect={this.onSelect}
+                                iconName={this.props.iconName}
+                                iconStyle={selected === (el.props.name) ? this.props.selectedColor : this.props.ptColor}
+                                text={this.props.text}
+                            />
+                        </View>
                         );
                     }
                 )}
@@ -79,7 +78,7 @@ class Tabbar extends Component {
     }
 }
 
-class TabbarItem extends Component {
+class Tabs extends Component {
     constructor(props) {
         super(props);
         this.handlePress = ::this.handlePress;
@@ -90,33 +89,46 @@ class TabbarItem extends Component {
     }
 
     render() {
+        return (
+            <TouchableWithoutFeedback onPress={this.handlePress}>
+                <View>
+                    <TabbarItem {...this.props}/>
+                </View>
+            </TouchableWithoutFeedback>
+        );
+    }
+}
+
+class TabbarItem extends Component {
+    render() {
         let {el}=this.props;
         return (
-            <TouchableOpacity style={styles.adjustIcon} onPress={this.handlePress}>
+            <View style={styles.adjustIcon}>
                 <IFont name={el.props.iconName} size={20} color={this.props.iconStyle.color}/>
                 <Text style={[this.props.iconStyle, {fontSize: 12}]}>{el.props.text}</Text>
-            </TouchableOpacity >
+            </View>
         );
     }
 }
 
 Tabbar.PropTypes = {
-    selected: PropTypes.string,
-    onSelect: PropTypes.func,
-    style: View.propTypes.style,
-    selectedStyle: Text.propTypes.style,
+    selected: PropTypes.object.isRequired,
+    onSelect: PropTypes.func.isRequired,
+    backgroundColor: View.propTypes.style, //tabbar背景颜色
+    selectedColor: Text.propTypes.style, //tabbarItem被选中后的颜色
 
 };
 
 Tabbar.defaultProps = {
-    style: {backgroundColor: 'white'},
-    selectedStyle: {color: V.primaryColor},
+    backgroundColor: {color: 'white'},
+    selectedColor: {color: V.primaryColor},
+    ptColor: {color: '#555'}
 };
 
 TabbarItem.PropTypes = {
+    name: PropTypes.string.isRequired,
     iconName: PropTypes.string, //ifont对应的name
     text: PropTypes.string, //下面的文字
-    name: PropTypes.string,
 };
 
 export {

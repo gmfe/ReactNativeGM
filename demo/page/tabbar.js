@@ -1,10 +1,10 @@
 import React from 'react';
 import {
     Text,
-    View
 } from 'react-native';
 import {
     Page,
+    TabbarItem,
     Tabbar,
     Header,
 } from '../../src/index';
@@ -20,13 +20,13 @@ class PageTabbar extends React.Component {
             <Page header={<Header navigator={this.props.navigator} pageName={'Tabbar'}/>} bottom={
                 <Tabbar
                     selected={this.state.page}
-                    style={{backgroundColor: 'white'}}
                     onSelect={(el)=>this.setState({page: el.props.name})}
+                    backgroundColor={{backgroundColor: 'white'}}
                 >
-                    <View name='first' text={'首页'} iconName={'home'}/>
-                    <View name='second' text={'购物车'} iconName={'cart'}/>
-                    <View name='third' text={'订单'} iconName={'order'}/>
-                    <View name='forth' text={'我的'} iconName={'user'}/>
+                    <TabbarItem name='first' text={'首页'} iconName={'home'}/>
+                    <TabbarItem name='second' text={'购物车'} iconName={'cart'}/>
+                    <TabbarItem name='third' text={'订单'} iconName={'order'}/>
+                    <TabbarItem name='forth' text={'我的'} iconName={'user'}/>
                 </Tabbar>
             }>
                 <Text>selectPage：{this.state.page}</Text>
