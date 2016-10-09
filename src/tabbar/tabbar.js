@@ -102,7 +102,6 @@ Tabbar.PropTypes = {
     onSelect: PropTypes.func.isRequired,
     backgroundColor: View.propTypes.style, //tabbar背景颜色
     selectedColor: Text.propTypes.style //tabbarItem被选中后的颜色
-
 };
 
 TabbarItem.PropTypes = {
@@ -112,7 +111,7 @@ TabbarItem.PropTypes = {
 };
 
 Tabbar.defaultProps = {
-    backgroundColor: {color: 'white'},
+    backgroundColor: {backgroundColor: 'white'},
     selectedColor: {color: V.primaryColor},
     ptColor: {color: '#555'}
 };
