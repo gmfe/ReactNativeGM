@@ -13,5 +13,5 @@ module.exports = {
     MediaTitle,
     MediaDescription,
     MediaInfo,
-    MediaInfoMeta,
+    MediaInfoMeta
 };

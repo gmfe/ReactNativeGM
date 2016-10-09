@@ -14,5 +14,5 @@ export default {
     // 高度为44，减去上下padding的行高
     cellLineHeight: 44 - 20,
     // unit(20 / @cellFontSize, em),
-    cellsMarginTop: 20,
+    cellsMarginTop: 20
 };

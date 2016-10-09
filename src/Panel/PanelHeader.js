@@ -15,11 +15,11 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderStyle: 'solid',
-    borderColor: $lineColor,
+      borderColor: $lineColor
   },
   panelHeaderText: {
     color: $grayColor,
-    fontSize: 13,
+      fontSize: 13
   }
 });
 

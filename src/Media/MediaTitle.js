@@ -1,13 +1,13 @@
 import React, {PropTypes} from 'react';
 import {
     StyleSheet,
-    Text,
+    Text
 } from 'react-native';
 
 const styles = StyleSheet.create({
     mediaTitle: {
         fontSize: 17,
-        fontWeight: '400',
+        fontWeight: '400'
     }
 });
 const MediaTitle = (props) => {
@@ -26,7 +26,7 @@ const MediaTitle = (props) => {
 
 MediaTitle.propTypes = {
     style: Text.propTypes.style,
-    children: PropTypes.node,
+    children: PropTypes.node
 };
 
 export default MediaTitle;

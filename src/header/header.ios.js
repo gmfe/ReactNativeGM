@@ -3,7 +3,7 @@ import {
     StyleSheet,
     Text,
     View,
-    TouchableOpacity,
+    TouchableOpacity
 } from 'react-native';
 
 import V from '../variable';
@@ -12,30 +12,30 @@ const styles = StyleSheet.create({
     container: {
         height: V.headerHeight,
         paddingTop: V.statusHeight,
-        backgroundColor: V.primaryColor,
+        backgroundColor: V.primaryColor
     },
     form: {
         height: (V.headerHeight - V.statusHeight),
         marginHorizontal: V.pagePaddingHorizontal,
         justifyContent: 'space-between',
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     headerText: {
         fontSize: 18,
         alignSelf: 'center',
         color: '#fff',
-        lineHeight: 18,
+        lineHeight: 18
     },
     textBox: {
         flex: 1,
-        alignSelf: 'center',
+        alignSelf: 'center'
     },
     btn: {
         justifyContent: 'center',
         height: (V.headerHeight - V.statusHeight),
         width: 80,
-        alignSelf: 'center',
+        alignSelf: 'center'
     },
     rightBtn: {
         alignItems: 'flex-end'
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     btnText: {
         fontSize: 16,
         color: '#fff',
-        lineHeight: 16,
+        lineHeight: 16
     }
 });
 
@@ -103,7 +103,7 @@ class Header extends Component {
 
 Header.defaultProps = {
     backBtn: true,
-    backText: '返回',
+    backText: '返回'
 };
 
 Header.propTypes = {
@@ -114,8 +114,8 @@ Header.propTypes = {
     backText: PropTypes.string,
     rightBtn: PropTypes.shape({
         text: PropTypes.string,
-        onPress: PropTypes.func,
-    }),
+        onPress: PropTypes.func
+    })
 };
 
 export default Header;

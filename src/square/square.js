@@ -23,7 +23,7 @@ class Square extends React.Component {
         const child = React.Children.only(this.props.children);
 
         let p = {
-            onLayout: this.handleLayout,
+            onLayout: this.handleLayout
         };
         if (height) {
             p.style = [this.props.style, {

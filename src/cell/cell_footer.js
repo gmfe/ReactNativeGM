@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     cellFooter: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginLeft: 5,
+        marginLeft: 5
     },
     cellFooterText: {
         textAlign: 'center',

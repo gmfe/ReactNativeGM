@@ -7,7 +7,7 @@ import {
     Animated,
     Dimensions,
     StyleSheet,
-    Easing,
+    Easing
 } from 'react-native';
 
 const {width, height} = Dimensions.get('window');
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         bottom: 0,
         left: 0,
         backgroundColor: '#bdc0c7',
-        width,
+        width
     },
     pickerWrap: {
         flexDirection: 'row'
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     },
     pickerFinishBtnText: {
         fontSize: 16,
-        color: '#149be0',
+        color: '#149be0'
     }
 });
 
@@ -73,7 +73,7 @@ class Picker extends Component {
         onValueChange: () => {
         },
         onRequestClose: () => {
-        },
+        }
     };
 
     constructor(props) {
@@ -82,11 +82,16 @@ class Picker extends Component {
             ...this._getStateFromProps(props),
             fadeAnim: new Animated.Value(0),
             visible: false,
-            height: 250,
+            height: 250
         };
         this.width = StyleSheet.flatten(props.style).width;
         this.handlePickerDone = ::this.handlePickerDone;
         this.handleLayout = ::this.handleLayout;
+
+        this.refPicker = null;
+        this.refFirstWheel = null;
+        this.refSecondWheel = null;
+        this.refThirdWheel = null;
     }
 
     componentWillReceiveProps(nextProps) {
@@ -101,7 +106,7 @@ class Picker extends Component {
                     {
                         toValue: 1,
                         duration: this.props.duration,
-                        easing: Easing.easeOut,
+                        easing: Easing.easeOut
                     }
                 ).start();
             } else {
@@ -110,7 +115,7 @@ class Picker extends Component {
                     {
                         toValue: 0,
                         duration: this.props.duration,
-                        easing: Easing.easeOut,
+                        easing: Easing.easeOut
                     }
                 ).start((e) => {
                     if (e.finished) this.setState({visible: false});
@@ -130,7 +135,7 @@ class Picker extends Component {
 
         return {
             secondWheelData,
-            thirdWheelData,
+            thirdWheelData
         };
     }
 
@@ -187,7 +192,7 @@ class Picker extends Component {
 
             // third wheel selected value and pickedData
             thirdWheelData: cascadeData.thirdWheelData,
-            thirdPickedData: selectedValue[2],
+            thirdPickedData: selectedValue[2]
         };
     }
 
@@ -207,7 +212,7 @@ class Picker extends Component {
     }
 
     handleLayout() {
-        this.refs.picker.measure((x, y, w, h) => {
+        this.refPicker.measure((x, y, w, h) => {
             this.setState({height: h});
         });
     }
@@ -235,7 +240,7 @@ class Picker extends Component {
         let thirdWheel = this.state.thirdWheelData && (
                 <View style={styles.pickerWheel}>
                     <RNPicker
-                        ref={'thirdWheel'}
+                        ref={ref => this.refThirdWheel = ref}
                         selectedValue={this.state.thirdPickedData}
                         onValueChange={(value) => {
                             this.pickedValue.splice(2, 1, value);
@@ -260,7 +265,7 @@ class Picker extends Component {
             <View style={[styles.pickerWrap, {width: this.width || width}]}>
                 <View style={styles.pickerWheel}>
                     <RNPicker
-                        ref={'firstWheel'}
+                        ref={ref => this.refFirstWheel = ref}
                         selectedValue={this.state.firstPickedData}
                         onValueChange={value => {
                             this.pickedValue.splice(0, 1, value);
@@ -284,11 +289,11 @@ class Picker extends Component {
                             });
 
                             this.props.onValueChange(JSON.parse(JSON.stringify(this.pickedValue)), 0);
-                            if (this.refs.secondWheel && this.refs.secondWheel.moveTo) {
-                                this.refs.secondWheel.moveTo(0);
+                            if (this.refSecondWheel && this.refSecondWheel.moveTo) {
+                                this.refSecondWheel.moveTo(0);
                             }
-                            if (this.refs.thirdWheel && this.refs.thirdWheel.moveTo) {
-                                this.refs.thirdWheel.moveTo(0);
+                            if (this.refThirdWheel && this.refThirdWheel.moveTo) {
+                                this.refThirdWheel.moveTo(0);
                             }
                         }}
                     >
@@ -303,7 +308,7 @@ class Picker extends Component {
                 </View>
                 <View style={styles.pickerWheel}>
                     <RNPicker
-                        ref={'secondWheel'}
+                        ref={ref => this.refSecondWheel = ref}
                         selectedValue={this.state.secondPickedData}
                         onValueChange={(value) => {
                             this.pickedValue.splice(1, 1, value);
@@ -320,8 +325,8 @@ class Picker extends Component {
                                 thirdPickedData: cascadeData.thirdWheelData && cascadeData.thirdWheelData[0].value
                             });
                             this.props.onValueChange(JSON.parse(JSON.stringify(this.pickedValue)), 1);
-                            if (this.refs.thirdWheel && this.refs.thirdWheel.moveTo) {
-                                this.refs.thirdWheel.moveTo(0);
+                            if (this.refThirdWheel && this.refThirdWheel.moveTo) {
+                                this.refThirdWheel.moveTo(0);
                             }
                         }}
                     >
@@ -360,7 +365,7 @@ class Picker extends Component {
             pickerCancelBtnText,
             pickerTitleStyle,
             pickerTitle,
-            pickerBtnText,
+            pickerBtnText
         } = this.props;
 
         return (
@@ -390,7 +395,7 @@ class Picker extends Component {
                             }]
                         }]}
                     >
-                        <View ref="picker" onLayout={this.handleLayout}>
+                        <View ref={ref => this.refPicker = ref} onLayout={this.handleLayout}>
                             <View
                                 style={[styles.pickerToolbar, pickerToolBarStyle,
                                     {width: this.width || width}]}
@@ -438,7 +443,7 @@ Picker.propTypes = {
     visible: PropTypes.bool,
     onShow: PropTypes.func,
     onRequestClose: PropTypes.func,
-    wrapperStyle: View.propTypes.style,
+    wrapperStyle: View.propTypes.style
 };
 
 export default Picker;

@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {
-    Text,
+    Text
 } from 'react-native';
 import StyleSheet from '../style_sheet';
 
@@ -10,8 +10,8 @@ const styles = StyleSheet.create({
         color: '#999999',
         lineHeight: 13 * 1.2,
         android: {
-            lineHeight: Math.round(13 * 1.2),
-        },
+            lineHeight: Math.round(13 * 1.2)
+        }
     }
 });
 const MediaDesc = (props) => {
@@ -30,7 +30,7 @@ const MediaDesc = (props) => {
 
 MediaDesc.propTypes = {
     style: Text.propTypes.style,
-    children: PropTypes.node,
+    children: PropTypes.node
 };
 
 export default MediaDesc;

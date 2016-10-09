@@ -4,7 +4,7 @@ import {
     Text,
     Image,
     TouchableOpacity,
-    StyleSheet,
+    StyleSheet
 } from 'react-native';
 import {Icon} from '../icon';
 import ImagePicker from 'react-native-image-picker';
@@ -20,32 +20,32 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: 17 * V.baseLineHeight,
+        height: 17 * V.baseLineHeight
     },
     uploaderTitle: {
-        fontSize: 17,
+        fontSize: 17
     },
     uploaderCounter: {
         fontSize: 17,
-        color: '#888',
+        color: '#888'
     },
     uploaderBody: {
         marginBottom: V.cellGapH - (V.cellGapV + V.uploaderFileSpacing),
         marginRight: -V.uploaderFileSpacing,
         flexDirection: 'row',
         flexWrap: 'wrap',
-        overflow: 'hidden',
+        overflow: 'hidden'
     },
     uploaderFile: {
         position: 'relative',
         width: V.uploaderSize,
         height: V.uploaderSize,
         marginRight: V.uploaderFileSpacing,
-        marginBottom: V.uploaderFileSpacing,
+        marginBottom: V.uploaderFileSpacing
     },
     uploaderFileImage: {
         width: V.uploaderSize,
-        height: V.uploaderSize,
+        height: V.uploaderSize
     },
     uploaderStatus: {
         position: 'absolute',
@@ -56,15 +56,15 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, .5)',
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     uploaderStatusContent: {
-        color: '#fff',
+        color: '#fff'
     },
     uploaderRemove: {
         position: 'absolute',
         top: 2,
-        right: 2,
+        right: 2
     },
     uploaderAddButton: {
         position: 'relative',
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         width: V.uploaderSize - V.uploaderBorderWidth * 2,
         height: V.uploaderSize - V.uploaderBorderWidth * 2,
         borderWidth: V.uploaderBorderWidth,
-        borderColor: V.uploaderBorderColor,
+        borderColor: V.uploaderBorderColor
     },
     uploaderAddButtonRec: {
         position: 'absolute',
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
         left: V.uploaderSize / 2 - 4,
         width: V.uploaderBorderWidth + 1,
         height: V.uploaderSize / 2,
-        backgroundColor: V.uploaderBorderColor,
+        backgroundColor: V.uploaderBorderColor
     }
 });
 
@@ -116,7 +116,7 @@ class Uploader extends Component {
             quality: 0.2,
             angle: 0,
             allowsEditing: false,
-            noData: false,
+            noData: false
             // storageOptions: {
             //   skipBackup: true,
             //   path: 'images'
@@ -205,7 +205,7 @@ Uploader.propTypes = {
     onError: PropTypes.func,
     files: PropTypes.array,
     lang: PropTypes.object,
-    style: View.propTypes.style,
+    style: View.propTypes.style
 };
 
 export default Uploader;

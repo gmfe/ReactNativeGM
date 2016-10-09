@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import {
     Page,
-    Header,
+    Header
 } from '../../src/index';
 import Swiper from 'react-native-swiper';
 
@@ -15,24 +15,24 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#9DD6EB',
+        backgroundColor: '#9DD6EB'
     },
     slide2: {
         flex:1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#97CAE5',
+        backgroundColor: '#97CAE5'
     },
     slide3: {
         flex:1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#92BBD9',
+        backgroundColor: '#92BBD9'
     },
     text: {
         color: '#fff',
         fontSize: 30,
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     }
 });
 

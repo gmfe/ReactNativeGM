@@ -7,7 +7,7 @@ import {
     TouchableWithoutFeedback,
     Animated,
     Easing,
-    Dimensions,
+    Dimensions
 } from 'react-native';
 import StyleSheet from '../style_sheet';
 import V from '../variable';
@@ -19,26 +19,26 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
-        backgroundColor: 'rgba(0,0,0,.6)',
+        backgroundColor: 'rgba(0,0,0,.6)'
     },
     dialog: {
         width: Dimensions.get('window').width - 60,
         backgroundColor: V.dialogBackgroundColor,
         borderRadius: 3,
-        overflow: 'hidden',
+        overflow: 'hidden'
     },
     dialogHeader: {
         paddingTop: 1.2 * V.baseFontSize,
-        paddingBottom: 0.5 * V.baseFontSize,
+        paddingBottom: 0.5 * V.baseFontSize
     },
     dialogTitle: {
         fontWeight: '400',
         fontSize: 17,
-        textAlign: 'center',
+        textAlign: 'center'
     },
     dialogBody: {
         paddingLeft: 20,
-        paddingRight: 20,
+        paddingRight: 20
     },
     dialogBodyText: {
         fontSize: 15,
@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         lineHeight: 15 * V.baseLineHeight,
         android: {
-            lineHeight: Math.round(15 * V.baseLineHeight),
-        },
+            lineHeight: Math.round(15 * V.baseLineHeight)
+        }
     },
     dialogFooter: {
         marginTop: 30,
@@ -57,30 +57,30 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderTopWidth: StyleSheet.hairlineWidth,
         borderColor: V.dialogLineColor,
-        borderStyle: 'solid',
+        borderStyle: 'solid'
     },
     dialogFooterOpr: {
         height: 42,
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     dialogFooterOprWithBorder: {
         borderLeftWidth: StyleSheet.hairlineWidth,
         borderColor: V.dialogLineColor,
-        borderStyle: 'solid',
+        borderStyle: 'solid'
     },
     dialogFooterOprText: {
-        fontSize: 17,
+        fontSize: 17
     },
     defaultDialogFooterOprText: {
-        color: V.defaultColor,
+        color: V.defaultColor
     },
     primaryDialogFooterOprText: {
-        color: V.primaryColor,
+        color: V.primaryColor
     },
     warnDialogFooterOprText: {
-        color: V.warnColor,
+        color: V.warnColor
     }
 });
 
@@ -91,7 +91,7 @@ class Dialog extends Component {
         super(props);
         this.state = {
             fadeAnim: new Animated.Value(props.visible ? 1 : 0),
-            visible: props.visible,
+            visible: props.visible
         };
     }
 
@@ -104,7 +104,7 @@ class Dialog extends Component {
                     {
                         toValue: 1,
                         duration: this.props.duration || 200,
-                        easing: Easing.easeOut,
+                        easing: Easing.easeOut
                     }
                 ).start();
             } else {
@@ -113,7 +113,7 @@ class Dialog extends Component {
                     {
                         toValue: 0,
                         duration: this.props.duration || 200,
-                        easing: Easing.easeOut,
+                        easing: Easing.easeOut
                     }
                 ).start(() => this.setState({visible: false}));
             }
@@ -155,7 +155,7 @@ class Dialog extends Component {
             footerStyle,
             children,
             onShow,
-            onRequestClose,
+            onRequestClose
         } = this.props;
 
         const childrenWithProps = React.Children.map(children, (child) => {

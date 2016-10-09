@@ -7,5 +7,5 @@ module.exports = {
   Panel,
   PanelHeader,
   PanelBody,
-  PanelFooter,
+    PanelFooter
 };

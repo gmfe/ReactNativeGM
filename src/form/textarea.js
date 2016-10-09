@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {
     View,
     Text,
-    TextInput,
+    TextInput
 } from 'react-native';
 import StyleSheet from '../style_sheet';
 import V from '../variable';
@@ -14,12 +14,12 @@ const styles = StyleSheet.create({
         height: V.cellFontSize * V.baseLineHeight * 3,
         lineHeight: V.cellFontSize * V.baseLineHeight,
         android: {
-            lineHeight: Math.round(V.cellFontSize * V.baseLineHeight),
-        },
+            lineHeight: Math.round(V.cellFontSize * V.baseLineHeight)
+        }
     },
     textareaCounter: {
         color: V.descColor,
-        textAlign: 'right',
+        textAlign: 'right'
     }
 });
 
@@ -64,7 +64,7 @@ TextArea.propTypes = {
     defaultValue: PropTypes.string,
     onChange: PropTypes.func,
     onChangeText: PropTypes.func,
-    style: TextInput.propTypes.style,
+    style: TextInput.propTypes.style
 };
 
 TextArea.defaultProps = {

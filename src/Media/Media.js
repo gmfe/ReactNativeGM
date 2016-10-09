@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {
     TouchableHighlight,
     StyleSheet,
-    View,
+    View
 } from 'react-native';
 
 const lineColor = '#E5E5E5';
@@ -16,19 +16,19 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         borderTopWidth: StyleSheet.hairlineWidth,
         borderStyle: 'solid',
-        borderColor: lineColor,
+        borderColor: lineColor
     },
 
     // appmsg
     appmsgMedia: {
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'center'
     },
 
     // small_appmsg
     small_appmsgMedia: {
         padding: 0,
-        marginLeft: 0,
+        marginLeft: 0
     },
 
     firstMedia: {
@@ -69,7 +69,7 @@ Media.propTypes = {
     type: PropTypes.oneOf(['text', 'appmsg', 'small_appmsg']),
     style: View.propTypes.style,
     children: PropTypes.node,
-    first: PropTypes.bool,
+    first: PropTypes.bool
 };
 
 export default Media;

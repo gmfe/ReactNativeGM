@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         marginTop: 15,
         paddingBottom: 5,
-        overflow: 'hidden',
+        overflow: 'hidden'
     }
 });
 const MediaInfo = (props) => {
@@ -29,7 +29,7 @@ const MediaInfo = (props) => {
 
 MediaInfo.propTypes = {
     style: View.propTypes.style,
-    children: PropTypes.node,
+    children: PropTypes.node
 };
 
 export default MediaInfo;

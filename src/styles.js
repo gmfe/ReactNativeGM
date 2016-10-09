@@ -219,7 +219,7 @@ const Styles = {
 
 
     margin0: {
-        margin: V.gap0,
+        margin: V.gap0
     },
     margin5: {
         margin: V.gap5
@@ -232,7 +232,7 @@ const Styles = {
     },
 
     marginLeft0: {
-        marginLeft: V.gap0,
+        marginLeft: V.gap0
     },
     marginLeft5: {
         marginLeft: V.gap5
@@ -244,7 +244,7 @@ const Styles = {
         marginLeft: V.gap15
     },
     marginRight0: {
-        marginRight: V.gap0,
+        marginRight: V.gap0
     },
     marginRight5: {
         marginRight: V.gap5
@@ -256,7 +256,7 @@ const Styles = {
         marginRight: V.gap15
     },
     marginTop0: {
-        marginTop: V.gap0,
+        marginTop: V.gap0
     },
     marginTop5: {
         marginTop: V.gap5
@@ -268,7 +268,7 @@ const Styles = {
         marginTop: V.gap15
     },
     marginBottom0: {
-        marginBottom: V.gap0,
+        marginBottom: V.gap0
     },
     marginBottom5: {
         marginBottom: V.gap5
@@ -278,7 +278,7 @@ const Styles = {
     },
     marginBottom15: {
         marginBottom: V.gap15
-    },
+    }
 };
 
 export default Styles;

@@ -4,7 +4,7 @@ import StyleSheet from './style_sheet';
 // import {Grids, Grid, GridIcon, GridLabel} from './Grid';
 import {Button} from './button';
 import {
-    Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
+    Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter
 } from './cell';
 import {Dialog, Alert, Confirm} from './dialog';
 import {Header} from './header';
