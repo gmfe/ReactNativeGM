@@ -24,7 +24,7 @@ class PageTabbar extends React.Component {
                 >
                     <TabbarItem name='first' text={'首页'} iconName={'home'}/>
                     <TabbarItem name='second' text={'购物车'} iconName={'cart'}/>
-                    <TabbarItem name='third' text={'订单'} iconName={'order'}/>
+                    <TabbarItem name='third' text={'订单'} iconName={'order'} redPoint={true}/>
                     <TabbarItem name='forth' text={'我的'} iconName={'user'}/>
                 </Tabbar>
             }>
