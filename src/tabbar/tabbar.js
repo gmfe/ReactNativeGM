@@ -10,13 +10,7 @@ import V from '../variable';
 
 const styles = StyleSheet.create({
     tabbarView: {
-        position: 'absolute',
-        bottom: 0,
-        right: 0,
-        left: 0,
         height: 49,
-        opacity: 1,
-        backgroundColor: 'transparent',
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center'
@@ -113,7 +107,7 @@ TabbarItem.PropTypes = {
 Tabbar.defaultProps = {
     backgroundColor: {backgroundColor: 'white'},
     selectedColor: {color: V.primaryColor},
-    ptColor: {color: '#555'}
+    ptColor: {color: V.defaultColor}
 };
 
 export {
