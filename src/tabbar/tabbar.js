@@ -41,6 +41,7 @@ class Tabbar extends Component {
     }
 
     onSelect(el) {
+        console.log(el);
         if (el.props.onSelect) {
             el.props.onSelect(el);
         } else if (this.props.onSelect) {
@@ -51,15 +52,15 @@ class Tabbar extends Component {
     render() {
         let selected = this.props.selected;
         if (!selected) {
-            React.Children.forEach(this.props.children.filter(c=>c), el=> {
+            React.Children.forEach(this.props.children, el=> {
                 if (!selected || el.props.initial) {
-                    selected = el.props.name || el.key;
+                    selected = el.props.name;
                 }
             });
         }
         return (
             <View style={[styles.tabbarView, this.props.style]}>
-                {React.Children.map(this.props.children.filter(c=>c), (el)=> {
+                {React.Children.map(this.props.children, (el)=> {
                         return (
                             <View style={[styles.iconView, this.props.iconStyle]}>
                                 <TabbarItem
