@@ -25,7 +25,7 @@ Icon.propTypes = {
     name: PropTypes.string.isRequired,
     size: PropTypes.number,
     color: PropTypes.string,
-    style: Text.propTypes.style,
+    style: Text.propTypes.style
 };
 
 Icon.glyphMap = glyphMap;

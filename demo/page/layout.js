@@ -1,13 +1,13 @@
 import React from 'react';
 import {
     View,
-    Text,
+    Text
 } from 'react-native';
 
 import {
     Square, SquareImage,
     Header,
-    Styles as S,
+    Styles as S
 } from '../../src/index';
 import _ from 'underscore';
 

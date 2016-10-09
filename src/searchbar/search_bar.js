@@ -4,7 +4,7 @@ import {
     Text,
     TextInput,
     TouchableOpacity,
-    StyleSheet,
+    StyleSheet
 } from 'react-native';
 import {Icon} from '../icon';
 import V from '../variable';
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         borderTopWidth: StyleSheet.hairlineWidth,
         borderBottomWidth: StyleSheet.hairlineWidth,
         borderStyle: 'solid',
-        borderColor: '#C7C7C7',
+        borderColor: '#C7C7C7'
     },
     searchOuter: {
         position: 'relative',
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         borderWidth: StyleSheet.hairlineWidth,
         borderColor: '#E6E6EA',
-        borderRadius: 5,
+        borderRadius: 5
     },
     searchInner: {
         position: 'relative',
@@ -37,13 +37,13 @@ const styles = StyleSheet.create({
         paddingTop: V.gap5,
         paddingBottom: 4,
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     searchInput: {
         marginLeft: V.gap5,
         height: 20,
         fontSize: 14,
-        flex: 1,
+        flex: 1
     },
     searchCover: {
         position: 'absolute',
@@ -56,17 +56,17 @@ const styles = StyleSheet.create({
         backgroundColor: V.bgWhite,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     searchCoverText: {
         textAlign: 'center',
         color: '#9B9B9B',
-        marginLeft: V.gap5,
+        marginLeft: V.gap5
     },
     searchBtn: {
         fontSize: V.baseFontSize,
         marginLeft: V.gap10,
-        color: 'white',
+        color: 'white'
     },
     backBtn: {
         fontSize: V.baseFontSize,
@@ -81,7 +81,7 @@ class SearchBar extends Component {
         super(props);
         this.state = {
             focus: false,
-            text: '',
+            text: ''
         };
         this.handleChange = ::this.handleChange;
         this.handleClear = ::this.handleClear;
@@ -129,7 +129,7 @@ class SearchBar extends Component {
     render() {
         const {
             placeholder,
-            lang,
+            lang
         } = this.props;
         const {focus, text} = this.state;
 
@@ -176,7 +176,7 @@ SearchBar.propTypes = {
     onSearch: PropTypes.func,
     lang: PropTypes.object,
     style: View.propTypes.style,
-    placeholder: PropTypes.string,
+    placeholder: PropTypes.string
 };
 
 SearchBar.defaultProps = {
@@ -186,7 +186,7 @@ SearchBar.defaultProps = {
     onSearch: undefined,
     lang: {
         back: '返回',
-        right: '搜索',
+        right: '搜索'
     }
 };
 

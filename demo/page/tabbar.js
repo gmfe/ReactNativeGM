@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-    Text,
+    Text
 } from 'react-native';
 import {
     Page,
     TabbarItem,
     Tabbar,
-    Header,
+    Header
 } from '../../src/index';
 
 class PageTabbar extends React.Component {

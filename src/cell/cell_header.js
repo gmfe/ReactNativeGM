@@ -5,11 +5,11 @@ import {Text} from '../typography';
 
 const styles = StyleSheet.create({
     cellHeader: {
-        marginRight: 5,
+        marginRight: 5
     },
     image: {
         width: 24,
-        height: 24,
+        height: 24
     },
     error: {
         color: V.warnColor

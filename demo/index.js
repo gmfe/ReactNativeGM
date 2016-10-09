@@ -92,6 +92,7 @@ class Demo extends React.Component {
     constructor(props) {
         super(props);
         this.renderScene = ::this.renderScene;
+        this.refNavigator = null;
     }
 
     getComponent(route, navigator) {
@@ -115,7 +116,7 @@ class Demo extends React.Component {
         return (
             <View style={S.flex}>
                 <Navigator
-                    ref="navigator"
+                    ref={ref => this.refNavigator = ref}
                     initialRoute={{name: 'home'}}
                     renderScene={this.renderScene}
                     configureScene={() => {

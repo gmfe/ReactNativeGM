@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {
     View,
-    StyleSheet,
+    StyleSheet
 } from 'react-native';
 import V from '../variable';
 
@@ -9,11 +9,11 @@ const styles = StyleSheet.create({
     mediaHeader: {
         marginRight: V.baseFontSize * 0.8,
         width: 60,
-        height: 60,
+        height: 60
     },
     mediaAppmsgThumb: {
         width: 60,
-        height: 60,
+        height: 60
     }
 });
 
@@ -38,7 +38,7 @@ const MediaHeader = (props) => {
 
 MediaHeader.propTypes = {
     style: View.propTypes.style,
-    children: PropTypes.node,
+    children: PropTypes.node
 };
 
 export default MediaHeader;

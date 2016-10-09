@@ -13,5 +13,5 @@ export {
     Cell,
     CellHeader,
     CellBody,
-    CellFooter,
+    CellFooter
 };

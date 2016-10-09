@@ -1,4 +1,4 @@
 export default {
     statusHeight: 20,
-    headerHeight: 58,
+    headerHeight: 58
 };

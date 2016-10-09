@@ -7,7 +7,7 @@ import {
     Dimensions,
     Platform,
     ProgressBarAndroid,
-    ActivityIndicator,
+    ActivityIndicator
 } from 'react-native';
 import {IFont} from '../icon';
 import LayerRoot from '../layer_root';
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
+        height: Dimensions.get('window').height
     },
     toast: {
         // width: V.baseFontSize * 7.6,
@@ -31,18 +31,18 @@ const styles = StyleSheet.create({
         padding: 10,
         paddingBottom: 0,
         backgroundColor: 'rgba(40, 40, 40, 0.75)',
-        borderRadius: 5,
+        borderRadius: 5
     },
     toastIcon: {
         marginBottom: 10,
         color: '#fff',
         fontSize: G.baseFontSize * 2,
-        textAlign: 'center',
+        textAlign: 'center'
     },
     toastContent: {
         marginBottom: 10,
         color: '#fff',
-        textAlign: 'center',
+        textAlign: 'center'
     },
     toastLoading: {
         marginTop: 10,

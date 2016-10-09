@@ -6,15 +6,15 @@ import V from '../variable';
 
 const styles = StyleSheet.create({
     cellBody: {
-        flex: 1,
+        flex: 1
     },
     cellBodyText: {
         textAlign: 'left'
     },
     error: {
         flex: 1,
-        color: V.warnColor,
-    },
+        color: V.warnColor
+    }
 });
 const CellBody = (props) => {
     const {error, children, style, ...others} = props;

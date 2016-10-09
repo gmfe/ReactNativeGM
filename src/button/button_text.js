@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {
     StyleSheet,
-    Text,
+    Text
 } from 'react-native';
 import V from '../variable';
 
@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         fontSize: V.btnFontSize,
         textAlign: 'center',
         marginTop: (V.btnHeight - V.btnFontSize) / 2,
-        marginBottom: (V.btnHeight - V.btnFontSize) / 2,
+        marginBottom: (V.btnHeight - V.btnFontSize) / 2
     },
 
     miniText: {
@@ -18,27 +18,27 @@ const styles = StyleSheet.create({
         marginTop: (V.btnMiniHeight * V.btnMiniFontSize
         - V.btnMiniFontSize) / 2,
         marginBottom: (V.btnMiniHeight * V.btnMiniFontSize
-        - V.btnMiniFontSize) / 2,
+        - V.btnMiniFontSize) / 2
     },
 
     defaultText: {
-        color: V.btnDefaultFontColor,
+        color: V.btnDefaultFontColor
     },
 
     primaryText: {
-        color: V.btnFontColor,
+        color: V.btnFontColor
     },
 
     warnText: {
-        color: V.btnFontColor,
+        color: V.btnFontColor
     },
 
     primaryPlainText: {
-        color: V.primaryColor,
+        color: V.primaryColor
     },
 
     defaultPlainText: {
-        color: V.defaultColor,
+        color: V.defaultColor
     },
 
     disabledText: {
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     },
     defaultDisabledText: {
         color: V.btnDefaultDisabledFontColor
-    },
+    }
 });
 
 const getTextStyles = ({type, plain, size, disabled}) => {
@@ -69,7 +69,7 @@ const ButtonText = (props) => {
         type = 'default',
         size,
         plain = false,
-        children,
+        children
     } = props;
 
     const textStyles = getTextStyles({type, plain, size, disabled});

@@ -15,16 +15,16 @@ const styles = StyleSheet.create({
         paddingBottom: V.cellGapV,
         paddingRight: V.cellGapH,
         borderTopWidth: StyleSheet.hairlineWidth,
-        borderColor: V.cellBorderColor,
+        borderColor: V.cellBorderColor
     },
     firstCell: {
-        borderTopWidth: 0,
+        borderTopWidth: 0
     },
     vcodeCell: {
         paddingTop: 0,
         paddingBottom: 0,
-        paddingRight: 0,
-    },
+        paddingRight: 0
+    }
 });
 const Cell = (props) => {
     const {access, vcode, error, first, children, style, ...others} = props;

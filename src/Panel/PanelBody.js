@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { View, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  panelBody: {},
+    panelBody: {}
 });
 const PanelBody = (props) => {
   const { children, style, ...others } = props;

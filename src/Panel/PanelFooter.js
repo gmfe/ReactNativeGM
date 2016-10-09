@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         borderColor: $lineColor,
         position: 'relative',
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     PanelFooterText: {
         flex: 1,

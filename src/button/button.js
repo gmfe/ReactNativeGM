@@ -14,25 +14,25 @@ const styles = StyleSheet.create({
         paddingLeft: 14,
         paddingRight: 14,
         borderColor: V.borderColor,
-        overflow: 'hidden',
+        overflow: 'hidden'
     },
 
     mini: {
         paddingLeft: V.btnMiniFontSize * 0.75,
-        paddingRight: V.btnMiniFontSize * 0.75,
+        paddingRight: V.btnMiniFontSize * 0.75
     },
 
     default: {
-        backgroundColor: V.btnDefaultBg,
+        backgroundColor: V.btnDefaultBg
     },
 
     primary: {
-        backgroundColor: V.primaryColor,
+        backgroundColor: V.primaryColor
     },
 
 
     warn: {
-        backgroundColor: V.warnColor,
+        backgroundColor: V.warnColor
     },
 
     primaryPlain: {
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderColor: V.defaultColor,
         backgroundColor: 'transparent'
-    },
+    }
 });
 
 const getButtonStyles = ({type, plain, size}) => {
@@ -125,7 +125,7 @@ Button.propTypes = {
     onPressIn: PropTypes.func,
     onPressOut: PropTypes.func,
     onLongPress: PropTypes.func,
-    children: PropTypes.node,
+    children: PropTypes.node
 };
 
 Button.defaultProps = {

@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         paddingLeft: V.cellGapH,
         paddingRight: V.cellGapH,
         fontSize: V.cellTipsFontSize,
-        color: V.descColor,
+        color: V.descColor
     }
 });
 const CellsTitle = (props) => {

@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     borderTopWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderStyle: 'solid',
-    borderColor: lineColor,
+      borderColor: lineColor
   }
 });
 const Panel = (props) => {

@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {
-    StyleSheet,
+    StyleSheet
 } from 'react-native';
 import {Icon} from '../icon';
 import {
@@ -15,7 +15,7 @@ import V from '../variable';
 const styles = StyleSheet.create({
     checkbox: {
         fontSize: 23,
-        marginRight: V.baseFontSize * 0.35,
+        marginRight: V.baseFontSize * 0.35
     }
 });
 
@@ -51,7 +51,7 @@ CheckboxCells.propTypes = {
     value: PropTypes.any,
     onChange: PropTypes.func,
     options: PropTypes.array.isRequired,
-    style: Icon.propTypes.style,
+    style: Icon.propTypes.style
 };
 
 export default CheckboxCells;

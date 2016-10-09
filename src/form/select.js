@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {
     Text,
     View,
-    StyleSheet,
+    StyleSheet
 } from 'react-native';
 import Picker from './picker';
 import V from '../variable';
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: V.cellFontSize,
         marginTop: (V.cellLineHeight - V.cellFontSize) / 2,
-        marginBottom: (V.cellLineHeight - V.cellFontSize) / 2,
+        marginBottom: (V.cellLineHeight - V.cellFontSize) / 2
     },
     placeholder: {
         color: V.descColor
@@ -44,7 +44,7 @@ const initLabel = (props) => {
     let {
         pickerData,
         value,
-        placeholder,
+        placeholder
     } = props;
 
     if (!Array.isArray(pickerData)) pickerData = [pickerData];
@@ -116,7 +116,7 @@ Select.propTypes = {
     pickerData: PropTypes.array,
     pickerStyle: View.propTypes.style,
     onChange: PropTypes.func,
-    placeholder: PropTypes.string,
+    placeholder: PropTypes.string
 };
 
 export default Select;

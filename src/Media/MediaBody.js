@@ -25,7 +25,7 @@ const MediaBody = (props) => {
 
 MediaBody.propTypes = {
     style: View.propTypes.style,
-    children: PropTypes.node,
+    children: PropTypes.node
 };
 
 export default MediaBody;

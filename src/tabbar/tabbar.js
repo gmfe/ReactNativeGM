@@ -19,13 +19,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     iconView: {
         flex: 1,
         height: 49,
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     adjustIcon: {
         justifyContent: 'center',
@@ -101,14 +101,14 @@ Tabbar.PropTypes = {
     selected: PropTypes.object.isRequired,
     onSelect: PropTypes.func.isRequired,
     backgroundColor: View.propTypes.style, //tabbar背景颜色
-    selectedColor: Text.propTypes.style, //tabbarItem被选中后的颜色
+    selectedColor: Text.propTypes.style //tabbarItem被选中后的颜色
 
 };
 
 TabbarItem.PropTypes = {
     name: PropTypes.string.isRequired,
     iconName: PropTypes.string, //ifont对应的name
-    text: PropTypes.string, //下面的文字
+    text: PropTypes.string //下面的文字
 };
 
 Tabbar.defaultProps = {
@@ -119,5 +119,5 @@ Tabbar.defaultProps = {
 
 export {
     Tabbar,
-    TabbarItem,
+    TabbarItem
 };
