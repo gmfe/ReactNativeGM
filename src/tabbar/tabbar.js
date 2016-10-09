@@ -1,13 +1,13 @@
 import React, {Component, PropTypes} from 'react';
-
 import {
     StyleSheet,
     View,
     Text,
-    TouchableOpacity,
+    TouchableWithoutFeedback
 } from 'react-native';
 import {IFont} from '../icon';
 import V from '../variable';
+
 const styles = StyleSheet.create({
     tabbarView: {
         position: 'absolute',
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     iconView: {
         flex: 1,
@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     }
 });
-
 
 class Tabbar extends Component {
     constructor(props) {
@@ -51,76 +50,87 @@ class Tabbar extends Component {
     render() {
         let selected = this.props.selected;
         if (!selected) {
-            React.Children.forEach(this.props.children.filter(c=>c), el=> {
+            React.Children.forEach(this.props.children, el=> {
                 if (!selected || el.props.initial) {
-                    selected = el.props.name || el.key;
+                    selected = el.props.name;
                 }
             });
         }
         return (
-            <View style={[styles.tabbarView, this.props.style]}>
-                {React.Children.map(this.props.children.filter(c=>c), (el)=>
-                    <TouchableOpacity
-                        key={el.props.name + "touch"}
-                        style={[
-                            styles.iconView,
-                            this.props.iconStyle,
-                            (el.props.name || el.key) === selected ?
-                            this.props.selectedIconStyle || el.props.selectedIconStyle || {} : {}
-                        ]}
-                        onPress={()=>!this.props.locked && this.onSelect(el)}
-                        onLongPress={()=>this.onSelect(el)}
-                        activeOpacity={el.props.pressOpacity}
-                        adjustICon={styles.adjustIcon}
-                    >
-
-                        {selected === (el.props.name || el.key) ? (
-                            React.cloneElement(el, {
-                                selected: true,
-                                style: styles.adjustIcon,
-                                iconStyle: this.props.selectedStyle,
-                            })
-                        ) : (
-                            React.cloneElement(el, {
-                                style: styles.adjustIcon,
-                                iconStyle: {color: '#444'}
-                            })
-                        )}
-                    </TouchableOpacity>
+            <View style={[styles.tabbarView, this.props.backgroundColor]}>
+                {React.Children.map(this.props.children, (el)=> {
+                    return (
+                        <View style={styles.iconView}>
+                            <Tabs
+                                el={el}
+                                onSelect={this.onSelect}
+                                iconName={this.props.iconName}
+                                iconStyle={selected === (el.props.name) ? this.props.selectedColor : this.props.ptColor}
+                                text={this.props.text}
+                            />
+                        </View>
+                        );
+                    }
                 )}
             </View>
         );
     }
 }
 
-class TabbarItem extends Component {
+class Tabs extends Component {
     constructor(props) {
         super(props);
+        this.handlePress = ::this.handlePress;
+    }
+
+    handlePress() {
+        return this.props.onSelect(this.props.el);
     }
 
     render() {
         return (
-            <View style={this.props.style}>
-                <IFont name={this.props.iconName} size={20} color={this.props.iconStyle.color}/>
-                <Text style={[this.props.iconStyle, {fontSize: 12}]}>{this.props.text}</Text>
-            </View >
+            <TouchableWithoutFeedback onPress={this.handlePress}>
+                <View>
+                    <TabbarItem {...this.props}/>
+                </View>
+            </TouchableWithoutFeedback>
+        );
+    }
+}
+
+class TabbarItem extends Component {
+    render() {
+        let {el}=this.props;
+        return (
+            <View style={styles.adjustIcon}>
+                <IFont name={el.props.iconName} size={20} color={this.props.iconStyle.color}/>
+                <Text style={[this.props.iconStyle, {fontSize: 12}]}>{el.props.text}</Text>
+            </View>
         );
     }
 }
 
 Tabbar.PropTypes = {
-    selected: PropTypes.string,
-    onSelect: PropTypes.func,
-    style: View.propTypes.style,
-    selectedStyle: Text.propTypes.style,
+    selected: PropTypes.object.isRequired,
+    onSelect: PropTypes.func.isRequired,
+    backgroundColor: View.propTypes.style, //tabbar背景颜色
+    selectedColor: Text.propTypes.style, //tabbarItem被选中后的颜色
 
 };
+
 Tabbar.defaultProps = {
-    style: {backgroundColor: 'white'},
-    selectedStyle: {color: V.primaryColor},
+    backgroundColor: {color: 'white'},
+    selectedColor: {color: V.primaryColor},
+    ptColor: {color: '#555'}
+};
+
+TabbarItem.PropTypes = {
+    name: PropTypes.string.isRequired,
+    iconName: PropTypes.string, //ifont对应的name
+    text: PropTypes.string, //下面的文字
 };
 
 export {
     Tabbar,
-    TabbarItem
+    TabbarItem,
 };

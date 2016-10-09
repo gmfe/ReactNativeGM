@@ -20,13 +20,15 @@ var processRequest = function (config) {
 };
 
 var processResponse = function (promise, url, sucCode, config) {
+    let response = null;
     return setPromiseTimeout(promise, config.options.timeout).then(function (res) {
+        response = res;
         if (res.ok) {
             return res.json();
         }
         return Promise.reject(format(`服务器错误 ${res.status} ${res.statusText}`));
     }).then((json) => {
-        return RequestInterceptor.interceptor.response(json, config);
+        return RequestInterceptor.interceptor.response(json, config, response);
     }, (reason) => {
         return Promise.reject(RequestInterceptor.interceptor.responseError(reason, config));
     }).then(function (json) {
