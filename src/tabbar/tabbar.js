@@ -40,7 +40,6 @@ class Tabbar extends Component {
     }
 
     onSelect(el) {
-        console.log(el);
         if (el.props.onSelect) {
             el.props.onSelect(el);
         } else if (this.props.onSelect) {
