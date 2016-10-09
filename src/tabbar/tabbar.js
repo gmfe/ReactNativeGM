@@ -12,18 +12,31 @@ const styles = StyleSheet.create({
     tabbarView: {
         height: 49,
         flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center'
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        borderTopWidth: StyleSheet.hairlineWidth,
+        borderTopColor: V.borderColor
+
     },
     iconView: {
-        flex: 1,
+        position: 'relative',
         height: 49,
+        width: 60,
         justifyContent: 'center',
         alignItems: 'center'
     },
     adjustIcon: {
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    redPoint: {
+        position: 'absolute',
+        top: 4,
+        right: 14,
+        height: 8,
+        width: 8,
+        backgroundColor: 'red',
+        borderRadius: 4
     }
 });
 
@@ -59,6 +72,7 @@ class Tabbar extends Component {
                             onSelect={this.onSelect}
                             iconName={this.props.iconName}
                             selectedColor={selected === (el.props.name) ? this.props.selectedColor : this.props.ptColor}
+                            redPoint={el.props.redPoint}
                             text={this.props.text}
                         />
                     );
@@ -83,8 +97,10 @@ class TabbarItem extends Component {
         return (
             <TouchableWithoutFeedback onPress={this.handlePress}>
                 <View style={[styles.adjustIcon, styles.iconView]}>
+
                     <IFont name={el.props.iconName} size={20} color={this.props.selectedColor.color}/>
                     <Text style={[this.props.selectedColor, {fontSize: 12}]}>{el.props.text}</Text>
+                    <View style={this.props.redPoint ? styles.redPoint : null}/>
                 </View>
             </TouchableWithoutFeedback>
         );
@@ -100,12 +116,13 @@ Tabbar.PropTypes = {
 
 TabbarItem.PropTypes = {
     name: PropTypes.string.isRequired,
+    redPoint: PropTypes.bool, //红点
     iconName: PropTypes.string, //ifont对应的name
     text: PropTypes.string //下面的文字
 };
 
 Tabbar.defaultProps = {
-    backgroundColor: {backgroundColor: 'white'},
+    backgroundColor: {backgroundColor: V.bgWhite},
     selectedColor: {color: V.primaryColor},
     ptColor: {color: V.defaultColor}
 };

@@ -36,7 +36,7 @@ class Page extends React.Component {
                         {children}
                     </View>
                 ) : (
-                    <ScrollView style={styles.pageContent}>
+                    <ScrollView style={styles.pageContent} keyboardShouldPersistTaps={true}>
                         {children}
                     </ScrollView>
                 )}
