@@ -4,7 +4,7 @@ import cell from './cell/variable';
 import dialog from './dialog/variable';
 import form from './form/variable';
 import typography from './typography/variable';
-import header from './header/variable';
+
 export default Object.assign(
     {},
     global,
@@ -12,6 +12,5 @@ export default Object.assign(
     cell,
     dialog,
     form,
-    typography,
-    header,
+    typography
 );

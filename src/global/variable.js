@@ -38,5 +38,8 @@ export default {
     arrowColor: '#C7C7CC',
 
     // page
-    pageDefaultBackgroundColor: '#EFEFF4'
+    pageDefaultBackgroundColor: '#EFEFF4',
+
+    statusHeight: 20,
+    headerHeight: 58
 };
