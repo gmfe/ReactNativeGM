@@ -21,7 +21,7 @@ class Radio extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            checked: false
+            checked: props.checked || false
         };
     }
 
