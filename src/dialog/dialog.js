@@ -155,7 +155,8 @@ class Dialog extends Component {
             footerStyle,
             children,
             onShow,
-            onRequestClose
+            onRequestClose,
+            animationType
         } = this.props;
 
         const childrenWithProps = React.Children.map(children, (child) => {
@@ -169,7 +170,7 @@ class Dialog extends Component {
 
         return (
             <Modal
-                animationType="fade"
+                animationType={animationType}
                 transparent={true}
                 visible={this.state.visible}
                 onShow={onShow}
@@ -216,11 +217,13 @@ Dialog.propTypes = {
     bodyStyle: View.propTypes.style,
     bodyTextStyle: Text.propTypes.style,
     footerStyle: View.propTypes.style,
-    children: PropTypes.node
+    children: PropTypes.node,
+    animationType: Dialog.PropTypes.animationType
 };
 
 Dialog.defaultProps = {
-    title: '提示'
+    title: '提示',
+    animationType: 'none'
 };
 
 export default Dialog;
