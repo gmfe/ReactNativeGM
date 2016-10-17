@@ -20,6 +20,7 @@ export default {
     linkColor: '#61749B',
     descColor: '#A3A3A3',
     activeColor: '#ededed',
+    priceColor: '#d36a29',
 
     // border
     borderColor: '#D5D5D5',

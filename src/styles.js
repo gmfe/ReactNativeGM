@@ -24,6 +24,9 @@ const Styles = {
     textLink: {
         color: V.linkColor
     },
+    textPrice: {
+        color: V.priceColor
+    },
 
     textSmall: {
         fontSize: V.smallFontSize
