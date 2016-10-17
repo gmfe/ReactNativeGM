@@ -15,7 +15,7 @@ class Component extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            arr: ['red', 'blue']
+            arr: ['red', 'blue', 'yellow']
         };
     }
 
@@ -23,9 +23,9 @@ class Component extends React.Component {
         // 模拟宽度变的情况
         setTimeout(() => {
             this.setState({
-                arr: ['red', 'blue', 'yellow']
+                arr: ['red', 'blue', 'yellow', 'green']
             });
-        }, 1000);
+        }, 2000);
     }
 
     render() {
@@ -43,7 +43,7 @@ class Component extends React.Component {
                     ))}
                 </View>
                 <Text>溢出需要调用方处理。</Text>
-                <View style={[S.flex, S.flexRow]}>
+                <View style={[S.flex, S.flexRow, S.flexAlignStart]}>
                     {_.map(this.state.arr, (value, i) => (
                         <Square key={i} style={[S.flex, {backgroundColor: value}, S.overflowHidden]}>
                             <View>
@@ -67,16 +67,29 @@ class Component extends React.Component {
                     ))}
                 </View>
                 <Text>图片比较特殊，可用SquareImage</Text>
-                <View style={[S.flex, S.flexRow]}>
+                <View style={[S.flex, S.flexRow, S.flexAlignStart]}>
                     {_.map(this.state.arr, (value, i) => (
-                        <Square key={i} style={[S.flex, {backgroundColor: value}, S.margin10]}>
-                            <SquareImage
-                                source={{
-                                    uri: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1796995164,3252526142&fm=80'
-                                }}
-                            />
-                        </Square>
+                        <View key={i} style={[S.flex, {backgroundColor: value}, S.margin10]}>
+                            <Square>
+                                <SquareImage
+                                    source={{
+                                        uri: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1796995164,3252526142&fm=80'
+                                    }}
+                                />
+                            </Square>
+                        </View>
                     ))}
+                </View>
+                <View style={{
+                    width: 200
+                }}>
+                    <Square>
+                        <SquareImage
+                            source={{
+                                uri: 'https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1796995164,3252526142&fm=80'
+                            }}
+                        />
+                    </Square>
                 </View>
             </View>
         );
