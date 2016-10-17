@@ -218,7 +218,7 @@ Dialog.propTypes = {
     bodyTextStyle: Text.propTypes.style,
     footerStyle: View.propTypes.style,
     children: PropTypes.node,
-    animationType: Modal.PropTypes.animationType
+    animationType: Modal.propTypes.animationType
 };
 
 Dialog.defaultProps = {
