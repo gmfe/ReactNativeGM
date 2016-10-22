@@ -99,10 +99,6 @@ class SearchBar extends Component {
         this.props.onChange('');
     }
 
-    handleBack() {
-        this.props.navigator.pop();
-    }
-
     handleFocus() {
         this.setState({focus: true});
     }
@@ -123,7 +119,8 @@ class SearchBar extends Component {
         const {
             placeholder,
             searchBtn,
-            autoFocus
+            autoFocus,
+            fake
         } = this.props;
 
         const {focus, text} = this.state;
@@ -153,7 +150,7 @@ class SearchBar extends Component {
                         ) : null}
                     </View>
                     {(focus || text) ? null : (
-                        <TouchableOpacity style={styles.searchCover} onPress={this.focus}>
+                        <TouchableOpacity style={styles.searchCover} onPress={fake ? fake : this.focus}>
                             <Icon name="search"/>
                             <Text style={styles.searchCoverText}>{placeholder}</Text>
                         </TouchableOpacity>
@@ -177,7 +174,8 @@ SearchBar.propTypes = {
     onSearch: PropTypes.func,
     searchBtn: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     style: View.propTypes.style,
-    placeholder: PropTypes.string
+    placeholder: PropTypes.string,
+    fake: PropTypes.func // 提供一个假输入框，点击的时候出发fake回调
 };
 
 SearchBar.defaultProps = {
@@ -186,7 +184,8 @@ SearchBar.defaultProps = {
     onChange: noop,
     onClear: noop,
     onSearch: noop,
-    searchBtn: true
+    searchBtn: true,
+    fake: false
 };
 
 export default SearchBar;
