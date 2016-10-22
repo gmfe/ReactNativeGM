@@ -220,6 +220,31 @@ const Styles = {
         paddingBottom: V.gap15
     },
 
+    paddingVertical0: {
+        paddingVertical: V.gap0
+    },
+    paddingVertical5: {
+        paddingVertical: V.gap5
+    },
+    paddingVertical10: {
+        paddingVertical: V.gap10
+    },
+    paddingVertical15: {
+        paddingVertical: V.gap15
+    },
+
+    paddingHorizontal0: {
+        paddingHorizontal: V.gap0
+    },
+    paddingHorizontal5: {
+        paddingHorizontal: V.gap5
+    },
+    paddingHorizontal10: {
+        paddingHorizontal: V.gap10
+    },
+    paddingHorizontal15: {
+        paddingHorizontal: V.gap15
+    },
 
     margin0: {
         margin: V.gap0
@@ -281,6 +306,31 @@ const Styles = {
     },
     marginBottom15: {
         marginBottom: V.gap15
+    },
+    marginVertical0: {
+        marginVertical: V.gap0
+    },
+    marginVertical5: {
+        marginVertical: V.gap5
+    },
+    marginVertical10: {
+        marginVertical: V.gap10
+    },
+    marginVertical15: {
+        marginVertical: V.gap15
+    },
+
+    marginHorizontal0: {
+        marginHorizontal: V.gap0
+    },
+    marginHorizontal5: {
+        marginHorizontal: V.gap5
+    },
+    marginHorizontal10: {
+        marginHorizontal: V.gap10
+    },
+    marginHorizontal15: {
+        marginHorizontal: V.gap15
     }
 };
 
