@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
-        backgroundColor: 'rgba(0,0,0,.6)'
+        backgroundColor: 'rgba(0,0,0,.2)'
     },
     dialog: {
         width: Dimensions.get('window').width - 60,

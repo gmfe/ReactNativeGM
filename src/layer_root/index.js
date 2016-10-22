@@ -47,6 +47,7 @@ class LayerRoot extends React.Component {
 
 LayerRoot.setComponent = (type, com) => {
     if (setComponentFunc) {
+        LayerRoot.removeComponent();
         setComponentFunc(type, com);
     } else {
         console.warn('LayerRoot is uninitialized');

@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import {
-    Modal,
     View,
     Text,
     StyleSheet,
@@ -15,6 +14,8 @@ import G from '../global/variable';
 
 const styles = StyleSheet.create({
     toastWrapper: {
+        position: 'absolute',
+        top: -Dimensions.get('window').height,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
@@ -22,8 +23,6 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').height
     },
     toast: {
-        // width: V.baseFontSize * 7.6,
-        // height: V.baseFontSize * 7.6,
         position: 'absolute',
         top: 180,
         left: 30,
@@ -70,9 +69,6 @@ const renderIcon = (icon) => {
 const Toast = (props) => {
     const {
         icon,
-        visible,
-        onShow,
-        onRequestClose,
         style,
         wrapperStyle,
         textStyle,
@@ -80,20 +76,12 @@ const Toast = (props) => {
     } = props;
 
     return (
-        <Modal
-            animationType="fade"
-            transparent={true}
-            visible={visible}
-            onShow={onShow}
-            onRequestClose={onRequestClose}
-        >
-            <View style={[styles.toastWrapper, wrapperStyle]}>
-                <View style={[styles.toast, style]}>
-                    {renderIcon(icon)}
-                    <Text style={[styles.toastContent, textStyle]}>{children}</Text>
-                </View>
+        <View style={[styles.toastWrapper, wrapperStyle]}>
+            <View style={[styles.toast, style]}>
+                {renderIcon(icon)}
+                <Text style={[styles.toastContent, textStyle]}>{children}</Text>
             </View>
-        </Modal>
+        </View>
     );
 };
 
@@ -116,7 +104,7 @@ Object.assign(Toast, {
     tip(options){
         clearTimeout(timer);
         options = processOptions(options);
-        LayerRoot.setComponent(LayerRoot.TYPE.TOAST, <Toast {...options} visible={true}/>);
+        LayerRoot.setComponent(LayerRoot.TYPE.TOAST, <Toast {...options}/>);
         if (options.time !== false && options.time !== 0) {
             timer = setTimeout(() => {
                 LayerRoot.removeComponent(LayerRoot.TYPE.TOAST);
@@ -147,9 +135,6 @@ Object.assign(Toast, {
 
 Toast.propTypes = {
     icon: PropTypes.string, // iconfont 的图标名字
-    visible: PropTypes.bool.isRequired,
-    onShow: PropTypes.func,
-    onRequestClose: PropTypes.func,
     wrapperStyle: View.propTypes.style,
     style: View.propTypes.style,
     textStyle: Text.propTypes.style,
