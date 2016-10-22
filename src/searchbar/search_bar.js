@@ -11,17 +11,13 @@ import V from '../variable';
 
 const styles = StyleSheet.create({
     searchBar: {
+        height: V.headerHeight - V.statusHeight,
         position: 'relative',
-        paddingTop: V.statusHeight,
-        paddingHorizontal: V.pagePaddingHorizontal,
-        paddingBottom: 8,
+        paddingLeft: 10,
+        paddingRight: 10,
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: V.primaryColor,
-        borderTopWidth: StyleSheet.hairlineWidth,
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        borderStyle: 'solid',
-        borderColor: '#C7C7C7'
+        backgroundColor: V.primaryColor
     },
     searchOuter: {
         position: 'relative',
@@ -33,8 +29,8 @@ const styles = StyleSheet.create({
     },
     searchInner: {
         position: 'relative',
-        paddingHorizontal: V.pagePaddingHorizontal,
-        paddingTop: V.gap5,
+        paddingHorizontal: V.gap10,
+        paddingTop: 4,
         paddingBottom: 4,
         flexDirection: 'row',
         alignItems: 'center'
@@ -53,7 +49,7 @@ const styles = StyleSheet.create({
         left: 1,
         height: 26,
         borderRadius: 3,
-        backgroundColor: V.bgWhite,
+        backgroundColor: V.whiteColor,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center'
@@ -67,20 +63,17 @@ const styles = StyleSheet.create({
         fontSize: V.baseFontSize,
         marginLeft: V.gap10,
         color: 'white'
-    },
-    backBtn: {
-        fontSize: V.baseFontSize,
-        marginRight: V.gap10,
-        color: 'white'
-
     }
 });
+
+const noop = () => {
+};
 
 class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            focus: false,
+            focus: props.autoFocus,
             text: ''
         };
         this.handleChange = ::this.handleChange;
@@ -92,18 +85,18 @@ class SearchBar extends Component {
 
     handleChange(text) {
         this.setState({text});
-        if (this.props.onChange) this.props.onChange(text);
+        this.props.onChange(text);
     }
 
     handleSearch(text) {
         this.blur();
-        if (this.props.onSearch) this.props.onSearch(text);
+        this.props.onSearch(text);
     }
 
     handleClear(e) {
         this.setState({text: ''});
-        if (this.props.onClear) this.props.onClear(e);
-        if (this.props.onChange) this.props.onChange('');
+        this.props.onClear(e);
+        this.props.onChange('');
     }
 
     handleBack() {
@@ -129,13 +122,14 @@ class SearchBar extends Component {
     render() {
         const {
             placeholder,
-            lang
+            searchBtn,
+            autoFocus
         } = this.props;
+
         const {focus, text} = this.state;
 
         return (
             <View style={styles.searchBar}>
-                <Text style={styles.backBtn} onPress={()=>this.handleBack()}>{lang.back}</Text>
                 <View style={styles.searchOuter}>
                     <View style={styles.searchInner}>
                         <Icon name="search"/>
@@ -143,6 +137,7 @@ class SearchBar extends Component {
                             ref={ref => {
                                 this.searchInput = ref;
                             }}
+                            autoFocus={autoFocus}
                             style={styles.searchInput}
                             placeholder={placeholder}
                             onFocus={this.handleFocus}
@@ -157,37 +152,41 @@ class SearchBar extends Component {
                             </Text>
                         ) : null}
                     </View>
-                    {(focus || text) ? null :
-                        (<TouchableOpacity style={styles.searchCover} onPress={this.focus}>
+                    {(focus || text) ? null : (
+                        <TouchableOpacity style={styles.searchCover} onPress={this.focus}>
                             <Icon name="search"/>
                             <Text style={styles.searchCoverText}>{placeholder}</Text>
-                        </TouchableOpacity>)
-                    }
+                        </TouchableOpacity>
+                    )}
                 </View>
-                <Text style={styles.searchBtn} onPress={()=>this.handleSearch(this.state.text)}>{lang.right}</Text>
+                {searchBtn ? (
+                    <Text
+                        style={styles.searchBtn}
+                        onPress={()=>this.handleSearch(this.state.text)}
+                    >{searchBtn === true ? '搜索' : searchBtn}</Text>
+                ) : null}
             </View>
         );
     }
 }
 
 SearchBar.propTypes = {
+    autoFocus: PropTypes.bool,
     onChange: PropTypes.func,
     onClear: PropTypes.func,
     onSearch: PropTypes.func,
-    lang: PropTypes.object,
+    searchBtn: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     style: View.propTypes.style,
     placeholder: PropTypes.string
 };
 
 SearchBar.defaultProps = {
+    autoFocus: false,
     placeholder: '请输入内容',
-    onChange: undefined,
-    onClear: undefined,
-    onSearch: undefined,
-    lang: {
-        back: '返回',
-        right: '搜索'
-    }
+    onChange: noop,
+    onClear: noop,
+    onSearch: noop,
+    searchBtn: true
 };
 
 export default SearchBar;

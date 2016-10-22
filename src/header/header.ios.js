@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     },
     form: {
         height: (V.headerHeight - V.statusHeight),
-        marginHorizontal: V.pagePaddingHorizontal,
+        marginHorizontal: V.gap15,
         justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center'
@@ -108,7 +108,6 @@ Header.defaultProps = {
 
 Header.propTypes = {
     navigator: PropTypes.object.isRequired,
-    //navColor: PropTypes.string,
     pageName: PropTypes.string,
     backBtn: PropTypes.bool,
     backText: PropTypes.string,

@@ -12,6 +12,7 @@ export default {
 
     // base color
     defaultColor: '#555555',
+    whiteColor: 'white',
     primaryColor: '#34BE66',
     primaryColorActive: '#02AF63',
     infoColor: '#25A0E0',
@@ -28,18 +29,6 @@ export default {
     // bg
     bgDefault: '#eaeaea',
     bgWhite: 'white',
-
-
-    // paddingHorizontal
-    pagePaddingHorizontal: 16,
-
-
-    // todo
-
-    arrowColor: '#C7C7CC',
-
-    // page
-    pageDefaultBackgroundColor: '#EFEFF4',
 
     statusHeight: 20,
     headerHeight: 58

@@ -16,7 +16,7 @@ import PageRequest from './page/request';
 import PageIcon from './page/icon';
 import PageTabbar from './page/tabbar';
 import PageLazyload from './page/lazyload';
-import PageSearchBar from './page/searchbar';
+import PageSearchBar from './page/search_bar';
 import PageSwiper from './page/swiper';
 import PageTabs from './page/tabs';
 import PageInfinite from './page/infinite';
