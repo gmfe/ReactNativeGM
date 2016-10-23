@@ -73,29 +73,27 @@ class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            focus: props.autoFocus,
-            text: ''
+            focus: props.autoFocus
         };
         this.handleChange = ::this.handleChange;
         this.handleClear = ::this.handleClear;
         this.handleFocus = ::this.handleFocus;
         this.handleBlur = ::this.handleBlur;
+        this.handleSearch = ::this.handleSearch;
         this.focus = ::this.focus;
     }
 
-    handleChange(text) {
-        this.setState({text});
-        this.props.onChange(text);
+    handleChange(value) {
+        this.props.onChange(value);
     }
 
-    handleSearch(text) {
+    handleSearch() {
         this.blur();
-        this.props.onSearch(text);
+        this.props.onSearch(this.props.value);
     }
 
-    handleClear(e) {
-        this.setState({text: ''});
-        this.props.onClear(e);
+    handleClear() {
+        this.props.onClear();
         this.props.onChange('');
     }
 
@@ -123,7 +121,8 @@ class SearchBar extends Component {
             fake
         } = this.props;
 
-        const {focus, text} = this.state;
+        const {value} = this.props;
+        const {focus} = this.state;
 
         return (
             <View style={styles.searchBar}>
@@ -140,16 +139,16 @@ class SearchBar extends Component {
                             onFocus={this.handleFocus}
                             onBlur={this.handleBlur}
                             onChangeText={this.handleChange}
-                            value={text}
+                            value={value}
                             returnKeyType="search"
                         />
-                        {text ? (
+                        {value ? (
                             <Text onPress={this.handleClear}>
                                 <Icon name="clear" style={styles.clearIcon}/>
                             </Text>
                         ) : null}
                     </View>
-                    {(focus || text) ? null : (
+                    {(focus || value) ? null : (
                         <TouchableOpacity style={styles.searchCover} onPress={fake ? fake : this.focus}>
                             <Icon name="search"/>
                             <Text style={styles.searchCoverText}>{placeholder}</Text>
@@ -159,7 +158,7 @@ class SearchBar extends Component {
                 {searchBtn ? (
                     <Text
                         style={styles.searchBtn}
-                        onPress={()=>this.handleSearch(this.state.text)}
+                        onPress={this.handleSearch}
                     >{searchBtn === true ? '搜索' : searchBtn}</Text>
                 ) : null}
             </View>
@@ -168,6 +167,7 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
+    value: PropTypes.string.isRequired,
     autoFocus: PropTypes.bool,
     onChange: PropTypes.func,
     onClear: PropTypes.func,
