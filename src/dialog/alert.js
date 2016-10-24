@@ -3,7 +3,7 @@ import Dialog from './dialog';
 import LayerRoot from '../layer_root';
 import {Text} from 'react-native';
 
-const Alert = (title, content) => {
+const Alert = (title, content, options = {}) => {
     return new Promise((resolve, reject) => {
         LayerRoot.setComponent(LayerRoot.TYPE.DIALOG,
             <Dialog
@@ -11,7 +11,7 @@ const Alert = (title, content) => {
                 visible={true}
                 buttons={[{
                     type: 'primary',
-                    label: '确定',
+                    label: options.OKLabel || '确定',
                     onPress: () => {
                         resolve();
                         LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);

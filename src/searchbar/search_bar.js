@@ -167,7 +167,7 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
     autoFocus: PropTypes.bool,
     onChange: PropTypes.func,
     onClear: PropTypes.func,
