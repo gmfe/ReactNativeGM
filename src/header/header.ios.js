@@ -54,7 +54,12 @@ class Header extends Component {
     constructor(props) {
         super(props);
         this.handleBackBtn = this.handleBackBtn.bind(this);
+        this.handleBack = this.handleBack.bind(this);
         this.handleRightBtn = this.handleRightBtn.bind(this);
+    }
+
+    handleBack() {
+        this.props.onBack ? this.props.onBack() : this.props.navigator.pop();
     }
 
     handleBackBtn() {
@@ -64,9 +69,7 @@ class Header extends Component {
             );
         }
         return (
-            <TouchableOpacity style={styles.btn} onPress={()=> {
-                this.props.navigator.pop();
-            }}>
+            <TouchableOpacity style={styles.btn} onPress={this.handleBack}>
                 <Text style={styles.btnText}>{this.props.backText}</Text>
             </TouchableOpacity>
         );
@@ -110,6 +113,7 @@ Header.propTypes = {
     navigator: PropTypes.object.isRequired,
     pageName: PropTypes.string,
     backBtn: PropTypes.bool,
+    onBack: PropTypes.func,
     backText: PropTypes.string,
     rightBtn: PropTypes.shape({
         text: PropTypes.string,
