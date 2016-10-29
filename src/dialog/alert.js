@@ -1,7 +1,8 @@
 import React from 'react';
 import Dialog from './dialog';
 import LayerRoot from '../layer_root';
-import {Text} from 'react-native';
+import {Text} from '../typography';
+import S from '../styles';
 
 const Alert = (title, content, options = {}) => {
     return new Promise((resolve, reject) => {
@@ -17,12 +18,12 @@ const Alert = (title, content, options = {}) => {
                         LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                     }
                 }]}
-                onRequestClose={() => {
+                onClose={() => {
                     reject();
                     LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                 }}
             >
-                <Text>{content}</Text>
+                <Text style={S.textDesc}>{content}</Text>
             </Dialog>
         );
     });
