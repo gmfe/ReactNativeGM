@@ -60,7 +60,7 @@ class Radio extends React.Component {
 }
 
 Radio.propTypes = {
-    checked: PropTypes.bool,
+    checked: PropTypes.bool.isRequired,
     onChange: PropTypes.func.isRequired
 };
 

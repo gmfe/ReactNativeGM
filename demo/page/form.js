@@ -12,11 +12,6 @@ import {
     Input,
     Text,
     Button,
-    // RadioCells,
-    // CheckboxCells,
-    // Picker,
-    // Uploader,
-    Select,
     Page,
     Radio
 } from '../../src/index';
@@ -62,14 +57,6 @@ class Component extends React.Component {
                                 });
                             }}
                         />
-
-                        <Text>Select</Text>
-                        <View style={[S.border]}>
-                            <Select
-                                value={1}
-                                pickerData={[1, 2, 3]}
-                            />
-                        </View>
                     </View>
 
                     <View>

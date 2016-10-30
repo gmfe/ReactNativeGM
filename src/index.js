@@ -1,7 +1,6 @@
 import Variable from './variable';
 import Styles from './styles';
 import StyleSheet from './style_sheet';
-// import {Grids, Grid, GridIcon, GridLabel} from './Grid';
 import {Button} from './button';
 import {
     Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter
@@ -14,16 +13,10 @@ import {
     Text, Small
 } from './typography';
 import {
-    TextArea, Input, Picker, Select, Radio
+    TextArea, Input, Radio
 } from './form';
 import {Icon, IFont} from './icon';
 import Toast from './toast';
-// import {
-//     Panel, PanelHeader, PanelBody, PanelFooter,
-// } from './Panel';
-// import {
-//     Media, MediaHeader, MediaBody, MediaTitle, MediaDescription, MediaInfo, MediaInfoMeta,
-// } from './Media';
 import {SearchBar} from './searchbar';
 import Page from './page';
 import NProgress from './nprogress';
@@ -39,15 +32,12 @@ export {
     Variable, Styles,
     StyleSheet,
     Button,
-    // Grids, Grid, GridIcon, GridLabel,
     Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
     Dialog, Alert, Confirm,
-    TextArea, Input, Picker, Select, Radio,
+    TextArea, Input, Radio,
     Icon,
     IFont,
     Toast,
-    // Media, MediaHeader, MediaBody, MediaTitle, MediaDescription, MediaInfo, MediaInfoMeta,
-    // Panel, PanelHeader, PanelBody, PanelFooter,
     SearchBar,
     Header,
     Tabbar, TabbarItem,
