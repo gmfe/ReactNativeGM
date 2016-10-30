@@ -116,21 +116,23 @@ class Dialog extends React.Component {
         }
 
         return (
-            <View style={styles.dialogWrapper}>
-                <TouchableWithoutFeedback onPress={null}>
-                    <View style={styles.dialog}>
-                        <View style={styles.dialogHeader}>
-                            <Text style={styles.dialogTitle}>{title}</Text>
+            <TouchableWithoutFeedback onPress={onClose}>
+                <View style={styles.dialogWrapper}>
+                    <TouchableWithoutFeedback onPress={null}>
+                        <View style={styles.dialog}>
+                            <View style={styles.dialogHeader}>
+                                <Text style={styles.dialogTitle}>{title}</Text>
+                            </View>
+                            <View style={styles.dialogBody}>
+                                {children}
+                            </View>
+                            <View style={styles.dialogFooter}>
+                                {this.renderButtons()}
+                            </View>
                         </View>
-                        <View style={styles.dialogBody}>
-                            {children}
-                        </View>
-                        <View style={styles.dialogFooter}>
-                            {this.renderButtons()}
-                        </View>
-                    </View>
-                </TouchableWithoutFeedback>
-            </View>
+                    </TouchableWithoutFeedback>
+                </View>
+            </TouchableWithoutFeedback>
         );
     }
 }

@@ -5,7 +5,7 @@ import {Text} from '../typography';
 import S from '../styles';
 
 const Alert = (title, content, options = {}) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         LayerRoot.setComponent(LayerRoot.TYPE.DIALOG,
             <Dialog
                 title={title}
@@ -18,10 +18,6 @@ const Alert = (title, content, options = {}) => {
                         LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                     }
                 }]}
-                onClose={() => {
-                    reject();
-                    LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
-                }}
             >
                 <Text style={S.textDesc}>{content}</Text>
             </Dialog>
