@@ -26,6 +26,12 @@ const Prompt = (title, content, options = {}) => {
                     type: 'primary',
                     label: options.OKLabel || '确定',
                     onPress: () => {
+                        if (options.shouleClose) {
+                            const result = options.shouleClose(text);
+                            if (result === false) {
+                                return;
+                            }
+                        }
                         resolve(text);
                         LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                     }
