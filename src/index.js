@@ -5,7 +5,7 @@ import {Button} from './button';
 import {
     Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter
 } from './cell';
-import {Dialog, Alert, Confirm} from './dialog';
+import {Dialog, Alert, Confirm, Prompt} from './dialog';
 import {Header} from './header';
 import {Tabbar, TabbarItem} from './tabbar';
 import {
@@ -33,7 +33,7 @@ export {
     StyleSheet,
     Button,
     Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
-    Dialog, Alert, Confirm,
+    Dialog, Alert, Confirm, Prompt,
     TextArea, Input, Radio,
     Icon,
     IFont,

@@ -6,6 +6,7 @@ import {
     Button,
     Alert,
     Confirm,
+    Prompt,
     Page,
     Toast
 } from '../../src/index';
@@ -58,6 +59,23 @@ class Component extends React.Component {
                         }}
                     >
                         confirm + toast toast 会盖上面
+                    </Button>
+
+                    <Button
+                        type="default"
+                        style={S.marginTop10}
+                        onPress={() => {
+                            Prompt('这是标题', '确定中午吃嘉旺么？', {
+                                placeholder: '输入',
+                                defaultValue: 'aaa'
+                            }).then((text) => {
+                                console.log('confirm resolve', text);
+                            }).catch(() => {
+                                console.log('confirm reject');
+                            });
+                        }}
+                    >
+                        prompt
                     </Button>
                 </View>
             </Page>
