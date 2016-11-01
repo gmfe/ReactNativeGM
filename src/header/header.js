@@ -5,6 +5,7 @@ import {
     View,
     TouchableOpacity
 } from 'react-native';
+import {IFont} from '../icon';
 
 import V from '../variable';
 
@@ -106,7 +107,7 @@ class Header extends Component {
 
 Header.defaultProps = {
     backBtn: true,
-    backText: '返回'
+    backText: <IFont color="white" name="angle-left"/>
 };
 
 Header.propTypes = {
