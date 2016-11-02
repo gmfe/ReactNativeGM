@@ -5,9 +5,9 @@ let isInit = false;
 
 const afterGetReach = (reach) => {
     if (reach === 'none') {
-        Toast.info('设备处于离线状态');
+        Toast.tip('设备处于离线状态');
     } else if (reach === 'unknown') {
-        Toast.info('发生错误，网络状况不可知');
+        Toast.tip('发生错误，网络状况不可知');
     }
 };
 

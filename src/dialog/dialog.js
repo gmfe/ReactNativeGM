@@ -109,8 +109,6 @@ class Dialog extends React.Component {
             children
         } = this.props;
 
-        console.log('dialog');
-
         if (!visible) {
             return null;
         }
