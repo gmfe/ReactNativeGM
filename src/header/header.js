@@ -115,7 +115,7 @@ Header.propTypes = {
     pageName: PropTypes.string,
     backBtn: PropTypes.bool,
     onBack: PropTypes.func,
-    backText: PropTypes.string,
+    backText: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     rightBtn: PropTypes.shape({
         text: PropTypes.string,
         onPress: PropTypes.func

@@ -40,6 +40,7 @@ const Prompt = (title, content, options = {}) => {
                     reject();
                     LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                 }}
+                style={{paddingBottom: 150}}
             >
                 <Text style={S.textDesc}>{content}</Text>
                 <View style={[S.border, S.padding5]}>
