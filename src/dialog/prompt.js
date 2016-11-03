@@ -11,6 +11,17 @@ const Prompt = (title, content, options = {}) => {
 
         let text = '';
 
+        const onOK = () => {
+            if (options.shouleClose) {
+                const result = options.shouleClose(text);
+                if (result === false) {
+                    return;
+                }
+            }
+            resolve(text);
+            LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
+        };
+
         LayerRoot.setComponent(LayerRoot.TYPE.DIALOG,
             <Dialog
                 title={title}
@@ -25,16 +36,7 @@ const Prompt = (title, content, options = {}) => {
                 }, {
                     type: 'primary',
                     label: options.OKLabel || '确定',
-                    onPress: () => {
-                        if (options.shouleClose) {
-                            const result = options.shouleClose(text);
-                            if (result === false) {
-                                return;
-                            }
-                        }
-                        resolve(text);
-                        LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
-                    }
+                    onPress: onOK
                 }]}
                 onClose={() => {
                     reject();
@@ -46,6 +48,8 @@ const Prompt = (title, content, options = {}) => {
                 <View style={[S.border, S.padding5]}>
                     <Input
                         autoFocus
+                        onSubmitEditing={onOK}
+                        returnKeyType="done"
                         defaultValue={options.defaultValue || ''}
                         placeholder={options.placeholder}
                         onChangeText={(t) => {
