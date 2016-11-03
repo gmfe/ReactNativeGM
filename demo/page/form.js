@@ -2,14 +2,14 @@ import React from 'react';
 import {
     View,
     KeyboardAvoidingView,
-    TouchableWithoutFeedback
+    TouchableWithoutFeedback,
+    TextInput
 } from 'react-native';
 import {
     Styles as S,
     Variable as V,
     Header,
     TextArea,
-    Input,
     Text,
     Button,
     Page,
@@ -48,8 +48,8 @@ class Component extends React.Component {
                         />
 
                         <Text>Input</Text>
-                        <Input
-                            style={S.border}
+                        <TextInput
+                            style={[S.input, S.border]}
                             value={this.state.value}
                             onChangeText={value => {
                                 this.setState({
@@ -82,8 +82,8 @@ class Component extends React.Component {
                             <Text>
                                 键盘遮挡场景1 。用 KeyboardAwareScrollView。 记得取消Page的ScrollView(传 noScrollContent)
                             </Text>
-                            <Input
-                                style={S.border}
+                            <TextInput
+                                style={[S.input, S.border]}
                                 value={this.state.value}
                                 onChangeText={value => {
                                     this.setState({
@@ -122,8 +122,8 @@ class Component extends React.Component {
                                     backgroundColor: 'white'
                                 }}>
                                     <Text>购买数量</Text>
-                                    <Input
-                                        style={[S.border, S.marginTop10, S.marginBottom10]}
+                                    <TextInput
+                                        style={[S.input, S.border, S.marginTop10, S.marginBottom10]}
                                         value={this.state.value}
                                         onChangeText={value => {
                                             this.setState({

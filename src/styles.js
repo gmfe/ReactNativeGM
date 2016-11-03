@@ -331,6 +331,13 @@ const Styles = {
     },
     marginHorizontal15: {
         marginHorizontal: V.gap15
+    },
+
+    input: {
+        color: V.defaultColor,
+        fontSize: V.baseFontSize,
+        height: V.baseFontSize * V.baseLineHeight,
+        lineHeight: V.baseFontSize * V.baseLineHeight
     }
 };
 

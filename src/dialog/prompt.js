@@ -1,8 +1,7 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, TextInput} from 'react-native';
 import Dialog from './dialog';
 import LayerRoot from '../layer_root';
-import {Input} from '../form';
 import {Text} from '../typography';
 import S from '../styles';
 
@@ -46,7 +45,8 @@ const Prompt = (title, content, options = {}) => {
             >
                 <Text style={S.textDesc}>{content}</Text>
                 <View style={[S.border, S.padding5]}>
-                    <Input
+                    <TextInput
+                        style={S.input}
                         autoFocus
                         onSubmitEditing={onOK}
                         returnKeyType="done"

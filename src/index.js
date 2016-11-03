@@ -13,7 +13,7 @@ import {
     Text, Small
 } from './typography';
 import {
-    TextArea, Input, Radio
+    TextArea, Radio
 } from './form';
 import {Icon, IFont} from './icon';
 import Toast from './toast';
@@ -34,7 +34,7 @@ export {
     Button,
     Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
     Dialog, Alert, Confirm, Prompt,
-    TextArea, Input, Radio,
+    TextArea, Radio,
     Icon,
     IFont,
     Toast,
