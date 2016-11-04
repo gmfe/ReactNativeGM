@@ -184,8 +184,7 @@ SearchBar.defaultProps = {
     onChange: noop,
     onClear: noop,
     onSearch: noop,
-    searchBtn: true,
-    fake: false
+    searchBtn: true
 };
 
 export default SearchBar;
