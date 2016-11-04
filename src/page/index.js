@@ -21,6 +21,7 @@ class Page extends React.Component {
             style,
             white,
             noScrollContent,
+            scrollViewProps = {},
             header,
             tabbar,
             bottom,
@@ -36,7 +37,7 @@ class Page extends React.Component {
                         {children}
                     </View>
                 ) : (
-                    <ScrollView style={styles.pageContent} keyboardShouldPersistTaps={true}>
+                    <ScrollView style={[styles.pageContent, scrollViewProps.style]} {...scrollViewProps}>
                         {children}
                     </ScrollView>
                 )}
@@ -52,6 +53,7 @@ Page.propTypes = {
     style: View.propTypes.style,
     white: PropTypes.bool,
     noScrollContent: PropTypes.bool,
+    scrollViewProps: PropTypes.object,
     header: PropTypes.node,
     tabbar: PropTypes.node,
     bottom: PropTypes.node
