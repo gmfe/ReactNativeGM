@@ -22,7 +22,7 @@ import Page from './page';
 import NProgress from './nprogress';
 import Loading from './loading';
 import LayerRoot from './layer_root';
-import {Square, SquareImage} from './square';
+import {Square} from './square';
 import Util from './util';
 import {LazyScrollView, LazyImage} from './lazy';
 import {Tabs, TabsItem} from './tabs';
@@ -45,7 +45,7 @@ export {
     Page,
     NProgress, Loading,
     LayerRoot,
-    Square, SquareImage,
+    Square,
     LazyScrollView, LazyImage,
     Tabs, TabsItem,
     Infinite,
