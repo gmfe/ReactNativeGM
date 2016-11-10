@@ -13,8 +13,6 @@ const styles = StyleSheet.create({
     searchBar: {
         height: V.headerHeight - V.statusHeight,
         position: 'relative',
-        paddingLeft: 10,
-        paddingRight: 10,
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: V.primaryColor
@@ -118,14 +116,15 @@ class SearchBar extends Component {
             placeholder,
             searchBtn,
             autoFocus,
-            fake
+            fake,
+            style
         } = this.props;
 
         const {value} = this.props;
         const {focus} = this.state;
 
         return (
-            <View style={styles.searchBar}>
+            <View style={[styles.searchBar, style]}>
                 <View style={styles.searchOuter}>
                     <View style={styles.searchInner}>
                         <Icon name="search"/>

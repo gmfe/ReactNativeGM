@@ -6,7 +6,7 @@ import {
     Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter
 } from './cell';
 import {Dialog, Alert, Confirm, Prompt} from './dialog';
-import {Header} from './header';
+import {Header, HeaderBack} from './header';
 import {Tabbar, TabbarItem} from './tabbar';
 import {
     H1, H2, H3, H4,
@@ -22,7 +22,7 @@ import Page from './page';
 import NProgress from './nprogress';
 import Loading from './loading';
 import LayerRoot from './layer_root';
-import {Square} from './square';
+import {Square, SquareImage} from './square';
 import Util from './util';
 import {LazyScrollView, LazyImage} from './lazy';
 import {Tabs, TabsItem} from './tabs';
@@ -39,13 +39,13 @@ export {
     IFont,
     Toast,
     SearchBar,
-    Header,
+    Header, HeaderBack,
     Tabbar, TabbarItem,
     H1, H2, H3, H4, Text, Small,
     Page,
     NProgress, Loading,
     LayerRoot,
-    Square,
+    Square, SquareImage,
     LazyScrollView, LazyImage,
     Tabs, TabsItem,
     Infinite,
