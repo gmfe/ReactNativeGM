@@ -29,10 +29,10 @@ const styles = StyleSheet.create({
 const Cell = (props) => {
     const {access, vcode, error, first, children, style, ...others} = props;
     const childrenWithProps = React.Children.map(children, (child) => {
-        if (access && child.type.name === 'CellFooter') {
+        if (access && child.type.displayName === 'CellFooter') {
             return React.cloneElement(child, {access: true});
         }
-        if (error && (child.type.name === 'CellHeader' || child.type.name === 'CellBody')) {
+        if (error && (child.type.displayName === 'CellHeader' || child.type.displayName === 'CellBody')) {
             return React.cloneElement(child, {error: true});
         }
         return child;

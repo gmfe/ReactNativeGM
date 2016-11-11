@@ -35,6 +35,7 @@ const CellBody = (props) => {
         </View>
     );
 };
+CellBody.displayName = 'CellBody';
 CellBody.propTypes = {
     error: PropTypes.bool,
     children: PropTypes.node,

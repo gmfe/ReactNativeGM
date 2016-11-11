@@ -44,6 +44,7 @@ const CellFooter = (props) => {
         </View>
     );
 };
+CellFooter.displayName = 'CellFooter';
 CellFooter.propTypes = {
     access: PropTypes.bool,
     children: PropTypes.node,

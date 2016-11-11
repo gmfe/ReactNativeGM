@@ -30,6 +30,8 @@ const CellHeader = (props) => {
     });
     return <View style={[styles.cellHeader, style]} {...others}>{childrenWithProps}</View>;
 };
+
+CellHeader.displayName = 'CellHeader';
 CellHeader.propTypes = {
     error: PropTypes.bool,
     children: PropTypes.node,

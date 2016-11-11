@@ -51,6 +51,8 @@ class TabsItem extends React.Component {
     }
 }
 
+TabsItem.displayName = 'TabsItem';
+
 class Tabs extends React.Component {
     render() {
         const {children, selected, onChange} = this.props;
