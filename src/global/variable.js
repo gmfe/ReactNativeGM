@@ -1,6 +1,6 @@
 export default {
     baseFontSize: 16,
-    baseLineHeight: 1.6,
+    baseLineHeight: 1.09,
 
     smallFontSize: 13.3,
 
