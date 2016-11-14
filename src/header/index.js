@@ -75,7 +75,7 @@ class HeaderBack extends React.Component {
 }
 
 HeaderBack.propTypes = {
-    onPress: PropTypes.bool
+    onPress: PropTypes.func
 };
 
 class Header extends Component {
