@@ -140,6 +140,7 @@ class SearchBar extends Component {
                             onChangeText={this.handleChange}
                             value={value}
                             returnKeyType="search"
+                            onSubmitEditing={this.handleSearch}
                         />
                         {value ? (
                             <Text onPress={this.handleClear}>
