@@ -43,5 +43,8 @@
   "bugs": {
     "url": "https://github.com/gmfe/react-native-gm/issues"
   },
-  "homepage": "https://github.com/gmfe/react-native-gm#readme"
+  "homepage": "https://github.com/gmfe/react-native-gm#readme",
+  "dependencies": {
+    "react": "^15.3.1"
+  }
 }
