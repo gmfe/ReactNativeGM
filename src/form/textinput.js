@@ -1,15 +1,19 @@
 import React, {PropTypes} from 'react';
 import {
     View,
-    Text,
-    TextInput
+    TextInput,
+    StyleSheet
 } from 'react-native';
-import StyleSheet from '../style_sheet';
-import V from '../variable';
 
+const styles = StyleSheet.create({
+    input: {
+        padding: 0
+    }
+});
 
 const InputComponent = (props) => {
     const {
+        style,
         value,
         onChange,
         onChangeText,
@@ -21,6 +25,7 @@ const InputComponent = (props) => {
     return (
         <View>
             <TextInput
+                style={[styles.input, style]}
                 autoCorrect={false}
                 autoCapitalize='none'
                 maxLength={maxLength}

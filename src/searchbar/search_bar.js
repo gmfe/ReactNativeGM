@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
         position: 'relative',
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: V.primaryColor
+        backgroundColor: V.primaryColor,
+        paddingHorizontal: V.gap5
     },
     searchOuter: {
         position: 'relative',
