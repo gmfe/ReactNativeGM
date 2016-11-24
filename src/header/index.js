@@ -3,7 +3,8 @@ import {
     StyleSheet,
     Text,
     View,
-    TouchableHighlight
+    TouchableHighlight,
+    Platform
 } from 'react-native';
 import {IFont} from '../icon';
 
@@ -11,12 +12,19 @@ import V from '../variable';
 
 const styles = StyleSheet.create({
     container: {
-        height: V.headerHeight,
-        paddingTop: V.statusHeight,
+        ...Platform.select({
+            ios: {paddingTop: V.statusHeight, height: V.headerHeight},
+            android: {height: V.headerHeightAndroid}
+        }),
+
         backgroundColor: V.primaryColor
     },
     form: {
-        height: (V.headerHeight - V.statusHeight),
+        ...Platform.select({
+            ios: {height: (V.headerHeight - V.statusHeight)},
+            android: {height: V.headerHeightAndroid}
+        }),
+
         justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center'
@@ -33,7 +41,10 @@ const styles = StyleSheet.create({
     },
     btn: {
         justifyContent: 'center',
-        height: (V.headerHeight - V.statusHeight),
+        ...Platform.select({
+            ios: {height: (V.headerHeight - V.statusHeight)},
+            android: {height: V.headerHeightAndroid}
+        }),
         paddingHorizontal: V.gap15,
         alignSelf: 'center'
     },

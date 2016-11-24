@@ -4,14 +4,18 @@ import {
     Text,
     TextInput,
     TouchableOpacity,
-    StyleSheet
+    StyleSheet,
+    Platform
 } from 'react-native';
 import {Icon} from '../icon';
 import V from '../variable';
 
 const styles = StyleSheet.create({
     searchBar: {
-        height: V.headerHeight - V.statusHeight,
+        ...Platform.select({
+            ios: {height: V.headerHeight - V.statusHeight},
+            android: {height: V.headerHeightAndroid}
+        }),
         position: 'relative',
         flexDirection: 'row',
         alignItems: 'center',
@@ -30,12 +34,18 @@ const styles = StyleSheet.create({
         paddingHorizontal: V.gap10,
         paddingTop: 4,
         paddingBottom: 4,
+        ...Platform.select({
+            android: {padding: 19}
+        }),
         flexDirection: 'row',
         alignItems: 'center'
     },
     searchInput: {
+        ...Platform.select({
+            ios: {height: 20},
+            android: {padding: 0}
+        }),
         marginLeft: V.gap5,
-        height: 20,
         fontSize: 14,
         flex: 1
     },
@@ -45,7 +55,9 @@ const styles = StyleSheet.create({
         right: 1,
         bottom: 1,
         left: 1,
-        height: 26,
+        ...Platform.select({
+            ios: {height: 26}
+        }),
         borderRadius: 3,
         backgroundColor: V.whiteColor,
         flexDirection: 'row',
@@ -55,7 +67,8 @@ const styles = StyleSheet.create({
     searchCoverText: {
         textAlign: 'center',
         color: '#9B9B9B',
-        marginLeft: V.gap5
+        marginLeft: V.gap5,
+        padding: 0
     },
     searchBtn: {
         fontSize: V.baseFontSize,
@@ -140,6 +153,7 @@ class SearchBar extends Component {
                             onChangeText={this.handleChange}
                             value={value}
                             returnKeyType="search"
+                            underlineColorAndroid='transparent'
                             onSubmitEditing={this.handleSearch}
                         />
                         {value ? (

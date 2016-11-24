@@ -5,7 +5,7 @@ import {
 import {
     Page,
     SearchBar,
-    Header
+    TextInput
 } from '../../src/index';
 
 
@@ -20,13 +20,11 @@ class PageSearchBar extends Component {
     }
 
     render() {
-        const {navigator} = this.props;
         return (
-            <Page header={<Header navigator={navigator} pageName="SearchBar"/>}>
+            <Page header={<SearchBar navigator={this.props.navigator} onSearch={this.handleSearch}/>}>
                 <View style={{height: 10}}></View>
-                <SearchBar navigator={this.props.navigator} onSearch={this.handleSearch}/>
 
-                <SearchBar autoFocus navigator={this.props.navigator} onSearch={this.handleSearch}/>
+                <TextInput/>
             </Page>
         );
     }

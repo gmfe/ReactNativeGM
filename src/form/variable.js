@@ -3,5 +3,6 @@ export default {
     uploaderActiveBorderColor: '#999999',
     uploaderFileSpacing: 9,
     uploaderSize: 79,
-    uploaderBorderWidth: 1
+    uploaderBorderWidth: 1,
+    inputAndroid: 2
 };

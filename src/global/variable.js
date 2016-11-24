@@ -31,5 +31,6 @@ export default {
     bgWhite: 'white',
 
     statusHeight: 20,
-    headerHeight: 58
+    headerHeight: 58,
+    headerHeightAndroid: 50
 };
