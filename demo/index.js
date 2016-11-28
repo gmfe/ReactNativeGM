@@ -1,7 +1,10 @@
 import React from 'react';
 import {
     Navigator,
-    View
+    View,
+    BackAndroid,
+    Platform,
+    ToastAndroid
 } from 'react-native';
 import _ from 'underscore';
 
@@ -61,7 +64,34 @@ const navConfig = [{
     name: 'Infinite', component: <PageInfinite/>
 }];
 
+
 class Home extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentWillMount() {
+        if (Platform.OS === 'android') {
+            BackAndroid.addEventListener('hardwareBackPress', this.onBackAndroid);
+        }
+    }
+
+    onBackAndroid = () => {
+        const nav = this.props.navigator;
+        const routers = nav.getCurrentRoutes();
+        if (routers.length > 1) {
+            nav.pop();
+            return true;
+        }
+        if (this.lastBackPressed && this.lastBackPressed + 2000 >= Date.now()) {
+            //最近2秒内按过back键，可以退出应用。
+            return false;
+        }
+        this.lastBackPressed = Date.now();
+        ToastAndroid.show('再按一次退出应用', ToastAndroid.SHORT);
+        return true;
+    };
+
     render() {
         const {navigator} = this.props;
 

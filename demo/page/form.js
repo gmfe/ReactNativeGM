@@ -2,8 +2,8 @@ import React from 'react';
 import {
     View,
     KeyboardAvoidingView,
-    TouchableWithoutFeedback,
-    TextInput
+    TouchableWithoutFeedback
+
 } from 'react-native';
 import {
     Styles as S,
@@ -11,6 +11,7 @@ import {
     Header,
     TextArea,
     Text,
+    TextInput,
     Button,
     Page,
     Radio
