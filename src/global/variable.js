@@ -1,7 +1,8 @@
+import {Platform} from 'react-native';
+
 export default {
     baseFontSize: 16,
-    baseLineHeight: 2,
-
+    baseLineHeight: (Platform.OS === 'ios' ? 1.90 : 2),
     smallFontSize: 13.3,
 
     // gap
@@ -30,7 +31,6 @@ export default {
     bgDefault: '#eaeaea',
     bgWhite: 'white',
 
-    statusHeight: 20,
-    headerHeight: 58,
-    headerHeightAndroid: 50
+    statusHeight: (Platform.OS === 'ios' ? 20 : 0),
+    headerHeight: (Platform.OS === 'ios' ? 58 : 50)
 };

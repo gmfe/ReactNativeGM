@@ -12,10 +12,7 @@ import V from '../variable';
 
 const styles = StyleSheet.create({
     searchBar: {
-        ...Platform.select({
-            ios: {height: V.headerHeight - V.statusHeight},
-            android: {height: V.headerHeightAndroid}
-        }),
+        height: V.headerHeight - V.statusHeight,
         position: 'relative',
         flexDirection: 'row',
         alignItems: 'center',

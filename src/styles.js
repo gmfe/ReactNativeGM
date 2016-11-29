@@ -341,4 +341,4 @@ const Styles = {
     }
 };
 
-export default Styles;
+export default StyleSheet.create(Styles);

@@ -12,19 +12,12 @@ import V from '../variable';
 
 const styles = StyleSheet.create({
     container: {
-        ...Platform.select({
-            ios: {paddingTop: V.statusHeight, height: V.headerHeight},
-            android: {height: V.headerHeightAndroid}
-        }),
-
+        paddingTop: V.statusHeight,
+        height: V.headerHeight,
         backgroundColor: V.primaryColor
     },
     form: {
-        ...Platform.select({
-            ios: {height: (V.headerHeight - V.statusHeight)},
-            android: {height: V.headerHeightAndroid}
-        }),
-
+        height: (V.headerHeight - V.statusHeight),
         justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center'
@@ -41,10 +34,7 @@ const styles = StyleSheet.create({
     },
     btn: {
         justifyContent: 'center',
-        ...Platform.select({
-            ios: {height: (V.headerHeight - V.statusHeight)},
-            android: {height: V.headerHeightAndroid}
-        }),
+        height: (V.headerHeight - V.statusHeight),
         paddingHorizontal: V.gap15,
         alignSelf: 'center'
     },
@@ -52,7 +42,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end'
     },
     btnNull: {
-        width: 30 + 18
+        width: (30 + 18)
     },
     btnText: {
         fontSize: V.baseFontSize,
