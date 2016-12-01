@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
         overflow: 'hidden'
     },
     dialogHeader: {
-        paddingTop: 1.2 * V.baseFontSize,
-        paddingBottom: 0.5 * V.baseFontSize
+        paddingTop: 1.2 * V.fontSize16,
+        paddingBottom: 0.5 * V.fontSize16
     },
     dialogTitle: {
         fontWeight: '400',

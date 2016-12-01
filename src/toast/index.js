@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     toastIcon: {
         marginBottom: 10,
         color: '#fff',
-        fontSize: G.baseFontSize * 2,
+        fontSize: G.fontSize16 * 2,
         textAlign: 'center'
     },
     toastContent: {

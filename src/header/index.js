@@ -45,9 +45,9 @@ const styles = StyleSheet.create({
         width: (30 + 18)
     },
     btnText: {
-        fontSize: V.baseFontSize,
+        fontSize: V.fontSize16,
         color: V.whiteColor,
-        lineHeight: V.baseFontSize
+        lineHeight: V.fontSize16
     }
 });
 

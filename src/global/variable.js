@@ -1,9 +1,10 @@
 import {Platform} from 'react-native';
 
 export default {
-    baseFontSize: 16,
     baseLineHeight: (Platform.OS === 'ios' ? 1.90 : 2),
-    smallFontSize: 13.3,
+    fontSize16: 16,
+    fontSize14: 14,
+    fontSize12: 12,
 
     // gap
     gap0: 0,

@@ -6,7 +6,7 @@ import G from '../global/variable';
 const Icon = (props) => {
     const {
         name,
-        size = G.baseFontSize,
+        size = G.fontSize16,
         color = G.defaultColor,
         style
     } = props;

@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     cellFooterText: {
         textAlign: 'center',
         color: V.descColor,
-        fontSize: V.smallFontSize
+        fontSize: V.fontSize14
     },
     vcode: {
         width: 100,
@@ -37,7 +37,7 @@ const CellFooter = (props) => {
             {access ? (
                 <IFont
                     name="angle-right"
-                    size={V.smallFontSize}
+                    size={V.fontSize14}
                     style={{marginLeft: 5, color: V.descColor, marginTop: 2}}
                 />
             ) : undefined}

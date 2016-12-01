@@ -12,7 +12,7 @@ import V from '../variable';
 const styles = StyleSheet.create({
     font: {
         paddingTop: 2,
-        fontSize: V.baseFontSize * 1.3,
+        fontSize: V.fontSize16 * 1.3,
         marginRight: 2
     }
 });

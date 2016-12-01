@@ -6,7 +6,7 @@ export default {
     cellGapV: G.gap15,
     cellGapH: G.gap15,
     cellHeight: 55,
-    cellFontSize: G.baseFontSize,
+    cellFontSize: G.fontSize16,
     cellTipsFontSize: 14,
     cellLabelWidth: 105,
 

@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
         padding: 0
     },
     searchBtn: {
-        fontSize: V.baseFontSize,
+        fontSize: V.fontSize16,
         marginLeft: V.gap10,
         color: 'white'
     }
