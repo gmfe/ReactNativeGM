@@ -3,8 +3,7 @@ import {
     StyleSheet,
     Text,
     View,
-    TouchableHighlight,
-    Platform
+    TouchableHighlight
 } from 'react-native';
 import {IFont} from '../icon';
 
