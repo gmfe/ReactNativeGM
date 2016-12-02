@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     redPoint: {
         position: 'absolute',
         top: 4,
-        right: -2,
+        right: 0,
         height: 18,
         width: 18,
         backgroundColor: 'red',
@@ -32,13 +32,17 @@ class TabsItem extends React.Component {
                 underlayColor={V.activeColor}
                 onPress={onPress}
             >
-                <View style={[S.flexRow, active ? {
-                    borderBottomWidth: 2,
-                    borderBottomColor: V.primaryColor
-                } : {}]}>
-                    <Text
-                        style={[S.paddingTop10, S.paddingBottom10, S.paddingLeft15, S.paddingRight15, active && S.textPrimary]}
-                    >{children}</Text>
+                <View>
+                    <View style={[S.flexRow, active ? {
+                        borderBottomWidth: 2,
+                        borderBottomColor: V.primaryColor
+                    } : {}]}>
+                        <Text
+                            /*因为红点的width为18所以hrozontalpadding一定要超过18*/
+                            style={[{paddingHorizontal: 20}, S.paddingVertical10, active && S.textPrimary]}
+                        >{children}</Text>
+
+                    </View>
                     {
                         redCount ? <View style={[S.flexJustifyCenter, S.flexAlignCenter, styles.redPoint]}>
                             <Text style={styles.redCount}>{redCount}</Text>
