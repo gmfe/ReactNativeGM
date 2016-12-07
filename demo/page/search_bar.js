@@ -27,7 +27,7 @@ class PageSearchBar extends Component {
                 <SearchBar
                     value={this.state.value}
                     onChange={(value) => {
-                        this.setState({value})
+                        this.setState({value});
                     }}
                     navigator={this.props.navigator} onSearch={::this.handleSearch}
                 />
