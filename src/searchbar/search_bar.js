@@ -29,9 +29,7 @@ const styles = StyleSheet.create({
     },
     searchInner: {
         position: 'relative',
-        paddingHorizontal: V.gap10,
-        paddingTop: 4,
-        paddingBottom: 4,
+        paddingLeft: V.gap5,
         ...Platform.select({
             android: {padding: 19}
         }),
@@ -39,22 +37,25 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     searchInput: {
+        paddingTop: 4,
+        paddingBottom: 4,
         ...Platform.select({
-            ios: {height: 20},
+            ios: {height: 20 + 8},
             android: {padding: 0}
         }),
         marginLeft: V.gap5,
         fontSize: 14,
-        flex: 1
+        flex: 1,
+        borderRadius: 5
     },
     searchCover: {
         position: 'absolute',
-        top: 1,
-        right: 1,
-        bottom: 1,
-        left: 1,
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0,
         ...Platform.select({
-            ios: {height: 26}
+            ios: {height: 28}
         }),
         borderRadius: 3,
         backgroundColor: V.whiteColor,
@@ -67,6 +68,10 @@ const styles = StyleSheet.create({
         color: '#9B9B9B',
         marginLeft: V.gap5,
         padding: 0
+    },
+    clearIcon: {
+        padding: 4,
+        marginRight: 2
     },
     searchBtn: {
         fontSize: V.fontSize16,
@@ -155,8 +160,8 @@ class SearchBar extends Component {
                             onSubmitEditing={this.handleSearch}
                         />
                         {value ? (
-                            <Text onPress={this.handleClear}>
-                                <Icon name="clear" style={styles.clearIcon}/>
+                            <Text onPress={this.handleClear} style={styles.clearIcon}>
+                                <Icon name="clear"/>
                             </Text>
                         ) : null}
                     </View>

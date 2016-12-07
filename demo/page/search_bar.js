@@ -4,15 +4,16 @@ import {
 } from 'react-native';
 import {
     Page,
-    SearchBar,
-    TextInput
+    SearchBar
 } from '../../src/index';
 
 
 class PageSearchBar extends Component {
     constructor(props) {
         super(props);
-        this.handleSearch = this.handleSearch.bind(this);
+        this.state = {
+            value: ''
+        };
     }
 
     handleSearch(text) {
@@ -21,10 +22,15 @@ class PageSearchBar extends Component {
 
     render() {
         return (
-            <Page header={<SearchBar navigator={this.props.navigator} onSearch={this.handleSearch}/>}>
-                <View style={{height: 10}}></View>
-
-                <TextInput/>
+            <Page>
+                <View style={{height: 20}}/>
+                <SearchBar
+                    value={this.state.value}
+                    onChange={(value) => {
+                        this.setState({value})
+                    }}
+                    navigator={this.props.navigator} onSearch={::this.handleSearch}
+                />
             </Page>
         );
     }
