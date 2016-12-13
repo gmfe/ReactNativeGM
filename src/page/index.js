@@ -1,6 +1,9 @@
 import React, {PropTypes} from 'react';
 import {View, ScrollView, StyleSheet} from 'react-native';
 import G from '../global/variable';
+import InputScrollView from 'react-native-inputscrollview';
+
+;
 
 const styles = StyleSheet.create({
     page: {
@@ -37,9 +40,9 @@ class Page extends React.Component {
                         {children}
                     </View>
                 ) : (
-                    <ScrollView style={[styles.pageContent, scrollViewProps.style]} {...scrollViewProps}>
+                    <InputScrollView style={[styles.pageContent, scrollViewProps.style]} {...scrollViewProps}>
                         {children}
-                    </ScrollView>
+                    </InputScrollView>
                 )}
                 {tabbar ? <View>{tabbar}</View> : undefined}
                 {bottom ? bottom : undefined}
