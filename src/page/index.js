@@ -3,7 +3,7 @@ import {View, ScrollView, StyleSheet} from 'react-native';
 import G from '../global/variable';
 import InputScrollView from 'react-native-inputscrollview';
 
-;
+
 
 const styles = StyleSheet.create({
     page: {
