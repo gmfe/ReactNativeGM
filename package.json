@@ -25,8 +25,7 @@
     "babel-relay-plugin": "^0.8.1",
     "husky": "^0.11.7",
     "parse": "^1.8.3",
-    "react": "^15.3.1",
-    "react-native": "^0.34.0",
+    "react-native": "0.34.0",
     "react-native-image-picker": "^0.19.7",
     "react-native-keyboard-aware-scroll-view": "^0.2.1",
     "react-native-swiper": "^1.4.11",
@@ -45,7 +44,6 @@
   },
   "homepage": "https://github.com/gmfe/react-native-gm#readme",
   "dependencies": {
-    "react": "^15.3.1",
-    "react-native-inputscrollview": "^1.0.3"
+    "react": "15.3.1"
   }
 }

@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, ScrollView, StyleSheet} from 'react-native';
 import G from '../global/variable';
-import InputScrollView from 'react-native-inputscrollview';
 
 
 
@@ -40,9 +39,10 @@ class Page extends React.Component {
                         {children}
                     </View>
                 ) : (
-                    <InputScrollView style={[styles.pageContent, scrollViewProps.style]} {...scrollViewProps}>
+                    <ScrollView keyboardShouldPersistTaps={true} keyboardDismissMode={'on-drag'}
+                                style={[styles.pageContent, scrollViewProps.style]} {...scrollViewProps}>
                         {children}
-                    </InputScrollView>
+                    </ScrollView>
                 )}
                 {tabbar ? <View>{tabbar}</View> : undefined}
                 {bottom ? bottom : undefined}
