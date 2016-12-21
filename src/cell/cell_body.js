@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Platform} from 'react-native';
 import {Text} from '../typography';
 import {Icon} from '../icon';
 import V from '../variable';
@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     },
     input: {
         flex: 1,
-        paddingTop: V.cellGapV,
-        paddingBottom: V.cellGapV,
+        paddingTop: (Platform.OS === 'ios' ? V.cellGapV : 0),
+        paddingBottom: (Platform.OS === 'ios' ? V.cellGapV : 0),
         paddingRight: V.cellGapH,
         lineHeight: V.fontSize16,
         height: V.fontSize16 + 30,

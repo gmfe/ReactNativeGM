@@ -30,9 +30,6 @@ const styles = StyleSheet.create({
     searchInner: {
         position: 'relative',
         paddingLeft: V.gap5,
-        ...Platform.select({
-            android: {padding: 19}
-        }),
         flexDirection: 'row',
         alignItems: 'center'
     },
