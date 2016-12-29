@@ -45,7 +45,7 @@ class TabsItem extends React.Component {
                     </View>
                     {
                         redCount ? <View style={[S.flexJustifyCenter, S.flexAlignCenter, styles.redPoint]}>
-                            <Text style={styles.redCount}>{redCount}</Text>
+                            <Text style={styles.redCount}>{redCount > 99 ? '...' : redCount}</Text>
                         </View>
                             : null
                     }
