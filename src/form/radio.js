@@ -38,6 +38,7 @@ class Radio extends React.Component {
             onChange,
             children,
             style,
+            textStyle,
             ...others
         } = this.props;
         const {checked} = this.state;
@@ -46,13 +47,13 @@ class Radio extends React.Component {
             <TouchableWithoutFeedback
                 onPress={() => onChange(!checked)}
             >
-                <View {...others} style={[S.flex, S.flexRow, S.flexAlignCenter, style]}>
+                <View {...others} style={[S.flexRow, S.flexAlignCenter, style]}>
                     {checked ? (
                         <IFont name="success" color={V.primaryColor} style={styles.font}/>
                     ) : (
                         <IFont name="circle" color={V.descColor} style={styles.font}/>
                     )}
-                    {!children.type ? <Text style={S.flex}>{children}</Text> : children}
+                    {!children.type ? <Text style={textStyle}>{children}</Text> : children}
                 </View>
             </TouchableWithoutFeedback>
         );
