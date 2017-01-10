@@ -2,7 +2,7 @@ import React from 'react';
 
 import {
     View,
-    Text,
+    Text
 } from 'react-native';
 
 import {

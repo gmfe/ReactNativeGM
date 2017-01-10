@@ -1,10 +1,10 @@
 {
   "name": "react-native-gm",
-  "version": "0.0.14",
+  "version": "0.0.70",
   "description": "mgm lib for react-native",
   "main": "./src",
   "scripts": {
-    "precommit": "eslint --fix --cache ./src/; eslint --cache ./demo/",
+    "precommit": "eslint --fix --cache ./src/; eslint --fix --cache ./demo/",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "publishpatch": "sh deploy/publish.sh"
   },
@@ -25,9 +25,10 @@
     "babel-relay-plugin": "^0.8.1",
     "husky": "^0.11.7",
     "parse": "^1.8.3",
-    "react": "^15.3.1",
-    "react-native": "^0.33.0",
+    "react-native": "0.34.0",
     "react-native-image-picker": "^0.19.7",
+    "react-native-keyboard-aware-scroll-view": "^0.2.1",
+    "react-native-swiper": "^1.4.11",
     "react-native-vector-icons": "^2.1.0",
     "underscore": "^1.8.3"
   },
@@ -41,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/gmfe/react-native-gm/issues"
   },
-  "homepage": "https://github.com/gmfe/react-native-gm#readme"
+  "homepage": "https://github.com/gmfe/react-native-gm#readme",
+  "dependencies": {
+    "react": "15.3.1"
+  }
 }

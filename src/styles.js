@@ -24,6 +24,13 @@ const Styles = {
     textLink: {
         color: V.linkColor
     },
+    textPrice: {
+        color: V.priceColor
+    },
+
+    textSmall: {
+        fontSize: V.fontSize14
+    },
 
     textLeft: {
         textAlign: 'left'
@@ -36,34 +43,29 @@ const Styles = {
     },
 
     text: {
-        fontSize: V.baseFontSize,
+        fontSize: V.fontSize16,
         color: V.defaultColor
     },
 
     border: {
         borderColor: V.borderColor,
-        borderWidth: StyleSheet.hairlineWidth,
-        borderStyle: 'solid'
+        borderWidth: StyleSheet.hairlineWidth
     },
     borderLeft: {
         borderLeftColor: V.borderColor,
-        borderLeftWidth: StyleSheet.hairlineWidth,
-        borderStyle: 'solid'
+        borderLeftWidth: StyleSheet.hairlineWidth
     },
     borderTop: {
         borderTopColor: V.borderColor,
-        borderTopWidth: StyleSheet.hairlineWidth,
-        borderStyle: 'solid'
+        borderTopWidth: StyleSheet.hairlineWidth
     },
     borderRight: {
         borderRightColor: V.borderColor,
-        borderRightWidth: StyleSheet.hairlineWidth,
-        borderStyle: 'solid'
+        borderRightWidth: StyleSheet.hairlineWidth
     },
     borderBottom: {
         borderBottomColor: V.borderColor,
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        borderStyle: 'solid'
+        borderBottomWidth: StyleSheet.hairlineWidth
     },
 
     positionAbsolute: {
@@ -218,9 +220,34 @@ const Styles = {
         paddingBottom: V.gap15
     },
 
+    paddingVertical0: {
+        paddingVertical: V.gap0
+    },
+    paddingVertical5: {
+        paddingVertical: V.gap5
+    },
+    paddingVertical10: {
+        paddingVertical: V.gap10
+    },
+    paddingVertical15: {
+        paddingVertical: V.gap15
+    },
+
+    paddingHorizontal0: {
+        paddingHorizontal: V.gap0
+    },
+    paddingHorizontal5: {
+        paddingHorizontal: V.gap5
+    },
+    paddingHorizontal10: {
+        paddingHorizontal: V.gap10
+    },
+    paddingHorizontal15: {
+        paddingHorizontal: V.gap15
+    },
 
     margin0: {
-        margin: V.gap0,
+        margin: V.gap0
     },
     margin5: {
         margin: V.gap5
@@ -233,7 +260,7 @@ const Styles = {
     },
 
     marginLeft0: {
-        marginLeft: V.gap0,
+        marginLeft: V.gap0
     },
     marginLeft5: {
         marginLeft: V.gap5
@@ -245,7 +272,7 @@ const Styles = {
         marginLeft: V.gap15
     },
     marginRight0: {
-        marginRight: V.gap0,
+        marginRight: V.gap0
     },
     marginRight5: {
         marginRight: V.gap5
@@ -257,7 +284,7 @@ const Styles = {
         marginRight: V.gap15
     },
     marginTop0: {
-        marginTop: V.gap0,
+        marginTop: V.gap0
     },
     marginTop5: {
         marginTop: V.gap5
@@ -269,7 +296,7 @@ const Styles = {
         marginTop: V.gap15
     },
     marginBottom0: {
-        marginBottom: V.gap0,
+        marginBottom: V.gap0
     },
     marginBottom5: {
         marginBottom: V.gap5
@@ -280,6 +307,39 @@ const Styles = {
     marginBottom15: {
         marginBottom: V.gap15
     },
+    marginVertical0: {
+        marginVertical: V.gap0
+    },
+    marginVertical5: {
+        marginVertical: V.gap5
+    },
+    marginVertical10: {
+        marginVertical: V.gap10
+    },
+    marginVertical15: {
+        marginVertical: V.gap15
+    },
+
+    marginHorizontal0: {
+        marginHorizontal: V.gap0
+    },
+    marginHorizontal5: {
+        marginHorizontal: V.gap5
+    },
+    marginHorizontal10: {
+        marginHorizontal: V.gap10
+    },
+    marginHorizontal15: {
+        marginHorizontal: V.gap15
+    },
+
+    input: {
+        color: V.defaultColor,
+        fontSize: V.fontSize16,
+        height: V.fontSize16 * V.baseLineHeight,
+        lineHeight: V.fontSize16 * V.baseLineHeight,
+        padding: 0
+    }
 };
 
-export default Styles;
+export default StyleSheet.create(Styles);

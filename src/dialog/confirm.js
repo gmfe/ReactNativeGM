@@ -1,9 +1,10 @@
 import React from 'react';
 import Dialog from './dialog';
 import LayerRoot from '../layer_root';
-import {Text} from 'react-native';
+import {Text} from '../typography';
+import S from '../styles';
 
-const Confirm = (title, content) => {
+const Confirm = (title, content, options = {}) => {
     return new Promise((resolve, reject) => {
         LayerRoot.setComponent(LayerRoot.TYPE.DIALOG,
             <Dialog
@@ -11,25 +12,25 @@ const Confirm = (title, content) => {
                 visible={true}
                 buttons={[{
                     type: 'default',
-                    label: '取消',
+                    label: options.CancelLabel || '取消',
                     onPress: () => {
                         reject();
                         LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                     }
                 }, {
                     type: 'primary',
-                    label: '确定',
+                    label: options.OKLabel || '确定',
                     onPress: () => {
                         resolve();
                         LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                     }
                 }]}
-                onRequestClose={() => {
+                onClose={() => {
                     reject();
                     LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                 }}
             >
-                <Text>{content}</Text>
+                <Text style={S.textDesc}>{content}</Text>
             </Dialog>
         );
     });

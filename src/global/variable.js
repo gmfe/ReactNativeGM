@@ -1,6 +1,10 @@
+import {Platform} from 'react-native';
+
 export default {
-    baseFontSize: 16,
-    baseLineHeight: 1.6,
+    baseLineHeight: (Platform.OS === 'ios' ? 1.90 : 2),
+    fontSize16: 16,
+    fontSize14: 14,
+    fontSize12: 12,
 
     // gap
     gap0: 0,
@@ -10,6 +14,7 @@ export default {
 
     // base color
     defaultColor: '#555555',
+    whiteColor: 'white',
     primaryColor: '#34BE66',
     primaryColorActive: '#02AF63',
     infoColor: '#25A0E0',
@@ -18,6 +23,7 @@ export default {
     linkColor: '#61749B',
     descColor: '#A3A3A3',
     activeColor: '#ededed',
+    priceColor: '#d36a29',
 
     // border
     borderColor: '#D5D5D5',
@@ -26,15 +32,6 @@ export default {
     bgDefault: '#eaeaea',
     bgWhite: 'white',
 
-
-    // paddingHorizontal
-    pagePaddingHorizontal: 16,
-
-
-    // todo
-
-    arrowColor: '#C7C7CC',
-
-    // page
-    pageDefaultBackgroundColor: '#EFEFF4',
+    statusHeight: (Platform.OS === 'ios' ? 20 : 0),
+    headerHeight: (Platform.OS === 'ios' ? 58 : 50)
 };

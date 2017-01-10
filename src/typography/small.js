@@ -2,13 +2,13 @@ import React from 'react';
 import {Text as T} from 'react-native';
 import V from '../variable';
 
-class Text extends React.Component {
+class Small extends React.Component {
     render() {
         return (
             <T
                 {...this.props}
                 style={[{
-                    fontSize: V.fontSize16,
+                    fontSize: V.fontSize14,
                     color: V.defaultColor
                 }, this.props.style]}
             >
@@ -18,4 +18,4 @@ class Text extends React.Component {
     }
 }
 
-export default Text;
+export default Small;

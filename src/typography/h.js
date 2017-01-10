@@ -1,17 +1,15 @@
 import React from 'react';
 import {
-    Text,
     StyleSheet
 } from 'react-native';
+import Text from './text';
 
 import V from '../variable';
 
 const getStyle = (fontSize) => {
     return {
         fontSize: fontSize,
-        fontWeight: '400',
-        lineHeight: fontSize * ((V.baseLineHeight - 1) / 2 + 1),
-        paddingBottom: fontSize * (V.baseLineHeight - 1) / 2
+        fontWeight: '400'
     };
 };
 

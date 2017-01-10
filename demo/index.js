@@ -1,8 +1,10 @@
 import React from 'react';
 import {
     Navigator,
-    StyleSheet,
-    View
+    View,
+    BackAndroid,
+    Platform,
+    ToastAndroid
 } from 'react-native';
 import _ from 'underscore';
 
@@ -17,22 +19,21 @@ import PageRequest from './page/request';
 import PageIcon from './page/icon';
 import PageTabbar from './page/tabbar';
 import PageLazyload from './page/lazyload';
-import PageSearchBar from './page/searchbar';
+import PageSearchBar from './page/search_bar';
+import PageSwiper from './page/swiper';
+import PageTabs from './page/tabs';
+import PageInfinite from './page/infinite';
 
 import {
     LayerRoot,
-    Cells, Cell, CellBody, CellsTitle,
-    Page
+    Cells, Cell, CellBody,
+    Page,
+    Header,
+    Styles as S
 } from '../src/index';
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    }
-});
-
 const navConfig = [{
-    name: '排版', component: <PageTypography/>
+    name: 'Typography', component: <PageTypography/>
 }, {
     name: 'Button', component: <PageButton/>
 }, {
@@ -55,15 +56,53 @@ const navConfig = [{
     name: 'Lazyload', component: <PageLazyload/>
 }, {
     name: 'SearchBar', component: <PageSearchBar/>
+}, {
+    name: 'Swiper', component: <PageSwiper/>
+}, {
+    name: 'Tabs', component: <PageTabs/>
+}, {
+    name: 'Infinite', component: <PageInfinite/>
 }];
 
+
 class Home extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentWillMount() {
+        if (Platform.OS === 'android') {
+            BackAndroid.addEventListener('hardwareBackPress', this.onBackAndroid);
+        }
+    }
+
+    onBackAndroid = () => {
+        const nav = this.props.navigator;
+        const routers = nav.getCurrentRoutes();
+        if (routers.length > 1) {
+            nav.pop();
+            return true;
+        }
+        if (this.lastBackPressed && this.lastBackPressed + 2000 >= Date.now()) {
+            //最近2秒内按过back键，可以退出应用。
+            return false;
+        }
+        this.lastBackPressed = Date.now();
+        ToastAndroid.show('再按一次退出应用', ToastAndroid.SHORT);
+        return true;
+    };
+
     render() {
         const {navigator} = this.props;
 
         return (
-            <Page>
-                <CellsTitle>功能列表</CellsTitle>
+            <Page header={
+                <Header
+                    navigator={navigator}
+                    pageName="功能列表"
+                    backBtn={false}
+                />
+            }>
                 <Cells>
                     {_.map(navConfig, (value, i) => (
                         <Cell key={i} onPress={() => navigator.push({
@@ -83,6 +122,7 @@ class Demo extends React.Component {
     constructor(props) {
         super(props);
         this.renderScene = ::this.renderScene;
+        this.refNavigator = null;
     }
 
     getComponent(route, navigator) {
@@ -97,26 +137,24 @@ class Demo extends React.Component {
     }
 
     renderScene(route, navigator) {
-        return (
-            <View style={styles.container}>
-                {React.cloneElement(this.getComponent(route, navigator), {
-                    style: {flex: 1}
-                })}
-                <LayerRoot/>
-            </View>
-        );
+        return React.cloneElement(this.getComponent(route, navigator), {
+            style: {flex: 1}
+        });
     }
 
     render() {
         return (
-            <Navigator
-                ref="navigator"
-                initialRoute={{name: 'home'}}
-                renderScene={this.renderScene}
-                configureScene={() => {
-                    return Navigator.SceneConfigs.PushFromRight;
-                }}
-            />
+            <View style={S.flex}>
+                <Navigator
+                    ref={ref => this.refNavigator = ref}
+                    initialRoute={{name: 'home'}}
+                    renderScene={this.renderScene}
+                    configureScene={() => {
+                        return Navigator.SceneConfigs.PushFromRight;
+                    }}
+                />
+                <LayerRoot/>
+            </View>
         );
     }
 }

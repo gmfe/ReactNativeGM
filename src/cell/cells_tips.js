@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
         marginBottom: V.cellTipsFontSize * 0.3,
         lineHeight: V.cellTipsFontSize * V.baseLineHeight,
         android: {
-            lineHeight: Math.round(V.cellTipsFontSize * V.baseLineHeight),
-        },
+            lineHeight: Math.round(V.cellTipsFontSize * V.baseLineHeight)
+        }
     }
 });
 const CellsTips = (props) => {

@@ -1,7 +1,8 @@
 import React from 'react';
 import {
     Text,
-    Image
+    Image,
+    TextInput
 } from 'react-native';
 
 import {
@@ -35,12 +36,26 @@ class Component extends React.Component {
                 </Cells>
 
                 <CellsTitle>
+                    输入框
+                </CellsTitle>
+                <Cells>
+                    <Cell input>
+                        <CellHeader>
+                            名字
+                        </CellHeader>
+                        <CellBody>
+                            <TextInput placeholder="拉拉阿拉"/>
+                        </CellBody>
+                    </Cell>
+                </Cells>
+
+                <CellsTitle>
                     带图标、说明得列表项
                 </CellsTitle>
                 <Cells>
                     <Cell>
                         <CellHeader>
-                            <Image source={{uri: icon}}/>
+                            <Image source={{uri: icon}} style={{height: 16, width: 16}}/>
                         </CellHeader>
                         <CellBody>
                             标题文字
@@ -51,7 +66,7 @@ class Component extends React.Component {
                     </Cell>
                     <Cell>
                         <CellHeader>
-                            <Image source={{uri: icon}}/>
+                            <Image source={{uri: icon}} style={{height: 16, width: 16}}/>
                         </CellHeader>
                         <CellBody>
                             标题文字
@@ -85,7 +100,7 @@ class Component extends React.Component {
                     </Cell>
                     <Cell access {...pressHandle}>
                         <CellHeader>
-                            <Image source={{uri: icon}}/>
+                            <Image source={{uri: icon}} style={{height: 16, width: 16}}/>
                         </CellHeader>
                         <CellBody>
                             cell standard

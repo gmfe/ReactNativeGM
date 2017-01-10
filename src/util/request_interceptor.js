@@ -31,13 +31,13 @@ var RequestInterceptor = (function () {
 
                 return promise;
             },
-            response: function (json, config) {
+            response: function (json, config, res) {
                 var promise = Promise.resolve(json);
                 _.each(interceptors, function (value) {
                     if (value.response) {
                         promise = promise.then(function (json) {
                             // 如果response不按规范来,啥也不做. 则默认放回json
-                            return value.response(json, config) || json;
+                            return value.response(json, config, res) || json;
                         });
                     }
                 });

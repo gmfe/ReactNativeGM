@@ -2,6 +2,8 @@ import React, {PropTypes} from 'react';
 import {View, ScrollView, StyleSheet} from 'react-native';
 import G from '../global/variable';
 
+
+
 const styles = StyleSheet.create({
     page: {
         flex: 1,
@@ -21,6 +23,7 @@ class Page extends React.Component {
             style,
             white,
             noScrollContent,
+            scrollViewProps = {},
             header,
             tabbar,
             bottom,
@@ -36,7 +39,8 @@ class Page extends React.Component {
                         {children}
                     </View>
                 ) : (
-                    <ScrollView style={styles.pageContent}>
+                    <ScrollView keyboardShouldPersistTaps={true} keyboardDismissMode={'on-drag'}
+                                style={[styles.pageContent, scrollViewProps.style]} {...scrollViewProps}>
                         {children}
                     </ScrollView>
                 )}
@@ -52,6 +56,7 @@ Page.propTypes = {
     style: View.propTypes.style,
     white: PropTypes.bool,
     noScrollContent: PropTypes.bool,
+    scrollViewProps: PropTypes.object,
     header: PropTypes.node,
     tabbar: PropTypes.node,
     bottom: PropTypes.node

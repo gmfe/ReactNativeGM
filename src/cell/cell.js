@@ -15,24 +15,27 @@ const styles = StyleSheet.create({
         paddingBottom: V.cellGapV,
         paddingRight: V.cellGapH,
         borderTopWidth: StyleSheet.hairlineWidth,
-        borderColor: V.cellBorderColor,
+        borderColor: V.cellBorderColor
     },
     firstCell: {
-        borderTopWidth: 0,
+        borderTopWidth: 0
     },
-    vcodeCell: {
+    inputCell: {
         paddingTop: 0,
         paddingBottom: 0,
-        paddingRight: 0,
-    },
+        paddingRight: 0
+    }
 });
 const Cell = (props) => {
-    const {access, vcode, error, first, children, style, ...others} = props;
+    const {access, input, error, first, children, style, ...others} = props;
     const childrenWithProps = React.Children.map(children, (child) => {
-        if (access && child.type.name === 'CellFooter') {
+        if (access && child.type.displayName === 'CellFooter') {
             return React.cloneElement(child, {access: true});
         }
-        if (error && (child.type.name === 'CellHeader' || child.type.name === 'CellBody')) {
+        if (input && child.type.displayName === 'CellBody') {
+            return React.cloneElement(child, {input: true});
+        }
+        if (error && (child.type.displayName === 'CellHeader' || child.type.displayName === 'CellBody')) {
             return React.cloneElement(child, {error: true});
         }
         return child;
@@ -47,7 +50,7 @@ const Cell = (props) => {
                 style={[
                     styles.cell,
                     first ? styles.firstCell : null,
-                    vcode ? styles.vcodeCell : null
+                    input ? styles.inputCell : null
                 ]}
             >{childrenWithProps}</View>
         </TouchableHighlight>
@@ -56,7 +59,7 @@ const Cell = (props) => {
 Cell.propTypes = {
     first: PropTypes.bool,
     access: PropTypes.bool,
-    vcode: PropTypes.bool,
+    input: PropTypes.bool,
     error: PropTypes.bool,
     children: PropTypes.node,
     style: View.propTypes.style,
