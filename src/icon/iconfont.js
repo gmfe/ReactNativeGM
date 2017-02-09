@@ -51,7 +51,7 @@ let glyphMap = {
     'shouqian-copy': 'e611',
     'add-circle': 'e61f',
     'dagou': 'e632',
-    'qestion': 'e633'
+    'question': 'e633'
 };
 
 _.each(glyphMap, (value, key) => {
