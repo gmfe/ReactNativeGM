@@ -19,19 +19,6 @@
     "gm",
     "mgm"
   ],
-  "devDependencies": {
-    "babel-cli": "^6.14.0",
-    "babel-preset-react-native-stage-0": "^1.0.1",
-    "babel-relay-plugin": "^0.8.1",
-    "husky": "^0.11.7",
-    "parse": "^1.8.3",
-    "react-native": "0.34.0",
-    "react-native-image-picker": "^0.19.7",
-    "react-native-keyboard-aware-scroll-view": "^0.2.1",
-    "react-native-swiper": "^1.4.11",
-    "react-native-vector-icons": "^2.1.0",
-    "underscore": "^1.8.3"
-  },
   "rnpm": {
     "assets": [
       "fonts"
@@ -44,6 +31,17 @@
   },
   "homepage": "https://github.com/gmfe/react-native-gm#readme",
   "dependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "babel-relay-plugin": "^0.8.1",
+    "husky": "^0.11.7",
+    "parse": "^1.8.3",
+    "react-native": "0.34.0",
+    "react-native-image-picker": "^0.19.7",
+    "react-native-keyboard-aware-scroll-view": "^0.2.1",
+    "react-native-swiper": "^1.4.11",
+    "react-native-vector-icons": "^2.1.0",
+    "underscore": "^1.8.3",
     "react": "15.3.1"
   }
 }
