@@ -24,8 +24,7 @@ const styles = StyleSheet.create({
     headerText: {
         fontSize: 18,
         alignSelf: 'center',
-        color: '#fff',
-        lineHeight: 18
+        color: '#fff'
     },
     textBox: {
         flex: 1,
