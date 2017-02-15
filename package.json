@@ -31,10 +31,10 @@
   },
   "homepage": "https://github.com/gmfe/react-native-gm#readme",
   "dependencies": {
-    "react-native": "0.34.0",
     "react": "15.3.1"
   },
   "devDependencies": {
+    "react-native": "0.34.0",
     "react-native-vector-icons": "^2.1.0",
     "react-native-keyboard-aware-scroll-view": "^0.2.1",
     "react-native-swiper": "^1.4.11",
