@@ -1,6 +1,6 @@
 {
   "name": "react-native-gm",
-  "version": "0.0.81",
+  "version": "0.0.82",
   "description": "mgm lib for react-native",
   "main": "./src",
   "scripts": {
@@ -36,7 +36,6 @@
     "react-native-vector-icons": "^2.1.0"
   },
   "devDependencies": {
-
     "react-native-keyboard-aware-scroll-view": "^0.2.1",
     "react-native-swiper": "^1.4.11",
     "babel-cli": "^6.14.0",
