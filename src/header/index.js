@@ -79,13 +79,31 @@ HeaderBack.propTypes = {
 
 class Header extends Component {
     handleBackBtn() {
-        if (!this.props.backBtn) {
+        if (!this.props.backBtn&&!this.props.leftBtn) {
             return (
                 <View style={styles.btnNull}/>
             );
         }
         const {onBack} = this.props;
-        return <HeaderBack onPress={onBack ? onBack : null} navigator={this.props.navigator}/>;
+        if(this.props.leftBtn){
+            return(
+                <TouchableHighlight
+                    style={styles.btn}
+                    underlayColor={V.primaryColorActive}
+                    onPress={()=>this.props.leftBtn.onPress()}
+                >
+                    <View>
+                        {this.props.leftBtn.text?
+                            <Text style={styles.btnText}>{this.props.leftBtn.text}</Text> :
+                            (this.props.leftBtn.custom? this.props.leftBtn.custom:null)
+                        }
+                    </View>
+                </TouchableHighlight>
+            );
+        }else{
+            return <HeaderBack onPress={onBack ? onBack : null} {...this.props}/>;
+        }
+
     }
 
     handleRightBtn() {
@@ -100,7 +118,12 @@ class Header extends Component {
                 underlayColor={V.primaryColorActive}
                 onPress={()=>this.props.rightBtn.onPress()}
             >
-                <Text style={styles.btnText}>{this.props.rightBtn.text}</Text>
+                <View>
+                   {this.props.rightBtn.text?
+                       <Text style={styles.btnText}>{this.props.rightBtn.text}</Text>
+                       :(this.props.rightBtn.custom?this.props.rightBtn.custom:null)
+                   }
+                </View>
             </TouchableHighlight>
         );
     }
@@ -129,8 +152,14 @@ Header.propTypes = {
     pageName: PropTypes.string,
     backBtn: PropTypes.bool,
     onBack: PropTypes.func,
+    leftBtn: PropTypes.shape({
+        text: PropTypes.string,
+        custom:PropTypes.node,
+        onPress:PropTypes.func
+    }),
     rightBtn: PropTypes.shape({
         text: PropTypes.string,
+        custom:PropTypes.node,
         onPress: PropTypes.func
     })
 };

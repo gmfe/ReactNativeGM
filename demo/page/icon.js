@@ -19,7 +19,7 @@ class Component extends React.Component {
     render() {
         const {navigator} = this.props;
         return (
-            <Page header={<Header navigator={navigator}/>}>
+            <Page header={<Header navigator={navigator} pageName={"Icon"}/>}>
                 <View>
                     <Text>默认</Text>
                     <Icon name="success"/>
