@@ -32,10 +32,11 @@
   "homepage": "https://github.com/gmfe/react-native-gm#readme",
   "dependencies": {
     "react": "15.3.1",
-    "react-native": ">=0.34.0 < 0.40.0"
+    "react-native": ">=0.34.0 < 0.40.0",
+    "react-native-vector-icons": "^2.1.0"
   },
   "devDependencies": {
-    "react-native-vector-icons": "^2.1.0",
+
     "react-native-keyboard-aware-scroll-view": "^0.2.1",
     "react-native-swiper": "^1.4.11",
     "babel-cli": "^6.14.0",
