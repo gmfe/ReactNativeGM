@@ -39,6 +39,7 @@ class Radio extends React.Component {
             children,
             style,
             textStyle,
+            color,
             ...others
         } = this.props;
         const {checked} = this.state;
@@ -49,7 +50,7 @@ class Radio extends React.Component {
             >
                 <View {...others} style={[S.flexRow, S.flexAlignCenter, style]}>
                     {checked ? (
-                        <IFont name="success" color={V.primaryColor} style={styles.font}/>
+                        <IFont name="success" color={color?color:V.primaryColor} style={styles.font}/>
                     ) : (
                         <IFont name="circle" color={V.descColor} style={styles.font}/>
                     )}
@@ -62,7 +63,8 @@ class Radio extends React.Component {
 
 Radio.propTypes = {
     checked: PropTypes.bool.isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    color:PropTypes.string
 };
 
 export default Radio;
