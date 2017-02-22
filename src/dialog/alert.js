@@ -18,6 +18,7 @@ const Alert = (title, content, options = {}) => {
                         LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                     }
                 }]}
+                style={options.style}
             >
                 <Text style={S.textDesc}>{content}</Text>
             </Dialog>
