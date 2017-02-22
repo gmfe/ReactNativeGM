@@ -3,6 +3,8 @@ import format from './format.js';
 import _ from 'underscore';
 import RequestInterceptor from './request_interceptor';
 
+const {fetch, FormData} = window;
+
 var setPromiseTimeout = function (promise, ms) {
     if (ms === false) {
         return promise;
