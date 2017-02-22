@@ -106,6 +106,7 @@ class Dialog extends React.Component {
             title,
             visible,
             onClose,
+            wrapStyle,
             style,
             children
         } = this.props;
@@ -116,9 +117,9 @@ class Dialog extends React.Component {
 
         return (
             <TouchableWithoutFeedback onPress={onClose}>
-                <View style={[styles.dialogWrapper, style]}>
+                <View style={[styles.dialogWrapper, wrapStyle]}>
                     <TouchableWithoutFeedback onPress={null}>
-                        <View style={styles.dialog}>
+                        <View style={[styles.dialog, style]}>
                             <View style={styles.dialogHeader}>
                                 <Text style={styles.dialogTitle}>{title}</Text>
                             </View>

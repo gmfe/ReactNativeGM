@@ -29,6 +29,7 @@ const Confirm = (title, content, options = {}) => {
                     reject();
                     LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                 }}
+                style={options.style}
             >
                 <Text style={S.textDesc}>{content}</Text>
             </Dialog>

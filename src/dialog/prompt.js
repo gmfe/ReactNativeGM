@@ -41,7 +41,8 @@ const Prompt = (title, content, options = {}) => {
                     reject();
                     LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                 }}
-                style={{paddingBottom: 150}}
+                wrapStyle={{paddingBottom: 150}}
+                style={options.style}
             >
                 <Text style={S.textDesc}>{content}</Text>
                 <View style={[S.border, S.padding5]}>
