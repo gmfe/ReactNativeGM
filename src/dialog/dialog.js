@@ -4,28 +4,15 @@ import {
     Text,
     StyleSheet,
     TouchableHighlight,
-    TouchableWithoutFeedback,
     Dimensions
 } from 'react-native';
 import V from '../variable';
+import Modal from '../modal';
 
 const styles = StyleSheet.create({
-    dialogWrapper: {
-        position: 'absolute',
-        top: -Dimensions.get('window').height,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-
-        backgroundColor: 'rgba(0,0,0,.2)'
-    },
     dialog: {
         width: Dimensions.get('window').width - 60,
-        backgroundColor: V.whiteColor,
-        borderRadius: 3,
-        overflow: 'hidden'
+        borderRadius: 3
     },
     dialogHeader: {
         paddingTop: 1.2 * V.fontSize16,
@@ -111,28 +98,23 @@ class Dialog extends React.Component {
             children
         } = this.props;
 
-        if (!visible) {
-            return null;
-        }
-
         return (
-            <TouchableWithoutFeedback onPress={onClose}>
-                <View style={[styles.dialogWrapper, wrapStyle]}>
-                    <TouchableWithoutFeedback onPress={null}>
-                        <View style={[styles.dialog, style]}>
-                            <View style={styles.dialogHeader}>
-                                <Text style={styles.dialogTitle}>{title}</Text>
-                            </View>
-                            <View style={styles.dialogBody}>
-                                {children}
-                            </View>
-                            <View style={styles.dialogFooter}>
-                                {this.renderButtons()}
-                            </View>
-                        </View>
-                    </TouchableWithoutFeedback>
+            <Modal
+                visible={visible}
+                onClose={onClose}
+                style={[styles.dialog, style]}
+                wrapStyle={wrapStyle}
+            >
+                <View style={styles.dialogHeader}>
+                    <Text style={styles.dialogTitle}>{title}</Text>
                 </View>
-            </TouchableWithoutFeedback>
+                <View style={styles.dialogBody}>
+                    {children}
+                </View>
+                <View style={styles.dialogFooter}>
+                    {this.renderButtons()}
+                </View>
+            </Modal>
         );
     }
 }
@@ -146,9 +128,7 @@ Dialog.propTypes = {
 };
 
 Dialog.defaultProps = {
-    title: '提示',
-    onClose: () => {
-    }
+    title: '提示'
 };
 
 export default Dialog;

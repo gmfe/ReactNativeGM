@@ -27,6 +27,7 @@ import Util from './util';
 import {LazyScrollView, LazyImage} from './lazy';
 import {Tabs, TabsItem} from './tabs';
 import {Infinite} from './infinite';
+import Modal from './modal';
 
 export {
     Variable, Styles,
@@ -49,5 +50,6 @@ export {
     LazyScrollView, LazyImage,
     Tabs, TabsItem,
     Infinite,
+    Modal,
     Util
 };

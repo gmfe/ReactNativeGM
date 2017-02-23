@@ -23,6 +23,7 @@ import PageSearchBar from './page/search_bar';
 import PageSwiper from './page/swiper';
 import PageTabs from './page/tabs';
 import PageInfinite from './page/infinite';
+import PageModal from './page/modal';
 
 import {
     LayerRoot,
@@ -62,6 +63,8 @@ const navConfig = [{
     name: 'Tabs', component: <PageTabs/>
 }, {
     name: 'Infinite', component: <PageInfinite/>
+}, {
+    name: 'Modal', component: <PageModal/>
 }];
 
 
