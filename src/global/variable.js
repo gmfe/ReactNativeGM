@@ -31,6 +31,7 @@ export default {
     // bg
     bgDefault: '#eaeaea',
     bgWhite: 'white',
+    bgMask: 'rgba(0,0,0,.2)',
 
     statusHeight: (Platform.OS === 'ios' ? 20 : 0),
     headerHeight: (Platform.OS === 'ios' ? 58 : 50)

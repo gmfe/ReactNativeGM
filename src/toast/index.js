@@ -3,7 +3,6 @@ import {
     View,
     Text,
     StyleSheet,
-    Dimensions,
     Platform,
     ProgressBarAndroid,
     ActivityIndicator
@@ -11,16 +10,12 @@ import {
 import {IFont} from '../icon';
 import LayerRoot from '../layer_root';
 import G from '../global/variable';
+import Modal from '../modal';
 
 const styles = StyleSheet.create({
-    toastWrapper: {
-        position: 'absolute',
-        top: -Dimensions.get('window').height,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height
+    wrap: {
+        backgroundColor: 'transparent',
+        justifyContent: 'flex-start'
     },
     toast: {
         position: 'absolute',
@@ -70,18 +65,19 @@ const Toast = (props) => {
     const {
         icon,
         style,
-        wrapperStyle,
         textStyle,
         children
     } = props;
 
     return (
-        <View style={[styles.toastWrapper, wrapperStyle]}>
-            <View style={[styles.toast, style]}>
-                {renderIcon(icon)}
-                <Text style={[styles.toastContent, textStyle]}>{children}</Text>
-            </View>
-        </View>
+        <Modal
+            visible={true}
+            style={[styles.toast, style]}
+            wrapStyle={styles.wrap}
+        >
+            {renderIcon(icon)}
+            <Text style={[styles.toastContent, textStyle]}>{children}</Text>
+        </Modal>
     );
 };
 
@@ -135,7 +131,6 @@ Object.assign(Toast, {
 
 Toast.propTypes = {
     icon: PropTypes.string, // iconfont 的图标名字
-    wrapperStyle: View.propTypes.style,
     style: View.propTypes.style,
     textStyle: Text.propTypes.style,
     children: PropTypes.node
