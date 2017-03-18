@@ -41,7 +41,7 @@ const Prompt = (title, content, options = {}) => {
                     reject();
                     LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                 }}
-                wrapStyle={{paddingBottom: 150}}
+                wrapStyle={Object.assign({paddingBottom: 150}, options.wrapStyle)}
                 style={options.style}
             >
                 <Text style={S.textDesc}>{content}</Text>
@@ -53,6 +53,7 @@ const Prompt = (title, content, options = {}) => {
                         returnKeyType="done"
                         defaultValue={options.defaultValue || ''}
                         placeholder={options.placeholder}
+                        keyboardType={options.keyboardType || 'default'}
                         onChangeText={(t) => {
                             text = t;
                         }}
