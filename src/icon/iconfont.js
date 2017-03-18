@@ -7,6 +7,7 @@ let glyphMap = {
     'wallet': 'e620',
     'rili': 'e635',
     'home': 'e613',
+    'qianbi': 'e639',
     'fenxiang': 'e636',
     'home1': 'e619',
     'dianhua': 'e62f',
@@ -27,6 +28,7 @@ let glyphMap = {
     'plus': 'e61c',
     'minus': 'e61d',
     'shangdian': 'e60d',
+    'print': 'e6bb',
     'shucai': 'e62e',
     'cart': 'e615',
     'star': 'e605',
@@ -62,6 +64,7 @@ let glyphMap = {
     'avatar': 'e731',
     'xunjia': 'e634',
     'shangjiantou': 'e631',
+    'dianzicheng': 'e728',
     'renwu': 'e637'
 };
 
