@@ -8,7 +8,7 @@ import S from '../styles';
 const Prompt = (title, content, options = {}) => {
     return new Promise((resolve, reject) => {
 
-        let text = '';
+        let text = options.defaultValue || '';
 
         const onOK = () => {
             if (options.shouleClose) {
