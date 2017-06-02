@@ -2,13 +2,12 @@ import React from 'react';
 import {
     View,
     Text,
-    Image
+    Image,
+    ScrollView
 } from 'react-native';
 
 import {
     Square,
-    Page,
-    Header,
     Styles as S
 } from '../../src/index';
 import _ from 'underscore';
@@ -21,6 +20,10 @@ class Component extends React.Component {
         };
     }
 
+    static navigationOptions = {
+        title: 'Layout'
+    };
+
     componentDidMount() {
         // 模拟宽度变的情况
         setTimeout(() => {
@@ -31,9 +34,8 @@ class Component extends React.Component {
     }
 
     render() {
-        const {navigator} = this.props;
         return (
-            <Page header={<Header navigator={navigator} pageName="布局"/>}>
+            <ScrollView>
                 <Text>正方形。以宽度为标准。</Text>
                 <Text>一般用法， children 必须是only。</Text>
                 <View style={[S.flex, S.flexRow]}>
@@ -92,7 +94,7 @@ class Component extends React.Component {
                         <Image source={require('../../images/shucai.jpg')}/>
                     </Square>
                 </View>
-            </Page>
+            </ScrollView>
         );
     }
 }

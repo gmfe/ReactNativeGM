@@ -1,8 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import {
-    Header,
-    Page,
     LazyScrollView,
     LazyImage
 } from '../../src/index';
@@ -19,13 +17,13 @@ class Component extends React.Component {
         super(props);
     }
 
+    static navigationOptions = {
+        title: 'Lazyload'
+    };
+
     render() {
-        const {navigator} = this.props;
         return (
-            <Page
-                noScrollContent
-                header={<Header navigator={navigator} pageName="Lazyload"/>}
-            >
+            <ScrollView>
                 <View>
                     <Text>为了网络考虑，延迟加载图片资源。至于出现在屏幕范围内的图片才显示。</Text>
                 </View>
@@ -47,7 +45,7 @@ class Component extends React.Component {
                         />
                     ))}
                 </LazyScrollView>
-            </Page>
+            </ScrollView>
         );
     }
 }

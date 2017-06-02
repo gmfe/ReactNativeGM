@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
     StyleSheet,
-    View
+    View,
+    ScrollView
 } from 'react-native';
-import {Button, Header, Variable as V, Page} from '../../src/index';
+
+import _ from 'underscore';
+import {Button, Variable as V} from '../../src';
 
 const styles = StyleSheet.create({
     button: {
@@ -24,59 +27,67 @@ const pressHandle = {
     onLongPress: () => console.log('onLongPress')
 };
 
-class Component extends React.Component {
+const buttonTypeArr = [
+    {
+        type: 'default',
+        text: 'default'
+    },
+    {
+        type: 'default',
+        state: 'disabled',
+        text: 'default disabled'
+    },
+    {
+        type: 'default',
+        state: 'plain',
+        text: 'default plain'
+    },
+    {
+        type: 'primary',
+        text: 'default'
+    },
+    {
+        type: 'primary',
+        state: 'disabled',
+        text: 'primary disabled'
+    },
+    {
+        type: 'primary',
+        state: 'plain',
+        text: 'primary plain'
+    },
+    {
+        type: 'warn',
+        text: 'warn'
+    },
+    {
+        type: 'warn',
+        state: 'disabled',
+        text: 'warn disabled'
+    }
+];
+
+class ButtonScreen extends Component {
+    static navigationOptions = {
+        title: 'Button'
+    };
+
     render() {
-        const {navigator} = this.props;
         return (
-            <Page header={<Header navigator={navigator} pageName={'Button'}/>}>
-                <Button
-                    type="default"
-                    style={styles.button}
-                    {...pressHandle}
-                >default</Button>
-                <Button
-                    type="default"
-                    style={styles.button}
-                    disabled
-                    {...pressHandle}
-                >default disabled</Button>
-                <Button
-                    type="default"
-                    style={styles.button}
-                    plain
-                    {...pressHandle}
-                >default plain</Button>
-
-                <Button
-                    type="primary"
-                    style={styles.button}
-                    {...pressHandle}
-                >primary</Button>
-                <Button
-                    type="primary"
-                    style={styles.button}
-                    disabled
-                    {...pressHandle}
-                >primary disabled</Button>
-                <Button
-                    type="primary"
-                    style={styles.button}
-                    plain
-                    {...pressHandle}
-                >plain plain</Button>
-
-                <Button
-                    type="warn"
-                    style={styles.button}
-                    {...pressHandle}
-                >warn</Button>
-                <Button
-                    type="warn"
-                    style={styles.button}
-                    disabled
-                    {...pressHandle}
-                >warn disabled</Button>
-
+            <ScrollView>
+                {
+                    _.map(buttonTypeArr, (value, i) => (
+                        <Button
+                            key={i}
+                            type={value.type}
+                            style={styles.button}
+                            state={value.state}
+                            {...pressHandle}
+                        >
+                            {value.text}
+                        </Button>
+                    ))
+                }
                 <View style={styles.inlineButtonContainer}>
                     <Button
                         type="primary"
@@ -89,9 +100,9 @@ class Component extends React.Component {
                         size="small"
                     >primary</Button>
                 </View>
-            </Page>
+            </ScrollView>
         );
     }
 }
 
-export default Component;
+export default ButtonScreen;

@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {Text as RNText, View, StyleSheet} from 'react-native';
+import {View, Image, StyleSheet, ViewPropTypes} from 'react-native';
 import {Text} from '../typography';
 import V from '../variable';
 import {IFont} from '../icon';
@@ -20,36 +20,30 @@ const styles = StyleSheet.create({
         height: 44
     }
 });
+
 const CellFooter = (props) => {
-    const {children, style, access, ...others} = props;
-    const childrenWithProps = React.Children.map(children, child => {
-        if (!child.type) {
-            return <Text style={[styles.cellFooterText, style]} {...others}>{child}</Text>;
-        }
-        if (child.type && child.type.displayName === 'Image' && !child.props.style) {
-            return React.cloneElement(child, {style: [styles.vcode, child.props.style]});
-        }
-        return child;
-    });
+    const {footerText, footerIconUri, onPress, footerStyle} = props;
     return (
         <View style={styles.cellFooter}>
-            {childrenWithProps}
-            {access ? (
+            {footerText ? <Text style={[styles.cellFooterText, footerStyle]}>{footerText}</Text> : null}
+            {footerIconUri ? <Image style={[styles.vcode, footerStyle]} source={{uri: footerIconUri}} /> : null}
+            {
+                onPress ?
                 <IFont
                     name="angle-right"
                     size={V.fontSize14}
                     style={{marginLeft: 5, color: V.descColor, marginTop: 2}}
-                />
-            ) : undefined}
+                /> : null
+            }
         </View>
     );
 };
-CellFooter.displayName = 'CellFooter';
+
 CellFooter.propTypes = {
-    access: PropTypes.bool,
-    children: PropTypes.node,
-    style: RNText.propTypes.style,
-    others: PropTypes.object
+    footerText: PropTypes.string,
+    footerIconUri: PropTypes.string,
+    onPress: PropTypes.func,
+    footerStyle: ViewPropTypes.style
 };
 
 export default CellFooter;

@@ -7,7 +7,7 @@ import {
     Dimensions
 } from 'react-native';
 import V from '../variable';
-import Modal from '../modal';
+import Modal from '../promptmodal';
 
 const styles = StyleSheet.create({
     dialog: {

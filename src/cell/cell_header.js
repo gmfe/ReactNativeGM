@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
 import V from '../variable';
 import {Text} from '../typography';
 
@@ -13,30 +13,34 @@ const styles = StyleSheet.create({
     },
     error: {
         color: V.warnColor
+    },
+    headerIcon: {
+        height: 16,
+        width: 16
     }
 });
 
 const CellHeader = (props) => {
-    const {error, children, style, ...others} = props;
-    const childrenWithProps = React.Children.map(children, child => {
-        if (!child.type) {
-            return <Text style={[styles.cellBodyText, style]} {...others}>{child}</Text>;
-        } else if (child.type.displayName === 'Image' && !child.props.style) {
-            return React.cloneElement(child, {style: [styles.image, child.props.style]});
-        } else if (error && child.type.name === 'Label') {
-            return React.cloneElement(child, {style: [child.props.style, styles.error]});
-        }
-        return child;
-    });
-    return <View style={[styles.cellHeader, style]} {...others}>{childrenWithProps}</View>;
+    const {headerText, headerIconUri, headerStyle} = props;
+    if(headerText) {
+        return (
+            <View style={styles.cellHeader}>
+                <Text style={headerStyle}>{headerText}</Text>
+            </View>);
+    }
+    if(headerIconUri) {
+        return (
+            <View style={styles.cellHeader}>
+                <Image source={{uri: headerIconUri}} style={[styles.headerIcon, headerStyle]} />
+            </View>
+        );
+    }
 };
 
-CellHeader.displayName = 'CellHeader';
 CellHeader.propTypes = {
-    error: PropTypes.bool,
-    children: PropTypes.node,
-    style: View.propTypes.style,
-    others: PropTypes.object
+    headerText: PropTypes.string,
+    headerIconUri: PropTypes.string,
+    headerStyle: PropTypes.style
 };
 
 export default CellHeader;

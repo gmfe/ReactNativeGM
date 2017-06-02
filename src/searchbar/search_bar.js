@@ -17,7 +17,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: V.primaryColor,
-        paddingHorizontal: V.gap5
+        paddingHorizontal: V.gap5,
+        ...Platform.select({
+            ios: {marginTop: 20}
+        })
+
     },
     searchOuter: {
         position: 'relative',

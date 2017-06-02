@@ -1,10 +1,13 @@
-import React, {PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {
     View,
-    TouchableHighlight,
-    StyleSheet
+    TouchableOpacity,
+    StyleSheet,
+    ViewPropTypes
 } from 'react-native';
 import V from '../variable';
+
+import {CellHeader, CellBody, CellFooter} from './';
 
 const styles = StyleSheet.create({
     cell: {
@@ -26,44 +29,84 @@ const styles = StyleSheet.create({
         paddingRight: 0
     }
 });
-const Cell = (props) => {
-    const {access, input, error, first, children, style, ...others} = props;
-    const childrenWithProps = React.Children.map(children, (child) => {
-        if (access && child.type.displayName === 'CellFooter') {
-            return React.cloneElement(child, {access: true});
+
+class Cell extends Component {
+    _renderCellHeader() {
+        const {headerText, headerIconUri, headerStyle, renderHeader} = this.props;
+        const headerProps = headerText || headerIconUri ? {headerText, headerIconUri, headerStyle} : null;
+        if(headerProps) {
+            return(<CellHeader {...headerProps} />);
         }
-        if (input && child.type.displayName === 'CellBody') {
-            return React.cloneElement(child, {input: true});
+        if(renderHeader) {
+            return renderHeader();
         }
-        if (error && (child.type.displayName === 'CellHeader' || child.type.displayName === 'CellBody')) {
-            return React.cloneElement(child, {error: true});
+    }
+
+    _renderCellBody() {
+        const {bodyText, bodyType, bodyInputHolder, renderBody, bodyStyle} = this.props;
+        const bodyProps = bodyText || bodyType ? {bodyText, bodyType, bodyInputHolder, bodyStyle} : null;
+        if(bodyProps) {
+            return(<CellBody {...bodyProps} />);
         }
-        return child;
-    });
-    return (
-        <TouchableHighlight
-            style={style}
-            underlayColor={V.activeColor}
-            {...others}
-        >
-            <View
-                style={[
-                    styles.cell,
-                    first ? styles.firstCell : null,
-                    input ? styles.inputCell : null
-                ]}
-            >{childrenWithProps}</View>
-        </TouchableHighlight>
-    );
-};
+        if(renderBody) {
+            return renderBody();
+        }
+    }
+
+    _renderCellFooter() {
+        const {footerText, footerIconUri, renderFooter, onPress, footerStyle} = this.props;
+        const footerProps = footerText || footerIconUri || onPress ? {footerText, footerIconUri, onPress, footerStyle} : null;
+        if(footerProps) {
+            return(<CellFooter {...footerProps} />);
+        }
+        if(renderFooter) {
+            return renderFooter();
+        }
+    }
+
+    render() {
+        const {onPress, cellStyle, isFirst, bodyType} = this.props;
+        return(
+            <View>
+                {
+                    onPress ?
+                    <TouchableOpacity
+                        style={[cellStyle, styles.cell, isFirst ? styles.firstCell : null, bodyType === 'input' ? styles.inputCell : null]}
+                        underlayColor={V.activeColor}
+                        onPress={onPress}
+                    >
+                        {this._renderCellHeader()}
+                        {this._renderCellBody()}
+                        {this._renderCellFooter()}
+                    </TouchableOpacity> :
+                    <View style={[cellStyle, styles.cell, isFirst ? styles.firstCell : null, bodyType === 'input' ? styles.inputCell : null]}>
+                        {this._renderCellHeader()}
+                        {this._renderCellBody()}
+                        {this._renderCellFooter()}
+                    </View>
+                }
+            </View>
+        );
+    }
+}
+
 Cell.propTypes = {
-    first: PropTypes.bool,
-    access: PropTypes.bool,
-    input: PropTypes.bool,
-    error: PropTypes.bool,
-    children: PropTypes.node,
-    style: View.propTypes.style,
-    others: PropTypes.object
+    onPress: PropTypes.func,
+    cellStyle: ViewPropTypes.style,
+    isFirst: PropTypes.bool,
+    headerText: PropTypes.string,
+    headerIconUri: PropTypes.string,
+    headerStyle: ViewPropTypes.style,
+    renderHeader: PropTypes.func,
+    bodyText: PropTypes.string,
+    bodyType: PropTypes.oneOf(['text', 'input', 'error']),
+    bodyInputHolder: PropTypes.string,
+    bodyStyle: ViewPropTypes.style,
+    renderBody: PropTypes.func,
+    footerText: PropTypes.string,
+    footerIconUri: PropTypes.string,
+    footerStyle: ViewPropTypes.style,
+    renderFooter: PropTypes.func
 };
 
 export default Cell;

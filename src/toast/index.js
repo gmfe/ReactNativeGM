@@ -10,7 +10,7 @@ import {
 import {IFont} from '../icon';
 import LayerRoot from '../layer_root';
 import G from '../global/variable';
-import Modal from '../modal';
+import Modal from '../promptmodal';
 
 const styles = StyleSheet.create({
     wrap: {
@@ -98,6 +98,7 @@ Object.assign(Toast, {
         LayerRoot.removeComponent(LayerRoot.TYPE.TOAST);
     },
     tip(options){
+        console.log('tips');
         clearTimeout(timer);
         options = processOptions(options);
         LayerRoot.setComponent(LayerRoot.TYPE.TOAST, <Toast {...options}/>);

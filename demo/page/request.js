@@ -1,16 +1,15 @@
 import React from 'react';
 import {
-    Text
+    Text,
+    ScrollView
 } from 'react-native';
 
 import {
     Styles as S,
     Variable as V,
-    Header,
     Button,
     NProgress,
     Loading,
-    Page,
     Toast,
     Util
 } from '../../src/index';
@@ -18,10 +17,13 @@ import {
 const {Request} = Util;
 
 class Component extends React.Component {
+    static navigationOptions = {
+        title: 'Request'
+    };
+
     render() {
-        const {navigator} = this.props;
         return (
-            <Page header={<Header navigator={navigator}/>}>
+            <ScrollView>
                 <Text>Request</Text>
                 <Button
                     type="default"
@@ -55,7 +57,7 @@ class Component extends React.Component {
                         });
                     }}
                 >request</Button>
-            </Page>
+            </ScrollView>
         );
     }
 }

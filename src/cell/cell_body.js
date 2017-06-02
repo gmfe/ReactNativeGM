@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {View, StyleSheet, Platform} from 'react-native';
+import {View, StyleSheet, Platform, TextInput, ViewPropTypes} from 'react-native';
 import {Text} from '../typography';
 import {Icon} from '../icon';
 import V from '../variable';
@@ -25,34 +25,32 @@ const styles = StyleSheet.create({
         fontSize: V.fontSize16
     }
 });
+
 const CellBody = (props) => {
-    const {error, input, children, style, ...others} = props;
-    const childrenWithProps = React.Children.map(children, (child) => {
-        if (!child.type) {
-            return <Text style={[styles.cellBodyText, style]} {...others}>{child}</Text>;
-        }
-        return React.cloneElement(child, {
-            style: [
-                child.props.style,
-                error ? styles.error : null,
-                input ? styles.input : null
-            ]
-        });
-    });
-    return (
-        <View style={[styles.cellBody, style, error ? {flexDirection: 'row'} : null]} {...others}>
-            {childrenWithProps}
-            {error ? <Icon name="warn"/> : false}
+    const {bodyText, bodyType, bodyInputHolder, bodyStyle} = props;
+    return(
+        <View style={[styles.cellBody, bodyStyle, bodyType === 'error' ? {flexDirection: 'row'} : null]}>
+            {
+                bodyText ?
+                <Text style={[styles.cellBodyText, bodyType === 'error' ? styles.error : null, bodyStyle]}>
+                    {bodyText}
+                    {bodyType === 'error' ? <Icon name="warn"/> : null}
+                </Text> : null
+            }
+            {bodyType === 'input' ? <TextInput style={styles.input} placeholder={bodyInputHolder} /> : null}
         </View>
     );
 };
-CellBody.displayName = 'CellBody';
+
+CellBody.defaultProps = {
+    bodyType: 'text'
+};
+
 CellBody.propTypes = {
-    input: PropTypes.bool,
-    error: PropTypes.bool,
-    children: PropTypes.node,
-    style: View.propTypes.style,
-    others: PropTypes.object
+    bodyText: PropTypes.string,
+    bodyType: PropTypes.oneOf(['text', 'input', 'error']),
+    bodyInputHolder: PropTypes.string,
+    bodyStyle: ViewPropTypes.style
 };
 
 export default CellBody;

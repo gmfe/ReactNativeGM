@@ -8,12 +8,10 @@ import {
 import {
     Styles as S,
     Variable as V,
-    Header,
     TextArea,
     Text,
     TextInput,
     Button,
-    Page,
     Radio
 } from '../../src/index';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -28,10 +26,13 @@ class Component extends React.Component {
         };
     }
 
+    static navigationOptions = {
+        title: 'Form'
+    };
+
     render() {
-        const {navigator} = this.props;
         return (
-            <Page noScrollContent header={<Header navigator={navigator} pageName={'Form'}/>}>
+            <View style={{flex:1}}>
                 <KeyboardAwareScrollView
                     style={[S.flex]}
                     viewIsInsideTabBar={false}
@@ -138,7 +139,7 @@ class Component extends React.Component {
                         </TouchableWithoutFeedback>
                     </KeyboardAvoidingView>
                 ) : null}
-            </Page>
+            </View>
         );
     }
 }

@@ -50,17 +50,17 @@ const styles = StyleSheet.create({
     }
 });
 
-const getButtonStyles = ({type, plain, size}) => {
+const getButtonStyles = ({type, state, size}) => {
     const config = [styles[type]];
-    if (plain) config.push(styles[`${type}Plain`]);
+    if (state === 'plain') config.push(styles[`${type}Plain`]);
     if (size === 'small') {
         config.push(styles.mini);
     }
     return config;
 };
 
-const getUnderlayColor = (type, plain) => {
-    if (plain) {
+const getUnderlayColor = (type, state) => {
+    if (state === 'plain') {
         return V.activeColor;
     }
     switch (type) {
@@ -77,31 +77,28 @@ const getUnderlayColor = (type, plain) => {
 
 const Button = (props) => {
     const {
-        disabled,
         type,
         size,
-        plain,
+        state,
         children,
         style,
         ...rest
     } = props;
 
-    const buttonStyles = getButtonStyles({type, plain, size, disabled});
+    const buttonStyles = getButtonStyles({type, state, size});
 
     let touchableProps = {};
-    if (!disabled) {
+    if (state === 'disabled') {
+        return (
+            <View style={[styles.button, ...buttonStyles, style]}>
+                <ButtonText {...{type, state, size}}>{children}</ButtonText>
+            </View>
+        );
+    } else {
         touchableProps = rest;
     }
 
-    if (disabled) {
-        return (
-            <View style={[styles.button, ...buttonStyles, style]}>
-                <ButtonText {...{type, plain, size, disabled}}>{children}</ButtonText>
-            </View>
-        );
-    }
-
-    const underlayColor = getUnderlayColor(type, plain);
+    const underlayColor = getUnderlayColor(type, state);
 
     return (
         <TouchableHighlight
@@ -110,7 +107,7 @@ const Button = (props) => {
             {...touchableProps}
         >
             <View>
-                <ButtonText {...{type, plain, size, disabled}}>{children}</ButtonText>
+                <ButtonText {...{type, state, size}}>{children}</ButtonText>
             </View>
         </TouchableHighlight>
     );
@@ -118,9 +115,8 @@ const Button = (props) => {
 
 Button.propTypes = {
     type: PropTypes.oneOf(['default', 'primary', 'warn']),
+    state: PropTypes.oneOf(['default', 'disabled', 'plain']),
     size: PropTypes.oneOf(['small']),
-    plain: PropTypes.bool,
-    disabled: PropTypes.bool,
     onPress: PropTypes.func,
     onPressIn: PropTypes.func,
     onPressOut: PropTypes.func,
@@ -130,8 +126,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
     type: 'default',
-    disabled: false,
-    plain: false
+    state: 'default'
 };
 
 export default Button;

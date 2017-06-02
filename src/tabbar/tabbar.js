@@ -3,13 +3,19 @@ import {
     StyleSheet,
     View,
     Text,
-    TouchableWithoutFeedback
+    TouchableWithoutFeedback,
+    Dimensions
 } from 'react-native';
 import {IFont} from '../icon';
 import V from '../variable';
 
+const SCREEN_WIDTH = Dimensions.get('window').width;
+
 const styles = StyleSheet.create({
     tabbarView: {
+        width: SCREEN_WIDTH,
+        position: 'absolute',
+        bottom: 0,
         height: 49,
         flexDirection: 'row',
         justifyContent: 'space-around',
@@ -21,7 +27,7 @@ const styles = StyleSheet.create({
     iconView: {
         position: 'relative',
         height: 49,
-        width: 60,
+        // width: 60,
         justifyContent: 'center',
         alignItems: 'center'
     },

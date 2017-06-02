@@ -3,7 +3,7 @@ import Styles from './styles';
 import StyleSheet from './style_sheet';
 import {Button} from './button';
 import {
-    Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter
+    Cells, CellsTitle, CellsTips, Cell
 } from './cell';
 import {Dialog, Alert, Confirm, Prompt} from './dialog';
 import {Header, HeaderBack} from './header';
@@ -27,13 +27,15 @@ import Util from './util';
 import {LazyScrollView, LazyImage} from './lazy';
 import {Tabs, TabsItem} from './tabs';
 import {Infinite} from './infinite';
-import Modal from './modal';
+import Modal from './promptmodal';
+import ActionSheet from './actionsheet';
+import ViewPager from './viewpager';
 
 export {
     Variable, Styles,
     StyleSheet,
     Button,
-    Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
+    Cells, CellsTitle, CellsTips, Cell,
     Dialog, Alert, Confirm, Prompt,
     TextArea, Radio, TextInput,
     Icon,
@@ -51,5 +53,7 @@ export {
     Tabs, TabsItem,
     Infinite,
     Modal,
+    ActionSheet,
+    ViewPager,
     Util
 };

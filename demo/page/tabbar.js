@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-    Text
+    Text,
+    View
 } from 'react-native';
 import {
-    Page,
     TabbarItem,
-    Tabbar,
-    Header
+    Tabbar
 } from '../../src/index';
 
 class PageTabbar extends React.Component {
@@ -15,9 +14,14 @@ class PageTabbar extends React.Component {
         this.state = {page: 'second'};
     }
 
+    static navigationOptions = {
+        title: 'Tabbar'
+    };
+
     render() {
         return (
-            <Page header={<Header navigator={this.props.navigator} pageName={'Tabbar'}/>} bottom={
+            <View style={{flex:1}}>
+                <Text>selectPage：{this.state.page}</Text>
                 <Tabbar
                     selected={this.state.page}
                     onSelect={(el)=>this.setState({page: el.props.name})}
@@ -27,9 +31,8 @@ class PageTabbar extends React.Component {
                     <TabbarItem name='third' text={'订单'} iconName={'order'} redPoint={true}/>
                     <TabbarItem name='forth' text={'我的'} iconName={'user'}/>
                 </Tabbar>
-            }>
-                <Text>selectPage：{this.state.page}</Text>
-            </Page>
+
+            </View>
         );
     }
 }

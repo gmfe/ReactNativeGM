@@ -1,75 +1,77 @@
-import React from 'react';
-import {View} from 'react-native';
+import React, {Component} from 'react';
 import {
-    Styles as S,
-    Header,
+    ScrollView,
+    StyleSheet,
+    View,
+    Alert
+} from 'react-native';
+
+import {
+    Variable as V,
     Button,
-    Page,
-    Modal,
-    Text,
-    LayerRoot
-} from '../../src/index';
+    Modal
+} from '../../src';
+import ActionSheet from "../../src/actionsheet/index";
 
-const showModal = () => {
-    LayerRoot.setComponent(LayerRoot.TYPE.DIALOG, (
-        <Modal
-            visible={true}
-            onClose={() => LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG)}
-        >
-            <Text>adsfaf</Text>
-        </Modal>
-    ));
-};
+const styles = StyleSheet.create({
+    button: {
+        marginTop: V.gap10,
+        marginLeft: V.gap10,
+        marginRight: V.gap10
+    }
+});
 
-const showModalWithStyle = () => {
-    LayerRoot.setComponent(LayerRoot.TYPE.DIALOG, (
-        <Modal
-            visible={true}
-            onClose={() => LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG)}
-            style={{
-                width: 150,
-                height: 200
-            }}
-            wrapStyle={{
-                backgroundColor: 'rgba(0,0,0,.5)'
-            }}
-        >
-            <Text>style 控制内容中心区域样式 wrapStyle 控制背景样式，比如透明等等</Text>
-        </Modal>
-    ));
-};
+class PromptScreen extends Component {
+    static navigationOptions = {
+        title: 'Modal'
+    };
 
-class Component extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            visible: false
-        };
+    _onSubmitPress() {
+        Alert.alert('well done');
+    }
+
+    _onChangeText(text) {
+        console.log(text);
+    }
+
+    _onPressActionSheetItem(index) {
+        console.log('you pressed: ' + index);
     }
 
     render() {
-        const {navigator} = this.props;
         return (
-            <Page header={<Header navigator={navigator}/>}>
-                <View style={S.padding10}>
-                    <Button
-                        type="primary"
-                        style={S.marginTop10}
-                        onPress={showModal}
-                    >
-                        show Modal
-                    </Button>
-                    <Button
-                        type="primary"
-                        style={S.marginTop10}
-                        onPress={showModalWithStyle}
-                    >
-                        show Modal with style
-                    </Button>
-                </View>
-            </Page>
+            <ScrollView>
+                <Modal
+                    ref={(ref) => this._promptModal = ref}
+                    titleText="title"
+                    desText="行行好说两句吧~"
+                    placeHolder="说点啥~"
+                    onSubmitPress={::this._onSubmitPress}
+                    onChangeText={(text) => this._onChangeText(text)}
+                />
+                <ActionSheet
+                    ref={(ref) => this._actionSheet = ref}
+                    animRate={500}
+                    buttonText={['share to WX', <View style={{width:100, height:20, backgroundColor: 'blue'}}/>]}
+                    onPressItem={(i) => this._onPressActionSheetItem(i)}
+                />
+                <Button
+                    style={styles.button}
+                    type={'default'}
+                    onPress={() => this._promptModal.showPrompt()}
+                >
+                    prompt
+                </Button>
+                <Button
+                    style={styles.button}
+                    type={'default'}
+                    onPress={() => this._actionSheet.show()}
+                >
+                    actionsheet
+                </Button>
+            </ScrollView>
         );
     }
 }
 
-export default Component;
+export default PromptScreen;

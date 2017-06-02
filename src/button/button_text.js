@@ -49,11 +49,11 @@ const styles = StyleSheet.create({
     }
 });
 
-const getTextStyles = ({type, plain, size, disabled}) => {
+const getTextStyles = ({type, state, size}) => {
     const config = [styles[`${type}Text`]];
-    if (plain) config.push(styles[`${type}PlainText`]);
+    if (state === 'plain') config.push(styles[`${type}PlainText`]);
     if (size === 'small') config.push(styles.miniText);
-    if (disabled) {
+    if (state === 'disabled') {
         if (type === 'default') {
             config.push(styles.defaultDisabledText);
         } else {
@@ -65,14 +65,13 @@ const getTextStyles = ({type, plain, size, disabled}) => {
 
 const ButtonText = (props) => {
     const {
-        disabled = false,
-        type = 'default',
+        type,
         size,
-        plain = false,
+        state,
         children
     } = props;
 
-    const textStyles = getTextStyles({type, plain, size, disabled});
+    const textStyles = getTextStyles({type, state, size});
 
     return (
         <Text style={[styles.text, ...textStyles]}>{children}</Text>
@@ -81,10 +80,13 @@ const ButtonText = (props) => {
 
 ButtonText.propTypes = {
     type: PropTypes.oneOf(['default', 'primary', 'warn']),
+    state: PropTypes.oneOf(['default', 'disabled', 'plain']),
     size: PropTypes.oneOf(['small']),
-    plain: PropTypes.bool,
-    disabled: PropTypes.bool,
     children: PropTypes.node
 };
 
+ButtonText.defaultProps = {
+    type: 'default',
+    state: 'default'
+};
 export default ButtonText;

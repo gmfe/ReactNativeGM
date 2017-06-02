@@ -2,24 +2,26 @@ import React from 'react';
 
 import {
     View,
-    Text
+    Text,
+    ScrollView
 } from 'react-native';
 
 import {
     Styles as S,
     Variable as V,
     IFont,
-    Icon,
-    Page,
-    Header
+    Icon
 } from '../../src/index';
 import _ from 'underscore';
 
 class Component extends React.Component {
+    static navigationOptions = {
+        title: 'Icon'
+    };
+
     render() {
-        const {navigator} = this.props;
         return (
-            <Page header={<Header navigator={navigator} pageName={"Icon"}/>}>
+            <ScrollView>
                 <View>
                     <Text>默认</Text>
                     <Icon name="success"/>
@@ -54,7 +56,7 @@ class Component extends React.Component {
                         </View>
                     ))}
                 </View>
-            </Page>
+            </ScrollView>
         );
     }
 }
