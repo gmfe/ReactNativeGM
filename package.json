@@ -1,7 +1,7 @@
 {
   "name": "react-native-gm",
-  "version": "0.0.91",
-  "description": "mgm lib for react-native",
+  "version": "0.4.00",
+  "description": "mgm lib for react-native >= 0.40",
   "main": "./src",
   "scripts": {
     "precommit": "eslint --fix --cache ./src/; eslint --fix --cache ./demo/",
