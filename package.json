@@ -1,6 +1,6 @@
 {
   "name": "react-native-gm",
-  "version": "0.4.00",
+  "version": "0.4.1",
   "description": "mgm lib for react-native >= 0.40",
   "main": "./src",
   "scripts": {
@@ -32,11 +32,11 @@
   "homepage": "https://github.com/gmfe/react-native-gm#readme",
   "dependencies": {
     "react": "16.0.0-alpha.6",
-    "react-native": "0.44.0",
     "react-navigation": "^1.0.0-beta.9",
     "react-native-vector-icons": "4.1.1"
   },
   "devDependencies": {
+    "react-native": "0.44.0",
     "react-native-keyboard-aware-scroll-view": "^0.2.1",
     "react-native-swiper": "^1.4.11",
     "babel-cli": "^6.14.0",
