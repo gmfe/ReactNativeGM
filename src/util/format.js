@@ -1,4 +1,4 @@
-import _ from 'underscore';
+import _ from 'lodash';
 
 var format = function (str, data) {
     var result = str;

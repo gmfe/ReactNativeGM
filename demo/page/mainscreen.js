@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {ScrollView} from 'react-native';
 
-import _ from 'underscore';
+import _ from 'lodash';
 
 import {
     Cell

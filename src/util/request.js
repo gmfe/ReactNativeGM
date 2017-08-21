@@ -1,6 +1,6 @@
 import param from './param.js';
 import format from './format.js';
-import _ from 'underscore';
+import _ from 'lodash';
 import RequestInterceptor from './request_interceptor';
 
 const {fetch, FormData} = window;
@@ -93,7 +93,7 @@ Request.prototype = {
         // 过滤null  undefined 只Object 类型。
         this._data = Object.assign({}, _data);
         if (toString.call(this._data) === '[object Object]') {
-            this._data = _.pick(this._data, value => {
+            this._data = _.pickBy(this._data, value => {
                 return value !== null && value !== undefined;
             });
         }

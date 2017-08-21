@@ -5,7 +5,7 @@ import {
     ScrollView
 } from 'react-native';
 
-import _ from 'underscore';
+import _ from 'lodash';
 import {Button, Variable as V} from '../../src';
 
 const styles = StyleSheet.create({

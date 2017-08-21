@@ -3,7 +3,7 @@ import {View, TouchableHighlight, StyleSheet} from 'react-native';
 import {Text} from '../typography';
 import S from '../styles';
 import V from '../variable';
-import _ from 'underscore';
+import _ from 'lodash';
 
 const styles = StyleSheet.create({
     redPoint: {

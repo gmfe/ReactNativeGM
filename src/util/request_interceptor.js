@@ -1,4 +1,4 @@
-import _ from 'underscore';
+import _ from 'lodash';
 
 var RequestInterceptor = (function () {
     var interceptors = []; // [{request: function(){}, response: function(){}, responseError: function(){}}]

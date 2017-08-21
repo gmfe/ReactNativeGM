@@ -6,3 +6,4 @@ depoly/
 .*rc
 .*rc.js
 .*config
+/package-lock.json

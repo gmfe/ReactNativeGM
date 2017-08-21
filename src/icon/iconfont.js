@@ -1,5 +1,5 @@
 import {createIconSet} from 'react-native-vector-icons';
-import _ from 'underscore';
+import _ from 'lodash';
 
 let glyphMap = {
     'mobile': 'e618',

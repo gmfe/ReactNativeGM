@@ -12,7 +12,7 @@ import {
     IFont,
     Icon
 } from '../../src/index';
-import _ from 'underscore';
+import _ from 'lodash';
 
 class Component extends React.Component {
     static navigationOptions = {

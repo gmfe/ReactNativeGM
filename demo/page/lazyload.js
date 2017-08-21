@@ -4,7 +4,7 @@ import {
     LazyScrollView,
     LazyImage
 } from '../../src/index';
-import _ from 'underscore';
+import _ from 'lodash';
 
 const shucaiImage = require('../../images/shucai.jpg');
 

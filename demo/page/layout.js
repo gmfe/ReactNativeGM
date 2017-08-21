@@ -10,7 +10,7 @@ import {
     Square,
     Styles as S
 } from '../../src/index';
-import _ from 'underscore';
+import _ from 'lodash';
 
 class Component extends React.Component {
     constructor(props) {

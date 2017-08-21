@@ -14,7 +14,7 @@ import {
 
 import Text from "../typography/text";
 
-import _ from 'underscore';
+import _ from 'lodash';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SCREEN_HEIGHT = Dimensions.get('window').height;
@@ -98,7 +98,7 @@ class ActionSheet extends Component {
         return this._sheetVisible;
     }
 
-    _setSheetVisible(state: boolean) {
+    _setSheetVisible(state) {
         this._sheetVisible = state;
     }
 
@@ -106,7 +106,7 @@ class ActionSheet extends Component {
         return SCREEN_HEIGHT - this._getSheetViewHeight() - (Platform.OS === 'android' ? ANDROID_BOTTOM_OFFSET : 0);
     }
 
-    _startAnimated(pos: number) {
+    _startAnimated(pos) {
         const {animRate} = this.props;
         const _afterAnimated = (pos) => {
             if(pos === SCREEN_HEIGHT) {
