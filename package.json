@@ -1,6 +1,6 @@
 {
   "name": "react-native-gm",
-  "version": "0.40.1",
+  "version": "0.40.2",
   "description": "mgm lib for react-native >= 0.40",
   "main": "./src",
   "scripts": {
