@@ -65,7 +65,8 @@ let glyphMap = {
     'xunjia': 'e634',
     'shangjiantou': 'e631',
     'dianzicheng': 'e728',
-    'renwu': 'e637'
+    'renwu': 'e637',
+    'category': 'e640'
 };
 
 _.each(glyphMap, (value, key) => {
