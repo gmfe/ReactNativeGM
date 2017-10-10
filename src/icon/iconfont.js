@@ -13,6 +13,7 @@ let glyphMap = {
     'dianhua': 'e62f',
     'down': 'e61a',
     'edit': 'e621',
+    'search': 'e672',
     'location': 'e614',
     'circle': 'e610',
     'xialajiantou': 'e60a',
@@ -43,7 +44,9 @@ let glyphMap = {
     'baicai': 'e609',
     'user': 'e616',
     'order': 'e617',
+    'minus-circle': 'e664',
     'close': 'e604',
+    'gou': 'e7dd',
     'jiantouxia': 'e630',
     'telephone': 'e625',
     'up': 'e627',
@@ -56,6 +59,7 @@ let glyphMap = {
     'order2': 'e626',
     'location1': 'e61e',
     'dagou': 'e632',
+    'minus-cycle-o': 'e781',
     'shangla': 'e60e',
     'wo': 'e60b',
     'shouqian-copy': 'e611',
@@ -66,9 +70,14 @@ let glyphMap = {
     'shangjiantou': 'e631',
     'dianzicheng': 'e728',
     'renwu': 'e637',
+    'cart_icon': 'e63a',
+    'address': 'e63b',
+    'home_icon': 'e63d',
+    'order_icon': 'e63e',
+    'search_icon': 'e63f',
     'category': 'e640',
-    'angle-up':'e7de',
-    'search':'e672'
+    'avatar_icon': 'e641',
+    'angle-up': 'e7de'
 };
 
 _.each(glyphMap, (value, key) => {

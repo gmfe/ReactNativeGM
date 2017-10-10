@@ -1,6 +1,6 @@
 {
   "name": "react-native-gm",
-  "version": "0.40.3",
+  "version": "0.41.0",
   "description": "mgm lib for react-native >= 0.40",
   "main": "./src",
   "scripts": {
@@ -16,8 +16,7 @@
     "react",
     "native",
     "weui",
-    "gm",
-    "mgm"
+    "gm"
   ],
   "rnpm": {
     "assets": [
