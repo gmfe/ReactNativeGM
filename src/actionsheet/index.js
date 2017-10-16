@@ -1,4 +1,5 @@
-import React, {PropTypes, Component} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
     View,
     Modal,
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
 });
 
 
-class ActionSheet extends Component {
+class ActionSheet extends React.Component {
     constructor() {
         super();
 

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
     StyleSheet,
     View,
@@ -67,7 +67,7 @@ const buttonTypeArr = [
     }
 ];
 
-class ButtonScreen extends Component {
+class ButtonScreen extends React.Component {
     static navigationOptions = {
         title: 'Button'
     };

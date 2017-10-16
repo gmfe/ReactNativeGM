@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
     View,
     TouchableOpacity,
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
     }
 });
 
-class Cell extends Component {
+class Cell extends React.Component {
     _renderCellHeader() {
         const {headerText, headerIconUri, headerStyle, renderHeader} = this.props;
         const headerProps = headerText || headerIconUri ? {headerText, headerIconUri, headerStyle} : null;

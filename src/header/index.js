@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
     StyleSheet,
     Text,
@@ -43,9 +44,9 @@ const styles = StyleSheet.create({
         width: (30 + 18)
     },
     btnText: {
-        fontSize: V.fontSize16,
+        fontSize: V.fontSize14,
         color: V.whiteColor,
-        lineHeight: V.fontSize16
+        lineHeight: V.fontSize14
     }
 });
 
@@ -77,7 +78,7 @@ HeaderBack.propTypes = {
     onPress: PropTypes.func
 };
 
-class Header extends Component {
+class Header extends React.Component {
     handleBackBtn() {
         if (!this.props.backBtn&&!this.props.leftBtn) {
             return (

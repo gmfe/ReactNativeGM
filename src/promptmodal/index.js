@@ -1,4 +1,5 @@
-import React, {PropTypes, Component} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {View, Modal, StyleSheet, TextInput, Dimensions, TouchableOpacity, Text as RNText} from 'react-native';
 import {
     Styles as S
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
 });
 
 
-class PromptModal extends Component {
+class PromptModal extends React.Component {
     constructor() {
         super();
 

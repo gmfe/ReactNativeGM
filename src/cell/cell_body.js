@@ -1,7 +1,8 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {View, StyleSheet, Platform, TextInput, ViewPropTypes} from 'react-native';
 import {Text} from '../typography';
-import {Icon} from '../icon';
+import {IFont} from '../icon';
 import V from '../variable';
 
 const styles = StyleSheet.create({
@@ -20,9 +21,9 @@ const styles = StyleSheet.create({
         paddingTop: (Platform.OS === 'ios' ? V.cellGapV : 0),
         paddingBottom: (Platform.OS === 'ios' ? V.cellGapV : 0),
         paddingRight: V.cellGapH,
-        lineHeight: V.fontSize16,
-        height: V.fontSize16 + 30,
-        fontSize: V.fontSize16
+        lineHeight: V.fontSize14,
+        height: V.fontSize14 + 30,
+        fontSize: V.fontSize14
     }
 });
 
@@ -34,7 +35,7 @@ const CellBody = (props) => {
                 bodyText ?
                 <Text style={[styles.cellBodyText, bodyType === 'error' ? styles.error : null, bodyStyle]}>
                     {bodyText}
-                    {bodyType === 'error' ? <Icon name="warn"/> : null}
+                    {bodyType === 'error' ? <IFont name="warning" style={{color: V.warnColor}}/> : null}
                 </Text> : null
             }
             {bodyType === 'input' ? <TextInput style={styles.input} placeholder={bodyInputHolder} /> : null}

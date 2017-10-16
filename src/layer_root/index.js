@@ -22,7 +22,6 @@ class LayerRoot extends React.Component {
     }
 
     componentDidMount() {
-        console.log('did mount');
         setComponentFunc = (type, component) => {
             const s = {};
             s[type] = component;
@@ -47,7 +46,6 @@ class LayerRoot extends React.Component {
 }
 
 LayerRoot.setComponent = (type, com) => {
-    console.log(setComponentFunc);
     if (setComponentFunc) {
         LayerRoot.removeComponent();
         setComponentFunc(type, com);

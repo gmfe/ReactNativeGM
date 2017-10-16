@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
     StyleSheet,
     View,
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
     }
 });
 
-class Tabbar extends Component {
+class Tabbar extends React.Component {
     constructor(props) {
         super(props);
         this.onSelect = this.onSelect.bind(this);
@@ -88,7 +89,7 @@ class Tabbar extends Component {
     }
 }
 
-class TabbarItem extends Component {
+class TabbarItem extends React.Component {
     constructor(props) {
         super(props);
         this.handlePress = ::this.handlePress;

@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
     SearchBar
 } from '../../src/index';
 
 
-class PageSearchBar extends Component {
+class PageSearchBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

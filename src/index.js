@@ -29,9 +29,6 @@ import {Tabs, TabsItem} from './tabs';
 import {Infinite} from './infinite';
 import Modal from './promptmodal';
 import ActionSheet from './actionsheet';
-import ViewPager from './viewpager';
-
-console.log('gm');
 
 export {
     Variable, Styles,
@@ -56,6 +53,5 @@ export {
     Infinite,
     Modal,
     ActionSheet,
-    ViewPager,
     Util
 };

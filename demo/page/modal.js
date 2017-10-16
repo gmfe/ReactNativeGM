@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
     ScrollView,
     StyleSheet,
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     }
 });
 
-class PromptScreen extends Component {
+class PromptScreen extends React.Component {
     static navigationOptions = {
         title: 'Modal'
     };
