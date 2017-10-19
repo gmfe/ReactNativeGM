@@ -8,7 +8,7 @@ class Text extends React.Component {
             <T
                 {...this.props}
                 style={[{
-                    fontSize: V.fontSize16,
+                    fontSize: V.fontSize14,
                     color: V.defaultColor
                 }, this.props.style]}
             >

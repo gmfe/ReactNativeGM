@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
     View,
     TouchableWithoutFeedback,
@@ -12,7 +13,7 @@ import V from '../variable';
 const styles = StyleSheet.create({
     font: {
         paddingTop: 2,
-        fontSize: V.fontSize16 * 1.3,
+        fontSize: V.fontSize14 * 1.3,
         marginRight: 2
     }
 });

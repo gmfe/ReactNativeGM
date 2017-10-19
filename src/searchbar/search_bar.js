@@ -1,13 +1,14 @@
-import React, {Component, PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
     View,
-    Text,
     TextInput,
     TouchableOpacity,
     StyleSheet,
     Platform
 } from 'react-native';
-import {Icon} from '../icon';
+import {IFont} from '../icon';
+import {Text} from '../typography';
 import V from '../variable';
 
 const styles = StyleSheet.create({
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
         marginRight: 2
     },
     searchBtn: {
-        fontSize: V.fontSize16,
+        fontSize: V.fontSize14,
         marginLeft: V.gap10,
         color: 'white'
     }
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
 const noop = () => {
 };
 
-class SearchBar extends Component {
+class SearchBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -144,7 +145,7 @@ class SearchBar extends Component {
             <View style={[styles.searchBar, style]}>
                 <View style={styles.searchOuter}>
                     <View style={styles.searchInner}>
-                        <Icon name="search"/>
+                        <IFont name="search"/>
                         <TextInput
                             ref={ref => {
                                 this.searchInput = ref;
@@ -162,13 +163,13 @@ class SearchBar extends Component {
                         />
                         {value ? (
                             <Text onPress={this.handleClear} style={styles.clearIcon}>
-                                <Icon name="clear"/>
+                                <IFont name="close"/>
                             </Text>
                         ) : null}
                     </View>
                     {(focus || value) ? null : (
                         <TouchableOpacity style={styles.searchCover} onPress={fake ? fake : this.focus}>
-                            <Icon name="search"/>
+                            <IFont name="search"/>
                             <Text style={styles.searchCoverText}>{placeholder}</Text>
                         </TouchableOpacity>
                     )}

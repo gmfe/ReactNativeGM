@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {Image, findNodeHandle, Dimensions, NativeModules} from 'react-native';
 import LazyManager from './lazy_manager';
 

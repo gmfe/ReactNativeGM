@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {View, Image, StyleSheet, ViewPropTypes} from 'react-native';
 import {Text} from '../typography';
 import V from '../variable';
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
     cellFooterText: {
         textAlign: 'center',
         color: V.descColor,
-        fontSize: V.fontSize14
+        fontSize: V.fontSize12
     },
     vcode: {
         width: 100,
@@ -31,7 +32,7 @@ const CellFooter = (props) => {
                 onPress ?
                 <IFont
                     name="angle-right"
-                    size={V.fontSize14}
+                    size={V.fontSize12}
                     style={{marginLeft: 5, color: V.descColor, marginTop: 2}}
                 /> : null
             }

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {ScrollView} from 'react-native';
 import {
     Styles as S,
@@ -6,7 +6,7 @@ import {
     Toast
 } from '../../src/index';
 
-class ToastScreen extends Component {
+class ToastScreen extends React.Component {
     render() {
         return (
             <ScrollView style={S.padding10}>

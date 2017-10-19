@@ -8,7 +8,7 @@ class Small extends React.Component {
             <T
                 {...this.props}
                 style={[{
-                    fontSize: V.fontSize14,
+                    fontSize: V.fontSize12,
                     color: V.defaultColor
                 }, this.props.style]}
             >

@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
     View,
     Text,
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
     toastIcon: {
         marginBottom: 10,
         color: '#fff',
-        fontSize: G.fontSize16 * 2,
+        fontSize: G.fontSize14 * 2,
         textAlign: 'center'
     },
     toastContent: {
@@ -98,7 +99,6 @@ Object.assign(Toast, {
         LayerRoot.removeComponent(LayerRoot.TYPE.TOAST);
     },
     tip(options){
-        console.log('tips');
         clearTimeout(timer);
         options = processOptions(options);
         LayerRoot.setComponent(LayerRoot.TYPE.TOAST, <Toast {...options}/>);

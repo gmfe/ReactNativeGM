@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
     View,
     Text,
@@ -15,8 +16,8 @@ const styles = StyleSheet.create({
         borderRadius: 3
     },
     dialogHeader: {
-        paddingTop: 1.2 * V.fontSize16,
-        paddingBottom: 0.5 * V.fontSize16
+        paddingTop: 1.2 * V.fontSize14,
+        paddingBottom: 0.5 * V.fontSize14
     },
     dialogTitle: {
         fontWeight: '400',

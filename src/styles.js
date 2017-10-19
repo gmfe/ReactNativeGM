@@ -29,7 +29,7 @@ const Styles = {
     },
 
     textSmall: {
-        fontSize: V.fontSize14
+        fontSize: V.fontSize12
     },
 
     textLeft: {
@@ -43,7 +43,7 @@ const Styles = {
     },
 
     text: {
-        fontSize: V.fontSize16,
+        fontSize: V.fontSize14,
         color: V.defaultColor
     },
 
@@ -335,9 +335,9 @@ const Styles = {
 
     input: {
         color: V.defaultColor,
-        fontSize: V.fontSize16,
-        height: V.fontSize16 * V.baseLineHeight,
-        lineHeight: V.fontSize16 * V.baseLineHeight,
+        fontSize: V.fontSize14,
+        height: V.fontSize14 * V.baseLineHeight,
+        lineHeight: V.fontSize14 * V.baseLineHeight,
         padding: 0
     }
 };

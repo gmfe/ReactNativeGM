@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {Text} from 'react-native';
 import {IconFont, glyphMap} from './iconfont';
 import G from '../global/variable';
@@ -6,7 +7,7 @@ import G from '../global/variable';
 const IFont = (props) => {
     const {
         name,
-        size = G.fontSize16,
+        size = G.fontSize14,
         color = G.defaultColor,
         style
     } = props;

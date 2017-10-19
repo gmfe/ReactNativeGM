@@ -2,7 +2,6 @@ import React from 'react';
 
 import {
     View,
-    Text,
     ScrollView
 } from 'react-native';
 
@@ -10,7 +9,7 @@ import {
     Styles as S,
     Variable as V,
     IFont,
-    Icon
+    Text
 } from '../../src/index';
 import _ from 'lodash';
 
@@ -24,27 +23,18 @@ class Component extends React.Component {
             <ScrollView>
                 <View>
                     <Text>默认</Text>
-                    <Icon name="success"/>
+                    <IFont name="success"/>
                     <Text>自定义颜色</Text>
-                    <Icon name="success" color={V.primaryColor}/>
+                    <IFont name="success" color={V.primaryColor}/>
                     <Text>自定义大小</Text>
-                    <Icon name="success" size={30}/>
+                    <IFont name="success" size={30}/>
                     <Text>自定义style，且优先级更高</Text>
-                    <Icon name="success" color={V.primaryColor} size={30} style={{
+                    <IFont name="success" color={V.primaryColor} size={30} style={{
                         color: V.warnColor,
                         fontSize: 25,
                         borderWidth: 1,
                         borderColor: 'red'
                     }}/>
-                </View>
-                <Text>Icon</Text>
-                <View>
-                    {_.map(Icon.glyphMap, (value, key) => (
-                        <View key={key} style={S.flexRow}>
-                            <Icon name={key}/>
-                            <Text>{key}</Text>
-                        </View>
-                    ))}
                 </View>
 
                 <Text>IFont</Text>
