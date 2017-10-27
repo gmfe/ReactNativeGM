@@ -1,6 +1,6 @@
 {
   "name": "react-native-gm",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "mgm lib for react-native >= 0.40",
   "main": "./src",
   "scripts": {
@@ -33,7 +33,7 @@
   "devDependencies": {
     "prop-types": "^15.6.0",
     "react": "16.0.0-alpha.12",
-    "react-native": "0.45.0",
+    "react-native": "0.45.1",
     "react-native-keyboard-aware-scroll-view": "^0.3.0",
     "react-native-vector-icons": "^4.4.2",
     "babel-cli": "^6.14.0",
@@ -46,8 +46,8 @@
   },
   "peerDependencies": {
     "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "react-native": "0.48.4",
+    "react": "16.0.0-alpha.12",
+    "react-native": "0.45.1",
     "react-native-keyboard-aware-scroll-view": "^0.3.0",
     "react-native-vector-icons": "^4.4.2",
     "lodash": "^4.17.4"

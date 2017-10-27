@@ -35,7 +35,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* ReactNativeGMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeGMTests.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		DA3983C134FF48A68456E02A /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8FE32670418E45298F48569C /* iconfont.ttf */; };
+		8B4F026A1AFF4886A52DC3E8 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5814C0AD8EE46BA8F894CA7 /* iconfont.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -255,7 +255,7 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		8FE32670418E45298F48569C /* iconfont.ttf */ = {isa = PBXFileReference; name = "iconfont.ttf"; path = "../fonts/iconfont.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C5814C0AD8EE46BA8F894CA7 /* iconfont.ttf */ = {isa = PBXFileReference; name = "iconfont.ttf"; path = "../fonts/iconfont.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -468,7 +468,7 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* ReactNativeGMTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
-				687C00476A624324A4B42872 /* Resources */,
+				E1C71464FD7542C0A30CA327 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -485,14 +485,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		687C00476A624324A4B42872 /* Resources */ = {
-			isa = "PBXGroup";
+		E1C71464FD7542C0A30CA327 /* Resources */ = {
+			isa = PBXGroup;
 			children = (
-				8FE32670418E45298F48569C /* iconfont.ttf */,
+				C5814C0AD8EE46BA8F894CA7 /* iconfont.ttf */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
 			path = "";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -852,7 +852,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				DA3983C134FF48A68456E02A /* iconfont.ttf in Resources */,
+				8B4F026A1AFF4886A52DC3E8 /* iconfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
