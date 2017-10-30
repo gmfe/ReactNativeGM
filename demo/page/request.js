@@ -6,10 +6,8 @@ import {
 
 import {
     Styles as S,
-    Variable as V,
     Button,
     NProgress,
-    Loading,
     Toast,
     Util
 } from '../../src/index';
@@ -43,7 +41,6 @@ class Component extends React.Component {
 
 
                 <Text>Loading</Text>
-                <Loading color={V.descColor}/>
 
                 <Button
                     type="primary"

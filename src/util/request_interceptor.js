@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
-var RequestInterceptor = (function () {
-    var interceptors = []; // [{request: function(){}, response: function(){}, responseError: function(){}}]
-    var id = 0;
+const RequestInterceptor = (function () {
+    let interceptors = []; // [{request: function(){}, response: function(){}, responseError: function(){}}]
+    let id = 0;
 
     return {
         add: function (interceptor) {
@@ -19,7 +19,7 @@ var RequestInterceptor = (function () {
         // 私有方法,谁用谁死
         interceptor: {
             request: function (config) {
-                var promise = Promise.resolve(config);
+                let promise = Promise.resolve(config);
                 _.each(interceptors, function (value) {
                     if (value.request) {
                         promise = promise.then(function (_config) {
@@ -32,7 +32,7 @@ var RequestInterceptor = (function () {
                 return promise;
             },
             response: function (json, config, res) {
-                var promise = Promise.resolve(json);
+                let promise = Promise.resolve(json);
                 _.each(interceptors, function (value) {
                     if (value.response) {
                         promise = promise.then(function (json) {
@@ -44,7 +44,7 @@ var RequestInterceptor = (function () {
                 return promise;
             },
             responseError: function (reason, config) {
-                var promise = Promise.reject(reason);
+                let promise = Promise.reject(reason);
                 _.each(interceptors, function (value) {
                     if (value.responseError) {
                         promise = promise.catch(function (reason) {

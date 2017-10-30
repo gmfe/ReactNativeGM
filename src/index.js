@@ -20,7 +20,6 @@ import Toast from './toast';
 import {SearchBar} from './searchbar';
 import Page from './page';
 import NProgress from './nprogress';
-import Loading from './loading';
 import LayerRoot from './layer_root';
 import {Square, SquareImage} from './square';
 import Util from './util';
@@ -45,7 +44,7 @@ export {
     Tabbar, TabbarItem,
     H1, H2, H3, H4, Text, Small,
     Page,
-    NProgress, Loading,
+    NProgress,
     LayerRoot,
     Square, SquareImage,
     LazyScrollView, LazyImage,

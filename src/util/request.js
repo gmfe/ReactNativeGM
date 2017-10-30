@@ -5,7 +5,7 @@ import RequestInterceptor from './request_interceptor';
 
 const {fetch, FormData} = window;
 
-var setPromiseTimeout = function (promise, ms) {
+const setPromiseTimeout = function (promise, ms) {
     if (ms === false) {
         return promise;
     }
@@ -17,11 +17,11 @@ var setPromiseTimeout = function (promise, ms) {
     });
 };
 
-var processRequest = function (config) {
+const processRequest = function (config) {
     return RequestInterceptor.interceptor.request(config);
 };
 
-var processResponse = function (promise, url, sucCode, config) {
+const processResponse = function (promise, url, sucCode, config) {
     let response = null;
     return setPromiseTimeout(promise, config.options.timeout).then(function (res) {
         response = res;
@@ -61,7 +61,7 @@ var processResponse = function (promise, url, sucCode, config) {
     });
 };
 
-var Request = function (url, options) {
+const Request = function (url, options) {
     this._data = {};
     this.url = url;
     this.sucCode = [0];
@@ -104,7 +104,7 @@ Request.prototype = {
         return this;
     },
     _getConfig: function () {
-        var t = this;
+        const t = this;
         return {
             url: t.url,
             data: t._data,
@@ -113,36 +113,36 @@ Request.prototype = {
         };
     },
     _setConfig: function (d) {
-        var t = this;
+        const t = this;
         t.url = d.url;
         t._data = d.data;
         t.sucCode = d.sucCode;
         t.options = d.options;
     },
     _beforeRequest: function () {
-        var t = this;
+        const t = this;
         return processRequest(t._getConfig()).then(t._setConfig.bind(t));
     },
     get: function () {
-        var t = this;
+        const t = this;
 
         return t._beforeRequest().then(function () {
-            var p = param(t._data);
-            var newUrl = t.url + (p ? ((t.url.indexOf('?') > -1 ? '&' : '?') + p) : '');
+            const p = param(t._data);
+            const newUrl = t.url + (p ? ((t.url.indexOf('?') > -1 ? '&' : '?') + p) : '');
             return processResponse(fetch(newUrl, t.options), t.url, t.sucCode, t._getConfig());
         });
     },
     post: function () {
-        var t = this;
-        var data = t._data;
-        var body;
+        const t = this;
+        const data = t._data;
+        let body;
         t.options.method = 'post';
 
         return t._beforeRequest().then(function () {
             // 兼容传[json string] [formData] 的情况,暂时这两种. 其他的看情况
             if (toString.call(data) === '[object Object]') {
                 body = new FormData();
-                for (var e in data) {
+                for (const e in data) {
                     body.append(e, data[e]);
                 }
             } else {
@@ -154,9 +154,8 @@ Request.prototype = {
     }
 };
 
-var RequestFactory = function (url, options) {
+function RequestFactory(url, options) {
     return new Request(url, options);
-};
-
+}
 
 export default RequestFactory;
