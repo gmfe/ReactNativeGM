@@ -8,7 +8,6 @@ import {
 import {
     Styles as S,
     Variable as V,
-    TextArea,
     Text,
     TextInput,
     Button,
@@ -38,17 +37,6 @@ class Component extends React.Component {
                     viewIsInsideTabBar={false}
                 >
                     <View>
-                        <Text>TextArea</Text>
-                        <TextArea
-                            style={S.border}
-                            value={this.state.value}
-                            onChangeText={value => {
-                                this.setState({
-                                    value
-                                });
-                            }}
-                        />
-
                         <Text>Input</Text>
                         <TextInput
                             style={[S.input, S.border]}
