@@ -1,7 +1,7 @@
 import StyleSheet from './style_sheet';
 import V from './variable';
 
-// 方便快速构建UI
+// 方便快速构建UI, 不拆文件了，方便编辑器自动完成提示
 const Styles = {
     // bg
     bgDefault: {
@@ -333,6 +333,17 @@ const Styles = {
         marginHorizontal: V.gap15
     },
 
+    // mask
+    mask: {
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(40, 40, 40, 0.6)'
+    },
+
+    // input
     input: {
         color: V.defaultColor,
         fontSize: V.fontSize14,

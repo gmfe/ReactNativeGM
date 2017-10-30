@@ -5,9 +5,7 @@ import {
 } from 'react-native';
 
 import {
-    Styles as S,
     Button,
-    NProgress,
     Toast,
     Util
 } from '../../src/index';
@@ -23,22 +21,6 @@ class Component extends React.Component {
         return (
             <ScrollView>
                 <Text>Request</Text>
-                <Button
-                    type="default"
-                    style={S.marginTop10}
-                    onPress={() => {
-                        NProgress.start();
-                    }}
-                >nprogress start</Button>
-
-                <Button
-                    type="primary"
-                    style={S.marginTop10}
-                    onPress={() => {
-                        NProgress.done();
-                    }}
-                >nprogress done</Button>
-
 
                 <Text>Loading</Text>
 

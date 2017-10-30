@@ -4,9 +4,9 @@ import {
 } from 'react-native';
 
 const TYPE = {
+    POPUP: 'popup',
     DIALOG: 'dialog',
-    TOAST: 'toast',
-    NPROGRESS: 'nprogress'
+    TOAST: 'toast'
 };
 
 let setComponentFunc = null;
@@ -15,8 +15,8 @@ class LayerRoot extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            popup: null,
             dialog: null,
-            nprogress: null,
             toast: null
         };
     }
@@ -37,9 +37,9 @@ class LayerRoot extends React.Component {
         // 有层级关系
         return (
             <View>
+                <View>{this.state.popup}</View>
                 <View>{this.state.dialog}</View>
                 <View>{this.state.toast}</View>
-                <View>{this.state.nprogress}</View>
             </View>
         );
     }

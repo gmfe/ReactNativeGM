@@ -1,13 +1,11 @@
 import React from 'react';
 import {
     View,
-    KeyboardAvoidingView,
-    TouchableWithoutFeedback
-
+    TouchableWithoutFeedback,
+    Modal
 } from 'react-native';
 import {
     Styles as S,
-    Variable as V,
     Text,
     TextInput,
     Button,
@@ -31,7 +29,7 @@ class Component extends React.Component {
 
     render() {
         return (
-            <View style={{flex:1}}>
+            <View style={S.flex}>
                 <KeyboardAwareScrollView
                     style={[S.flex]}
                     viewIsInsideTabBar={false}
@@ -86,25 +84,20 @@ class Component extends React.Component {
                     <View style={{height: 100}}/>
                 </KeyboardAwareScrollView>
                 {this.state.show ? (
-                    <KeyboardAvoidingView
-                        style={{
-                            position: 'absolute',
-                            top: 0,
-                            bottom: 0,
-                            left: 0,
-                            right: 0,
-                            backgroundColor: 'rgba(0, 0, 0, .5)'
+                    <Modal
+                        transparent
+                        onRequestClose={() => {
                         }}
-                        behavior="padding"
-                        keyboardVerticalOffset={V.headerHeight}
                     >
-                        <TouchableWithoutFeedback onPress={() => {
-                            this.setState({
-                                show: false
-                            });
-                        }}>
+                        <TouchableWithoutFeedback
+                            style={S.mask}
+                            onPress={() => {
+                                this.setState({
+                                    show: false
+                                });
+                            }}>
                             <View style={S.flex}>
-                                <View style={S.flex}/>
+                                <View style={[S.flex]}/>
                                 <View style={{
                                     left: 0,
                                     right: 0,
@@ -125,7 +118,7 @@ class Component extends React.Component {
                                 </View>
                             </View>
                         </TouchableWithoutFeedback>
-                    </KeyboardAvoidingView>
+                    </Modal>
                 ) : null}
             </View>
         );
