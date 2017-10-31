@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, Modal, StyleSheet, TextInput, Dimensions, TouchableOpacity} from 'react-native';
+import {View, Modal, StyleSheet, Dimensions, TouchableOpacity} from 'react-native';
 import {
+    TextInput,
     Styles as S
 } from '../../src';
 import Text from "../typography/text";

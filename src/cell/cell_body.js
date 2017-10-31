@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, StyleSheet, Platform, TextInput} from 'react-native';
+import {View, StyleSheet, Platform} from 'react-native';
+import {TextInput} from '../form';
 import {Text} from '../typography';
 import {IFont} from '../icon';
 import V from '../variable';

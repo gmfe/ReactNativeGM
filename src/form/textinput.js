@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    TextInput,
+    TextInput as RNTextInput,
     StyleSheet
 } from 'react-native';
 
@@ -10,14 +10,14 @@ const styles = StyleSheet.create({
     }
 });
 
-const InputComponent = (props) => {
+const TextInput = (props) => {
     const {
         style,
         ...others
     } = props;
 
     return (
-        <TextInput
+        <RNTextInput
             autoCorrect={false}
             autoCapitalize='none'
             underlineColorAndroid='transparent'
@@ -27,4 +27,4 @@ const InputComponent = (props) => {
     );
 };
 
-export default InputComponent;
+export default TextInput;

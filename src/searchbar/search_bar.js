@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
     View,
-    TextInput,
     TouchableOpacity,
     StyleSheet,
     Platform
 } from 'react-native';
 import {IFont} from '../icon';
+import {TextInput} from '../form';
 import {Text} from '../typography';
 import V from '../variable';
 
