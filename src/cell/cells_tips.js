@@ -23,7 +23,7 @@ const CellsTips = (props) => {
 };
 CellsTips.propTypes = {
     children: PropTypes.node,
-    style: Text.propTypes.style,
+    style: PropTypes.object,
     others: PropTypes.object
 };
 

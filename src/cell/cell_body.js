@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, StyleSheet, Platform, TextInput, ViewPropTypes} from 'react-native';
+import {View, StyleSheet, Platform, TextInput} from 'react-native';
 import {Text} from '../typography';
 import {IFont} from '../icon';
 import V from '../variable';
@@ -51,7 +51,7 @@ CellBody.propTypes = {
     bodyText: PropTypes.string,
     bodyType: PropTypes.oneOf(['text', 'input', 'error']),
     bodyInputHolder: PropTypes.string,
-    bodyStyle: ViewPropTypes.style
+    bodyStyle: PropTypes.object
 };
 
 export default CellBody;

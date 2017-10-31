@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-    View,
     Text,
     StyleSheet,
     Platform,
@@ -132,8 +131,8 @@ Object.assign(Toast, {
 
 Toast.propTypes = {
     icon: PropTypes.string, // iconfont 的图标名字
-    style: View.propTypes.style,
-    textStyle: Text.propTypes.style,
+    style: PropTypes.object,
+    textStyle: PropTypes.object,
     children: PropTypes.node
 };
 

@@ -93,20 +93,20 @@ class Cell extends React.Component {
 
 Cell.propTypes = {
     onPress: PropTypes.func,
-    cellStyle: ViewPropTypes.style,
+    cellStyle: PropTypes.object,
     isFirst: PropTypes.bool,
     headerText: PropTypes.string,
     headerIconUri: PropTypes.string,
-    headerStyle: ViewPropTypes.style,
+    headerStyle: PropTypes.object,
     renderHeader: PropTypes.func,
     bodyText: PropTypes.string,
     bodyType: PropTypes.oneOf(['text', 'input', 'error']),
     bodyInputHolder: PropTypes.string,
-    bodyStyle: ViewPropTypes.style,
+    bodyStyle: PropTypes.object,
     renderBody: PropTypes.func,
     footerText: PropTypes.string,
     footerIconUri: PropTypes.string,
-    footerStyle: ViewPropTypes.style,
+    footerStyle: PropTypes.object,
     renderFooter: PropTypes.func
 };
 

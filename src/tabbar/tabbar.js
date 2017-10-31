@@ -117,8 +117,8 @@ class TabbarItem extends React.Component {
 Tabbar.PropTypes = {
     selected: PropTypes.object.isRequired,
     onSelect: PropTypes.func.isRequired,
-    backgroundColor: View.propTypes.style, //tabbar背景颜色
-    selectedColor: Text.propTypes.style //tabbarItem被选中后的颜色
+    backgroundColor: PropTypes.string, //tabbar背景颜色
+    selectedColor: PropTypes.string //tabbarItem被选中后的颜色
 };
 
 TabbarItem.PropTypes = {

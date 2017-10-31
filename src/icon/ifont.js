@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Text} from 'react-native';
 import {IconFont, glyphMap} from './iconfont';
 import G from '../global/variable';
 
@@ -26,7 +25,7 @@ IFont.propTypes = {
     name: PropTypes.string.isRequired,
     size: PropTypes.number,
     color: PropTypes.string,
-    style: Text.propTypes.style
+    style: PropTypes.object
 };
 
 IFont.glyphMap = glyphMap;

@@ -75,7 +75,7 @@ class LazyImage extends React.Component {
 
 LazyImage.propTypes = {
     lazyScrollViewName: PropTypes.string.isRequired,
-    placeholder: Image.propTypes.source
+    placeholder: PropTypes.object
 };
 
 LazyImage.defaultProps = {

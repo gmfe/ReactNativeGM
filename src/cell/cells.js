@@ -32,7 +32,7 @@ const Cells = (props) => {
 };
 Cells.propTypes = {
     children: PropTypes.node,
-    style: View.propTypes.style,
+    style: PropTypes.object,
     others: PropTypes.object
 };
 

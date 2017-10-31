@@ -54,7 +54,7 @@ class Page extends React.Component {
 
 Page.propTypes = {
     children: PropTypes.node,
-    style: View.propTypes.style,
+    style: PropTypes.object,
     white: PropTypes.bool,
     noScrollContent: PropTypes.bool,
     scrollViewProps: PropTypes.object,

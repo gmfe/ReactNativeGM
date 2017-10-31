@@ -4,13 +4,11 @@ import {
     View,
     Modal,
     StyleSheet,
-    ViewPropTypes,
     Dimensions,
     TouchableOpacity,
     Animated,
     Easing,
-    Platform,
-    Text as RNText
+    Platform
 } from 'react-native';
 
 import Text from "../typography/text";
@@ -192,8 +190,8 @@ ActionSheet.PropTypes = {
     buttonText: PropTypes.array,
     animRate: PropTypes.number,
     cancelText: PropTypes.string,
-    cancelTextStyle: RNText.propTypes.style,
-    buttonStyle: ViewPropTypes.style
+    cancelTextStyle: PropTypes.object,
+    buttonStyle: PropTypes.object
 };
 
 export default ActionSheet;

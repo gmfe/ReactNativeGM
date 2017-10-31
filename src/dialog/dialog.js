@@ -5,7 +5,7 @@ import {
     Text,
     StyleSheet,
     TouchableHighlight,
-    Dimensions,
+    Dimensions
 } from 'react-native';
 import _ from 'lodash';
 import Mask from '../mask';

@@ -19,7 +19,7 @@ const CellsTitle = (props) => {
 };
 CellsTitle.propTypes = {
     children: PropTypes.node,
-    style: Text.propTypes.style,
+    style: PropTypes.object,
     others: PropTypes.object
 };
 

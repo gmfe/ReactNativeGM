@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, Image, StyleSheet, ViewPropTypes} from 'react-native';
+import {View, Image, StyleSheet} from 'react-native';
 import {Text} from '../typography';
 import V from '../variable';
 import {IFont} from '../icon';
@@ -44,7 +44,7 @@ CellFooter.propTypes = {
     footerText: PropTypes.string,
     footerIconUri: PropTypes.string,
     onPress: PropTypes.func,
-    footerStyle: ViewPropTypes.style
+    footerStyle: PropTypes.object
 };
 
 export default CellFooter;

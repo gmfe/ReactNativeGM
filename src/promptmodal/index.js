@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, Modal, StyleSheet, TextInput, Dimensions, TouchableOpacity, Text as RNText} from 'react-native';
+import {View, Modal, StyleSheet, TextInput, Dimensions, TouchableOpacity} from 'react-native';
 import {
     Styles as S
 } from '../../src';
@@ -119,7 +119,7 @@ PromptModal.defaultProps = {
 
 PromptModal.PropTypes = {
     titleText: PropTypes.string,
-    titleStyle: RNText.propTypes.style,
+    titleStyle: PropTypes.object,
     renderTitle: PropTypes.func,
     desText: PropTypes.string.isRequired,
     onSubmitPress: PropTypes.func,
