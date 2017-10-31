@@ -6,6 +6,7 @@ import LayerRoot from '../layer_root';
 import {Text} from '../typography';
 import Mask from '../mask';
 import S from '../styles';
+import _ from 'lodash';
 
 const renderIcon = (icon) => {
     if (icon === 'loading') {
@@ -22,11 +23,16 @@ class Toast extends React.Component {
             children
         } = this.props;
 
+        console.log('adsfasdf');
+
         return (
-            <Mask style={[S.flexAlignCenter, S.flexJustifyCenter, {
-                backgroundColor: 'none',
-                borderRadius: 5
-            }]}>
+            <Mask
+                style={[S.flexAlignCenter, S.flexJustifyCenter, {
+                    backgroundColor: 'transparent',
+                    borderRadius: 5
+                }]}
+                onCancel={_.noop}
+            >
                 {icon && renderIcon(icon)}
                 <Text style={[S.marginBottom10, S.textWhite, S.textCenter]}>{children}</Text>
             </Mask>

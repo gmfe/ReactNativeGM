@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
     View,
+    Text,
     Modal,
     StyleSheet,
     Dimensions,
@@ -10,8 +11,7 @@ import {
     Easing,
     Platform
 } from 'react-native';
-
-import Text from "../typography/text";
+import S from '../styles';
 
 import _ from 'lodash';
 
@@ -135,7 +135,7 @@ class ActionSheet extends React.Component {
                     }}
                     style={[styles.sheetButton, buttonStyle]}
                 >
-                    {typeof(text) === 'string' ? <Text>{text}</Text> : text}
+                    {typeof(text) === 'string' ? <Text style={[S.text]}>{text}</Text> : text}
                 </TouchableOpacity>
             );
         });
@@ -149,7 +149,7 @@ class ActionSheet extends React.Component {
                 style={[styles.cancelButton, buttonStyle]}
                 onPress={() => this._hide()}
             >
-                <Text style={[styles.cancelText, cancelTextStyle]}>{cancelText}</Text>
+                <Text style={[S.text, styles.cancelText, cancelTextStyle]}>{cancelText}</Text>
             </TouchableOpacity>
         );
     }

@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-    View,
-    Modal
-} from 'react-native';
-import _ from 'lodash';
+import {View} from 'react-native';
 
 const TYPE = {
     POPUP: 'popup',

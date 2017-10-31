@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, Modal, StyleSheet, Dimensions, TouchableOpacity} from 'react-native';
+import {View, Text, Modal, StyleSheet, Dimensions, TouchableOpacity} from 'react-native';
 import {
     TextInput,
-    Styles as S
+    S
 } from '../../src';
-import Text from "../typography/text";
 
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -80,7 +79,9 @@ class PromptModal extends React.Component {
         const {onSubmitPress, buttonText} = this.props;
         return(
             <View style={styles.buttonWrapper}>
-                <TouchableOpacity onPress={() => this._hidePrompt()}><Text>{buttonText.cancel}</Text></TouchableOpacity>
+                <TouchableOpacity onPress={() => this._hidePrompt()}>
+                    <Text style={[S.text]}>{buttonText.cancel}</Text>
+                </TouchableOpacity>
                 <TouchableOpacity onPress={onSubmitPress}><Text>{buttonText.submit}</Text></TouchableOpacity>
             </View>
         );

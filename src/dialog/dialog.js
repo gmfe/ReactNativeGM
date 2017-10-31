@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
     View,
+    Text,
     StyleSheet,
     TouchableHighlight,
     Dimensions
 } from 'react-native';
-import {Text} from '../typography';
 import _ from 'lodash';
 import Mask from '../mask';
 import V from '../variable';
@@ -64,10 +64,10 @@ class Dialog extends React.Component {
                     underlayColor={V.activeColor}
                     onPress={onPress}
                 >
-                    <Text style={{
+                    <Text style={[S.text, {
                         fontSize: 17,
                         color: i + 1 === buttons.length ? V.primaryColor : V.defaultColor
-                    }}>{text}</Text>
+                    }]}>{text}</Text>
                 </TouchableHighlight>
             );
         });
