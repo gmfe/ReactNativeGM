@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Text} from 'react-native';
+import {Text} from '../typography';
 import StyleSheet from '../style_sheet';
 import V from '../variable';
 

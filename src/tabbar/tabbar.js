@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import {
     StyleSheet,
     View,
-    Text,
     TouchableWithoutFeedback,
     Dimensions
 } from 'react-native';
+import {Text} from '../typography';
 import {IFont} from '../icon';
 import V from '../variable';
 

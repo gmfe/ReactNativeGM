@@ -1,87 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-    Text,
-    StyleSheet,
-    Platform,
-    ProgressBarAndroid,
-    ActivityIndicator
-} from 'react-native';
+import {ActivityIndicator} from 'react-native';
 import {IFont} from '../icon';
 import LayerRoot from '../layer_root';
-import G from '../global/variable';
-import Modal from '../promptmodal';
-
-const styles = StyleSheet.create({
-    wrap: {
-        backgroundColor: 'transparent',
-        justifyContent: 'flex-start'
-    },
-    toast: {
-        position: 'absolute',
-        top: 180,
-        left: 30,
-        right: 30,
-        padding: 10,
-        paddingBottom: 0,
-        backgroundColor: 'rgba(40, 40, 40, 0.75)',
-        borderRadius: 5
-    },
-    toastIcon: {
-        marginBottom: 10,
-        color: '#fff',
-        fontSize: G.fontSize14 * 2,
-        textAlign: 'center'
-    },
-    toastContent: {
-        marginBottom: 10,
-        color: '#fff',
-        textAlign: 'center'
-    },
-    toastLoading: {
-        marginTop: 10,
-        marginBottom: 10
-    }
-});
-
-const renderLoading = () => {
-    if (Platform.OS === 'ios') {
-        return <ActivityIndicator color="#fff" size="large" style={styles.toastLoading}/>;
-    }
-    return <ProgressBarAndroid color="#fff" styleAttr="Large" style={styles.toastLoading}/>;
-};
+import {Text} from '../typography';
+import Mask from '../mask';
+import S from '../styles';
 
 const renderIcon = (icon) => {
     if (icon === 'loading') {
-        return renderLoading();
+        return <ActivityIndicator color="#fff" style={[S.marginVertical0]}/>;
     }
-    if (icon) {
-        return <IFont name={icon} style={[styles.toastIcon]}/>;
-    }
-    return undefined;
+
+    return <IFont name={icon} style={[S.marginBottom10, S.textWhite, S.textCenter]}/>;
 };
 
-const Toast = (props) => {
-    const {
-        icon,
-        style,
-        textStyle,
-        children
-    } = props;
+class Toast extends React.Component {
+    render() {
+        const {
+            icon,
+            children
+        } = this.props;
 
-    return (
-        <Modal
-            visible={true}
-            style={[styles.toast, style]}
-            wrapStyle={styles.wrap}
-        >
-            {renderIcon(icon)}
-            <Text style={[styles.toastContent, textStyle]}>{children}</Text>
-        </Modal>
-    );
-};
+        return (
+            <Mask style={[S.flexAlignCenter, S.flexJustifyCenter, {
+                backgroundColor: 'none',
+                borderRadius: 5
+            }]}>
+                {icon && renderIcon(icon)}
+                <Text style={[S.marginBottom10, S.textWhite, S.textCenter]}>{children}</Text>
+            </Mask>
+        );
+    }
+}
 
-const processOptions = (options)=> {
+const processOptions = (options) => {
     if (typeof options === 'string') {
         options = {
             children: options
@@ -94,10 +47,10 @@ let timer = null;
 
 // 静态方法支持time参数。 false 或者 数字
 Object.assign(Toast, {
-    clear(){
+    clear() {
         LayerRoot.removeComponent(LayerRoot.TYPE.TOAST);
     },
-    tip(options){
+    tip(options) {
         clearTimeout(timer);
         options = processOptions(options);
         LayerRoot.setComponent(LayerRoot.TYPE.TOAST, <Toast {...options}/>);
@@ -107,23 +60,23 @@ Object.assign(Toast, {
             }, options.time || 2000);
         }
     },
-    success(options){
+    success(options) {
         options = processOptions(options);
         Toast.tip(Object.assign({icon: 'success'}, options));
     },
-    info(options){
+    info(options) {
         options = processOptions(options);
         Toast.tip(Object.assign({icon: 'info-circle'}, options));
     },
-    warning(options){
+    warning(options) {
         options = processOptions(options);
         Toast.tip(Object.assign({icon: 'warning'}, options));
     },
-    danger(options){
+    danger(options) {
         options = processOptions(options);
         Toast.tip(Object.assign({icon: 'close'}, options));
     },
-    loading(options){
+    loading(options) {
         options = processOptions(options);
         Toast.tip(Object.assign({icon: 'loading', children: '加载中...'}, options));
     }
@@ -131,8 +84,6 @@ Object.assign(Toast, {
 
 Toast.propTypes = {
     icon: PropTypes.string, // iconfont 的图标名字
-    style: PropTypes.object,
-    textStyle: PropTypes.object,
     children: PropTypes.node
 };
 

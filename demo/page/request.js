@@ -1,10 +1,10 @@
 import React from 'react';
 import {
-    Text,
     ScrollView
 } from 'react-native';
 
 import {
+    Text,
     Button,
     Toast,
     Util

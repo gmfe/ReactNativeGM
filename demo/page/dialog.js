@@ -3,10 +3,11 @@ import {ScrollView} from 'react-native';
 
 import {
     Button,
-    Alert, Confirm, Prompt
+    Alert, Confirm, Prompt,
+    S
 } from '../../src';
 
-class PromptScreen extends React.Component {
+class DialogWrap extends React.Component {
     static navigationOptions = {
         title: 'Dialog'
     };
@@ -15,6 +16,7 @@ class PromptScreen extends React.Component {
         return (
             <ScrollView>
                 <Button
+                    style={S.marginTop10}
                     type={'default'}
                     onPress={() => Alert('提示', 'well done')}
                 >
@@ -22,6 +24,7 @@ class PromptScreen extends React.Component {
                 </Button>
 
                 <Button
+                    style={S.marginTop10}
                     type={'default'}
                     onPress={() => Alert(null, 'well done')}
                 >
@@ -29,6 +32,7 @@ class PromptScreen extends React.Component {
                 </Button>
 
                 <Button
+                    style={S.marginTop10}
                     type={'default'}
                     onPress={() => {
                         Confirm('Confirm', 'well done').then(() => console.log('ok'), () => console.log('cancel'));
@@ -38,6 +42,7 @@ class PromptScreen extends React.Component {
                 </Button>
 
                 <Button
+                    style={S.marginTop10}
                     type={'default'}
                     onPress={() => {
                         Prompt('Prompt', 'well done').then((text) => console.log('ok', text), () => console.log('cancel'));
@@ -47,6 +52,7 @@ class PromptScreen extends React.Component {
                 </Button>
 
                 <Button
+                    style={S.marginTop10}
                     type={'default'}
                     onPress={() => {
                         Prompt('Prompt', 'well done', {
@@ -61,4 +67,4 @@ class PromptScreen extends React.Component {
     }
 }
 
-export default PromptScreen;
+export default DialogWrap;

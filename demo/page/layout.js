@@ -1,14 +1,14 @@
 import React from 'react';
 import {
     View,
-    Text,
     Image,
     ScrollView
 } from 'react-native';
 
 import {
     Square,
-    Styles as S
+    Styles as S,
+    Text
 } from '../../src/index';
 import _ from 'lodash';
 

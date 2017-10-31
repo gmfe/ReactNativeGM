@@ -19,7 +19,8 @@ import TabbarScreen from './page/tabbar';
 import LazyloadScreen from './page/lazyload';
 import SearchBarScreen from './page/search_bar';
 import TabsScreen from './page/tabs';
-import PromptScreen from './page/modal';
+import DialogWrap from './page/dialog';
+import ToastWrap from './page/toast';
 
 const Navigator = StackNavigator({
     Main: {screen: MainScreen},
@@ -34,7 +35,8 @@ const Navigator = StackNavigator({
     Lazyload: {screen: LazyloadScreen},
     SearchBar: {screen: SearchBarScreen},
     Tabs: {screen: TabsScreen},
-    Modal: {screen: PromptScreen}
+    Dialog: {screen: DialogWrap},
+    Toast: {screen: ToastWrap}
 });
 
 console.disableYellowBox = true;

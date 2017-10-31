@@ -1,19 +1,16 @@
 import React from 'react';
-import {Text as T} from 'react-native';
-import V from '../variable';
+import {Text as RNText} from 'react-native';
+import S from '../styles';
 
 class Text extends React.Component {
     render() {
         return (
-            <T
+            <RNText
                 {...this.props}
-                style={[{
-                    fontSize: V.fontSize14,
-                    color: V.defaultColor
-                }, this.props.style]}
+                style={[S.text, this.props.style]}
             >
                 {this.props.children}
-            </T>
+            </RNText>
         );
     }
 }

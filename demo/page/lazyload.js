@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import {
     LazyScrollView,
-    LazyImage
+    LazyImage,
+    Text
 } from '../../src/index';
 import _ from 'lodash';
 

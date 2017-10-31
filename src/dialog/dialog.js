@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
     View,
-    Text,
     StyleSheet,
     TouchableHighlight,
     Dimensions
 } from 'react-native';
+import {Text} from '../typography';
 import _ from 'lodash';
 import Mask from '../mask';
 import V from '../variable';

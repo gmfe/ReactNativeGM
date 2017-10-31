@@ -12,6 +12,9 @@ const Styles = {
     },
 
     // text
+    textWhite: {
+        color: V.whiteColor
+    },
     textPrimary: {
         color: V.primaryColor
     },

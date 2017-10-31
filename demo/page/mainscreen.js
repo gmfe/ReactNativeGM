@@ -19,7 +19,8 @@ const itemArr = [
     'Lazyload',
     'SearchBar',
     'Tabs',
-    'Modal'
+    'Dialog',
+    'Toast'
 ];
 
 class MainScreen extends React.Component {
