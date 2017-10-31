@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {ActivityIndicator} from 'react-native';
+import {View, ActivityIndicator} from 'react-native';
 import {IFont} from '../icon';
 import LayerRoot from '../layer_root';
 import {Text} from '../typography';
@@ -13,7 +13,7 @@ const renderIcon = (icon) => {
         return <ActivityIndicator color="#fff" style={[S.marginVertical0]}/>;
     }
 
-    return <IFont name={icon} style={[S.marginBottom10, S.textWhite, S.textCenter]}/>;
+    return <IFont name={icon} style={[S.marginRight5, S.textWhite]}/>;
 };
 
 class Toast extends React.Component {
@@ -23,18 +23,22 @@ class Toast extends React.Component {
             children
         } = this.props;
 
-        console.log('adsfasdf');
-
         return (
             <Mask
-                style={[S.flexAlignCenter, S.flexJustifyCenter, {
-                    backgroundColor: 'transparent',
-                    borderRadius: 5
-                }]}
+                style={{backgroundColor: 'transparent'}}
                 onCancel={_.noop}
             >
-                {icon && renderIcon(icon)}
-                <Text style={[S.marginBottom10, S.textWhite, S.textCenter]}>{children}</Text>
+                <View style={[S.flexRow, S.flexAlignCenter, S.flexJustifyCenter, {
+                    marginTop: 180,
+                    marginLeft: 30,
+                    marginRight: 30,
+                    padding: 10,
+                    borderRadius: 5,
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)'
+                }]}>
+                    {icon && renderIcon(icon)}
+                    <Text style={[S.textWhite]}>{children}</Text>
+                </View>
             </Mask>
         );
     }
@@ -56,10 +60,10 @@ Object.assign(Toast, {
     clear() {
         LayerRoot.removeComponent(LayerRoot.TYPE.TOAST);
     },
-    tip(options) {
+    tip(options, icon) {
         clearTimeout(timer);
         options = processOptions(options);
-        LayerRoot.setComponent(LayerRoot.TYPE.TOAST, <Toast {...options}/>);
+        LayerRoot.setComponent(LayerRoot.TYPE.TOAST, <Toast icon={icon} {...options}/>);
         if (options.time !== false && options.time !== 0) {
             timer = setTimeout(() => {
                 LayerRoot.removeComponent(LayerRoot.TYPE.TOAST);
@@ -67,24 +71,19 @@ Object.assign(Toast, {
         }
     },
     success(options) {
-        options = processOptions(options);
-        Toast.tip(Object.assign({icon: 'success'}, options));
+        Toast.tip(options, 'success');
     },
     info(options) {
-        options = processOptions(options);
-        Toast.tip(Object.assign({icon: 'info-circle'}, options));
+        Toast.tip(options, 'info-circle');
     },
     warning(options) {
-        options = processOptions(options);
-        Toast.tip(Object.assign({icon: 'warning'}, options));
+        Toast.tip(options, 'warning');
     },
     danger(options) {
-        options = processOptions(options);
-        Toast.tip(Object.assign({icon: 'close'}, options));
+        Toast.tip(options, 'close');
     },
     loading(options) {
-        options = processOptions(options);
-        Toast.tip(Object.assign({icon: 'loading', children: '加载中...'}, options));
+        Toast.tip(options, 'loading');
     }
 });
 
