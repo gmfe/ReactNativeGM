@@ -1,22 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {View, ScrollView, StyleSheet} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import G from '../global/variable';
-
-
-
-const styles = StyleSheet.create({
-    page: {
-        flex: 1,
-        backgroundColor: G.bgDefault
-    },
-    pageWhite: {
-        backgroundColor: G.bgWhite
-    },
-    pageContent: {
-        flex: 1
-    }
-});
 
 class Page extends React.Component {
     render() {
@@ -24,28 +9,33 @@ class Page extends React.Component {
             style,
             white,
             noScrollContent,
-            scrollViewProps = {},
-            header,
-            tabbar,
+            scrollViewProps,
+            top,
             bottom,
             children,
             ...rest
         } = this.props;
 
         return (
-            <View {...rest} style={[styles.page, white ? styles.pageWhite : {}, style]}>
-                {header ? <View>{header}</View> : undefined}
+            <View {...rest} style={[{
+                flex: 1,
+                backgroundColor: white ? G.bgWhite : G.bgDefault
+            }, style]}>
+                {top && <View>{top}</View>}
                 {noScrollContent ? (
-                    <View style={styles.pageContent}>
+                    <View style={{flex: 1}}>
                         {children}
                     </View>
                 ) : (
-                    <ScrollView keyboardShouldPersistTaps={true} keyboardDismissMode={'on-drag'}
-                                style={[styles.pageContent, scrollViewProps.style]} {...scrollViewProps}>
+                    <ScrollView
+                        keyboardShouldPersistTaps="always"
+                        keyboardDismissMode={'on-drag'}
+                        style={[{flex: 1}, scrollViewProps.style]}
+                        {...scrollViewProps}
+                    >
                         {children}
                     </ScrollView>
                 )}
-                {tabbar ? <View>{tabbar}</View> : undefined}
                 {bottom ? bottom : undefined}
             </View>
         );
@@ -53,14 +43,17 @@ class Page extends React.Component {
 }
 
 Page.propTypes = {
+    top: PropTypes.node,
+    bottom: PropTypes.node,
+    white: PropTypes.bool,
     children: PropTypes.node,
     style: PropTypes.object,
-    white: PropTypes.bool,
     noScrollContent: PropTypes.bool,
-    scrollViewProps: PropTypes.object,
-    header: PropTypes.node,
-    tabbar: PropTypes.node,
-    bottom: PropTypes.node
+    scrollViewProps: PropTypes.object
+};
+
+Page.defaultProps = {
+    scrollViewProps: {}
 };
 
 export default Page;
