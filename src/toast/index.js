@@ -4,9 +4,7 @@ import {View, ActivityIndicator} from 'react-native';
 import {IFont} from '../icon';
 import LayerRoot from '../layer_root';
 import {Text} from '../typography';
-import Mask from '../mask';
 import S from '../styles';
-import _ from 'lodash';
 
 const renderIcon = (icon) => {
     if (icon === 'loading') {
@@ -16,6 +14,7 @@ const renderIcon = (icon) => {
     return <IFont name={icon} style={[S.marginRight5, S.textWhite]}/>;
 };
 
+// TODO 补充动画
 class Toast extends React.Component {
     render() {
         const {
@@ -24,22 +23,22 @@ class Toast extends React.Component {
         } = this.props;
 
         return (
-            <Mask
-                style={{backgroundColor: 'transparent'}}
-                onCancel={_.noop}
-            >
-                <View style={[S.flexRow, S.flexAlignCenter, S.flexJustifyCenter, {
-                    marginTop: 180,
-                    marginLeft: 30,
-                    marginRight: 30,
+            <View style={[S.flexAlignCenter, S.flexJustifyCenter, {
+                position: 'absolute',
+                bottom: 100,
+                left: 0,
+                right: 0
+            }]}>
+                <View style={[S.flexRow, {
                     padding: 10,
+                    paddingHorizontal: 20,
                     borderRadius: 5,
                     backgroundColor: 'rgba(0, 0, 0, 0.5)'
                 }]}>
                     {icon && renderIcon(icon)}
                     <Text style={[S.textWhite]}>{children}</Text>
                 </View>
-            </Mask>
+            </View>
         );
     }
 }
