@@ -26,12 +26,16 @@ import {LazyScrollView, LazyImage} from './lazy';
 import {Tabs, TabsItem} from './tabs';
 import {Infinite} from './infinite';
 import ActionSheet from './actionsheet';
+import Mask from './mask';
+
+const S = Styles, V = Variable;
 
 export {
-    Variable, Styles,
+    Variable, Styles, V, S,
     StyleSheet,
     Button,
     Cells, CellsTitle, CellsTips, Cell,
+    Mask,
     Dialog, Alert, Confirm, Prompt,
     Radio, TextInput,
     Icon,

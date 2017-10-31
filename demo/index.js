@@ -1,6 +1,11 @@
+import React from 'react';
+import {
+    View
+} from 'react-native';
 import {
     StackNavigator
 } from 'react-navigation';
+import {LayerRoot, S} from '../src';
 
 import MainScreen from './page/mainscreen';
 import ButtonScreen from './page/button';
@@ -16,7 +21,7 @@ import SearchBarScreen from './page/search_bar';
 import TabsScreen from './page/tabs';
 import PromptScreen from './page/modal';
 
-const App = StackNavigator({
+const Navigator = StackNavigator({
     Main: {screen: MainScreen},
     Typography: {screen: TypographyScreen},
     Button: {screen: ButtonScreen},
@@ -33,5 +38,16 @@ const App = StackNavigator({
 });
 
 console.disableYellowBox = true;
+
+class App extends React.Component {
+    render() {
+        return (
+            <View style={S.flex}>
+                <LayerRoot/>
+                <Navigator/>
+            </View>
+        );
+    }
+}
 
 export default App;

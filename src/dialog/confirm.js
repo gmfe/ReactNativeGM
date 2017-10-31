@@ -9,29 +9,26 @@ const Confirm = (title, content, options = {}) => {
         LayerRoot.setComponent(LayerRoot.TYPE.DIALOG,
             <Dialog
                 title={title}
-                visible={true}
                 buttons={[{
-                    type: 'default',
-                    label: options.CancelLabel || '取消',
+                    text: options.cancelText || '取消',
                     onPress: () => {
                         reject();
                         LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                     }
                 }, {
-                    type: 'primary',
-                    label: options.OKLabel || '确定',
+                    text: options.okText || '确定',
                     onPress: () => {
                         resolve();
                         LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                     }
                 }]}
-                onClose={() => {
+                onCancel={() => {
                     reject();
                     LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
                 }}
                 style={options.style}
             >
-                <Text style={S.textDesc}>{content}</Text>
+                <Text style={[S.textDesc, S.textCenter]}>{content}</Text>
             </Dialog>
         );
     });

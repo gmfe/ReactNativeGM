@@ -1,73 +1,60 @@
 import React from 'react';
-import {
-    ScrollView,
-    StyleSheet,
-    View,
-    Alert
-} from 'react-native';
+import {ScrollView} from 'react-native';
 
 import {
-    Variable as V,
     Button,
-    Modal
+    Alert, Confirm, Prompt
 } from '../../src';
-import ActionSheet from "../../src/actionsheet/index";
-
-const styles = StyleSheet.create({
-    button: {
-        marginTop: V.gap10,
-        marginLeft: V.gap10,
-        marginRight: V.gap10
-    }
-});
 
 class PromptScreen extends React.Component {
     static navigationOptions = {
-        title: 'Modal'
+        title: 'Dialog'
     };
-
-    _onSubmitPress() {
-        Alert.alert('well done');
-    }
-
-    _onChangeText(text) {
-        console.log(text);
-    }
-
-    _onPressActionSheetItem(index) {
-        console.log('you pressed: ' + index);
-    }
 
     render() {
         return (
             <ScrollView>
-                <Modal
-                    ref={(ref) => this._promptModal = ref}
-                    titleText="title"
-                    desText="行行好说两句吧~"
-                    placeHolder="说点啥~"
-                    onSubmitPress={::this._onSubmitPress}
-                    onChangeText={(text) => this._onChangeText(text)}
-                />
-                <ActionSheet
-                    ref={(ref) => this._actionSheet = ref}
-                    animRate={500}
-                    buttonText={['share to WX', <View style={{width:100, height:20, backgroundColor: 'blue'}}/>]}
-                    onPressItem={(i) => this._onPressActionSheetItem(i)}
-                />
                 <Button
-                    style={styles.button}
                     type={'default'}
-                    onPress={() => this._promptModal.showPrompt()}
+                    onPress={() => Alert('提示', 'well done')}
                 >
-                    prompt
+                    alert
                 </Button>
+
                 <Button
-                    style={styles.button}
                     type={'default'}
-                    onPress={() => this._actionSheet.show()}
+                    onPress={() => Alert(null, 'well done')}
                 >
-                    actionsheet
+                    alert without title
+                </Button>
+
+                <Button
+                    type={'default'}
+                    onPress={() => {
+                        Confirm('Confirm', 'well done').then(() => console.log('ok'), () => console.log('cancel'));
+                    }}
+                >
+                    confirm 点遮罩可关闭
+                </Button>
+
+                <Button
+                    type={'default'}
+                    onPress={() => {
+                        Prompt('Prompt', 'well done').then((text) => console.log('ok', text), () => console.log('cancel'));
+                    }}
+                >
+                    prompt 点遮罩可关闭
+                </Button>
+
+                <Button
+                    type={'default'}
+                    onPress={() => {
+                        Prompt('Prompt', 'well done', {
+                            onOK: () => Promise.reject('reject')
+                        }).then((text) => console.log('ok', text), () => console.log('cancel'));
+                    }}
+                >
+                    prompt 在 onOK reject 拒绝关闭对话框
                 </Button>
             </ScrollView>
         );

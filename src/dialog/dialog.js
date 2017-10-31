@@ -5,28 +5,23 @@ import {
     Text,
     StyleSheet,
     TouchableHighlight,
-    Dimensions
+    Dimensions,
 } from 'react-native';
+import _ from 'lodash';
+import Mask from '../mask';
 import V from '../variable';
-import Modal from '../promptmodal';
+import S from '../styles';
 
 const styles = StyleSheet.create({
     dialog: {
+        backgroundColor: 'white',
         width: Dimensions.get('window').width - 60,
         borderRadius: 3
-    },
-    dialogHeader: {
-        paddingTop: 1.2 * V.fontSize14,
-        paddingBottom: 0.5 * V.fontSize14
     },
     dialogTitle: {
         fontWeight: '400',
         fontSize: 17,
         textAlign: 'center'
-    },
-    dialogBody: {
-        paddingLeft: V.gap15,
-        paddingRight: V.gap15
     },
     dialogFooter: {
         marginTop: 30,
@@ -48,42 +43,31 @@ const styles = StyleSheet.create({
         borderLeftWidth: StyleSheet.hairlineWidth,
         borderColor: V.borderColor,
         borderStyle: 'solid'
-    },
-    dialogFooterOprText: {
-        fontSize: 17
-    },
-    defaultDialogFooterOprText: {
-        color: V.defaultColor
-    },
-    primaryDialogFooterOprText: {
-        color: V.primaryColor
-    },
-    warnDialogFooterOprText: {
-        color: V.warnColor
     }
 });
 
-const underlayColor = V.activeColor;
-
 class Dialog extends React.Component {
-    renderButtons() {
-        return this.props.buttons.map((button, i) => {
+    renderButtons(buttons) {
+        return buttons.map((button, i) => {
             const {
-                type,
-                label,
-                ...others
+                text,
+                onPress
             } = button;
 
             return (
                 <TouchableHighlight
-                    key={i}
-                    style={[styles.dialogFooterOpr, i > 0 ? styles.dialogFooterOprWithBorder : {}]}
-                    underlayColor={underlayColor}
-                    {...others}
+                    key={button.text}
+                    style={[
+                        styles.dialogFooterOpr,
+                        i > 0 ? styles.dialogFooterOprWithBorder : {}
+                    ]}
+                    underlayColor={V.activeColor}
+                    onPress={onPress}
                 >
-                    <Text
-                        style={[styles.dialogFooterOprText, styles[`${type}DialogFooterOprText`]]}
-                    >{label}</Text>
+                    <Text style={{
+                        fontSize: 17,
+                        color: i + 1 === buttons.length ? V.primaryColor : V.defaultColor
+                    }}>{text}</Text>
                 </TouchableHighlight>
             );
         });
@@ -92,30 +76,31 @@ class Dialog extends React.Component {
     render() {
         const {
             title,
-            visible,
-            onClose,
-            wrapStyle,
+            onCancel,
             style,
+            buttons,
             children
         } = this.props;
 
         return (
-            <Modal
-                visible={visible}
-                onClose={onClose}
-                style={[styles.dialog, style]}
-                wrapStyle={wrapStyle}
+            <Mask
+                style={[S.flexJustifyCenter, S.flexAlignCenter]}
+                onCancel={onCancel}
             >
-                <View style={styles.dialogHeader}>
-                    <Text style={styles.dialogTitle}>{title}</Text>
+                <View style={[styles.dialog, style]}>
+                    {title && (
+                        <View style={[S.paddingHorizontal15, S.paddingTop15]}>
+                            <Text style={styles.dialogTitle}>{title}</Text>
+                        </View>
+                    )}
+                    <View style={[S.paddingHorizontal15, S.paddingTop15]}>
+                        {children}
+                    </View>
+                    <View style={styles.dialogFooter}>
+                        {this.renderButtons(buttons)}
+                    </View>
                 </View>
-                <View style={styles.dialogBody}>
-                    {children}
-                </View>
-                <View style={styles.dialogFooter}>
-                    {this.renderButtons()}
-                </View>
-            </Modal>
+            </Mask>
         );
     }
 }
@@ -123,13 +108,12 @@ class Dialog extends React.Component {
 Dialog.propTypes = {
     title: PropTypes.string,
     buttons: PropTypes.array.isRequired,
-    visible: PropTypes.bool.isRequired,
     children: PropTypes.node,
-    onClose: PropTypes.func
+    onCancel: PropTypes.func
 };
 
 Dialog.defaultProps = {
-    title: '提示'
+    onCancel: _.noop
 };
 
 export default Dialog;

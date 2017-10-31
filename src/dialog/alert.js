@@ -9,10 +9,8 @@ const Alert = (title, content, options = {}) => {
         LayerRoot.setComponent(LayerRoot.TYPE.DIALOG,
             <Dialog
                 title={title}
-                visible={true}
                 buttons={[{
-                    type: 'primary',
-                    label: options.OKLabel || '确定',
+                    text: options.OKLabel || '确定',
                     onPress: () => {
                         resolve();
                         LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG);
@@ -20,7 +18,7 @@ const Alert = (title, content, options = {}) => {
                 }]}
                 style={options.style}
             >
-                <Text style={S.textDesc}>{content}</Text>
+                <Text style={[S.textDesc, S.textCenter]}>{content}</Text>
             </Dialog>
         );
     });

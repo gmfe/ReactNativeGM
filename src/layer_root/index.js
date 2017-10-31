@@ -1,7 +1,9 @@
 import React from 'react';
 import {
-    View
+    View,
+    Modal
 } from 'react-native';
+import _ from 'lodash';
 
 const TYPE = {
     POPUP: 'popup',
@@ -34,12 +36,16 @@ class LayerRoot extends React.Component {
     }
 
     render() {
-        // 有层级关系
+        const {popup, dialog, toast} = this.state;
+        if (!(popup || dialog || toast)) {
+            return null;
+        }
+
         return (
             <View>
-                <View>{this.state.popup}</View>
-                <View>{this.state.dialog}</View>
-                <View>{this.state.toast}</View>
+                <View>{popup}</View>
+                <View>{dialog}</View>
+                <View>{toast}</View>
             </View>
         );
     }
