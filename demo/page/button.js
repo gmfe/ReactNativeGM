@@ -1,71 +1,10 @@
 import React from 'react';
 import {
-    StyleSheet,
     View,
     ScrollView
 } from 'react-native';
 
-import _ from 'lodash';
-import {Button, Variable as V} from '../../src';
-
-const styles = StyleSheet.create({
-    button: {
-        marginTop: V.gap10,
-        marginLeft: V.gap10,
-        marginRight: V.gap10
-    },
-    inlineButtonContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    }
-});
-
-const pressHandle = {
-    onPress: () => console.log('onPress'),
-    onPressIn: () => console.log('onPressIn'),
-    onPressOut: () => console.log('onPressOut'),
-    onLongPress: () => console.log('onLongPress')
-};
-
-const buttonTypeArr = [
-    {
-        type: 'default',
-        text: 'default'
-    },
-    {
-        type: 'default',
-        state: 'disabled',
-        text: 'default disabled'
-    },
-    {
-        type: 'default',
-        state: 'plain',
-        text: 'default plain'
-    },
-    {
-        type: 'primary',
-        text: 'default'
-    },
-    {
-        type: 'primary',
-        state: 'disabled',
-        text: 'primary disabled'
-    },
-    {
-        type: 'primary',
-        state: 'plain',
-        text: 'primary plain'
-    },
-    {
-        type: 'warn',
-        text: 'warn'
-    },
-    {
-        type: 'warn',
-        state: 'disabled',
-        text: 'warn disabled'
-    }
-];
+import {Button, S} from '../../src';
 
 class ButtonScreen extends React.Component {
     static navigationOptions = {
@@ -74,31 +13,37 @@ class ButtonScreen extends React.Component {
 
     render() {
         return (
-            <ScrollView>
-                {
-                    _.map(buttonTypeArr, (value, i) => (
+            <ScrollView style={[S.flex]}>
+                <View style={S.padding10}>
+                    <Button style={S.marginTop10}>default</Button>
+                    <Button style={S.marginTop10} disabled>default disabled</Button>
+
+                    <Button style={S.marginTop10} type="primary">primary</Button>
+                    <Button style={S.marginTop10} type="primary" disabled>primary disabled</Button>
+
+                    <Button style={S.marginTop10} type="warn">warn</Button>
+                    <Button style={S.marginTop10} type="warn" disabled>warn disabled</Button>
+
+                    <Button style={S.marginTop10} plain>plain default</Button>
+                    <Button style={S.marginTop10} plain disabled>plain default disabled</Button>
+
+                    <Button style={S.marginTop10} plain type="primary">plain primary</Button>
+                    <Button style={S.marginTop10} plain type="primary" disabled>plain primary disabled</Button>
+
+                    <View style={[S.flex, S.flexRow, S.marginTop10]}>
                         <Button
-                            key={i}
-                            type={value.type}
-                            style={styles.button}
-                            state={value.state}
-                            {...pressHandle}
-                        >
-                            {value.text}
-                        </Button>
-                    ))
-                }
-                <View style={styles.inlineButtonContainer}>
-                    <Button
-                        type="primary"
-                        style={styles.button}
-                        size="small"
-                    >primary</Button>
-                    <Button
-                        type="default"
-                        style={styles.button}
-                        size="small"
-                    >primary</Button>
+                            type="primary"
+                            mini
+                        >primary</Button>
+                        <Button
+                            type="default"
+                            mini
+                        >default</Button>
+                        <Button
+                            type="warn"
+                            mini
+                        >warn</Button>
+                    </View>
                 </View>
             </ScrollView>
         );

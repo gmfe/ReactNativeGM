@@ -7,19 +7,16 @@ import {
 } from 'react-native';
 import ButtonText from './button_text';
 import V from '../variable';
+import _ from 'lodash';
 
-const styles = StyleSheet.create({
+const styles = {
     button: {
         borderRadius: V.btnBorderRadius,
         borderWidth: StyleSheet.hairlineWidth,
-        paddingLeft: 14,
-        paddingRight: 14,
+        paddingLeft: V.gap15,
+        paddingRight: V.gap15,
         borderColor: V.borderColor,
         overflow: 'hidden'
-    },
-    mini: {
-        paddingLeft: V.btnMiniFontSize * 0.75,
-        paddingRight: V.btnMiniFontSize * 0.75
     },
     default: {
         backgroundColor: V.btnDefaultBg
@@ -41,69 +38,70 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderColor: V.defaultColor,
         backgroundColor: 'transparent'
+    },
+    plainDisabled: {
+        borderColor: V.borderColor
+    },
+    mini: {
+        paddingLeft: V.gap10,
+        paddingRight: V.gap10
     }
-});
+};
 
-const getButtonStyles = ({type, state, size}) => {
+const getButtonStyles = (type, mini, plain, disabled) => {
     const config = [styles[type]];
-    if (state === 'plain') config.push(styles[`${type}Plain`]);
-    if (size === 'small') {
+
+    if (plain) {
+        config.push(styles[`${type}Plain`]);
+    }
+    if (mini) {
         config.push(styles.mini);
     }
+
+    if (plain && disabled) {
+        config.push(styles.plainDisabled);
+    }
+
     return config;
 };
 
-const getUnderlayColor = (type, state) => {
-    if (state === 'plain') {
+const getUnderlayColor = (type) => {
+    if (type === 'primary') {
+        return V.primaryColorActive;
+    } else if (type === 'warn') {
+        return V.warnColorActive;
+    } else {
         return V.activeColor;
     }
-    switch (type) {
-        case 'primary':
-            return V.primaryColorActive;
-        case 'warn':
-            return V.warnColorActive;
-
-        default:
-            return V.activeColor;
-    }
 };
-
 
 class Button extends React.Component {
     render() {
         const {
             type,
-            size,
-            state,
+            plain,
+            disabled,
+            mini,
+            onPress,
             children,
-            style,
-            ...rest
+            style
         } = this.props;
 
-        const buttonStyles = getButtonStyles({type, state, size});
+        const buttonStyles = getButtonStyles(type, mini, plain, disabled);
 
-        let touchableProps = {};
-        if (state === 'disabled') {
-            return (
-                <View style={[styles.button, ...buttonStyles, style]}>
-                    <ButtonText {...{type, state, size}}>{children}</ButtonText>
-                </View>
-            );
-        } else {
-            touchableProps = rest;
+        const InView = (
+            <View style={[styles.button, ...buttonStyles, style]}>
+                <ButtonText {...this.props}>{children}</ButtonText>
+            </View>
+        );
+
+        if (disabled) {
+            return InView;
         }
 
-        const underlayColor = getUnderlayColor(type, state);
-
         return (
-            <TouchableHighlight
-                style={[styles.button, ...buttonStyles, style]}
-                underlayColor={underlayColor}
-                {...touchableProps}
-            >
-                <View>
-                    <ButtonText {...{type, state, size}}>{children}</ButtonText>
-                </View>
+            <TouchableHighlight underlayColor={getUnderlayColor(type)} onPress={onPress}>
+                {InView}
             </TouchableHighlight>
         );
     }
@@ -111,18 +109,19 @@ class Button extends React.Component {
 
 Button.propTypes = {
     type: PropTypes.oneOf(['default', 'primary', 'warn']),
-    state: PropTypes.oneOf(['default', 'disabled', 'plain']),
-    size: PropTypes.oneOf(['small']),
+    plain: PropTypes.bool,
+    disabled: PropTypes.bool,
+    mini: PropTypes.bool,
     onPress: PropTypes.func,
-    onPressIn: PropTypes.func,
-    onPressOut: PropTypes.func,
-    onLongPress: PropTypes.func,
     children: PropTypes.node
 };
 
 Button.defaultProps = {
     type: 'default',
-    state: 'default'
+    plain: false,
+    disabled: false,
+    mini: false,
+    onPress: _.noop
 };
 
 export default Button;
