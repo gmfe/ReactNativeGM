@@ -62,20 +62,22 @@ const getTextStyles = (type, plain, mini, disabled) => {
     return config;
 };
 
-const ButtonText = (props) => {
-    const {
-        type,
-        mini,
-        disabled,
-        plain,
-        children
-    } = props;
+class ButtonText extends React.Component {
+    render() {
+        const {
+            type,
+            mini,
+            disabled,
+            plain,
+            children
+        } = this.props;
 
-    const textStyles = getTextStyles(type, plain, mini, disabled);
+        const textStyles = getTextStyles(type, plain, mini, disabled);
 
-    return (
-        <Text style={[styles.text, ...textStyles]}>{children}</Text>
-    );
-};
+        return (
+            <Text style={[styles.text, ...textStyles]}>{children}</Text>
+        );
+    }
+}
 
 export default ButtonText;
