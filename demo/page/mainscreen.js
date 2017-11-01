@@ -4,7 +4,7 @@ import {ScrollView, ToastAndroid, BackHandler} from 'react-native';
 import _ from 'lodash';
 
 import {
-    Cell
+    Cell, CellBody
 } from '../../src';
 
 const itemArr = [
@@ -52,10 +52,11 @@ class MainScreen extends React.Component {
             <ScrollView>
                 {_.map(itemArr, (value, i) => (
                     <Cell
-                        bodyText={value}
                         key={i}
                         onPress={() => navigate(value)}
-                    />
+                    >
+                        <CellBody>{value}</CellBody>
+                    </Cell>
                 ))}
             </ScrollView>
         );

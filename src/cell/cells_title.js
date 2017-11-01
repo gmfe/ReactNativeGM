@@ -1,7 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {StyleSheet} from 'react-native';
-import {Text} from '../typography';
+import React, {PropTypes} from 'react';
+import {Text, StyleSheet} from 'react-native';
 import V from '../variable';
 
 const styles = StyleSheet.create({
@@ -14,13 +12,17 @@ const styles = StyleSheet.create({
         color: V.descColor
     }
 });
-const CellsTitle = (props) => {
-    const {children, style, ...others} = props;
-    return <Text style={[styles.cellsTitle, style]} {...others}>{children}</Text>;
-};
+
+class CellsTitle extends React.Component {
+    render() {
+        const {children, style, ...others} = this.props;
+        return <Text style={[styles.cellsTitle, style]} {...others}>{children}</Text>;
+    }
+}
+
 CellsTitle.propTypes = {
     children: PropTypes.node,
-    style: PropTypes.object,
+    style: Text.propTypes.style,
     others: PropTypes.object
 };
 

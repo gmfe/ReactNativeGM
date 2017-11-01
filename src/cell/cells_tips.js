@@ -1,6 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {Text} from '../typography';
+import React, {PropTypes} from 'react';
+import {Text} from 'react-native';
 import StyleSheet from '../style_sheet';
 import V from '../variable';
 
@@ -17,13 +16,17 @@ const styles = StyleSheet.create({
         }
     }
 });
-const CellsTips = (props) => {
-    const {children, style, ...others} = props;
-    return <Text style={[styles.cellsTips, style]} {...others}>{children}</Text>;
-};
+
+class CellsTips extends React.Component {
+    render() {
+        const {children, style, ...others} = this.props;
+        return <Text style={[styles.cellsTips, style]} {...others}>{children}</Text>;
+    }
+}
+
 CellsTips.propTypes = {
     children: PropTypes.node,
-    style: PropTypes.object,
+    style: Text.propTypes.style,
     others: PropTypes.object
 };
 

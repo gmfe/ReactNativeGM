@@ -3,7 +3,7 @@ import Styles from './styles';
 import StyleSheet from './style_sheet';
 import Button from './button';
 import {
-    Cells, CellsTitle, CellsTips, Cell
+    Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter
 } from './cell';
 import {Dialog, Alert, Confirm, Prompt} from './dialog';
 import {
@@ -43,7 +43,7 @@ export {
     Page,
 
 
-    Cells, CellsTitle, CellsTips, Cell,
+    Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
 
     Radio, TextInput,
 

@@ -1,5 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {PropTypes} from 'react';
 import {
     View,
     StyleSheet
@@ -16,23 +15,27 @@ const styles = StyleSheet.create({
         borderColor: V.cellBorderColor
     }
 });
-const Cells = (props) => {
-    const {children, style, ...others} = props;
-    const childrenWithProps = React.Children.map(children, (child, idx) => {
-        if (idx === 0) {
-            return React.cloneElement(child, {isFirst: true});
-        }
-        return child;
-    });
-    return (
-        <View style={[styles.cells, style]} {...others}>
-            {childrenWithProps}
-        </View>
-    );
-};
+
+class Cells extends React.Component {
+    render() {
+        const {children, style, ...others} = this.props;
+        const childrenWithProps = React.Children.map(children, (child, idx) => {
+            if (idx === 0) {
+                return React.cloneElement(child, {first: true});
+            }
+            return child;
+        });
+        return (
+            <View style={[styles.cells, style]} {...others}>
+                {childrenWithProps}
+            </View>
+        );
+    }
+}
+
 Cells.propTypes = {
     children: PropTypes.node,
-    style: PropTypes.object,
+    style: View.propTypes.style,
     others: PropTypes.object
 };
 

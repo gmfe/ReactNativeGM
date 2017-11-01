@@ -1,10 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {PropTypes} from 'react';
 import {View, StyleSheet, Platform} from 'react-native';
-import {TextInput} from '../form';
 import {Text} from '../typography';
-import IFont from '../ifont';
 import V from '../variable';
+import IFont from "../ifont";
 
 const styles = StyleSheet.create({
     cellBody: {
@@ -28,31 +26,37 @@ const styles = StyleSheet.create({
     }
 });
 
-const CellBody = (props) => {
-    const {bodyText, bodyType, bodyInputHolder, bodyStyle} = props;
-    return(
-        <View style={[styles.cellBody, bodyStyle, bodyType === 'error' ? {flexDirection: 'row'} : null]}>
-            {
-                bodyText ?
-                <Text style={[styles.cellBodyText, bodyType === 'error' ? styles.error : null, bodyStyle]}>
-                    {bodyText}
-                    {bodyType === 'error' ? <IFont name="warning" style={{color: V.warnColor}}/> : null}
-                </Text> : null
+class CellBody extends React.Component {
+    render() {
+        const {error, input, children, style, ...others} = this.props;
+        const childrenWithProps = React.Children.map(children, (child) => {
+            if (!child.type) {
+                return <Text style={[styles.cellBodyText, style]} {...others}>{child}</Text>;
             }
-            {bodyType === 'input' ? <TextInput style={styles.input} placeholder={bodyInputHolder} /> : null}
-        </View>
-    );
-};
+            return React.cloneElement(child, {
+                style: [
+                    child.props.style,
+                    error ? styles.error : null,
+                    input ? styles.input : null
+                ]
+            });
+        });
+        return (
+            <View style={[styles.cellBody, style, error ? {flexDirection: 'row'} : null]} {...others}>
+                {childrenWithProps}
+                {error ? <IFont name="warning" color={V.warnColor}/> : false}
+            </View>
+        );
+    }
+}
 
-CellBody.defaultProps = {
-    bodyType: 'text'
-};
-
+CellBody.displayName = 'CellBody';
 CellBody.propTypes = {
-    bodyText: PropTypes.string,
-    bodyType: PropTypes.oneOf(['text', 'input', 'error']),
-    bodyInputHolder: PropTypes.string,
-    bodyStyle: PropTypes.object
+    input: PropTypes.bool,
+    error: PropTypes.bool,
+    children: PropTypes.node,
+    style: View.propTypes.style,
+    others: PropTypes.object
 };
 
 export default CellBody;
