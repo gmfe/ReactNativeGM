@@ -1,14 +1,14 @@
 import _ from 'lodash';
 
-var format = function (str, data) {
-    var result = str;
+function format(str, data) {
+    let result = str;
     if (arguments.length < 2) {
         return result;
     }
 
     result = result.replace(/\{([\d\w\.]+)\}/g, function (key) { // eslint-disable-line
-        var keys = arguments[1].split('.');
-        var r = null;
+        const keys = arguments[1].split('.');
+        let r = null;
         _.each(keys, function (value, index) {
             if (index) {
                 r = r[value];
@@ -18,7 +18,8 @@ var format = function (str, data) {
         });
         return r;
     });
+
     return result;
-};
+}
 
 export default format;

@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {View, ActivityIndicator} from 'react-native';
-import {IFont} from '../icon';
+import IFont from '../ifont';
 import LayerRoot from '../layer_root';
 import {Text} from '../typography';
 import S from '../styles';
 
 const renderIcon = (icon) => {
     if (icon === 'loading') {
-        return <ActivityIndicator color="#fff" style={[S.marginVertical0]}/>;
+        return <ActivityIndicator color="#fff" style={[S.marginRight5]}/>;
     }
 
     return <IFont name={icon} style={[S.marginRight5, S.textWhite]}/>;
@@ -43,7 +43,7 @@ class Toast extends React.Component {
     }
 }
 
-const processOptions = (options) => {
+const processOptions = (options = {}) => {
     if (typeof options === 'string') {
         options = {
             children: options
@@ -82,7 +82,7 @@ Object.assign(Toast, {
         Toast.tip(options, 'close');
     },
     loading(options) {
-        Toast.tip(options, 'loading');
+        Toast.tip(Object.assign({children: '加载中...'}, options), 'loading');
     }
 });
 

@@ -6,7 +6,7 @@ import {
     StyleSheet
 } from 'react-native';
 import {Text} from '../typography';
-import {IFont} from '../icon';
+import IFont from '../ifont';
 import S from '../styles';
 import V from '../variable';
 

@@ -6,7 +6,7 @@ import {
     StyleSheet,
     Platform
 } from 'react-native';
-import {IFont} from '../icon';
+import IFont from '../ifont';
 import {TextInput} from '../form';
 import {Text} from '../typography';
 import V from '../variable';

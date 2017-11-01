@@ -7,7 +7,7 @@ import {
     Dimensions
 } from 'react-native';
 import {Text} from '../typography';
-import {IFont} from '../icon';
+import IFont from '../ifont';
 import V from '../variable';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
