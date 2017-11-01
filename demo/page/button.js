@@ -15,6 +15,29 @@ class ButtonScreen extends React.Component {
         return (
             <ScrollView style={[S.flex]}>
                 <View style={S.padding10}>
+
+                    <Button style={S.marginTop10} hasLoading onPress={() => {
+                        return new Promise(resolve => {
+                            setTimeout(() => {
+                                resolve();
+                            }, 5000);
+                        });
+                    }}>loading 5000s</Button>
+                    <Button type="primary" style={S.marginTop10} hasLoading onPress={() => {
+                        return new Promise(resolve => {
+                            setTimeout(() => {
+                                resolve();
+                            }, 5000);
+                        });
+                    }}>loading 5000s</Button>
+                    <Button type="warn" style={S.marginTop10} hasLoading onPress={() => {
+                        return new Promise(resolve => {
+                            setTimeout(() => {
+                                resolve();
+                            }, 5000);
+                        });
+                    }}>loading 5000s</Button>
+
                     <Button style={S.marginTop10}>default</Button>
                     <Button style={S.marginTop10} disabled>default disabled</Button>
 

@@ -4,6 +4,7 @@ import Request from './request';
 import RequestInterceptor from './request_interceptor';
 import Network from './network';
 import pinYinFilter from './pinyin_filter';
+import is from './is';
 
 module.exports = {
     format,
@@ -11,5 +12,6 @@ module.exports = {
     Request,
     RequestInterceptor,
     Network,
-    pinYinFilter
+    pinYinFilter,
+    is
 };

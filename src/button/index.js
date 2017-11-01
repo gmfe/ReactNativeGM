@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import {
     StyleSheet,
     TouchableHighlight,
-    View
+    View,
+    ActivityIndicator
 } from 'react-native';
 import ButtonText from './button_text';
 import V from '../variable';
+import S from '../styles';
 import _ from 'lodash';
+import Util from '../util';
 
 const styles = {
     button: {
@@ -76,32 +79,64 @@ const getUnderlayColor = (type) => {
 };
 
 class Button extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: false
+        };
+        this.handlePress = ::this.handlePress;
+    }
+
+    handlePress() {
+        const {onPress, hasLoading} = this.props;
+        const {loading} = this.state;
+
+        if (loading) {
+            return;
+        }
+
+        const result = onPress();
+
+        if (hasLoading && Util.is.promise(result)) {
+            this.setState({loading: true});
+            Promise.resolve(result).then(() => this.setState({
+                loading: false
+            }), () => this.setState({
+                loading: false
+            }));
+        }
+    }
+
     render() {
         const {
             type,
             plain,
             disabled,
             mini,
-            onPress,
+            hasLoading,
             children,
             style
         } = this.props;
+        const {loading} = this.state;
 
         const buttonStyles = getButtonStyles(type, mini, plain, disabled);
 
-        const InView = (
-            <View style={[styles.button, ...buttonStyles, style]}>
-                <ButtonText {...this.props}>{children}</ButtonText>
-            </View>
-        );
-
-        if (disabled) {
-            return InView;
+        let loadingColor = V.btnDefaultFontColor;
+        if (type === 'primary' || type === 'warn') {
+            if (plain) {
+                loadingColor = V.primaryColor;
+            } else {
+                loadingColor = V.btnFontColor;
+            }
         }
 
         return (
-            <TouchableHighlight underlayColor={getUnderlayColor(type)} onPress={onPress}>
-                {InView}
+            <TouchableHighlight disabled={disabled} style={style} underlayColor={getUnderlayColor(type)}
+                                onPress={this.handlePress}>
+                <View style={[S.flex, S.flexRow, S.flexJustifyCenter, styles.button, ...buttonStyles]}>
+                    <ButtonText {...this.props}>{children}</ButtonText>
+                    {loading && hasLoading && <ActivityIndicator color={loadingColor}/>}
+                </View>
             </TouchableHighlight>
         );
     }
@@ -112,6 +147,7 @@ Button.propTypes = {
     plain: PropTypes.bool,
     disabled: PropTypes.bool,
     mini: PropTypes.bool,
+    hasLoading: PropTypes.bool,
     onPress: PropTypes.func,
     children: PropTypes.node
 };

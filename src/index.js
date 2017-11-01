@@ -6,7 +6,6 @@ import {
     Cells, CellsTitle, CellsTips, Cell
 } from './cell';
 import {Dialog, Alert, Confirm, Prompt} from './dialog';
-import {Tabbar, TabbarItem} from './tabbar';
 import {
     H1, H2, H3, H4,
     Text, Small
@@ -22,7 +21,6 @@ import LayerRoot from './layer_root';
 import Square from './square';
 import Util from './util';
 import {LazyScrollView, LazyImage} from './lazy';
-import {Tabs, TabsItem} from './tabs';
 import {Infinite} from './infinite';
 import ActionSheet from './actionsheet';
 import Mask from './mask';
@@ -35,6 +33,8 @@ export {
     H1, H2, H3, H4, Text, Small,
     IFont,
 
+    Button,
+
     LayerRoot,
     Mask,
     Dialog, Alert, Confirm, Prompt,
@@ -43,19 +43,15 @@ export {
     Page,
 
 
-    Button,
     Cells, CellsTitle, CellsTips, Cell,
 
     Radio, TextInput,
 
 
     SearchBar,
-    Tabbar, TabbarItem,
-
 
     Square,
     LazyScrollView, LazyImage,
-    Tabs, TabsItem,
     Infinite,
     ActionSheet,
     Util
