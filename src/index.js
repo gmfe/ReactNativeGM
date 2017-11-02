@@ -20,7 +20,6 @@ import Page from './page';
 import LayerRoot from './layer_root';
 import Square from './square';
 import Util from './util';
-import {LazyScrollView, LazyImage} from './lazy';
 import {Infinite} from './infinite';
 import ActionSheet from './actionsheet';
 import Mask from './mask';
@@ -34,26 +33,25 @@ export {
     H1, H2, H3, H4, Text, Small,
     IFont,
 
-    Button,
+    Button, Radio, TextInput,
+
+    Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
 
     LayerRoot,
     Mask,
     Dialog, Alert, Confirm, Prompt,
     Toast,
+    ActionSheet,
 
     Page,
 
-    Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
+    Square,
+
+    Infinite,
+
+    SearchBar,
 
     Storage,
 
-
-    Radio, TextInput,
-    SearchBar,
-
-    Square,
-    LazyScrollView, LazyImage,
-    Infinite,
-    ActionSheet,
     Util
 };

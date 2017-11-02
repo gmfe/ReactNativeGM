@@ -4,6 +4,8 @@ import {View, ScrollView, ActivityIndicator} from 'react-native';
 import {Text} from '../typography';
 import S from '../styles';
 import V from '../variable';
+import Util from '../util';
+import _ from 'lodash';
 
 class Infinite extends React.Component {
     constructor(props) {
@@ -18,7 +20,7 @@ class Infinite extends React.Component {
         this.handleScroll = ::this.handleScroll;
     }
 
-    componentDidUnMount() {
+    componentWillUnMount() {
         this.___unmounted = true;
     }
 
@@ -45,30 +47,20 @@ class Infinite extends React.Component {
             loading: true
         });
 
+        const falseLoading = () => {
+            if (!this.___unmounted) {
+                this.setState({
+                    loading: false
+                });
+            }
+        };
+
         const result = onBottom();
         // 简单判断是否promise
-        if (result && result.then) {
-            result.then(() => {
-                if (!this.___unmounted) {
-                    this.setState({
-                        loading: false
-                    });
-                }
-            }, () => {
-                if (!this.___unmounted) {
-                    this.setState({
-                        loading: false
-                    });
-                }
-            });
+        if (Util.is.promise(result)) {
+            result.then(falseLoading, falseLoading);
         } else {
-            this.timer = setTimeout(() => {
-                if (!this.___unmounted) {
-                    this.setState({
-                        loading: false
-                    });
-                }
-            }, 500);
+            this.timer = setTimeout(falseLoading, 500);
         }
     }
 
@@ -113,8 +105,7 @@ Infinite.propTypes = {
 };
 
 Infinite.defaultProps = {
-    onBottom: () => {
-    },
+    onBottom: _.noop,
     bottomOffset: 100 + 40,
     scrollEventThrottle: 50
 };

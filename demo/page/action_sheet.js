@@ -4,13 +4,9 @@ import {
 } from 'react-native';
 
 import {
-    Text,
     Button,
-    Toast,
-    Util
+    ActionSheet
 } from '../../src/index';
-
-const {Request} = Util;
 
 class Component extends React.Component {
     static navigationOptions = {
@@ -20,22 +16,13 @@ class Component extends React.Component {
     render() {
         return (
             <ScrollView>
-                <Text>Request</Text>
-
-                <Text>Loading</Text>
-
                 <Button
                     type="primary"
                     onPress={() => {
-                        Request('/aadf').data({
-                            id: 1
-                        }).post().then(() => {
-                            Toast.success('成功');
-                        }).catch((reason) => {
-                            Toast.warning('失败 ' + reason);
-                        });
+                        ActionSheet.render([{name: 1}, {name: '你好啊'}, {name: '拟为阿斯顿发沙发斯蒂芬'}]).then(selected => console.log(selected));
                     }}
                 >request</Button>
+
             </ScrollView>
         );
     }
