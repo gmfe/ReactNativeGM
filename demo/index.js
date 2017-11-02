@@ -1,13 +1,13 @@
 import React from 'react';
 import {
-    View
+    View, ScrollView, ToastAndroid, BackHandler
 } from 'react-native';
 import {
     StackNavigator
 } from 'react-navigation';
-import {LayerRoot, S} from '../src';
+import {LayerRoot, S, Cells, Cell, CellBody} from '../src';
+import _ from 'lodash';
 
-import MainScreen from './page/mainscreen';
 import ButtonScreen from './page/button';
 import TypographyScreen from './page/typography';
 import CellScreen from './page/cell';
@@ -21,8 +21,61 @@ import SearchBarScreen from './page/search_bar';
 import TabsScreen from './page/tabs';
 import DialogWrap from './page/dialog';
 import ToastWrap from './page/toast';
+import StorageScreen from './page/storage';
 
-const Navigator = StackNavigator({
+console.disableYellowBox = true;
+
+
+class MainScreen extends React.Component {
+    static navigationOptions = {
+        title: 'Function List'
+    };
+
+    handleBackPress = () => {
+        if (this.lastBackPressed && this.lastBackPressed + 2000 >= Date.now()) {
+            //最近2秒内按过back键，可以退出应用。
+            return false;
+        }
+        this.lastBackPressed = Date.now();
+        ToastAndroid.show('再按一次退出应用', ToastAndroid.SHORT);
+        return true;
+    };
+
+    componentWillMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    }
+
+    componentWillUnMount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    }
+
+    render() {
+        const {navigate} = this.props.navigation;
+
+        const cellList = _.filter(_.keys(navConfig), v => v !== 'Main');
+
+        return (
+            <ScrollView>
+                <View>
+                    <View>
+                        <Cells>
+                            {_.map(cellList, value => (
+                                <Cell
+                                    key={value}
+                                    onPress={() => navigate(value)}
+                                >
+                                    <CellBody>{value}</CellBody>
+                                </Cell>
+                            ))}
+                        </Cells>
+                    </View>
+                </View>
+            </ScrollView>
+        );
+    }
+}
+
+const navConfig = {
     Main: {screen: MainScreen},
     Typography: {screen: TypographyScreen},
     Button: {screen: ButtonScreen},
@@ -36,10 +89,11 @@ const Navigator = StackNavigator({
     SearchBar: {screen: SearchBarScreen},
     Tabs: {screen: TabsScreen},
     Dialog: {screen: DialogWrap},
-    Toast: {screen: ToastWrap}
-});
+    Toast: {screen: ToastWrap},
+    Storage: {screen: StorageScreen}
+};
 
-console.disableYellowBox = true;
+const Navigator = StackNavigator(navConfig);
 
 class App extends React.Component {
     render() {

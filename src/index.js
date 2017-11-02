@@ -24,6 +24,7 @@ import {LazyScrollView, LazyImage} from './lazy';
 import {Infinite} from './infinite';
 import ActionSheet from './actionsheet';
 import Mask from './mask';
+import Storage from './storage';
 
 const S = Styles, V = Variable;
 
@@ -42,12 +43,12 @@ export {
 
     Page,
 
-
     Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
 
+    Storage,
+
+
     Radio, TextInput,
-
-
     SearchBar,
 
     Square,
