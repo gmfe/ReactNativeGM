@@ -133,7 +133,7 @@ class Button extends React.Component {
         return (
             <TouchableHighlight disabled={disabled} style={style} underlayColor={getUnderlayColor(type)}
                                 onPress={this.handlePress}>
-                <View style={[S.flex, S.flexRow, S.flexJustifyCenter, styles.button, ...buttonStyles]}>
+                <View style={[S.flexRow, S.flexJustifyCenter, styles.button, ...buttonStyles]}>
                     <ButtonText {...this.props}>{children}</ButtonText>
                     {loading && hasLoading && <ActivityIndicator color={loadingColor}/>}
                 </View>

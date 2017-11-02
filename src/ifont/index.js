@@ -24,8 +24,7 @@ const IFont = (props) => {
 IFont.propTypes = {
     name: PropTypes.string.isRequired,
     size: PropTypes.number,
-    color: PropTypes.string,
-    style: PropTypes.object
+    color: PropTypes.string
 };
 
 IFont.glyphMap = glyphMap;

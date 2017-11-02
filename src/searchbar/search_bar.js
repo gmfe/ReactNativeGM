@@ -192,7 +192,6 @@ SearchBar.propTypes = {
     onClear: PropTypes.func,
     onSearch: PropTypes.func,
     searchBtn: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-    style: PropTypes.object,
     placeholder: PropTypes.string,
     fake: PropTypes.func // 提供一个假输入框，点击的时候出发fake回调
 };

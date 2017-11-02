@@ -47,7 +47,6 @@ Page.propTypes = {
     bottom: PropTypes.node,
     white: PropTypes.bool,
     children: PropTypes.node,
-    style: PropTypes.object,
     noScrollContent: PropTypes.bool,
     scrollViewProps: PropTypes.object
 };
