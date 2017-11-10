@@ -3,9 +3,10 @@ import {ScrollView} from 'react-native';
 
 import {
     Button,
-    Alert, Confirm, Prompt,
+    Alert, Confirm, Prompt,Drawer,
     S
 } from '../../src';
+import Text from "../../src/typography/text";
 
 class DialogWrap extends React.Component {
     static navigationOptions = {
@@ -61,6 +62,15 @@ class DialogWrap extends React.Component {
                     }}
                 >
                     prompt 在 onOK reject 拒绝关闭对话框
+                </Button>
+                <Button
+                    style={S.marginTop10}
+                    type={'default'}
+                    onPress={()=>{
+                        Drawer.render(<Text>一个筛选遮罩</Text>);
+                    }}
+                >
+                    Drawer 一个类似抽屉式的条件筛选遮罩
                 </Button>
             </ScrollView>
         );
