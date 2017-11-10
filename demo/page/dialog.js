@@ -3,7 +3,7 @@ import {ScrollView} from 'react-native';
 
 import {
     Button,
-    Alert, Confirm, Prompt,Drawer,
+    Alert, Confirm, Prompt,Popup,
     S
 } from '../../src';
 import Text from "../../src/typography/text";
@@ -67,10 +67,10 @@ class DialogWrap extends React.Component {
                     style={S.marginTop10}
                     type={'default'}
                     onPress={()=>{
-                        Drawer.render(<Text>一个筛选遮罩</Text>);
+                        Popup.render(<Text>一个筛选遮罩popup</Text>);
                     }}
                 >
-                    Drawer 一个类似抽屉式的条件筛选遮罩
+                    Popup 一个类似抽屉式的条件筛选遮罩
                 </Button>
             </ScrollView>
         );

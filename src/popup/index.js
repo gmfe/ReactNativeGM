@@ -11,15 +11,15 @@ const styles=StyleSheet.create({
     }
 });
 
-class Drawer extends Component{
+class Popup extends Component{
     render(){
         const {
-            onClose,
+            onCancel,
             children
         } = this.props;
 
         return(
-            <Mask onCancel={onClose}>
+            <Mask onCancel={onCancel}>
                 <TouchableWithoutFeedback onPress={null}>
                     <View style={[S.flex, styles.content, S.bgWhite]}>
                         {children}
@@ -30,28 +30,28 @@ class Drawer extends Component{
     }
 }
 
-Drawer.render=(children)=>{
+Popup.render=(children)=>{
     return new Promise((resolve,reject)=>{
         LayoutRoot.setComponent(LayoutRoot.TYPE.POPUP,(
-            <Drawer
-                onClose={()=>{
-                    Drawer.hide();
+            <Popup
+                onCancel={()=>{
+                    Popup.hide();
                     reject();
                 }}
             >
                 {children}
-            </Drawer>
+            </Popup>
         ));
     });
 };
 
-Drawer.hide=()=>LayoutRoot.removeComponent(LayoutRoot.TYPE.POPUP);
+Popup.hide=()=>LayoutRoot.removeComponent(LayoutRoot.TYPE.POPUP);
 
-Drawer.propTypes={
-    onClose:PropTypes.func
+Popup.propTypes={
+    onCancel:PropTypes.func
 };
-Drawer.defaultProps={
-    onClose:_.noop
+Popup.defaultProps={
+    onCancel:_.noop
 };
 
-export default Drawer;
+export default Popup;

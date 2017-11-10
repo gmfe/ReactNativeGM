@@ -24,7 +24,7 @@ import {Infinite} from './infinite';
 import ActionSheet from './actionsheet';
 import Mask from './mask';
 import Storage from './storage';
-import Drawer from './drawer';
+import Popup from './popup';
 
 const S = Styles, V = Variable;
 
@@ -40,7 +40,7 @@ export {
 
     LayerRoot,
     Mask,
-    Drawer,
+    Popup,
     Dialog, Alert, Confirm, Prompt,
     Toast,
     ActionSheet,
