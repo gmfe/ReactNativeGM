@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
   View,
+  Text,
   TouchableWithoutFeedback,
   StyleSheet
 } from 'react-native'
-import Text from '../text'
 import Icon from '../ifont'
 import S from '../styles'
 import V from '../variable'
@@ -55,7 +55,7 @@ class Radio extends React.Component {
           ) : (
             <Icon name='circle' color={V.descColor} style={styles.font}/>
           )}
-          {!children.type ? <Text style={textStyle}>{children}</Text> : children}
+          {!children.type ? <Text style={[S.text, textStyle]}>{children}</Text> : children}
         </View>
       </TouchableWithoutFeedback>
     )

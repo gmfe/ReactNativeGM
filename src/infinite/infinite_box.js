@@ -1,8 +1,7 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import Infinite from './infinite'
-import Text from '../text'
 import Button from '../button'
 import S from '../styles'
 
@@ -87,14 +86,14 @@ class InfiniteBox extends React.Component {
           <View style={[S.flexAlignCenter, {
             paddingTop: 100
           }]}>
-            <Text>加载中...</Text>
+            <Text style={[S.text]}>加载中...</Text>
           </View>
         )}
         {showEmpty && (!loading) && (
           <View style={[S.flexAlignCenter, {
             paddingTop: 100
           }]}>
-            <Text>没有数据</Text>
+            <Text style={[S.text]}>没有数据</Text>
             <View style={S.padding10}/>
             <Button
               onPress={this.handleReload}

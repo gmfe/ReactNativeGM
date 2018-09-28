@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, ActivityIndicator } from 'react-native'
+import { View, Text, ActivityIndicator } from 'react-native'
 import Icon from '../ifont'
 import LayerRoot from '../layer_root'
-import Text from '../text'
 import S from '../styles'
 
 const renderIcon = (icon) => {
@@ -37,7 +36,7 @@ class Toast extends React.Component {
           backgroundColor: 'rgba(0, 0, 0, 0.5)'
         }]}>
           {icon && renderIcon(icon)}
-          <Text style={[S.textWhite]}>{children}</Text>
+          <Text style={[S.text, S.textWhite]}>{children}</Text>
         </View>
       </View>
     )

@@ -19,7 +19,7 @@ const Styles = {
     color: V.primaryColor
   },
   textWarning: {
-    color: V.warnColor
+    color: V.warningColor
   },
   textDesc: {
     color: V.descColor

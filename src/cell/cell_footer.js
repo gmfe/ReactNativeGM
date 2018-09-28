@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Text as RNText, View, StyleSheet } from 'react-native'
-import Text from '../text'
+import { View, Text, StyleSheet } from 'react-native'
+import S from '../styles'
 import V from '../variable'
 import Icon from '../ifont'
 
@@ -27,7 +27,7 @@ class CellFooter extends React.Component {
     const { children, style, access, ...others } = this.props
     const childrenWithProps = React.Children.map(children, child => {
       if (!child.type) {
-        return <Text style={[styles.cellFooterText, style]} {...others}>{child}</Text>
+        return <Text style={[S.text, styles.cellFooterText, style]} {...others}>{child}</Text>
       }
       if (child.type && child.type.displayName === 'Image' && !child.props.style) {
         return React.cloneElement(child, { style: [styles.vcode, child.props.style] })
@@ -39,7 +39,7 @@ class CellFooter extends React.Component {
         {childrenWithProps}
         {access ? (
           <Icon
-            name='right-small'
+            name='right'
             size={V.fontSize14}
             style={{ marginLeft: 5, color: V.descColor, marginTop: 2 }}
           />

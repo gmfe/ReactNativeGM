@@ -18,7 +18,7 @@ class Btn extends React.Component {
         disabled={disabled}
       >
         <Text
-          style={[{ fontSize: 22 }, primary ? { color: 'white' } : {}, primary && disabled ? { color: V.btnDefaultDisabledFontColor } : {}]}>{children}</Text>
+          style={[{ fontSize: 22 }, primary ? { color: 'white' } : {}, primary && disabled ? { color: V.disabledColor } : {}]}>{children}</Text>
       </TouchableHighlight>
     )
   }

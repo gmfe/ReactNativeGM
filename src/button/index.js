@@ -14,7 +14,7 @@ import Util from '../util'
 
 const styles = {
   button: {
-    borderRadius: V.btnBorderRadius,
+    borderRadius: V.n4,
     borderWidth: StyleSheet.hairlineWidth,
     paddingLeft: V.gap12,
     paddingRight: V.gap12,
@@ -22,28 +22,35 @@ const styles = {
     overflow: 'hidden'
   },
   default: {
-    backgroundColor: V.btnDefaultBg
+    backgroundColor: V.bgWhite
   },
   primary: {
     backgroundColor: V.primaryColor
   },
-  warn: {
-    backgroundColor: V.warnColor
+  warning: {
+    backgroundColor: V.warningColor
+  },
+  defaultPlain: {
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: V.borderColor,
+    backgroundColor: V.whiteColor
   },
   primaryPlain: {
     borderWidth: 1,
     borderStyle: 'solid',
     borderColor: V.primaryColor,
-    backgroundColor: 'transparent'
+    backgroundColor: V.whiteColor
   },
-  defaultPlain: {
+  warningPlain: {
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: V.defaultColor,
-    backgroundColor: 'transparent'
+    borderColor: V.warningColor,
+    backgroundColor: V.whiteColor
   },
-  plainDisabled: {
-    borderColor: V.borderColor
+  disabled: {
+    backgroundColor: V.bgDisable,
+    borderColor: V.bgDisable
   },
   mini: {
     paddingLeft: V.gap8,
@@ -54,15 +61,16 @@ const styles = {
 const getButtonStyles = (type, mini, plain, disabled) => {
   const config = [styles[type]]
 
-  if (plain) {
-    config.push(styles[`${type}Plain`])
-  }
-  if (mini) {
-    config.push(styles.mini)
-  }
+  if (disabled) {
+    config.push(styles.disabled)
+  } else {
+    if (plain) {
+      config.push(styles[`${type}Plain`])
+    }
 
-  if (plain && disabled) {
-    config.push(styles.plainDisabled)
+    if (mini) {
+      config.push(styles.mini)
+    }
   }
 
   return config
@@ -71,8 +79,8 @@ const getButtonStyles = (type, mini, plain, disabled) => {
 const getUnderlayColor = (type) => {
   if (type === 'primary') {
     return V.primaryColorActive
-  } else if (type === 'warn') {
-    return V.warnColorActive
+  } else if (type === 'warning') {
+    return V.warningColorActive
   } else {
     return V.activeColor
   }
@@ -120,19 +128,19 @@ class Button extends React.Component {
 
     const buttonStyles = getButtonStyles(type, mini, plain, disabled)
 
-    let loadingColor = V.btnDefaultFontColor
-    if (type === 'primary' || type === 'warn') {
+    let loadingColor = V.defaultColor
+    if (type === 'primary' || type === 'warning') {
       if (plain) {
         loadingColor = V.primaryColor
       } else {
-        loadingColor = V.btnFontColor
+        loadingColor = V.whiteColor
       }
     }
 
     return (
       <TouchableHighlight
         disabled={disabled}
-        style={style}
+        style={[{ borderRadius: V.n4 }, style]}
         underlayColor={getUnderlayColor(type)}
         onPress={this.handlePress}
       >
@@ -146,7 +154,7 @@ class Button extends React.Component {
 }
 
 Button.propTypes = {
-  type: PropTypes.oneOf(['default', 'primary', 'warn']),
+  type: PropTypes.oneOf(['default', 'primary', 'warning']),
   plain: PropTypes.bool,
   disabled: PropTypes.bool,
   mini: PropTypes.bool,

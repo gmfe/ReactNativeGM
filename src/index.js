@@ -2,11 +2,11 @@ import Util from './util'
 import Variable from './variable'
 import Styles from './styles'
 import Button from './button'
+
 import {
   Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter
 } from './cell'
 import { Dialog, Alert, Confirm, Prompt } from './dialog'
-import Text from './text'
 import {
   Radio
 } from './form'
@@ -32,13 +32,13 @@ export {
 
   Variable, Styles, V, S,
 
-  Page,
+  Button,
 
-  Text,
+  Page,
 
   Icon,
 
-  Button, Radio,
+  Radio,
 
   Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
 

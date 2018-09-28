@@ -37,7 +37,7 @@ class Page extends React.Component {
               <RefreshControl
                 refreshing={refreshing}
                 onRefresh={onRefresh}
-                colors={[Variable.warnColor, Variable.primaryColor]}
+                colors={[Variable.warningColor, Variable.primaryColor]}
               />
             ) : null}
             {...scrollViewProps}

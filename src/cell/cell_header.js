@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import V from '../variable'
-import Text from '../text'
+import S from '../styles'
 
 const styles = StyleSheet.create({
   cellHeader: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     height: 24
   },
   error: {
-    color: V.warnColor
+    color: V.warningColor
   }
 })
 
@@ -22,7 +22,7 @@ class CellHeader extends React.Component {
     const { error, children, style, ...others } = this.props
     const childrenWithProps = React.Children.map(children, child => {
       if (!child.type) {
-        return <Text style={[styles.cellBodyText, style]} {...others}>{child}</Text>
+        return <Text style={[S.text, styles.cellBodyText, style]} {...others}>{child}</Text>
       } else if (child.type.displayName === 'Image' && !child.props.style) {
         return React.cloneElement(child, { style: [styles.image, child.props.style] })
       } else if (error && child.type.name === 'Label') {

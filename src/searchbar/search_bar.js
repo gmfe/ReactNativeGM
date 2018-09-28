@@ -2,13 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
   View,
+  Text,
   TouchableOpacity,
   StyleSheet,
   Platform,
   TextInput
 } from 'react-native'
 import Icon from '../ifont'
-import Text from '../text'
+import S from '../styles'
 import V from '../variable'
 
 const styles = StyleSheet.create({
@@ -156,7 +157,7 @@ class SearchBar extends React.Component {
               onSubmitEditing={this.handleSearch}
             />
             {value ? (
-              <Text onPress={this.handleClear} style={styles.clearIcon}>
+              <Text onPress={this.handleClear} style={[S.text, styles.clearIcon]}>
                 <Icon name='close'/>
               </Text>
             ) : null}
@@ -164,13 +165,13 @@ class SearchBar extends React.Component {
           {(focus || value) ? null : (
             <TouchableOpacity style={styles.searchCover} onPress={fake || this.focus}>
               <Icon name='search'/>
-              <Text style={styles.searchCoverText}>{placeholder}</Text>
+              <Text style={[S.text, styles.searchCoverText]}>{placeholder}</Text>
             </TouchableOpacity>
           )}
         </View>
         {searchBtn ? (
           <Text
-            style={styles.searchBtn}
+            style={[S.text, styles.searchBtn]}
             onPress={this.handleSearch}
           >{searchBtn === true ? '搜索' : searchBtn}</Text>
         ) : null}

@@ -1,7 +1,6 @@
 import React from 'react'
-import { View, ScrollView, RefreshControl } from 'react-native'
+import { View, Text, ScrollView, RefreshControl } from 'react-native'
 import PropTypes from 'prop-types'
-import Text from '../text'
 import Button from '../button'
 import S from '../styles'
 import V from '../variable'
@@ -63,7 +62,7 @@ class ListBox extends React.Component {
           <RefreshControl
             refreshing={loading}
             onRefresh={onRefresh}
-            colors={[V.warnColor, V.primaryColor]}
+            colors={[V.warningColor, V.primaryColor]}
           />
         ) : null}
       >
@@ -71,14 +70,14 @@ class ListBox extends React.Component {
           <View style={[S.flexAlignCenter, {
             paddingTop: 100
           }]}>
-            <Text>加载中...</Text>
+            <Text style={[S.text]}>加载中...</Text>
           </View>
         )}
         {showEmpty && (!loading) && (
           <View style={[S.flexAlignCenter, {
             paddingTop: 100
           }]}>
-            <Text>没有数据</Text>
+            <Text style={[S.text]}>没有数据</Text>
             <View style={S.padding10}/>
             <Button
               onPress={this.handleReload}

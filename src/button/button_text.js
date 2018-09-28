@@ -13,49 +13,47 @@ const styles = StyleSheet.create({
     marginBottom: (V.btnHeight - V.btnFontSize) / 2
   },
   miniText: {
-    fontSize: V.btnMiniFontSize,
-    marginTop: (V.btnMiniHeight * V.btnMiniFontSize -
-            V.btnMiniFontSize) / 2,
-    marginBottom: (V.btnMiniHeight * V.btnMiniFontSize -
-            V.btnMiniFontSize) / 2
+    fontSize: V.fontSize12,
+    marginTop: (V.btnMiniHeight * V.fontSize12 -
+      V.fontSize12) / 2,
+    marginBottom: (V.btnMiniHeight * V.fontSize12 -
+      V.fontSize12) / 2
   },
   defaultText: {
-    color: V.btnDefaultFontColor
+    color: V.defaultColor
   },
   primaryText: {
-    color: V.btnFontColor
+    color: V.whiteColor
   },
-  warnText: {
-    color: V.btnFontColor
-  },
-  primaryPlainText: {
-    color: V.primaryColor
+  warningText: {
+    color: V.whiteColor
   },
   defaultPlainText: {
     color: V.defaultColor
   },
-  disabledText: {
-    color: V.btnDisabledFontColor
+  primaryPlainText: {
+    color: V.primaryColor
   },
-  defaultDisabledText: {
-    color: V.btnDefaultDisabledFontColor
+  warningPlainText: {
+    color: V.warningColor
+  },
+  disabledText: {
+    color: V.disabledColor
   }
 })
 
 const getTextStyles = (type, plain, mini, disabled) => {
   const config = [styles[`${type}Text`]]
 
-  if (plain) {
-    config.push(styles[`${type}PlainText`])
-  }
-  if (mini) {
-    config.push(styles.miniText)
-  }
   if (disabled) {
-    if (type === 'default' || plain) {
-      config.push(styles.defaultDisabledText)
-    } else {
-      config.push(styles.disabledText)
+    config.push(styles.disabledText)
+  } else {
+    if (plain) {
+      config.push(styles[`${type}PlainText`])
+    }
+
+    if (mini) {
+      config.push(styles.miniText)
     }
   }
 

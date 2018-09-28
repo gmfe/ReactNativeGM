@@ -3,22 +3,19 @@ import {
   View
 } from 'react-native'
 import { createStackNavigator } from 'react-navigation'
-import { Util, Cells, Cell, CellBody, CellFooter } from '../src'
+import { Cells, Cell, CellBody, CellFooter } from '../src'
 import _ from 'lodash'
+
+import Button from './pages/button'
 
 console.disableYellowBox = true
 
-const { importComponent } = Util
-
 const pages = {
-  button: import('./pages/button')
-}
-
-_.forEach(pages, (v, k) => {
-  pages[k] = {
-    screen: importComponent(() => v)
+  button: {
+    screen: Button,
+    title: '标题'
   }
-})
+}
 
 class Home extends React.Component {
   handlePress = (page) => {
@@ -31,7 +28,7 @@ class Home extends React.Component {
         <Cells>
           {_.map(pages, (v, k) =>
             <Cell key={k} access onPress={this.handlePress.bind(this, k)}>
-              <CellBody>{k}</CellBody>
+              <CellBody>{k + ' ' + v.title}</CellBody>
               <CellFooter/>
             </Cell>
           )}
@@ -47,7 +44,7 @@ const Navigator = createStackNavigator({
   },
   ...pages
 }, {
-  initialRouteName: 'home'
+  initialRouteName: 'button'
 })
 
 class App extends React.Component {

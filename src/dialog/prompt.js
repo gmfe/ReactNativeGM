@@ -1,8 +1,7 @@
 import React from 'react'
-import { View, TextInput } from 'react-native'
+import { View, Text, TextInput } from 'react-native'
 import Dialog from './dialog'
 import LayerRoot from '../layer_root'
-import Text from '../text'
 import S from '../styles'
 import _ from 'lodash'
 
@@ -38,7 +37,7 @@ const Prompt = (title, content, options = {}) => {
         }}
         style={options.style}
       >
-        <Text style={S.textDesc}>{content}</Text>
+        <Text style={[S.text, S.textDesc]}>{content}</Text>
         <View style={[S.border, S.padding5]}>
           <TextInput
             style={S.input}

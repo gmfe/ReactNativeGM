@@ -1,7 +1,7 @@
 import React from 'react'
 import Dialog from './dialog'
 import LayerRoot from '../layer_root'
-import Text from '../text'
+import {Text } from 'react-native'
 import S from '../styles'
 
 const Confirm = (title, content, options = {}) => {
@@ -28,7 +28,7 @@ const Confirm = (title, content, options = {}) => {
         }}
         style={options.style}
       >
-        <Text style={[S.textDesc, S.textCenter]}>{content}</Text>
+        <Text style={[S.text, S.textDesc, S.textCenter]}>{content}</Text>
       </Dialog>
     )
   })

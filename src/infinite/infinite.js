@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, ScrollView, ActivityIndicator, RefreshControl } from 'react-native'
-import Text from '../text'
+import { View, Text, ScrollView, ActivityIndicator, RefreshControl } from 'react-native'
 import S from '../styles'
 import V from '../variable'
 import Util from '../util'
@@ -85,7 +84,7 @@ class Infinite extends React.Component {
           <RefreshControl
             refreshing={refreshing}
             onRefresh={onRefresh}
-            colors={[V.warnColor, V.primaryColor]}
+            colors={[V.warningColor, V.primaryColor]}
           />
         ) : null}
       >
@@ -94,7 +93,7 @@ class Infinite extends React.Component {
           <View style={[S.padding10, {
             height: 40
           }]}>
-            <Text style={[S.textDesc, S.textCenter, S.text12]}>没有更多数据</Text>
+            <Text style={[S.text, S.textDesc, S.textCenter, S.text12]}>没有更多数据</Text>
           </View>
         ) : (loading && (
           <View style={[S.padding10, {
