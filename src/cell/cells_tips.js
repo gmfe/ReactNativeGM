@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Text } from 'react-native'
-import StyleSheet from '../style_sheet'
+import { Text, StyleSheet, Platform } from 'react-native'
 import V from '../variable'
 
 const styles = StyleSheet.create({
@@ -12,9 +11,11 @@ const styles = StyleSheet.create({
     color: V.descColor,
     marginBottom: V.cellTipsFontSize * 0.3,
     lineHeight: V.cellTipsFontSize * V.baseLineHeight,
-    android: {
-      lineHeight: Math.round(V.cellTipsFontSize * V.baseLineHeight)
-    }
+    ...Platform.select({
+      android: {
+        lineHeight: Math.round(V.cellTipsFontSize * V.baseLineHeight)
+      }
+    })
   }
 })
 

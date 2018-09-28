@@ -1,5 +1,4 @@
 import param from './param.js'
-import format from './format.js'
 import _ from 'lodash'
 import RequestInterceptor from './request_interceptor'
 
@@ -28,7 +27,7 @@ const processResponse = function (promise, url, sucCode, config) {
     if (res.ok) {
       return res.json()
     }
-    return Promise.reject(format(`服务器错误 ${res.status} ${res.statusText}`))
+    return Promise.reject(new Error(`服务器错误 ${res.status} ${res.statusText}`))
   }).then((json) => {
     return RequestInterceptor.interceptor.response(json, config, response)
   }, (reason) => {

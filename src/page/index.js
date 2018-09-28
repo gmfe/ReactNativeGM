@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, ScrollView, RefreshControl } from 'react-native'
-import G from '../global/variable'
+import Variable from '../variable'
 
 class Page extends React.Component {
   render () {
@@ -22,7 +22,7 @@ class Page extends React.Component {
     return (
       <View {...rest} style={[{
         flex: 1,
-        backgroundColor: white ? G.bgWhite : G.bgDefault
+        backgroundColor: white ? Variable.bgWhite : Variable.bgDefault
       }, style]}>
         {top && <View>{top}</View>}
         {noScrollContent ? (
@@ -37,7 +37,7 @@ class Page extends React.Component {
               <RefreshControl
                 refreshing={refreshing}
                 onRefresh={onRefresh}
-                colors={[G.warnColor, G.primaryColor]}
+                colors={[Variable.warnColor, Variable.primaryColor]}
               />
             ) : null}
             {...scrollViewProps}

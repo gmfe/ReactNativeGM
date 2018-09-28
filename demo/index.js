@@ -1,12 +1,14 @@
 import React from 'react'
 import {
-  View, Text
+  View
 } from 'react-native'
 import { createStackNavigator } from 'react-navigation'
-import { importComponent, Cells, Cell, CellBody, CellFooter } from '../src'
+import { Util, Cells, Cell, CellBody, CellFooter } from '../src'
 import _ from 'lodash'
 
 console.disableYellowBox = true
+
+const { importComponent } = Util
 
 const pages = {
   button: import('./pages/button')
@@ -52,7 +54,6 @@ class App extends React.Component {
   render () {
     return (
       <View style={{ flex: 1 }}>
-        <Text>sdfas</Text>
         <Navigator/>
       </View>
     )

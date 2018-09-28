@@ -1,9 +1,7 @@
-import StyleSheet from './style_sheet'
+import { StyleSheet } from 'react-native'
 import V from './variable'
-import mask from './mask/style'
-import form from './form/style'
 
-// 方便快速构建UI, 不拆文件了，方便编辑器自动完成提示
+// TODO 补充，从 mgm 搬过来
 const Styles = {
   // bg
   bgDefault: {
@@ -402,12 +400,26 @@ const Styles = {
   },
   marginHorizontal16: {
     marginHorizontal: V.gap16
+  },
+
+  // mask
+  mask: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)'
+  },
+
+  // input
+  input: {
+    color: V.defaultColor,
+    fontSize: V.fontSize14,
+    height: V.fontSize14 * V.baseLineHeight,
+    lineHeight: V.fontSize14 * V.baseLineHeight,
+    padding: 0
   }
 }
 
-export default StyleSheet.create(Object.assign(
-  {},
-  Styles,
-  mask,
-  form
-))
+export default StyleSheet.create(Styles)
