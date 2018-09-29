@@ -19,24 +19,24 @@ class ButtonWrap extends React.Component {
 
           <Text>按钮类型</Text>
 
-          <Button>默认按钮</Button>
-          <Button type='primary'>主要按钮</Button>
-          <Button type='warning'>警告按钮</Button>
+          <Button style={S.marginTop8}>默认按钮</Button>
+          <Button type='primary' style={S.marginTop8}>主要按钮</Button>
+          <Button type='warning' style={S.marginTop8}>警告按钮</Button>
 
           <Text>朴素按钮</Text>
 
-          <Button plain>默认按钮</Button>
-          <Button type='primary' plain>主要按钮</Button>
-          <Button type='warning' plain>警告按钮</Button>
+          <Button plain style={S.marginTop8}>默认按钮</Button>
+          <Button type='primary' plain style={S.marginTop8}>主要按钮</Button>
+          <Button type='warning' plain style={S.marginTop8}>警告按钮</Button>
 
           <Text>禁用</Text>
 
-          <Button disabled>禁用按钮</Button>
+          <Button disabled style={S.marginTop8}>禁用按钮</Button>
 
           <Text>按钮尺寸</Text>
 
           <View style={[S.flex, S.flexRow]}>
-            <Button mini>小号按钮</Button>
+            <Button mini style={S.marginTop8}>小号按钮</Button>
           </View>
 
           <Button style={S.marginTop8} hasLoading onPress={() => {

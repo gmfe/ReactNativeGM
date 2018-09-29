@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, ActivityIndicator } from 'react-native'
-import Icon from '../ifont'
+import Icon from '../icon'
 import LayerRoot from '../layer_root'
 import S from '../styles'
 

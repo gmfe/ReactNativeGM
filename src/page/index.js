@@ -4,6 +4,32 @@ import { View, ScrollView, RefreshControl } from 'react-native'
 import Variable from '../variable'
 
 class Page extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      refreshing: false
+    }
+  }
+
+  handleRefresh = () => {
+    const { onRefresh } = this.props
+
+    if (onRefresh) {
+      this.setState({
+        refreshing: true
+      })
+      onRefresh().then(() => {
+        this.setState({
+          refreshing: false
+        })
+      }, () => {
+        this.setState({
+          refreshing: false
+        })
+      })
+    }
+  }
+
   render () {
     const {
       style,
@@ -13,11 +39,13 @@ class Page extends React.Component {
       top,
       bottom,
 
-      enableRefresh, refreshing, onRefresh,
+      onRefresh, // eslint-disable-line
 
       children,
       ...rest
     } = this.props
+
+    const { refreshing } = this.state
 
     return (
       <View {...rest} style={[{
@@ -33,11 +61,10 @@ class Page extends React.Component {
           <ScrollView
             keyboardShouldPersistTaps='always'
             keyboardDismissMode='on-drag'
-            refreshControl={enableRefresh ? (
+            refreshControl={onRefresh ? (
               <RefreshControl
                 refreshing={refreshing}
-                onRefresh={onRefresh}
-                colors={[Variable.warningColor, Variable.primaryColor]}
+                onRefresh={this.handleRefresh}
               />
             ) : null}
             {...scrollViewProps}
@@ -46,7 +73,7 @@ class Page extends React.Component {
             {children}
           </ScrollView>
         )}
-        {bottom || undefined}
+        {bottom && <View>{bottom}</View>}
       </View>
     )
   }
@@ -56,12 +83,9 @@ Page.propTypes = {
   top: PropTypes.node,
   bottom: PropTypes.node,
   white: PropTypes.bool,
-  children: PropTypes.node,
   noScrollContent: PropTypes.bool,
   scrollViewProps: PropTypes.object,
 
-  enableRefresh: PropTypes.bool,
-  refreshing: PropTypes.bool,
   onRefresh: PropTypes.func
 }
 

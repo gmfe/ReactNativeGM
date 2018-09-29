@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { View, Text, StyleSheet } from 'react-native'
 import S from '../styles'
 import V from '../variable'
-import Icon from '../ifont'
+import Icon from '../icon'
 
 const styles = StyleSheet.create({
   cellFooter: {

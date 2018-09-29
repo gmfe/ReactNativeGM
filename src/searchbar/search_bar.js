@@ -8,7 +8,7 @@ import {
   Platform,
   TextInput
 } from 'react-native'
-import Icon from '../ifont'
+import Icon from '../icon'
 import S from '../styles'
 import V from '../variable'
 

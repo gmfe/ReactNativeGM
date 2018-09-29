@@ -1,19 +1,22 @@
 import Util from './util'
 import Variable from './variable'
 import Styles from './styles'
+
+import Page from './page'
+
 import Button from './button'
+import Icon from './icon'
+import {
+  Radio
+} from './form'
 
 import {
   Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter
 } from './cell'
 import { Dialog, Alert, Confirm, Prompt } from './dialog'
-import {
-  Radio
-} from './form'
-import Icon from './ifont'
 import Toast from './toast'
 import { SearchBar } from './searchbar'
-import Page from './page'
+
 import LayerRoot from './layer_root'
 import Square from './square'
 import ListBox from './list_box'
@@ -32,10 +35,9 @@ export {
 
   Variable, Styles, V, S,
 
-  Button,
-
   Page,
 
+  Button,
   Icon,
 
   Radio,
