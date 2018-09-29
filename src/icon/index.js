@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { IconFont, glyphMap } from './iconfont'
+import IconFont from './iconfont'
+import glyphMap from './glyph_map'
 import Variable from '../variable'
 
 const Icon = (props) => {
