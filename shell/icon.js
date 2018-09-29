@@ -24,9 +24,10 @@ rl.on('line', line => {
 }).on('close', () => {
   console.log(map)
 
-  // arr = _.filter(arr, v => v < 4);
-  //
-  // const avg = _.sum(arr)/arr.length;
-  // console.log(avg);
-  // fs.writeFileSync(name + '.txt', avg + '\n' + JSON.stringify(arr))
+  const newMap = {}
+  _.each(_.keys(map).sort(), k => {
+    newMap[k] = map[k]
+  })
+
+  fs.writeFileSync('./src/icon/glyph_map.js', '/* eslint-disable */\nlet glyph_map = ' + JSON.stringify(newMap, null, 2) + '\n\nexport default glyph_map\n')
 })

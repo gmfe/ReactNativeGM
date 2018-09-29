@@ -1,14 +1,14 @@
 import React from 'react'
 import {
   View, Text,
-  TouchableWithoutFeedback,
-  Modal,
-  TextInput
+  TextInput,
+  Dimensions
 } from 'react-native'
 import {
   Styles as S,
   Button,
-  Radio
+  Radio,
+  Mask
 } from '../../src/index'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
@@ -17,24 +17,26 @@ class Component extends React.Component {
     title: 'Form'
   }
 
-  constructor (props) {
-    super(props)
-    this.state = {
-      value: '',
-      checked: false,
-      show: false
-    }
+  state = {
+    value: '',
+    checked: false,
+    show: false
+  }
+
+  componentDidMount () {
+    setInterval(() => {
+      console.log(Dimensions.get('window').height)
+    }, 2000)
   }
 
   render () {
     return (
-      <View style={S.flex}>
+      <View style={{ flex: 1 }}>
         <KeyboardAwareScrollView
-          style={[S.flex]}
           viewIsInsideTabBar={false}
         >
           <View>
-            <Text>Input</Text>
+            <Text>Input TODO</Text>
             <TextInput
               style={[S.input, S.border]}
               value={this.state.value}
@@ -56,7 +58,7 @@ class Component extends React.Component {
           </View>
 
           <View>
-            <Text>键盘遮挡场景2。 非ScrollView ListView</Text>
+            <Text>键盘遮挡场景2</Text>
 
             <Button type='primary' onPress={() => {
               this.setState({
@@ -64,9 +66,10 @@ class Component extends React.Component {
               })
             }}>点我打开浮层 input</Button>
             <View style={{ height: 150 }}/>
+
             <View style={{ padding: 10, backgroundColor: 'white' }}>
               <Text>
-                键盘遮挡场景1 。用 KeyboardAwareScrollView。 记得取消Page的ScrollView(传 noScrollContent)
+                键盘遮挡场景1
               </Text>
               <TextInput
                 style={[S.input, S.border]}
@@ -81,43 +84,25 @@ class Component extends React.Component {
           </View>
           <View style={{ height: 100 }}/>
         </KeyboardAwareScrollView>
-        {this.state.show ? (
-          <Modal
-            transparent
-            onRequestClose={() => {
-            }}
-          >
-            <TouchableWithoutFeedback
-              style={S.mask}
-              onPress={() => {
+        <Mask
+          isVisible={this.state.show}
+          onCancel={() => this.setState({ show: false })}
+          style={S.flexJustifyEnd}
+        >
+          <View style={[S.padding8, S.bgWhite]}>
+            <Text>购买数量</Text>
+            <TextInput
+              style={[S.input, S.border, S.marginTop8, S.marginBottom8]}
+              value={this.state.value}
+              onChangeText={value => {
                 this.setState({
-                  show: false
+                  value
                 })
-              }}>
-              <View style={S.flex}>
-                <View style={[S.flex]}/>
-                <View style={{
-                  left: 0,
-                  right: 0,
-                  padding: 10,
-                  backgroundColor: 'white'
-                }}>
-                  <Text>购买数量</Text>
-                  <TextInput
-                    style={[S.input, S.border, S.marginTop10, S.marginBottom10]}
-                    value={this.state.value}
-                    onChangeText={value => {
-                      this.setState({
-                        value
-                      })
-                    }}
-                  />
-                  <Button type='primary'>加入购物车</Button>
-                </View>
-              </View>
-            </TouchableWithoutFeedback>
-          </Modal>
-        ) : null}
+              }}
+            />
+            <Button type='primary'>加入购物车</Button>
+          </View>
+        </Mask>
       </View>
     )
   }

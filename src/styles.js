@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { Platform, StyleSheet } from 'react-native'
 import V from './variable'
 
 // TODO 补充，从 mgm 搬过来
@@ -402,23 +402,19 @@ const Styles = {
     marginHorizontal: V.gap16
   },
 
-  // mask
-  mask: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)'
-  },
-
   // input
   input: {
     color: V.defaultColor,
     fontSize: V.fontSize14,
     height: V.fontSize14 * V.baseLineHeight,
     lineHeight: V.fontSize14 * V.baseLineHeight,
-    padding: 0
+    padding: 0,
+    ...Platform.select({
+      android: {
+        underlineColorAndroid: 'transparent'
+      }
+    }),
+    textAlignVertical: 'top'
   }
 }
 

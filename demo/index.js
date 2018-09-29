@@ -57,7 +57,7 @@ const Navigator = createStackNavigator({
   },
   ...pages
 }, {
-  initialRouteName: 'icon'
+  initialRouteName: 'form'
 })
 
 class App extends React.Component {

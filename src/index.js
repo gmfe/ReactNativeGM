@@ -37,9 +37,8 @@ export {
 
   Page,
 
-  Button,
   Icon,
-
+  Button,
   Radio,
 
   Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
