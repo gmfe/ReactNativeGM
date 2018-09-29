@@ -33,7 +33,7 @@ const styles = {
   defaultPlain: {
     borderWidth: 1,
     borderStyle: 'solid',
-    borderColor: V.borderColor,
+    borderColor: V.defaultColor,
     backgroundColor: V.whiteColor
   },
   primaryPlain: {
@@ -95,7 +95,7 @@ class Button extends React.Component {
   }
 
   handlePress = () => {
-    const { onPress, hasLoading } = this.props
+    const { onPress } = this.props
     const { loading } = this.state
 
     if (loading) {
@@ -104,7 +104,7 @@ class Button extends React.Component {
 
     const result = onPress()
 
-    if (hasLoading && Util.is.promise(result)) {
+    if (Util.is.promise(result)) {
       this.setState({ loading: true })
       Promise.resolve(result).then(() => this.setState({
         loading: false
@@ -120,7 +120,6 @@ class Button extends React.Component {
       plain,
       disabled,
       mini,
-      hasLoading,
       children,
       style
     } = this.props
@@ -131,7 +130,7 @@ class Button extends React.Component {
     let loadingColor = V.defaultColor
     if (type === 'primary' || type === 'warning') {
       if (plain) {
-        loadingColor = V.primaryColor
+        loadingColor = type === 'primary' ? V.primaryColor : V.warningColor
       } else {
         loadingColor = V.whiteColor
       }
@@ -145,8 +144,8 @@ class Button extends React.Component {
         onPress={this.handlePress}
       >
         <View style={[S.flexRow, S.flexJustifyCenter, styles.button, ...buttonStyles]}>
+          {loading && <ActivityIndicator color={loadingColor}/>}
           <ButtonText {...this.props}>{children}</ButtonText>
-          {loading && hasLoading && <ActivityIndicator color={loadingColor}/>}
         </View>
       </TouchableHighlight>
     )
@@ -158,7 +157,6 @@ Button.propTypes = {
   plain: PropTypes.bool,
   disabled: PropTypes.bool,
   mini: PropTypes.bool,
-  hasLoading: PropTypes.bool,
   onPress: PropTypes.func,
   children: PropTypes.node
 }

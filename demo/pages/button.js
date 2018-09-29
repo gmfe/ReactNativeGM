@@ -31,7 +31,13 @@ class ButtonWrap extends React.Component {
 
           <Text>禁用</Text>
 
-          <Button disabled>默认按钮</Button>
+          <Button disabled>禁用按钮</Button>
+
+          <Text>按钮尺寸</Text>
+
+          <View style={[S.flex, S.flexRow]}>
+            <Button mini>小号按钮</Button>
+          </View>
 
           <Button style={S.marginTop8} hasLoading onPress={() => {
             return new Promise(resolve => {
@@ -48,7 +54,7 @@ class ButtonWrap extends React.Component {
               }, 5000)
             })
           }}>loading 5000s</Button>
-          <Button type='warn' style={S.marginTop8} hasLoading onPress={() => {
+          <Button type='warning' style={S.marginTop8} hasLoading onPress={() => {
             return new Promise(resolve => {
               setTimeout(() => {
                 resolve()
@@ -56,35 +62,29 @@ class ButtonWrap extends React.Component {
             })
           }}>loading 5000s</Button>
 
-          <Button style={S.marginTop8}>default</Button>
-          <Button style={S.marginTop8} disabled>default disabled</Button>
+          <Button plain style={S.marginTop8} hasLoading onPress={() => {
+            return new Promise(resolve => {
+              setTimeout(() => {
+                resolve()
+              }, 5000)
+            })
+          }}>loading 5000s</Button>
 
-          <Button style={S.marginTop8} type='primary'>primary</Button>
-          <Button style={S.marginTop8} type='primary' disabled>primary disabled</Button>
+          <Button plain type='primary' style={S.marginTop8} hasLoading onPress={() => {
+            return new Promise(resolve => {
+              setTimeout(() => {
+                resolve()
+              }, 5000)
+            })
+          }}>loading 5000s</Button>
 
-          <Button style={S.marginTop8} type='warn'>warn</Button>
-          <Button style={S.marginTop8} type='warn' disabled>warn disabled</Button>
-
-          <Button style={S.marginTop8} plain>plain default</Button>
-          <Button style={S.marginTop8} plain disabled>plain default disabled</Button>
-
-          <Button style={S.marginTop8} plain type='primary'>plain primary</Button>
-          <Button style={S.marginTop8} plain type='primary' disabled>plain primary disabled</Button>
-
-          <View style={[S.flex, S.flexRow, S.marginTop10]}>
-            <Button
-              type='primary'
-              mini
-            >primary</Button>
-            <Button
-              type='default'
-              mini
-            >default</Button>
-            <Button
-              type='warn'
-              mini
-            >warn</Button>
-          </View>
+          <Button plain type='warning' style={S.marginTop8} hasLoading onPress={() => {
+            return new Promise(resolve => {
+              setTimeout(() => {
+                resolve()
+              }, 5000)
+            })
+          }}>loading 5000s</Button>
         </View>
       </ScrollView>
     )
