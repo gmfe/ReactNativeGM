@@ -28,8 +28,8 @@ const Variable = {
   whiteColor: 'white',
   primaryColor: '#6cca28',
   primaryColorActive: '#6CCA28',
-  warningColor: '#CE8585',
-  warningColorActive: '#b17272',
+  warningColor: '#e64340',
+  warningColorActive: '#ce3c39',
   linkColor: '#586C94',
   redColor: '#f33',
 
