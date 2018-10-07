@@ -5,15 +5,14 @@ import V from '../variable'
 
 const styles = StyleSheet.create({
   cellsTips: {
-    paddingLeft: V.cellGapH,
-    paddingRight: V.cellGapH,
-    fontSize: V.cellTipsFontSize,
+    paddingHorizontal: V.gap12,
+    fontSize: V.fontSize12,
     color: V.descColor,
-    marginBottom: V.cellTipsFontSize * 0.3,
-    lineHeight: V.cellTipsFontSize * V.baseLineHeight,
+    marginBottom: V.gap8,
+    lineHeight: V.fontSize12 * V.baseLineHeight,
     ...Platform.select({
       android: {
-        lineHeight: Math.round(V.cellTipsFontSize * V.baseLineHeight)
+        lineHeight: Math.round(V.fontSize12 * V.baseLineHeight)
       }
     })
   }
@@ -21,15 +20,14 @@ const styles = StyleSheet.create({
 
 class CellsTips extends React.Component {
   render () {
-    const { children, style, ...others } = this.props
-    return <Text style={[styles.cellsTips, style]} {...others}>{children}</Text>
+    const { children, style, ...rest } = this.props
+
+    return <Text {...rest} style={[styles.cellsTips, style]}>{children}</Text>
   }
 }
 
 CellsTips.propTypes = {
-  children: PropTypes.node,
-  style: PropTypes.object,
-  others: PropTypes.object
+  style: PropTypes.object
 }
 
 export default CellsTips

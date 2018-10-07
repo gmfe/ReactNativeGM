@@ -1,8 +1,7 @@
 import React from 'react'
 import {
   View, Text,
-  TextInput,
-  Dimensions
+  TextInput
 } from 'react-native'
 import {
   Styles as S,
@@ -23,12 +22,6 @@ class Component extends React.Component {
     show: false
   }
 
-  componentDidMount () {
-    setInterval(() => {
-      console.log(Dimensions.get('window').height)
-    }, 2000)
-  }
-
   render () {
     return (
       <View style={{ flex: 1 }}>
@@ -36,7 +29,7 @@ class Component extends React.Component {
           viewIsInsideTabBar={false}
         >
           <View>
-            <Text>Input TODO</Text>
+            <Text style={[S.text]}>Input TODO</Text>
             <TextInput
               style={[S.input, S.border]}
               value={this.state.value}

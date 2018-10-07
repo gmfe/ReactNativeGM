@@ -60,6 +60,9 @@ const Variable = {
   gap12: 12,
   gap14: 14,
   gap16: 16,
+  gap18: 18,
+  gap24: 24,
+  gap30: 30,
 
   // bg
   bgDefault: '#f4f4f4',
@@ -68,20 +71,15 @@ const Variable = {
 
   // unit((cellHeight - 2 * cellGapV) / cellFontSize)
   // 高度为44，减去上下padding的行高
-  cellLineHeight: 44 - 20,
-  // unit(20 / @cellFontSize, em),
-  cellsMarginTop: 20
+  cellLineHeight: 44 - 20
 }
 
 // TODO 不宜太多
 Object.assign(Variable, {
-  cellBg: '#fff',
-  cellBorderColor: Variable.borderColor,
   cellGapV: Variable.gap12,
   cellGapH: Variable.gap12,
   cellHeight: 55,
   cellFontSize: Variable.fontSize14,
-  cellTipsFontSize: 14,
   cellLabelWidth: 105
 })
 

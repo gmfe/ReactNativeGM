@@ -11,26 +11,30 @@ const styles = StyleSheet.create({
   cell: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft: V.cellGapH,
-    paddingTop: V.cellGapV,
-    paddingBottom: V.cellGapV,
-    paddingRight: V.cellGapH,
+    paddingHorizontal: V.n12,
+    paddingVertical: V.n12,
     borderTopWidth: StyleSheet.hairlineWidth,
-    borderColor: V.cellBorderColor
+    borderColor: V.borderColor
   },
   firstCell: {
     borderTopWidth: 0
   },
   inputCell: {
-    paddingTop: 0,
-    paddingBottom: 0,
-    paddingRight: 0
+    paddingVertical: 0
   }
 })
 
 class Cell extends React.Component {
   render () {
-    const { access, input, error, first, children, style, ...others } = this.props
+    const {
+      access,
+      input,
+      error,
+      first,
+      children,
+      ...rest
+    } = this.props
+
     const childrenWithProps = React.Children.map(children, (child) => {
       if (access && child.type.displayName === 'CellFooter') {
         return React.cloneElement(child, { access: true })
@@ -43,19 +47,21 @@ class Cell extends React.Component {
       }
       return child
     })
+
     return (
       <TouchableHighlight
-        style={style}
         underlayColor={V.activeColor}
-        {...others}
       >
         <View
+          {...rest}
           style={[
             styles.cell,
             first ? styles.firstCell : null,
             input ? styles.inputCell : null
           ]}
-        >{childrenWithProps}</View>
+        >
+          {childrenWithProps}
+        </View>
       </TouchableHighlight>
     )
   }
@@ -67,8 +73,7 @@ Cell.propTypes = {
   input: PropTypes.bool,
   error: PropTypes.bool,
   children: PropTypes.node,
-  style: PropTypes.object,
-  others: PropTypes.object
+  style: PropTypes.object
 }
 
 export default Cell

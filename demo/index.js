@@ -6,21 +6,25 @@ import { createStackNavigator } from 'react-navigation'
 import { Page, Cells, Cell, CellBody, CellFooter } from '../src'
 import _ from 'lodash'
 
-import Button from './pages/button'
-import Icon from './pages/icon'
-import Form from './pages/form'
+import ButtonDemo from './pages/button'
+import IconDemo from './pages/icon'
+import FormDemo from './pages/form'
+import CellDemo from './pages/cell'
 
 console.disableYellowBox = true
 
 const pages = {
   button: {
-    screen: Button
+    screen: ButtonDemo
   },
   icon: {
-    screen: Icon
+    screen: IconDemo
   },
   form: {
-    screen: Form
+    screen: FormDemo
+  },
+  cell: {
+    screen: CellDemo
   }
 }
 
@@ -57,7 +61,7 @@ const Navigator = createStackNavigator({
   },
   ...pages
 }, {
-  initialRouteName: 'form'
+  initialRouteName: 'cell'
 })
 
 class App extends React.Component {

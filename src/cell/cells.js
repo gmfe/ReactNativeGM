@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import {
   View,
   StyleSheet
@@ -8,36 +9,37 @@ import V from '../variable'
 
 const styles = StyleSheet.create({
   cells: {
-    marginTop: V.cellsMarginTop,
-    backgroundColor: V.cellBg,
+    backgroundColor: 'white',
     overflow: 'hidden',
     borderTopWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: V.cellBorderColor
+    borderColor: V.borderColor
   }
 })
 
 class Cells extends React.Component {
   render () {
-    const { children, style, ...others } = this.props
-    const childrenWithProps = React.Children.map(children, (child, idx) => {
-      if (idx === 0) {
-        return React.cloneElement(child, { first: true })
-      }
-      return child
-    })
+    const {
+      children,
+      style,
+      ...rest
+    } = this.props
+
     return (
-      <View style={[styles.cells, style]} {...others}>
-        {childrenWithProps}
+      <View {...rest} style={[styles.cells, style]}>
+        {React.Children.map(children, (child, idx) => {
+          if (idx === 0) {
+            return React.cloneElement(child, { first: true })
+          }
+          return child
+        })}
       </View>
     )
   }
 }
 
 Cells.propTypes = {
-  children: PropTypes.node,
-  style: PropTypes.object,
-  others: PropTypes.object
+  style: PropTypes.object
 }
 
 export default Cells
