@@ -3,7 +3,7 @@ import {
   View
 } from 'react-native'
 import { createStackNavigator } from 'react-navigation'
-import { Page, Cells, Cell, CellBody, CellFooter } from '../src'
+import { Page, Cells, Cell, CellBody, CellFooter, LayerRoot } from '../src'
 import _ from 'lodash'
 
 import ButtonDemo from './pages/button'
@@ -69,6 +69,7 @@ class App extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <Navigator/>
+        <LayerRoot/>
       </View>
     )
   }

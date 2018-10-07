@@ -8,7 +8,8 @@ import {
 import {
   Header, Styles as S,
   Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
-  Page
+  Page,
+  Toast
 } from '../../src/index'
 
 const icon = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII='
@@ -24,7 +25,7 @@ class Component extends React.Component {
     return (
       <Page header={<Header navigator={navigator}/>}>
         <CellsTitle>
-          带说明得列表项
+          说明
         </CellsTitle>
         <Cells>
           <Cell>
@@ -52,7 +53,7 @@ class Component extends React.Component {
         </Cells>
 
         <CellsTitle>
-          带图标、说明得列表项
+          图标、说明
         </CellsTitle>
         <Cells>
           <Cell>
@@ -79,22 +80,24 @@ class Component extends React.Component {
           </Cell>
         </Cells>
         <CellsTips>
-          默认Text文本
+          提示提示提示
         </CellsTips>
 
         <CellsTitle>
-          带图标、跳转、说明和调整的列表项
+          图标、跳转、说明
         </CellsTitle>
         <Cells>
-          <Cell access>
+          <Cell access onPress={() => {
+            Toast.tip('press it')
+          }}>
             <CellBody>
-              cell standard
+              press
             </CellBody>
             <CellFooter/>
           </Cell>
           <Cell access>
             <CellBody>
-              cell standard
+              press
             </CellBody>
             <CellFooter>
               说明文字
@@ -105,7 +108,7 @@ class Component extends React.Component {
               <Image source={{ uri: icon }} style={{ height: 16, width: 16 }}/>
             </CellHeader>
             <CellBody>
-              cell standard
+              press
             </CellBody>
             <CellFooter>
               说明文字

@@ -28,6 +28,7 @@ class Cell extends React.Component {
   render () {
     const {
       access,
+      onPress,
       input,
       error,
       first,
@@ -50,6 +51,7 @@ class Cell extends React.Component {
 
     return (
       <TouchableHighlight
+        onPress={onPress}
         underlayColor={V.activeColor}
       >
         <View
@@ -70,6 +72,7 @@ class Cell extends React.Component {
 Cell.propTypes = {
   first: PropTypes.bool,
   access: PropTypes.bool,
+  onPress: PropTypes.func,
   input: PropTypes.bool,
   error: PropTypes.bool,
   children: PropTypes.node,

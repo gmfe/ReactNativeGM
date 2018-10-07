@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
     textAlign: 'left'
   },
   error: {
-    flex: 1,
     color: V.warningColor
   },
   input: {
@@ -29,7 +28,8 @@ const styles = StyleSheet.create({
 
 class CellBody extends React.Component {
   render () {
-    const { error, input, children, style, ...others } = this.props
+    const { error, input, children, style, ...rest } = this.props
+
     const childrenWithProps = React.Children.map(children, (child) => {
       if (!child.type) {
         return <Text style={[S.text, styles.cellBodyText, style]}>{child}</Text>
@@ -42,10 +42,14 @@ class CellBody extends React.Component {
         ]
       })
     })
+
     return (
-      <View style={[styles.cellBody, style, error ? { flexDirection: 'row' } : null]} {...others}>
+      <View
+        {...rest}
+        style={[styles.cellBody, style, error ? { flexDirection: 'row' } : null]}
+      >
         {childrenWithProps}
-        {error ? <Icon name='warning' color={V.warningColor}/> : false}
+        {error && <Icon name='warning-circle' color={V.warningColor}/>}
       </View>
     )
   }
@@ -55,9 +59,7 @@ CellBody.displayName = 'CellBody'
 CellBody.propTypes = {
   input: PropTypes.bool,
   error: PropTypes.bool,
-  children: PropTypes.node,
-  style: PropTypes.object,
-  others: PropTypes.object
+  style: PropTypes.object
 }
 
 export default CellBody
