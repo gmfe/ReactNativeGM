@@ -1,7 +1,7 @@
 import React from 'react'
+import { Text } from 'react-native'
 import Dialog from './dialog'
 import LayerRoot from '../layer_root'
-import {Text} from 'react-native'
 import S from '../styles'
 
 const Alert = (title, content, options = {}) => {

@@ -10,6 +10,7 @@ import ButtonDemo from './pages/button'
 import IconDemo from './pages/icon'
 import FormDemo from './pages/form'
 import CellDemo from './pages/cell'
+import DialogDemo from './pages/dialog'
 
 console.disableYellowBox = true
 
@@ -25,6 +26,9 @@ const pages = {
   },
   cell: {
     screen: CellDemo
+  },
+  dialog: {
+    screen: DialogDemo
   }
 }
 
@@ -61,7 +65,7 @@ const Navigator = createStackNavigator({
   },
   ...pages
 }, {
-  initialRouteName: 'cell'
+  initialRouteName: 'dialog'
 })
 
 class App extends React.Component {

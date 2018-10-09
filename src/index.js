@@ -2,22 +2,21 @@ import Util from './util'
 import Variable from './variable'
 import Styles from './styles'
 
+import LayerRoot from './layer_root'
 import Page from './page'
-
 import Button from './button'
 import Icon from './icon'
 import {
   Radio
 } from './form'
-
 import {
   Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter
 } from './cell'
+
 import { Dialog, Alert, Confirm, Prompt } from './dialog'
 import Toast from './toast'
 import { SearchBar } from './searchbar'
 
-import LayerRoot from './layer_root'
 import Square from './square'
 import ListBox from './list_box'
 import { Infinite, InfiniteBox } from './infinite'
@@ -35,6 +34,8 @@ export {
 
   Variable, Styles, V, S,
 
+  LayerRoot,
+
   Page,
 
   Icon,
@@ -43,11 +44,10 @@ export {
 
   Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter,
 
-  LayerRoot,
   Mask,
-  Popup,
-  Dialog, Alert, Confirm, Prompt,
   Toast,
+  Dialog, Alert, Confirm, Prompt,
+  Popup,
   ActionSheet,
 
   Square,

@@ -6,7 +6,7 @@ import V from '../variable'
 const styles = StyleSheet.create({
   cellsTitle: {
     paddingTop: V.gap18,
-    paddingBottom: V.gap12,
+    paddingBottom: V.gap8,
     paddingHorizontal: V.gap12,
     fontSize: V.fontSize12,
     color: V.descColor

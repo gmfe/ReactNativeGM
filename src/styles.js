@@ -66,6 +66,10 @@ const Styles = {
     textAlign: 'center'
   },
 
+  textBold: {
+    fontWeight: '400'
+  },
+
   text: {
     fontSize: V.fontSize14,
     color: V.defaultColor

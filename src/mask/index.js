@@ -24,7 +24,7 @@ class Mask extends React.Component {
         backdropOpacity={0.1}
         onBackButtonPress={this.handleCancel}
         onBackdropPress={this.handleCancel}
-        style={Object.assign({ margin: 0 }, style)}
+        style={[{ margin: 0 }, style]}
       >
         {children}
       </Modal>

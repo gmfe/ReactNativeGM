@@ -19,8 +19,7 @@ const styles = StyleSheet.create({
     borderRadius: 3
   },
   dialogTitle: {
-    fontWeight: '400',
-    fontSize: 17,
+    fontSize: V.fontSize16,
     textAlign: 'center'
   },
   dialogFooter: {
@@ -83,21 +82,20 @@ class Dialog extends React.Component {
     } = this.props
 
     return (
-      <Mask
-        style={[S.flexJustifyCenter, S.flexAlignCenter]}
-        onCancel={onCancel}
-      >
-        <View style={[styles.dialog, style]}>
-          {title && (
-            <View style={[S.paddingHorizontal15, S.paddingTop15]}>
-              <Text style={styles.dialogTitle}>{title}</Text>
+      <Mask onCancel={onCancel} style={S.flexAlignCenter}>
+        <View>
+          <View style={[styles.dialog, style]}>
+            {title && (
+              <View style={[S.paddingHorizontal12, S.paddingTop12]}>
+                <Text style={styles.dialogTitle}>{title}</Text>
+              </View>
+            )}
+            <View style={[S.paddingHorizontal12, S.paddingTop12]}>
+              {children}
             </View>
-          )}
-          <View style={[S.paddingHorizontal15, S.paddingTop15]}>
-            {children}
-          </View>
-          <View style={styles.dialogFooter}>
-            {this.renderButtons(buttons)}
+            <View style={styles.dialogFooter}>
+              {this.renderButtons(buttons)}
+            </View>
           </View>
         </View>
       </Mask>

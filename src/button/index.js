@@ -144,7 +144,7 @@ class Button extends React.Component {
         onPress={this.handlePress}
       >
         <View style={[S.flexRow, S.flexJustifyCenter, styles.button, ...buttonStyles]}>
-          {loading && <ActivityIndicator color={loadingColor}/>}
+          {loading && <ActivityIndicator color={loadingColor} style={S.paddingRight4}/>}
           <ButtonText {...this.props}>{children}</ButtonText>
         </View>
       </TouchableHighlight>

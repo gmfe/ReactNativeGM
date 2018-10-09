@@ -13,7 +13,6 @@ const renderIcon = (icon) => {
   return <Icon name={icon} style={[S.marginRight5, S.textWhite]}/>
 }
 
-// TODO 补充动画
 class Toast extends React.Component {
   render () {
     const {
