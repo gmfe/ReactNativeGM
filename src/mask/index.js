@@ -34,8 +34,7 @@ class Mask extends React.Component {
 
 Mask.propTypes = {
   isVisible: PropTypes.bool,
-  onCancel: PropTypes.func,
-  style: PropTypes.object
+  onCancel: PropTypes.func
 }
 
 Mask.defaultProps = {

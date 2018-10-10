@@ -11,6 +11,8 @@ import IconDemo from './pages/icon'
 import FormDemo from './pages/form'
 import CellDemo from './pages/cell'
 import DialogDemo from './pages/dialog'
+import PopupDemo from './pages/popup'
+import ActionSheetDemo from './pages/action_sheet'
 
 console.disableYellowBox = true
 
@@ -29,6 +31,12 @@ const pages = {
   },
   dialog: {
     screen: DialogDemo
+  },
+  popup: {
+    screen: PopupDemo
+  },
+  actionSheet: {
+    screen: ActionSheetDemo
   }
 }
 
@@ -65,7 +73,7 @@ const Navigator = createStackNavigator({
   },
   ...pages
 }, {
-  initialRouteName: 'dialog'
+  initialRouteName: 'actionSheet'
 })
 
 class App extends React.Component {

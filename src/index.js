@@ -12,18 +12,19 @@ import {
 import {
   Cells, CellsTitle, CellsTips, Cell, CellHeader, CellBody, CellFooter
 } from './cell'
-
-import { Dialog, Alert, Confirm, Prompt } from './dialog'
+import Mask from './mask'
 import Toast from './toast'
-import { SearchBar } from './searchbar'
+import { Dialog, Alert, Confirm, Prompt } from './dialog'
+import Popup from './popup'
 
+import ActionSheet from './action_sheet'
+import { SearchBar } from './searchbar'
 import Square from './square'
 import ListBox from './list_box'
 import { Infinite, InfiniteBox } from './infinite'
-import ActionSheet from './actionsheet'
-import Mask from './mask'
+
 import Storage from './storage'
-import Popup from './popup'
+
 import Keyboard from './keyboard'
 
 const V = Variable
