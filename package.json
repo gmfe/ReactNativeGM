@@ -1,7 +1,6 @@
 {
   "name": "ReactNativeGM",
   "version": "2.0.0-beta.0",
-  "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
