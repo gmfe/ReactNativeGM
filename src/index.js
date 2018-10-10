@@ -16,8 +16,8 @@ import Mask from './mask'
 import Toast from './toast'
 import { Dialog, Alert, Confirm, Prompt } from './dialog'
 import Popup from './popup'
-
 import ActionSheet from './action_sheet'
+
 import { SearchBar } from './searchbar'
 import Square from './square'
 import ListBox from './list_box'
@@ -51,6 +51,7 @@ export {
   Popup,
   ActionSheet,
 
+  // 以下未检查
   Square,
 
   ListBox,
