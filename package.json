@@ -1,14 +1,15 @@
 {
   "name": "react-native-gm",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "main": "./src",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "icon": "node ./shell/icon.js"
   },
-  "dependencies": {
+  "peerDependencies": {
     "gm-util": "^5.6.6",
+    "gm-xfont": "^1.0.54",
     "lodash": "^4.17.11",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2",
@@ -37,7 +38,22 @@
     "metro-react-native-babel-preset": "0.46.0",
     "path": "^0.12.7",
     "react-test-renderer": "16.5.0",
-    "shelljs": "^0.8.2"
+    "shelljs": "^0.8.2",
+    "gm-util": "^5.6.6",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2",
+    "prop-types": "^15.6.2",
+    "react": "16.5.0",
+    "react-native": "0.57.1",
+    "react-native-keyboard-aware-scroll-view": "^0.7.2",
+    "react-native-modal": "^6.5.0",
+    "react-native-vector-icons": "^5.0.0",
+    "react-navigation": "^2.17.0"
+  },
+  "rnpm": {
+    "assets": [
+      "Fonts"
+    ]
   },
   "jest": {
     "preset": "react-native"
