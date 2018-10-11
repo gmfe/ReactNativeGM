@@ -57,7 +57,7 @@ class Home extends React.Component {
         <Cells>
           {_.map(pages, (v, k) =>
             <Cell key={k} access onPress={this.handlePress.bind(this, k)}>
-              <CellBody>{k + ' ' + v.title}</CellBody>
+              <CellBody>{k}</CellBody>
               <CellFooter/>
             </Cell>
           )}
@@ -73,7 +73,7 @@ const Navigator = createStackNavigator({
   },
   ...pages
 }, {
-  initialRouteName: 'actionSheet'
+  initialRouteName: 'home'
 })
 
 class App extends React.Component {
