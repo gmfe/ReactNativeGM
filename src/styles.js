@@ -1,4 +1,4 @@
-import { Platform, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import V from './variable'
 
 // TODO 补充，从 mgm 搬过来
@@ -413,11 +413,6 @@ const Styles = {
     height: V.fontSize14 * V.baseLineHeight,
     lineHeight: V.fontSize14 * V.baseLineHeight,
     padding: 0,
-    ...Platform.select({
-      android: {
-        underlineColorAndroid: 'transparent'
-      }
-    }),
     textAlignVertical: 'top'
   }
 }
