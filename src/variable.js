@@ -48,11 +48,6 @@ const Variable = {
   fontSize10: 10,
   fontSize8: 8,
 
-  fontSizeH1: 14 * 2,
-  fontSizeH2: 14 * 1.5,
-  fontSizeH3: 14 * 1.17,
-  fontSizeH4: 14,
-
   // gap
   gap0: 0,
   gap4: 4,
@@ -67,11 +62,7 @@ const Variable = {
   // bg
   bgDefault: '#f4f4f4',
   bgWhite: 'white',
-  bgDisable: '#e8e8e8',
-
-  // unit((cellHeight - 2 * cellGapV) / cellFontSize)
-  // 高度为44，减去上下padding的行高
-  cellLineHeight: 44 - 20
+  bgDisable: '#e8e8e8'
 }
 
 // TODO 不宜太多
