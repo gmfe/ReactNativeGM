@@ -7,10 +7,10 @@ import S from '../styles'
 
 const renderIcon = (icon) => {
   if (icon === 'loading') {
-    return <ActivityIndicator color='#fff' style={[S.marginRight5]}/>
+    return <ActivityIndicator color='#fff' style={[S.marginRight4]}/>
   }
 
-  return <Icon name={icon} style={[S.marginRight5, S.textWhite]}/>
+  return <Icon name={icon} style={[S.marginRight4, S.textWhite]}/>
 }
 
 class Toast extends React.Component {
@@ -69,16 +69,16 @@ Object.assign(Toast, {
     }
   },
   success (options) {
-    Toast.tip(options, 'success')
+    Toast.tip(options, 'success-circle')
   },
   info (options) {
     Toast.tip(options, 'info-circle')
   },
   warning (options) {
-    Toast.tip(options, 'warning')
+    Toast.tip(options, 'warning-circle')
   },
   danger (options) {
-    Toast.tip(options, 'close')
+    Toast.tip(options, 'close-circle')
   },
   loading (options) {
     options = processOptions(options)
