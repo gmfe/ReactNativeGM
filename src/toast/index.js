@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, Text, ActivityIndicator } from 'react-native'
+import { View, Text, ActivityIndicator, Dimensions } from 'react-native'
 import Icon from '../icon'
 import LayerRoot from '../layer_root'
 import S from '../styles'
@@ -23,7 +23,7 @@ class Toast extends React.Component {
     return (
       <View style={[S.flexAlignCenter, S.flexJustifyCenter, {
         position: 'absolute',
-        bottom: 100,
+        bottom: Dimensions.get('window').height - 200,
         left: 0,
         right: 0
       }]}>
