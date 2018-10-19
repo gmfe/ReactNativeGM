@@ -11,6 +11,7 @@ import _ from 'lodash'
 import Mask from '../mask'
 import V from '../variable'
 import S from '../styles'
+import LayerRoot from '../layer_root'
 
 const styles = StyleSheet.create({
   dialog: {
@@ -93,9 +94,11 @@ class Dialog extends React.Component {
             <View style={[S.paddingHorizontal12, S.paddingTop12]}>
               {children}
             </View>
-            <View style={styles.dialogFooter}>
-              {this.renderButtons(buttons)}
-            </View>
+            {buttons && buttons.length > 0 && (
+              <View style={styles.dialogFooter}>
+                {this.renderButtons(buttons)}
+              </View>
+            )}
           </View>
         </View>
       </Mask>
@@ -105,13 +108,27 @@ class Dialog extends React.Component {
 
 Dialog.propTypes = {
   title: PropTypes.string,
-  buttons: PropTypes.array.isRequired,
+  buttons: PropTypes.array,
   children: PropTypes.node,
   onCancel: PropTypes.func
 }
 
 Dialog.defaultProps = {
   onCancel: _.noop
+}
+
+Dialog.render = (props) => {
+  return new Promise((resolve, reject) => {
+    LayerRoot.setComponent(LayerRoot.TYPE.DIALOG,
+      <Dialog
+        {...props}
+      />
+    )
+  })
+}
+
+Dialog.hide = () => {
+  LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG)
 }
 
 export default Dialog
