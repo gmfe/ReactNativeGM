@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {
   View,
   Text,
-  TouchableWithoutFeedback,
+  TouchableHighlight,
   StyleSheet
 } from 'react-native'
 import Icon from '../icon'
@@ -35,7 +35,7 @@ class Radio extends React.Component {
     } = this.props
 
     return (
-      <TouchableWithoutFeedback onPress={this.handleChange}>
+      <TouchableHighlight onPress={this.handleChange} underlayColor={V.activeColor}>
         <View
           {...rest}
           style={[S.flexRow, S.flexAlignCenter, style]}
@@ -53,9 +53,9 @@ class Radio extends React.Component {
               style={styles.font}
             />
           )}
-          {!children.type ? <Text style={[S.text, textStyle]}>{children}</Text> : children}
+          {!(children && children.type) ? <Text style={[S.text, textStyle]}>{children}</Text> : children}
         </View>
-      </TouchableWithoutFeedback>
+      </TouchableHighlight>
     )
   }
 }
