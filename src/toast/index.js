@@ -32,7 +32,7 @@ class Toast extends React.Component {
           paddingHorizontal: 20,
           marginHorizontal: 20,
           borderRadius: 5,
-          backgroundColor: 'rgba(0, 0, 0, 0.5)'
+          backgroundColor: 'rgba(0, 0, 0, 0.8)'
         }]}>
           {icon && renderIcon(icon)}
           <Text style={[S.text, S.textWhite]}>{children}</Text>
