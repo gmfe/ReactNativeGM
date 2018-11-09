@@ -139,6 +139,7 @@ class Button extends React.Component {
     return (
       <TouchableHighlight
         disabled={disabled}
+        style={[{ borderRadius: V.n4 }, style]}
         underlayColor={getUnderlayColor(type)}
         onPress={this.handlePress}
       >
