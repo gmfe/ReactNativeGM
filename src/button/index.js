@@ -22,13 +22,16 @@ const styles = {
     overflow: 'hidden'
   },
   default: {
-    backgroundColor: V.bgWhite
+    backgroundColor: V.bgWhite,
+    borderColor: V.whiteColor
   },
   primary: {
-    backgroundColor: V.primaryColor
+    backgroundColor: V.primaryColor,
+    borderColor: V.primaryColor
   },
   warning: {
-    backgroundColor: V.warningColor
+    backgroundColor: V.warningColor,
+    borderColor: V.warningColor
   },
   defaultPlain: {
     borderWidth: 1,
