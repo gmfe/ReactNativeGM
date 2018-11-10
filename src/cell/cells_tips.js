@@ -27,7 +27,7 @@ class CellsTips extends React.Component {
 }
 
 CellsTips.propTypes = {
-  style: PropTypes.object
+  style: PropTypes.any
 }
 
 export default CellsTips

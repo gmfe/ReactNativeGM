@@ -27,7 +27,7 @@ class CellsTitle extends React.Component {
 
 CellsTitle.propTypes = {
   children: PropTypes.node,
-  style: PropTypes.object
+  style: PropTypes.any
 }
 
 export default CellsTitle

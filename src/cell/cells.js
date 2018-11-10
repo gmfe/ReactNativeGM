@@ -39,7 +39,7 @@ class Cells extends React.Component {
 }
 
 Cells.propTypes = {
-  style: PropTypes.object
+  style: PropTypes.any
 }
 
 export default Cells

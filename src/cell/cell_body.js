@@ -59,7 +59,7 @@ CellBody.displayName = 'CellBody'
 CellBody.propTypes = {
   input: PropTypes.bool,
   error: PropTypes.bool,
-  style: PropTypes.object
+  style: PropTypes.any
 }
 
 export default CellBody

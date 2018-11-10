@@ -33,7 +33,7 @@ class CellHeader extends React.Component {
 
 CellHeader.displayName = 'CellHeader'
 CellHeader.propTypes = {
-  style: PropTypes.object
+  style: PropTypes.any
 }
 
 export default CellHeader

@@ -76,7 +76,7 @@ Cell.propTypes = {
   input: PropTypes.bool,
   error: PropTypes.bool,
   children: PropTypes.node,
-  style: PropTypes.object
+  style: PropTypes.any
 }
 
 export default Cell

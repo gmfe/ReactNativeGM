@@ -53,7 +53,7 @@ CellFooter.displayName = 'CellFooter'
 CellFooter.propTypes = {
   access: PropTypes.bool,
   children: PropTypes.node,
-  style: PropTypes.object,
+  style: PropTypes.any,
   others: PropTypes.object
 }
 

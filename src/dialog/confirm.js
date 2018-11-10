@@ -28,7 +28,9 @@ const Confirm = (title, content, options = {}) => {
         }}
         style={options.style}
       >
-        <Text style={[S.text, S.textDesc, S.textCenter]}>{content}</Text>
+        {(content && content.type !== undefined) ? content : (
+          <Text style={[S.text, S.textDesc, S.textCenter]}>{content}</Text>
+        )}
       </Dialog>
     )
   })
