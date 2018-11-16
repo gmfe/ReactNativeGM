@@ -10,7 +10,7 @@ const Alert = (title, content, options = {}) => {
       <Dialog
         title={title}
         buttons={[{
-          text: options.OKLabel || '确定',
+          text: options.okText || '确定',
           onPress: () => {
             resolve()
             LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG)
