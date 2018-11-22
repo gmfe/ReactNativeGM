@@ -16,6 +16,7 @@ import LayoutRoot from '../layer_root'
 class ActionSheet extends React.Component {
   render () {
     const {
+      title,
       list,
       style,
       onCancel,
@@ -28,30 +29,38 @@ class ActionSheet extends React.Component {
         {...rest}
         animationIn='slideInUp'
         onCancel={onCancel}
-        style={[S.flexJustifyEnd, S.margin8, style]}
+        style={[S.flexJustifyEnd, style]}
       >
-        <View>
-          <View style={[S.bgWhite, {
+        <View style={S.bgDefault}>
+          <View style={[S.borderBottom, S.bgWhite, {
             maxHeight: 300
           }]}>
-            <ScrollView>
-              <View>
-                {_.map(list, v => (
-                  <TouchableHighlight
-                    key={v.value}
-                    underlayColor={V.activeColor}
-                    onPress={() => onSelect(v.value)}
-                    style={[S.padding12, S.borderBottom, {
-                      minWidth: 250
-                    }]}
-                  >
-                    <Text style={S.text}>{v.text}</Text>
-                  </TouchableHighlight>
-                ))}
+            {!!title && (
+              <View style={[S.padding16, S.borderBottom]}>
+                <Text style={[S.text, S.text14, S.textDesc, S.textCenter]}>{title}</Text>
               </View>
+            )}
+            <ScrollView>
+              {_.map(list, v => (
+                <TouchableHighlight
+                  key={v.value}
+                  underlayColor={V.activeColor}
+                  disabled={v.disabled}
+                  onPress={() => onSelect(v.value)}
+                >
+                  <View style={[S.padding12, S.borderTop, {
+                    minWidth: 250,
+                    opacity: v.disabled ? 0.3 : 1
+                  }]}>
+                    <Text style={[S.text16, S.textCenter]}>{v.text}</Text>
+                    {v.desc && <Text style={[S.text, S.textDesc, S.textCenter]}>{v.desc}</Text>}
+                  </View>
+                </TouchableHighlight>
+              ))}
             </ScrollView>
           </View>
-          <Button onPress={onCancel} style={S.marginTop4}>取消</Button>
+          <View style={S.marginTop8}/>
+          <Button onPress={onCancel}>取消</Button>
         </View>
       </Mask>
     )
@@ -80,7 +89,8 @@ ActionSheet.render = (props) => {
 ActionSheet.hide = () => LayoutRoot.removeComponent(LayoutRoot.TYPE.POPUP)
 
 ActionSheet.propTypes = {
-  list: PropTypes.array.isRequired, // [{value, text}]
+  title: PropTypes.string,
+  list: PropTypes.array.isRequired, // [{value, text, disabled, desc}]
   onSelect: PropTypes.func.isRequired,
   onCancel: PropTypes.func
 }
