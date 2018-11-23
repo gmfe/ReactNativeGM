@@ -24,11 +24,14 @@ class Cells extends React.Component {
       style,
       ...rest
     } = this.props
-
+    let realFirst = 0
     return (
       <View {...rest} style={[styles.cells, style]}>
         {React.Children.map(children, (child, idx) => {
-          if (idx === 0) {
+          if (idx === realFirst && !child) {
+            realFirst++
+          }
+          if (idx === realFirst) {
             return React.cloneElement(child, { first: true })
           }
           return child
