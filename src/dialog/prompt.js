@@ -13,8 +13,10 @@ const Prompt = (title, content, options = {}) => {
       const sC = options.onOK || _.noop
 
       Promise.resolve(sC(text)).then(() => {
-        resolve(text)
         LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG)
+        setTimeout(() => {
+          resolve(text)
+        }, 0)
       })
     }
 
@@ -24,16 +26,20 @@ const Prompt = (title, content, options = {}) => {
         buttons={[{
           text: options.cancelText || '取消',
           onPress: () => {
-            reject(new Error())
             LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG)
+            setTimeout(() => {
+              reject(new Error())
+            }, 0)
           }
         }, {
           text: options.okText || '确定',
           onPress: onOK
         }]}
         onCancel={() => {
-          reject(new Error())
           LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG)
+          setTimeout(() => {
+            reject(new Error())
+          }, 0)
         }}
         style={options.style}
       >

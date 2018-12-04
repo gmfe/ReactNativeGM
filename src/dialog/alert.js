@@ -12,8 +12,10 @@ const Alert = (title, content, options = {}) => {
         buttons={[{
           text: options.okText || '确定',
           onPress: () => {
-            resolve()
             LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG)
+            setTimeout(() => {
+              resolve()
+            }, 0)
           }
         }]}
         style={options.style}

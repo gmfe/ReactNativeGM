@@ -12,19 +12,25 @@ const Confirm = (title, content, options = {}) => {
         buttons={[{
           text: options.cancelText || '取消',
           onPress: () => {
-            reject(new Error())
             LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG)
+            setTimeout(() => {
+              reject(new Error())
+            }, 0)
           }
         }, {
           text: options.okText || '确定',
           onPress: () => {
-            resolve()
             LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG)
+            setTimeout(() => {
+              resolve()
+            }, 0)
           }
         }]}
         onCancel={() => {
-          reject(new Error())
           LayerRoot.removeComponent(LayerRoot.TYPE.DIALOG)
+          setTimeout(() => {
+            reject(new Error())
+          }, 0)
         }}
         style={options.style}
       >
