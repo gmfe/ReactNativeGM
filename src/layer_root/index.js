@@ -50,7 +50,9 @@ class LayerRoot extends React.Component {
 LayerRoot.setComponent = (type, com) => {
   if (setComponentFunc) {
     LayerRoot.removeComponent(type)
-    setComponentFunc(type, com)
+    // TODO modal 二次弹框暂时解决方式
+    // !modal 的属性 transparent={true} 二次弹框不生效
+    setTimeout(() => setComponentFunc(type, com), 50)
   } else {
     console.warn('LayerRoot is uninitialized')
   }
