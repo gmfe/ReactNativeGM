@@ -8,34 +8,16 @@ import S from '../styles'
 
 const styles = StyleSheet.create({
   top: {
-    justifyContent: 'flex-start',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0
+    justifyContent: 'flex-start'
   },
   bottom: {
-    justifyContent: 'flex-end',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0
+    justifyContent: 'flex-end'
   },
   left: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
     flexDirection: 'row',
     justifyContent: 'flex-start'
   },
   right: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
     flexDirection: 'row',
     justifyContent: 'flex-end'
   }
