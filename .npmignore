@@ -1,0 +1,6 @@
+android/
+ios/
+depoly/
+.idea
+.gitignore
+/package-lock.json
