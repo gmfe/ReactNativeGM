@@ -9,14 +9,17 @@
  */
 
 import React from 'react';
-import { Button } from 'react-native';
+import { Button, View } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { enableScreens } from 'react-native-screens';
 import { Screen } from '../src';
+import { LayerRoot } from '../src';
 import ButtonDemo from './screens/button';
+import CellDemo from './screens/cell';
 import IconDemo from './screens/icon';
+import ActionSheetDemo from './screens/action_sheet';
 import _ from 'lodash';
 
 enableScreens();
@@ -35,6 +38,8 @@ const MainStack = createStackNavigator<PrimaryParamList>();
 const pages = {
   button: ButtonDemo,
   icon: IconDemo,
+  action_sheet: ActionSheetDemo,
+  cell: CellDemo,
 };
 
 const Home = () => {
@@ -47,7 +52,9 @@ const Home = () => {
   return (
     <Screen preset="fixed">
       {_.map(pages, (value, key) => (
-        <Button key={key} title={key} onPress={() => onPress(key)} />
+        <View key={key} style={{ paddingVertical: 5 }}>
+          <Button title={key} onPress={() => onPress(key)} />
+        </View>
       ))}
     </Screen>
   );
@@ -86,9 +93,12 @@ const RootStack = () => {
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <RootStack />
-    </NavigationContainer>
+    <View style={{ flex: 1 }}>
+      <NavigationContainer>
+        <RootStack />
+      </NavigationContainer>
+      <LayerRoot />
+    </View>
   );
 };
 
