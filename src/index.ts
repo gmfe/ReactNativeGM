@@ -14,7 +14,7 @@ import {
 } from './cell';
 import { Dialog, Alert, Confirm, Prompt } from './dialog';
 import { Radio } from './form';
-import * as Storage from './storage';
+import * as AsyncStorage from './async_storage';
 import Popup from './popup';
 import Icon from './icon';
 
@@ -39,7 +39,7 @@ export {
   Confirm,
   Prompt,
   Radio,
-  Storage,
+  AsyncStorage,
   Popup,
   Icon,
 };

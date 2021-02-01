@@ -25,7 +25,7 @@ export const presets = {
   fixed: {
     outer: {
       backgroundColor: '#ffffff',
-      flex: 1,
+      // flex: 1,
       height: '100%',
     } as ViewStyle,
     inner: {
@@ -44,7 +44,7 @@ export const presets = {
   scroll: {
     outer: {
       backgroundColor: '#ffffff',
-      flex: 1,
+      // flex: 1,
       height: '100%',
     } as ViewStyle,
     inner: { justifyContent: 'flex-start', alignItems: 'stretch' } as ViewStyle,
