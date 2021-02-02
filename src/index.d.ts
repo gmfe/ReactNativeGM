@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { ViewProps } from 'react-native';
+import { ViewProps, TextProps, ViewStyle, TextInputProps } from 'react-native';
 
 import _Style from './styles';
 import _Variable from './variable';
@@ -76,3 +76,90 @@ export interface CellProps extends ViewProps {
 }
 
 export const Cell: FC<CellProps>;
+
+export interface CellsProps extends ViewProps {}
+
+export const Cells: FC<CellsProps>;
+
+export interface CellBodyProps extends ViewProps {
+  input?: boolean;
+  error?: boolean;
+}
+
+export const CellBody: FC<CellBodyProps>;
+
+export interface CellFooterProps extends TextProps {
+  access?: boolean;
+  children?: ReactNode;
+}
+
+export const CellFooter: FC<CellFooterProps>;
+
+export interface CellHeaderProps extends ViewProps {}
+
+export const CellHeader: FC<CellHeaderProps>;
+
+export interface CellTipsProps extends TextProps {}
+
+export const CellTips: FC<CellTipsProps>;
+
+export interface CellTitleProps extends TextProps {}
+
+export const CellTitle: FC<CellTipsProps>;
+
+export interface DialogProps {
+  title?: string;
+  buttons?: { text: string; onPress: () => void }[];
+  onCancel?: () => void;
+  children?: ReactNode;
+}
+
+export interface DialogStatic {
+  render: (props: DialogProps) => void;
+  hide: () => void;
+}
+
+export const Dialog: FC<DialogProps> & DialogStatic;
+
+export const Alert: (
+  title: string,
+  content: string,
+  options?: { okText: string; style: ViewStyle },
+) => Promise<void>;
+
+export const Confirm: (
+  title: string,
+  content: string,
+  options?: { okText: string; cancelText: string; style: ViewStyle },
+) => Promise<void>;
+
+export const Prompt: (
+  title: string,
+  content: string,
+  options?: {
+    onOk: () => void;
+    okText: string;
+    cancelText: string;
+    style: ViewStyle;
+  } & TextInputProps,
+) => Promise<void>;
+
+export interface PopupProps {
+  position: 'top' | 'right' | 'bottom' | 'left';
+  onCancel: () => void;
+}
+
+export interface PopupStatic {
+  render: () => Promise<void>;
+  hide: () => void;
+}
+
+export const Popup: FC<PopupProps> & PopupStatic;
+
+export interface RadioProps {
+  checked: boolean;
+  onChange: (checked: boolean) => void;
+  color?: string;
+}
+
+export const Radio: FC<RadioProps>;

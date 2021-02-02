@@ -19,7 +19,10 @@ import { LayerRoot } from '../src';
 import ButtonDemo from './screens/button';
 import CellDemo from './screens/cell';
 import IconDemo from './screens/icon';
+import DialogDemo from './screens/dialog';
 import ActionSheetDemo from './screens/action_sheet';
+import PopupDemo from './screens/popup';
+import FormDemo from './screens/form';
 import _ from 'lodash';
 
 enableScreens();
@@ -40,6 +43,9 @@ const pages = {
   icon: IconDemo,
   action_sheet: ActionSheetDemo,
   cell: CellDemo,
+  dialog: DialogDemo,
+  popup: PopupDemo,
+  form: FormDemo,
 };
 
 const Home = () => {
