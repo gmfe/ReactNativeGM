@@ -19,6 +19,7 @@ import * as AsyncStorage from './async_storage';
 import Popup from './popup';
 import Icon from './icon';
 import ActionSheet from './action_sheet';
+import Toast from './toast';
 
 const S = Styles;
 const V = Variable;
@@ -48,4 +49,5 @@ export {
   Popup,
   Icon,
   ActionSheet,
+  Toast,
 };

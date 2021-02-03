@@ -146,7 +146,7 @@ export const Prompt: (
 
 export interface PopupProps {
   position: 'top' | 'right' | 'bottom' | 'left';
-  onCancel: () => void;
+  onCancel?: () => void;
 }
 
 export interface PopupStatic {
@@ -163,3 +163,27 @@ export interface RadioProps {
 }
 
 export const Radio: FC<RadioProps>;
+
+export interface ToastProps {
+  icon?: string;
+  children: string;
+}
+
+export type ToastStaticOption =
+  | {
+      time: number;
+      children: string;
+    }
+  | string;
+
+export interface ToastStatic {
+  clear: () => void;
+  tip: (option: ToastStaticOption, icon: string) => void;
+  success: (option: ToastStaticOption) => void;
+  info: (option: ToastStaticOption) => void;
+  warning: (option: ToastStaticOption) => void;
+  danger: (option: ToastStaticOption) => void;
+  loading: (option: ToastStaticOption) => void;
+}
+
+export const Toast: FC<ToastProps> & ToastStatic;

@@ -23,6 +23,7 @@ import DialogDemo from './screens/dialog';
 import ActionSheetDemo from './screens/action_sheet';
 import PopupDemo from './screens/popup';
 import FormDemo from './screens/form';
+import ToastDemo from './screens/toast';
 import _ from 'lodash';
 
 enableScreens();
@@ -46,6 +47,7 @@ const pages = {
   dialog: DialogDemo,
   popup: PopupDemo,
   form: FormDemo,
+  toast: ToastDemo,
 };
 
 const Home = () => {
