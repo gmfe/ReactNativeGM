@@ -29,6 +29,7 @@ class Cell extends React.Component {
       error,
       first,
       children,
+      style,
       ...rest
     } = this.props;
 
@@ -57,6 +58,7 @@ class Cell extends React.Component {
             styles.cell,
             first ? styles.firstCell : null,
             input ? styles.inputCell : null,
+            style
           ]}>
           {childrenWithProps}
         </View>

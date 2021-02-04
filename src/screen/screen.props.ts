@@ -10,7 +10,7 @@ export interface ScreenProps {
   /**
    * An optional style override useful for padding & margin.
    */
-  style?: ViewStyle;
+  style?: ViewStyle | ViewStyle[];
 
   /**
    * One of the different types of presets.

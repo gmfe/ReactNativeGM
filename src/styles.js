@@ -95,7 +95,12 @@ const Styles = {
     borderBottomColor: V.borderColor,
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
-
+  borderRadius4: {
+    borderRadius:V.n4,
+  },
+  borderRadius8: {
+    borderRadius:V.n8,
+  },
   positionAbsolute: {
     position: 'absolute',
   },
