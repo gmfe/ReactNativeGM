@@ -24,6 +24,8 @@ import Toast from './toast';
 const S = Styles;
 const V = Variable;
 
+export * from './request';
+
 export {
   Button,
   Styles,

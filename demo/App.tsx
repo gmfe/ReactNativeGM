@@ -25,6 +25,9 @@ import PopupDemo from './screens/popup';
 import FormDemo from './screens/form';
 import ToastDemo from './screens/toast';
 import _ from 'lodash';
+import RequestDemo from './screens/request';
+
+// global.origin = 'https://x.guanmai.cn';
 
 enableScreens();
 
@@ -48,6 +51,7 @@ const pages = {
   popup: PopupDemo,
   form: FormDemo,
   toast: ToastDemo,
+  request: RequestDemo,
 };
 
 const Home = () => {

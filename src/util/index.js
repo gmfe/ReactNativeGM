@@ -3,6 +3,7 @@
 // import RequestInterceptor from './request_interceptor';
 // import pinYinFilter from './pinyin_filter';
 import is from './is';
+import UUID from './uuid';
 
 export {
   // param,
@@ -10,4 +11,5 @@ export {
   // RequestInterceptor,
   // pinYinFilter,
   is,
+  UUID,
 };
