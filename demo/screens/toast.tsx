@@ -50,7 +50,7 @@ const ToastDemo = () => {
           onPress={() => {
             Toast.info('hello');
           }}>
-          loading
+          info
         </Button>
       </View>
     </Screen>

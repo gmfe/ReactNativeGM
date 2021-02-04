@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   StyleSheet,
-  TouchableHighlight,
+  TouchableOpacity,
   View,
   ActivityIndicator,
 } from 'react-native';
@@ -138,25 +138,18 @@ class Button extends React.Component {
     }
 
     return (
-      <TouchableHighlight
+      <TouchableOpacity
+        activeOpacity={0.8}
         disabled={disabled}
-        style={[{ borderRadius: V.n4 }, style]}
-        underlayColor={getUnderlayColor(type)}
+        style={[{ borderRadius: V.n4 }, styles.button, buttonStyles, style]}
         onPress={this.handlePress}>
-        <View
-          style={[
-            S.flexRow,
-            S.flexJustifyCenter,
-            styles.button,
-            ...buttonStyles,
-            style,
-          ]}>
+        <View style={[S.flexRow, S.flexJustifyCenter]}>
           {loading && (
             <ActivityIndicator color={loadingColor} style={S.paddingRight4} />
           )}
           <ButtonText {...this.props}>{children}</ButtonText>
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     );
   }
 }

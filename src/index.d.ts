@@ -99,13 +99,13 @@ export interface CellHeaderProps extends ViewProps {}
 
 export const CellHeader: FC<CellHeaderProps>;
 
-export interface CellTipsProps extends TextProps {}
+export interface CellsTipsProps extends TextProps {}
 
-export const CellTips: FC<CellTipsProps>;
+export const CellsTips: FC<CellsTipsProps>;
 
-export interface CellTitleProps extends TextProps {}
+export interface CellsTitleProps extends TextProps {}
 
-export const CellTitle: FC<CellTipsProps>;
+export const CellsTitle: FC<CellsTitleProps>;
 
 export interface DialogProps {
   title?: string;
