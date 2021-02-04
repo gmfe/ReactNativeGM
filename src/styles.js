@@ -95,6 +95,29 @@ const Styles = {
     borderBottomColor: V.borderColor,
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
+  borderTop0: {
+    borderTopWidth: V.gap0,
+  },
+  borderBottom0: {
+    borderBottomWidth: V.gap0,
+  },
+  borderLeft0: {
+    borderLeftWidth: V.gap0,
+  },
+  borderRight0: {
+    borderRightWidth: V.gap0,
+  },
+  borderVertical0: {
+    borderTopWidth: V.gap0,
+    borderBottomWidth: V.gap0
+  },
+  borderHorizontal0: {
+    borderLeftWidth: V.gap0,
+    borderRightWidth: V.gap0
+  },
+  border0: {
+    borderWidth: V.gap0
+  },
   borderRadius4: {
     borderRadius:V.n4,
   },
