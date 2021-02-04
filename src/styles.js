@@ -67,7 +67,7 @@ const Styles = {
   },
 
   textBold: {
-    fontWeight: '400',
+    fontWeight: '700',
   },
 
   text: {
