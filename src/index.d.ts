@@ -198,6 +198,6 @@ export interface SearchBarProps {
   fake: () => void;
 }
 
-export const SerachBar: FC<SearchBarProps>;
+export const SearchBar: FC<SearchBarProps>;
 
 export const Toast: FC<ToastProps> & ToastStatic;
