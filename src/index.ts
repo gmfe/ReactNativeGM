@@ -20,6 +20,7 @@ import Popup from './popup';
 import Icon from './icon';
 import ActionSheet from './action_sheet';
 import Toast from './toast';
+import { SearchBar } from './search_bar';
 
 const S = Styles;
 const V = Variable;
@@ -52,4 +53,5 @@ export {
   Icon,
   ActionSheet,
   Toast,
+  SearchBar,
 };

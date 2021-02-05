@@ -186,4 +186,18 @@ export interface ToastStatic {
   loading: (option: ToastStaticOption) => void;
 }
 
+export interface SearchBarProps {
+  value?: string;
+  autoFocus?: boolean;
+  placeholder?: string;
+  onChange?: (value: string) => void;
+  onClear?: () => void;
+  onSearch?: (value: string) => void;
+  searchBtn: boolean | string;
+  /** 提供一个假输入框，点击的时候出发fake回调 */
+  fake: () => void;
+}
+
+export const SerachBar: FC<SearchBarProps>;
+
 export const Toast: FC<ToastProps> & ToastStatic;
