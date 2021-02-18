@@ -115,6 +115,16 @@ const Styles = {
     borderLeftWidth: V.gap0,
     borderRightWidth: V.gap0
   },
+  borderVertical: {
+    borderColor: V.borderColor,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  borderHorizontal: {
+    borderColor: V.borderColor,
+    borderLeftWidth: StyleSheet.hairlineWidth,
+    borderRightWidth: StyleSheet.hairlineWidth,
+  },
   border0: {
     borderWidth: V.gap0
   },
@@ -130,7 +140,22 @@ const Styles = {
   positionRelative: {
     position: 'relative',
   },
-
+  positionLeft0: {
+    position: 'absolute',
+    left: 0,
+  },
+  positionRight0: {
+    position: 'absolute',
+    right: 0,
+  },
+  positionTop0: {
+    position: 'absolute',
+    top: 0,
+  },
+  positionBottom0: {
+    position: 'absolute',
+    bottom: 0,
+  },
   overflowVisible: {
     overflow: 'visible',
   },

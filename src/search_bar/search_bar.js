@@ -152,7 +152,7 @@ class SearchBar extends React.Component {
               <Text
                 onPress={this.handleClear}
                 style={[S.text, styles.clearIcon]}>
-                <Icon name="close" />
+                <Icon name="close-circle" />
               </Text>
             ) : null}
           </View>
